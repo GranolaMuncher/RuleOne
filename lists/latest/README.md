@@ -1,0 +1,240 @@
+# Rule #1 Screen — 2026-10-03
+Universe: **5,774** NYSE + Nasdaq common stocks → **4,602** with SEC XBRL history → **270** passed the Big Five quality screen → **262** fully valued (USD-priced, current filings).
+Prices as of 2026-10-02. Fundamentals: SEC EDGAR 10-K/10-Q XBRL (TTM through latest 10-Q).
+> Screening output, not investment advice. Automated XBRL extraction can mis-tag items; verify against the filings before acting. See `README.md` for methodology.
+
+## 1. BUY range — price ≤ Margin-of-Safety price (50% of Sticker) (12)
+| # | Ticker | Company | Tier | Price | Sticker | MOS (Buy) | Payback | Ten Cap | P/Sticker | Growth | ROIC 5y | Big5 | Events |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | **OPFI** | OppFi Inc. | A | $5.97 | $29.08 | $14.54 | $66.64 | $44.70 | 0.21 | 14% | 275% | 9/10 | -49% off 52w high; insider buying (11 Form 4s, $0.29M); 13D: SCHEDULE 13D/A 2026-04-30; 8-K: 2026-09-21: 2.03 New debt o ⚠ bank/insurer: OCF & debt tests less meaningful;micro-cap |
+| 2 | **QFIN** | Qfin Holdings, Inc. | A | $6.46 | $19.67 | $9.84 | $160.38 | $113.94 | 0.33 | 12% | 24% | 10/11 | -79% off 52w high; insider buying (1 Form 4s, $0.06M); next report ~2026-10-05 ⚠ PE<5: check one-off gains;bank/insurer: OCF & debt tests less meaningful;foreign filer/ADR: verify ADR ratio & reporting currency;micro-cap |
+| 3 | **KNSL** | KINSALE CAPITAL GROUP, INC. | A | $329.72 | $739.20 | $369.60 | $689.24 | $436.62 | 0.45 | 15% | 22% | 12/13 | -32% off 52w high; insider buying (1 Form 4s, $0.10M); next report ~2026-10-22 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 4 | **BRBR** | BellRing Brands, Inc. | B | $7.43 | $42.60 | $21.30 | $30.10 | $19.07 | 0.17 | 15% | 40% | 8/11 | -79% off 52w high; insider buying (1 Form 4s, $0.02M); 8-K: 2026-08-04: 2.02 Earnings release; next report ~2026-11-03 ⚠ micro-cap |
+| 5 | **LULU** | lululemon athletica inc. | B | $94.46 | $364.50 | $182.25 | $187.21 | $118.59 | 0.26 | 15% | 34% | 11/15 | -58% off 52w high; 13D: SCHEDULE 13D/A 2026-09-03, SCHEDULE 13D/A 2026-08-03; 8-K: 2026-09-14: 5.02 Director/officer cha |
+| 6 | **BYD** | BOYD GAMING CORP | B | $67.25 | $279.11 | $139.56 | $7.30 | $4.63 | 0.24 | 15% | 15% | 11/15 | -26% off 52w high; 8-K: 2026-08-13: 8.01 Other event; next report ~2026-10-29 ⚠ PE<5: check one-off gains |
+| 7 | **ADBE** | ADOBE INC. | B | $237.69 | $537.30 | $268.65 | $415.00 | $262.89 | 0.44 | 15% | 30% | 11/15 | -35% off 52w high; 8-K: 2026-09-10: 2.02 Earnings release; next report ~2026-12-22 |
+| 8 | **NRDS** | NerdWallet, Inc. | C | $8.63 | $25.39 | $12.70 | $38.16 | $24.17 | 0.34 | 15% | -0% | 9/11 | -47% off 52w high; 8-K: 2026-08-06: 2.02 Earnings release; 7.01 Reg FD disclosure; next report ~2026-11-05 ⚠ micro-cap |
+| 9 | **TTD** | The Trade Desk, Inc. | C | $11.95 | $25.20 | $12.60 | $28.78 | $18.23 | 0.47 | 15% | 9% | 11/14 | -79% off 52w high; neg 8-K: 2026-09-04: Restructuring/exit costs; next report ~2026-11-05 |
+| 10 | **ARCO** | Arcos Dorados Holdings Inc. | B | $7.11 | $15.83 | $7.92 | $1.12 | $0.71 | 0.45 | 15% | 15% | 11/15 | -27% off 52w high; next report ~2026-10-08 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 11 | **PTC** | PTC Inc. | C | $144.03 | $309.30 | $154.65 | $125.31 | $79.38 | 0.47 | 15% | 11% | 13/15 | -30% off 52w high; next report ~2026-10-30 |
+| 12 | **PDD** | PDD Holdings Inc. | C | $75.38 | $206.49 | $103.25 | $162.77 | $103.11 | 0.37 | 15% | 21% | 7/11 | -46% off 52w high; next report ~2026-10-07 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+
+## 2. BUY range on Payback Time / Ten Cap only (68)
+| # | Ticker | Company | Tier | Price | Sticker | MOS (Buy) | Payback | Ten Cap | P/Sticker | Growth | ROIC 5y | Big5 | Events |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | **FUTU** | Futu Holdings Ltd | A | $102.17 | $197.90 | $98.95 | $584.44 | $370.23 | 0.52 | 15% | 19% | 11/11 | -50% off 52w high; next report ~2026-12-23 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 2 | **INTU** | INTUIT INC. | A | $281.08 | $493.80 | $246.90 | $493.69 | $312.74 | 0.57 | 15% | 13% | 14/15 | -59% off 52w high; 8-K: 2026-08-25: 2.02 Earnings release; 8.01 Other event; next report ~2026-11-18 |
+| 3 | **ELA** | ENVELA CORPORATION | A | $12.16 | $18.06 | $9.03 | $14.61 | $9.26 | 0.67 | 15% | 17% | 12/15 | -59% off 52w high; insider buying (1 Form 4s, $0.00M); next report ~2026-11-04 ⚠ micro-cap |
+| 4 | **PLMR** | Palomar Holdings, Inc. | A | $126.49 | $183.69 | $91.85 | $240.64 | $152.44 | 0.69 | 15% | 16% | 11/11 | insider buying (1 Form 4s, $0.00M); 8-K: 2026-08-11: 7.01 Reg FD disclosure; next report ~2026-11-04 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 5 | **PGR** | PROGRESSIVE CORP/OH/ | A | $210.31 | $361.85 | $180.92 | $429.99 | $272.39 | 0.58 | 15% | 23% | 15/15 | 8-K: 2026-09-18: 7.01 Reg FD disclosure; next report ~2026-11-02 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 6 | **DECK** | DECKERS OUTDOOR CORP | A | $79.12 | $117.96 | $58.98 | $123.15 | $80.67 | 0.67 | 14% | 34% | 13/15 | -35% off 52w high; 8-K: 2026-08-31: 1.01 Material agreement; 2.03 New debt obligation; next report ~2026-10-29 |
+| 7 | **NTES** | NETEASE, INC. | A | $117.21 | $149.35 | $74.67 | $174.22 | $110.36 | 0.78 | 15% | 17% | 13/14 | -25% off 52w high; next report ~2026-12-23 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 8 | **HTHT** | H World Group Ltd | A | $41.78 | $56.86 | $28.43 | $50.45 | $31.96 | 0.73 | 15% | 17% | 12/14 | -26% off 52w high; next report ~2027-01-01 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 9 | **ACGL** | ARCH CAPITAL GROUP LTD. | A | $93.60 | $133.37 | $66.69 | $269.86 | $170.95 | 0.70 | 15% | 18% | 13/15 | next report ~2026-11-03 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 10 | **EVR** | EVERCORE INC. | A | $261.68 | $288.32 | $144.16 | $567.01 | $391.87 | 0.91 | 13% | 31% | 14/15 | -33% off 52w high; next report ~2026-11-04 |
+| 11 | **IPAR** | INTERPARFUMS, INC. | A | $113.95 | $156.90 | $78.45 | $121.19 | $76.77 | 0.73 | 15% | 21% | 12/15 | 8-K: 2026-09-22: 8.01 Other event; next report ~2026-11-03 |
+| 12 | **NMIH** | NMI Holdings, Inc. | A | $38.83 | $49.01 | $24.50 | $90.52 | $57.34 | 0.79 | 15% | 15% | 12/15 | next report ~2026-10-30 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 13 | **CARG** | CarGurus, Inc. | B | $30.02 | $54.60 | $27.30 | $53.46 | $33.87 | 0.55 | 15% | 24% | 11/15 | -27% off 52w high; 8-K: 2026-09-03: 5.02 Director/officer change; 7.01 Reg FD disclosure; next report ~2026-11-05 |
+| 14 | **BKNG** | Booking Holdings Inc. | B | $159.02 | $276.56 | $138.28 | $192.56 | $121.98 | 0.57 | 15% | 41% | 11/15 | -29% off 52w high; 8-K: 2026-08-04: 2.02 Earnings release; next report ~2026-11-03 |
+| 15 | **KTB** | KONTOOR BRANDS, INC. | A | $64.71 | $71.33 | $35.66 | $119.62 | $75.78 | 0.91 | 15% | 23% | 9/11 | -27% off 52w high; 8-K: 2026-09-24: 5.02 Director/officer change; next report ~2026-11-11 |
+| 16 | **TBBK** | THE BANCORP, INC. | B | $48.81 | $69.93 | $34.96 | $87.31 | $55.31 | 0.70 | 15% | 23% | 10/14 | -40% off 52w high; neg 8-K: 2026-09-04: Restructuring/exit costs; next report ~2026-11-05 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 17 | **CRUS** | CIRRUS LOGIC, INC. | A | $121.17 | $119.65 | $59.83 | $149.50 | $109.28 | 1.01 | 12% | 16% | 12/15 | -33% off 52w high; 8-K: 2026-08-05: 2.02 Earnings release; 7.01 Reg FD disclosure; next report ~2026-11-04 |
+| 18 | **HCI** | HCI Group, Inc. | C | $184.25 | $318.20 | $159.10 | $505.81 | $320.42 | 0.58 | 15% | 11% | 14/15 | 8-K: 2026-08-06: 2.02 Earnings release; next report ~2026-11-06 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 19 | **CINF** | CINCINNATI FINANCIAL CORPORATI | A | $161.95 | $145.89 | $72.95 | $275.42 | $217.53 | 1.11 | 10% | 12% | 12/15 | insider buying (1 Form 4s, $0.17M); 8-K: 2026-09-28: 1.01 Material agreement; 2.03 New debt obligation; next report ~202 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 20 | **YALA** | YALLA GROUP LIMITED | B | $5.32 | $7.05 | $3.53 | $11.88 | $7.53 | 0.75 | 15% | 18% | 8/11 | -32% off 52w high; next report ~2026-12-30 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency;micro-cap |
+| 21 | **CF** | CF INDUSTRIES HOLDINGS, INC. | B | $115.01 | $159.11 | $79.56 | $165.94 | $123.87 | 0.72 | 11% | 27% | 11/15 | 8-K: 2026-09-03: 5.02 Director/officer change; next report ~2026-11-05 |
+| 22 | **COLB** | COLUMBIA BANKING SYSTEM, INC. | C | $28.92 | $44.99 | $22.49 | $64.24 | $44.27 | 0.64 | 13% | 11% | 10/13 | insider buying (1 Form 4s, $0.02M); 8-K: 2026-09-30: 7.01 Reg FD disclosure; next report ~2026-11-03 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 23 | **LMB** | LIMBACH HOLDINGS, INC. | C | $49.10 | $55.94 | $27.97 | $66.31 | $42.01 | 0.88 | 15% | 13% | 10/15 | -57% off 52w high; insider buying (3 Form 4s, $0.52M); neg 8-K: 2026-09-09: Agreement terminated; next report ~2026-11-0 ⚠ micro-cap |
+| 24 | **DHI** | D.R. Horton, Inc. | A | $135.00 | $116.27 | $58.14 | $175.28 | $111.03 | 1.16 | 15% | 23% | 12/15 | -23% off 52w high; 8-K: 2026-09-15: 8.01 Other event; next report ~2026-10-22 |
+| 25 | **ABG** | ASBURY AUTOMOTIVE GROUP, INC. | C | $175.88 | $228.15 | $114.08 | $544.89 | $357.81 | 0.77 | 14% | 12% | 12/15 | -32% off 52w high; 13D: SCHEDULE 13D/A 2026-07-13; 8-K: 2026-08-31: 7.01 Reg FD disclosure; next report ~2026-10-30 |
+| 26 | **GCT** | GIGACLOUD TECHNOLOGY INC | A | $53.75 | $40.76 | $20.38 | $67.88 | $43.00 | 1.32 | 15% | 26% | 11/11 | 8-K: 2026-08-10: 8.01 Other event; next report ~2026-11-05 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 27 | **HRMY** | HARMONY BIOSCIENCES HOLDINGS,  | B | $39.64 | $47.73 | $23.86 | $95.29 | $60.37 | 0.83 | 15% | 19% | 8/11 | 8-K: 2026-08-04: 2.02 Earnings release; 7.01 Reg FD disclosure; next report ~2026-11-03 |
+| 28 | **MELI** | MercadoLibre, Inc. | A | $1,696.56 | $1,102.80 | $551.40 | $3,863.85 | $2,447.66 | 1.54 | 15% | 14% | 12/14 | -30% off 52w high; insider buying (1 Form 4s, $0.20M); 13D: SCHEDULE 13D/A 2026-06-18; 8-K: 2026-09-14: 8.01 Other event |
+| 29 | **ATLC** | Atlanticus Holdings Corp | A | $91.89 | $63.88 | $31.94 | $774.86 | $490.85 | 1.44 | 15% | 34% | 13/14 | 13D: SCHEDULE 13D/A 2026-07-06; 8-K: 2026-09-17: 8.01 Other event; next report ~2026-11-05 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 30 | **NRIM** | Northrim BanCorp, Inc. | B | $24.76 | $21.88 | $10.94 | $102.83 | $82.48 | 1.13 | 10% | 13% | 10/13 | insider buying (1 Form 4s, $0.03M); next report ~2026-10-30 ⚠ bank/insurer: OCF & debt tests less meaningful;micro-cap |
+| 31 | **LRN** | Stride, Inc. | C | $78.89 | $88.08 | $44.04 | $119.29 | $91.53 | 0.90 | 11% | 12% | 11/15 | -49% off 52w high; 8-K: 2026-08-04: 2.02 Earnings release; 8.01 Other event; next report ~2026-10-14 |
+| 32 | **PARR** | Par Pacific Holdings, Inc. | C | $84.00 | $143.84 | $71.92 | $131.41 | $83.24 | 0.58 | 15% | 18% | 9/15 | 8-K: 2026-09-28: 5.02 Director/officer change; 8.01 Other event; next report ~2026-11-04 ⚠ PE<5: check one-off gains |
+| 33 | **MCRI** | MONARCH CASINO & RESORT, INC. | B | $117.55 | $117.29 | $58.65 | $134.21 | $85.02 | 1.00 | 15% | 16% | 10/14 | next report ~2026-10-27 |
+| 34 | **IBKR** | INTERACTIVE BROKERS GROUP, INC | A | $88.30 | $55.50 | $27.75 | $536.75 | $354.27 | 1.59 | 14% | 16% | 14/15 | insider buying (3 Form 4s, $0.01M); next report ~2026-11-05 |
+| 35 | **RLI** | RLI Corp | C | $55.94 | $73.98 | $36.99 | $75.24 | $56.04 | 0.76 | 11% | 25% | 10/15 | 8-K: 2026-08-13: 8.01 Other event; next report ~2026-10-23 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 36 | **EXEL** | Exelixis Inc | C | $58.39 | $79.94 | $39.97 | $70.24 | $44.50 | 0.73 | 15% | 15% | 9/15 | 13D: SCHEDULE 13D/A 2026-08-14; 8-K: 2026-09-11: 8.01 Other event; next report ~2026-11-04 |
+| 37 | **CNM** | Core & Main, Inc. | C | $41.35 | $48.83 | $24.41 | $47.05 | $32.28 | 0.85 | 13% | 16% | 6/11 | -31% off 52w high; insider buying (1 Form 4s, $0.10M); 8-K: 2026-09-09: 2.02 Earnings release; next report ~2026-12-09 |
+| 38 | **EPAM** | EPAM SYSTEMS, INC. | B | $108.29 | $85.80 | $42.90 | $111.52 | $90.69 | 1.26 | 10% | 14% | 11/15 | -51% off 52w high; 8-K: 2026-08-06: 2.02 Earnings release; next report ~2026-11-05 |
+| 39 | **TOL** | Toll Brothers, Inc. | B | $136.61 | $126.17 | $63.08 | $180.08 | $114.08 | 1.08 | 15% | 19% | 10/14 | 8-K: 2026-08-18: 2.02 Earnings release; next report ~2026-11-27 |
+| 40 | **ESEA** | EUROSEAS LTD. | A | $72.42 | $47.89 | $23.94 | $313.43 | $198.55 | 1.51 | 15% | 24% | 12/15 | insider buying (2 Form 4s, $0.09M); next report ~2026-10-07 ⚠ PE<5: check one-off gains;foreign filer/ADR: verify ADR ratio & reporting currency;micro-cap |
+
+## 3. ON DECK — below Sticker, above Buy price (39)
+| # | Ticker | Company | Tier | Price | Sticker | MOS (Buy) | Payback | Ten Cap | P/Sticker | Growth | ROIC 5y | Big5 | Events |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | **GOOGL** | Alphabet Inc. | A | $343.50 | $547.17 | $273.59 | $68.52 | $43.40 | 0.63 | 15% | 25% | 12/12 | 8-K: 2026-08-10: 8.01 Other event; next report ~2026-10-22 |
+| 2 | **APP** | AppLovin Corporation | A | $268.22 | $390.30 | $195.15 | $211.31 | $133.86 | 0.69 | 15% | 25% | 9/11 | -64% off 52w high; 8-K: 2026-08-05: 2.02 Earnings release; next report ~2026-11-04 |
+| 3 | **BOOT** | Boot Barn Holdings, Inc. | A | $121.88 | $152.70 | $76.35 | $60.21 | $38.14 | 0.80 | 15% | 21% | 15/15 | -42% off 52w high; 8-K: 2026-09-14: 7.01 Reg FD disclosure; next report ~2026-10-28 |
+| 4 | **NFLX** | NETFLIX INC | A | $67.06 | $95.40 | $47.70 | $41.13 | $26.06 | 0.70 | 15% | 20% | 13/15 | -46% off 52w high; next report ~2026-10-16 |
+| 5 | **FIVE** | Five Below, Inc. | A | $221.19 | $334.50 | $167.25 | $170.32 | $107.89 | 0.66 | 15% | 20% | 14/15 | 8-K: 2026-09-23: 5.02 Director/officer change; 7.01 Reg FD disclosure; next report ~2026-12-03 |
+| 6 | **XPEL** | XPEL, INC. | A | $44.97 | $59.40 | $29.70 | – | – | 0.76 | 15% | 28% | 11/11 | 8-K: 2026-08-05: 2.02 Earnings release; next report ~2026-11-06 |
+| 7 | **RMD** | ResMed Inc. | A | $218.89 | $312.90 | $156.45 | $178.29 | $112.94 | 0.70 | 15% | 20% | 12/15 | -23% off 52w high; neg 8-K: 2026-08-17: Auditor change; next report ~2026-10-22 |
+| 8 | **SMCI** | Super Micro Computer, Inc. | A | $43.69 | $64.81 | $32.40 | – | – | 0.67 | 15% | 21% | 12/15 | -26% off 52w high; 8-K: 2026-08-11: 2.02 Earnings release; next report ~2026-11-09 |
+| 9 | **LMAT** | LEMAITRE VASCULAR, INC. | A | $78.96 | $85.80 | $42.90 | $47.56 | $30.13 | 0.92 | 15% | 11% | 15/15 | -33% off 52w high; 8-K: 2026-08-04: 2.02 Earnings release; next report ~2026-11-04 |
+| 10 | **PAYC** | Paycom Software, Inc. | A | $220.99 | $283.50 | $141.75 | $187.22 | $118.60 | 0.78 | 15% | 25% | 13/15 | 13D: SCHEDULE 13D/A 2026-09-03; 8-K: 2026-08-05: 2.02 Earnings release; next report ~2026-11-05 |
+| 11 | **AX** | Axos Financial, Inc. | A | $88.93 | $99.39 | $49.69 | $81.12 | $51.39 | 0.89 | 15% | 14% | 13/14 | 8-K: 2026-09-21: 2.01 Acquisition/disposition; next report ~2026-10-29 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 12 | **IBP** | Installed Building Products, I | B | $193.00 | $265.60 | $132.80 | $171.58 | $108.69 | 0.73 | 15% | 17% | 11/15 | -45% off 52w high; insider buying (1 Form 4s, $0.20M); 8-K: 2026-10-01: 7.01 Reg FD disclosure; next report ~2026-11-05 |
+| 13 | **MSFT** | MICROSOFT CORPORATION | A | $517.53 | $538.50 | $269.25 | $141.88 | $89.88 | 0.96 | 15% | 29% | 15/15 | 8-K: 2026-09-02: 7.01 Reg FD disclosure; next report ~2026-10-07 |
+| 14 | **ULTA** | ULTA BEAUTY, INC. | A | $543.69 | $600.70 | $300.35 | $391.53 | $264.16 | 0.91 | 14% | 56% | 13/15 | -24% off 52w high; 8-K: 2026-08-27: 2.02 Earnings release; next report ~2026-11-26 |
+| 15 | **NVDA** | NVIDIA CORP | A | $233.95 | $237.30 | $118.65 | $82.38 | $52.18 | 0.99 | 15% | 49% | 15/15 | 8-K: 2026-09-03: 8.01 Other event; next report ~2026-11-25 |
+| 16 | **BLBD** | Blue Bird Corp | B | $56.53 | $71.04 | $35.52 | $52.40 | $45.76 | 0.80 | 8% | 16% | 11/15 | -32% off 52w high; insider buying (1 Form 4s, $0.02M); 13D: SCHEDULE 13D 2026-04-08; 8-K: 2026-10-01: 8.01 Other event;  |
+| 17 | **TGLS** | TECNOGLASS HOLDINGS INC. | B | $34.74 | $40.91 | $20.45 | – | – | 0.85 | 15% | 23% | 12/15 | -49% off 52w high; 13D: SCHEDULE 13D/A 2026-05-13; 8-K: 2026-09-10: 8.01 Other event; next report ~2026-11-05 |
+| 18 | **SSD** | Simpson Manufacturing Co., Inc | A | $173.56 | $180.90 | $90.45 | $169.84 | $113.62 | 0.96 | 14% | 18% | 13/15 | next report ~2026-11-05 |
+| 19 | **ZTO** | ZTO Express (Cayman) Inc. | B | $19.50 | $28.81 | $14.41 | $16.72 | $11.77 | 0.68 | 13% | 12% | 8/11 | -26% off 52w high; 13D: SCHEDULE 13D/A 2026-09-22; next report ~2026-12-25 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 20 | **AON** | Aon plc | C | $269.45 | $471.90 | $235.95 | $230.08 | $151.35 | 0.57 | 14% | 22% | 9/15 | -30% off 52w high; insider buying (1 Form 4s, $6.55M); neg 8-K: 2026-09-22: Agreement terminated; next report ~2026-10-2 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 21 | **META** | Meta Platforms, Inc. | A | $728.08 | $731.73 | $365.87 | $252.18 | $159.75 | 1.00 | 15% | 24% | 14/15 | next report ~2026-10-29 |
+| 22 | **PCTY** | PAYLOCITY HOLDING CORPORATION | A | $144.47 | $147.60 | $73.80 | $143.27 | $90.76 | 0.98 | 15% | 17% | 13/15 | 8-K: 2026-09-17: 1.01 Material agreement; 2.03 New debt obligation; next report ~2026-10-14 |
+| 23 | **WING** | WINGSTOP INC. | B | $106.89 | $126.90 | $63.45 | $73.96 | $46.85 | 0.84 | 15% | 28% | 11/15 | -65% off 52w high; 8-K: 2026-08-25: 5.02 Director/officer change; next report ~2026-10-28 |
+| 24 | **EXLS** | EXLSERVICE HOLDINGS, INC. | B | $35.75 | $47.10 | $23.55 | $29.84 | $18.90 | 0.76 | 15% | 18% | 11/14 | neg 8-K: 2026-08-18: Agreement terminated; next report ~2026-10-27 |
+| 25 | **URBN** | Urban Outfitters, Inc. | A | $80.80 | $81.38 | $40.69 | $51.22 | $33.65 | 0.99 | 14% | 14% | 13/15 | 8-K: 2026-08-27: 8.01 Other event; next report ~2026-12-09 |
+| 26 | **INCY** | INCYTE CORPORATION | C | $115.30 | $204.69 | $102.34 | $109.82 | $69.57 | 0.56 | 15% | 11% | 12/15 | 13D: SCHEDULE 13D/A 2026-05-11; 8-K: 2026-08-31: 8.01 Other event; next report ~2026-10-27 |
+| 27 | **BURL** | BURLINGTON STORES, INC. | B | $275.34 | $333.90 | $166.95 | $101.72 | $64.44 | 0.82 | 15% | 13% | 12/15 | -27% off 52w high; 8-K: 2026-08-27: 2.02 Earnings release; next report ~2026-11-26 |
+| 28 | **WAL** | WESTERN ALLIANCE BANCORPORATIO | B | $76.38 | $90.03 | $45.02 | – | – | 0.85 | 14% | 12% | 10/13 | -21% off 52w high; next report ~2026-10-30 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 29 | **SFM** | Sprouts Farmers Market, Inc. | B | $64.47 | $66.87 | $33.43 | $51.97 | $37.56 | 0.96 | 12% | 26% | 11/15 | -44% off 52w high; 8-K: 2026-09-01: 5.02 Director/officer change; next report ~2026-10-28 |
+| 30 | **BX** | Blackstone Inc. | C | $111.75 | $134.10 | $67.05 | $109.19 | $69.17 | 0.83 | 15% | 16% | 9/14 | -34% off 52w high; insider buying (3 Form 4s, $12.21M); 8-K: 2026-09-22: 7.01 Reg FD disclosure; next report ~2026-11-06 |
+| 31 | **WMS** | ADVANCED DRAINAGE SYSTEMS, INC | B | $127.27 | $140.93 | $70.47 | $112.75 | $71.43 | 0.90 | 15% | 19% | 11/15 | -29% off 52w high; 8-K: 2026-08-06: 2.02 Earnings release; 7.01 Reg FD disclosure; 8.01 Other event; next report ~2026-1 |
+| 32 | **IA** | INNOVATIVE SOLUTIONS AND SUPPO | C | $18.99 | $24.71 | $12.35 | $12.39 | $7.85 | 0.77 | 15% | 14% | 12/15 | -39% off 52w high; 8-K: 2026-08-13: 2.02 Earnings release; next report ~2026-11-12 ⚠ micro-cap |
+| 33 | **CPRT** | COPART, INC. | C | $27.22 | $41.70 | $20.85 | $20.25 | $13.24 | 0.65 | 14% | 18% | 10/15 | -41% off 52w high; 8-K: 2026-09-10: 1.01 Material agreement; 7.01 Reg FD disclosure; next report ~2026-12-08 |
+| 34 | **LNG** | Cheniere Energy, Inc. | C | $269.95 | $411.06 | $205.53 | $210.10 | $133.09 | 0.66 | 15% | 21% | 9/15 | 8-K: 2026-08-06: 2.02 Earnings release; next report ~2026-11-05 |
+| 35 | **TPB** | Turning Point Brands, Inc. | C | $55.64 | $60.99 | $30.50 | $15.56 | $9.88 | 0.91 | 15% | 12% | 9/15 | -62% off 52w high; 8-K: 2026-09-21: 5.02 Director/officer change; 7.01 Reg FD disclosure; next report ~2026-11-03 |
+| 36 | **ALLE** | Allegion plc | C | $154.21 | $173.86 | $86.93 | $122.76 | $77.76 | 0.89 | 15% | 20% | 10/15 | insider buying (1 Form 4s, $0.03M); 8-K: 2026-09-08: 5.02 Director/officer change; 7.01 Reg FD disclosure; next report ~ |
+| 37 | **TXRH** | Texas Roadhouse, Inc. | C | $156.14 | $174.01 | $87.00 | $97.17 | $61.56 | 0.90 | 15% | 27% | 10/15 | -28% off 52w high; 8-K: 2026-08-06: 2.02 Earnings release; 8.01 Other event; next report ~2026-11-06 |
+| 38 | **TTEK** | TETRA TECH INC | C | $33.12 | $34.39 | $17.20 | $29.76 | $20.93 | 0.96 | 13% | 14% | 9/14 | -23% off 52w high; 8-K: 2026-09-10: 8.01 Other event; next report ~2026-10-30 |
+| 39 | **DORM** | Dorman Products, Inc. | C | $123.06 | $129.88 | $64.94 | $99.55 | $70.91 | 0.95 | 12% | 11% | 9/15 | -25% off 52w high; next report ~2026-11-03 |
+
+## 4. Event watch — tier A/B with drawdowns, insider buying, 13D or negative 8-Ks (44)
+| # | Ticker | Company | Tier | Price | Sticker | MOS (Buy) | Payback | Ten Cap | P/Sticker | Growth | ROIC 5y | Big5 | Events |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | **ORCL** | Oracle Corporation | B | $142.30 | $54.43 | $27.22 | – | – | 2.61 | 8% | 302% | 11/15 | -56% off 52w high; insider buying (1 Form 4s, $3.48M); 8-K: 2026-09-14: 8.01 Other event; next report ~2026-12-11 |
+| 2 | **GSHD** | GOOSEHEAD INSURANCE, INC. | B | $45.51 | $31.20 | $15.60 | $34.77 | $22.03 | 1.46 | 15% | 26% | 8/11 | -43% off 52w high; insider buying (3 Form 4s, $9.44M); next report ~2026-10-22 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 3 | **OPFI** | OppFi Inc. | A | $5.97 | $29.08 | $14.54 | $66.64 | $44.70 | 0.21 | 14% | 275% | 9/10 | -49% off 52w high; insider buying (11 Form 4s, $0.29M); 13D: SCHEDULE 13D/A 2026-04-30; 8-K: 2026-09-21: 2.03 New debt o ⚠ bank/insurer: OCF & debt tests less meaningful;micro-cap |
+| 4 | **QFIN** | Qfin Holdings, Inc. | A | $6.46 | $19.67 | $9.84 | $160.38 | $113.94 | 0.33 | 12% | 24% | 10/11 | -79% off 52w high; insider buying (1 Form 4s, $0.06M); next report ~2026-10-05 ⚠ PE<5: check one-off gains;bank/insurer: OCF & debt tests less meaningful;foreign filer/ADR: verify ADR ratio & reporting currency;micro-cap |
+| 5 | **BRBR** | BellRing Brands, Inc. | B | $7.43 | $42.60 | $21.30 | $30.10 | $19.07 | 0.17 | 15% | 40% | 8/11 | -79% off 52w high; insider buying (1 Form 4s, $0.02M); 8-K: 2026-08-04: 2.02 Earnings release; next report ~2026-11-03 ⚠ micro-cap |
+| 6 | **ELA** | ENVELA CORPORATION | A | $12.16 | $18.06 | $9.03 | $14.61 | $9.26 | 0.67 | 15% | 17% | 12/15 | -59% off 52w high; insider buying (1 Form 4s, $0.00M); next report ~2026-11-04 ⚠ micro-cap |
+| 7 | **TPL** | TEXAS PACIFIC LAND CORPORATION | A | $340.19 | $235.20 | $117.60 | $134.02 | $84.90 | 1.45 | 15% | 41% | 10/11 | -38% off 52w high; insider buying (12 Form 4s, $0.01M); 13D: SCHEDULE 13D/A 2026-05-07, SCHEDULE 13D/A 2026-04-13; 8-K:  |
+| 8 | **VITL** | Vital Farms, Inc. | A | $9.06 | $0.11 | $0.05 | – | – | 84.34 | 15% | 10% | 10/11 | -80% off 52w high; neg 8-K: 2026-08-06: Agreement terminated; next report ~2026-11-05 ⚠ micro-cap |
+| 9 | **LULU** | lululemon athletica inc. | B | $94.46 | $364.50 | $182.25 | $187.21 | $118.59 | 0.26 | 15% | 34% | 11/15 | -58% off 52w high; 13D: SCHEDULE 13D/A 2026-09-03, SCHEDULE 13D/A 2026-08-03; 8-K: 2026-09-14: 5.02 Director/officer cha |
+| 10 | **IBP** | Installed Building Products, I | B | $193.00 | $265.60 | $132.80 | $171.58 | $108.69 | 0.73 | 15% | 17% | 11/15 | -45% off 52w high; insider buying (1 Form 4s, $0.20M); 8-K: 2026-10-01: 7.01 Reg FD disclosure; next report ~2026-11-05 |
+| 11 | **BLBD** | Blue Bird Corp | B | $56.53 | $71.04 | $35.52 | $52.40 | $45.76 | 0.80 | 8% | 16% | 11/15 | -32% off 52w high; insider buying (1 Form 4s, $0.02M); 13D: SCHEDULE 13D 2026-04-08; 8-K: 2026-10-01: 8.01 Other event;  |
+| 12 | **MELI** | MercadoLibre, Inc. | A | $1,696.56 | $1,102.80 | $551.40 | $3,863.85 | $2,447.66 | 1.54 | 15% | 14% | 12/14 | -30% off 52w high; insider buying (1 Form 4s, $0.20M); 13D: SCHEDULE 13D/A 2026-06-18; 8-K: 2026-09-14: 8.01 Other event |
+| 13 | **BMI** | BADGER METER, INC. | A | $127.77 | $92.08 | $46.04 | $73.83 | $51.38 | 1.39 | 13% | 17% | 12/14 | -37% off 52w high; insider buying (1 Form 4s, $0.10M); next report ~2026-10-22 |
+| 14 | **TGLS** | TECNOGLASS HOLDINGS INC. | B | $34.74 | $40.91 | $20.45 | – | – | 0.85 | 15% | 23% | 12/15 | -49% off 52w high; 13D: SCHEDULE 13D/A 2026-05-13; 8-K: 2026-09-10: 8.01 Other event; next report ~2026-11-05 |
+| 15 | **APP** | AppLovin Corporation | A | $268.22 | $390.30 | $195.15 | $211.31 | $133.86 | 0.69 | 15% | 25% | 9/11 | -64% off 52w high; 8-K: 2026-08-05: 2.02 Earnings release; next report ~2026-11-04 |
+| 16 | **DOCS** | Doximity, Inc. | A | $27.93 | $25.20 | $12.60 | $25.29 | $16.02 | 1.11 | 15% | 15% | 9/11 | -62% off 52w high; 8-K: 2026-08-06: 2.02 Earnings release; next report ~2026-11-05 |
+| 17 | **WING** | WINGSTOP INC. | B | $106.89 | $126.90 | $63.45 | $73.96 | $46.85 | 0.84 | 15% | 28% | 11/15 | -65% off 52w high; 8-K: 2026-08-25: 5.02 Director/officer change; next report ~2026-10-28 |
+| 18 | **INTU** | INTUIT INC. | A | $281.08 | $493.80 | $246.90 | $493.69 | $312.74 | 0.57 | 15% | 13% | 14/15 | -59% off 52w high; 8-K: 2026-08-25: 2.02 Earnings release; 8.01 Other event; next report ~2026-11-18 |
+| 19 | **KNSL** | KINSALE CAPITAL GROUP, INC. | A | $329.72 | $739.20 | $369.60 | $689.24 | $436.62 | 0.45 | 15% | 22% | 12/13 | -32% off 52w high; insider buying (1 Form 4s, $0.10M); next report ~2026-10-22 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 20 | **USLM** | UNITED STATES LIME & MINERALS  | A | $111.01 | $92.19 | $46.10 | $50.37 | $31.91 | 1.20 | 15% | 17% | 15/15 | -22% off 52w high; insider buying (1 Form 4s, $2.20M); next report ~2026-10-29 |
+| 21 | **HWKN** | HAWKINS, INC. | A | $131.41 | $55.67 | $27.83 | $63.21 | $43.97 | 2.36 | 13% | 14% | 14/15 | -29% off 52w high; insider buying (2 Form 4s, $0.26M); 8-K: 2026-08-14: 5.02 Director/officer change; next report ~2026- |
+| 22 | **TBBK** | THE BANCORP, INC. | B | $48.81 | $69.93 | $34.96 | $87.31 | $55.31 | 0.70 | 15% | 23% | 10/14 | -40% off 52w high; neg 8-K: 2026-09-04: Restructuring/exit costs; next report ~2026-11-05 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 23 | **AGX** | ARGAN INC | B | $383.83 | $211.14 | $105.57 | $607.46 | $384.81 | 1.82 | 15% | 15% | 11/14 | -52% off 52w high; 8-K: 2026-09-09: 8.01 Other event; next report ~2026-12-02 |
+| 24 | **EPAM** | EPAM SYSTEMS, INC. | B | $108.29 | $85.80 | $42.90 | $111.52 | $90.69 | 1.26 | 10% | 14% | 11/15 | -51% off 52w high; 8-K: 2026-08-06: 2.02 Earnings release; next report ~2026-11-05 |
+| 25 | **FUTU** | Futu Holdings Ltd | A | $102.17 | $197.90 | $98.95 | $584.44 | $370.23 | 0.52 | 15% | 19% | 11/11 | -50% off 52w high; next report ~2026-12-23 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 26 | **NXT** | Nextpower Inc. | A | $84.30 | $49.14 | $24.57 | $55.83 | $35.37 | 1.72 | 15% | 33% | 8/9 | -48% off 52w high; next report ~2026-11-02 |
+| 27 | **STRL** | STERLING INFRASTRUCTURE, INC. | A | $533.42 | $197.60 | $98.80 | $244.58 | $154.93 | 2.70 | 15% | 17% | 13/15 | -47% off 52w high; next report ~2026-11-03 |
+| 28 | **NFLX** | NETFLIX INC | A | $67.06 | $95.40 | $47.70 | $41.13 | $26.06 | 0.70 | 15% | 20% | 13/15 | -46% off 52w high; next report ~2026-10-16 |
+| 29 | **NRIM** | Northrim BanCorp, Inc. | B | $24.76 | $21.88 | $10.94 | $102.83 | $82.48 | 1.13 | 10% | 13% | 10/13 | insider buying (1 Form 4s, $0.03M); next report ~2026-10-30 ⚠ bank/insurer: OCF & debt tests less meaningful;micro-cap |
+| 30 | **CLBT** | Cellebrite DI Ltd. | A | $11.07 | $4.23 | $2.11 | $10.13 | $6.42 | 2.62 | 15% | 26% | 9/11 | -45% off 52w high; next report ~2026-11-10 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+
+## 5. Wonderful companies (tier A) — full list (89)
+| # | Ticker | Company | Tier | Price | Sticker | MOS (Buy) | Payback | Ten Cap | P/Sticker | Growth | ROIC 5y | Big5 | Events |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | **OPFI** | OppFi Inc. | A | $5.97 | $29.08 | $14.54 | $66.64 | $44.70 | 0.21 | 14% | 275% | 9/10 | -49% off 52w high; insider buying (11 Form 4s, $0.29M); 13D: SCHEDULE 13D/A 2026-04-30; 8-K: 2026-09-21: 2.03 New debt o ⚠ bank/insurer: OCF & debt tests less meaningful;micro-cap |
+| 2 | **QFIN** | Qfin Holdings, Inc. | A | $6.46 | $19.67 | $9.84 | $160.38 | $113.94 | 0.33 | 12% | 24% | 10/11 | -79% off 52w high; insider buying (1 Form 4s, $0.06M); next report ~2026-10-05 ⚠ PE<5: check one-off gains;bank/insurer: OCF & debt tests less meaningful;foreign filer/ADR: verify ADR ratio & reporting currency;micro-cap |
+| 3 | **KNSL** | KINSALE CAPITAL GROUP, INC. | A | $329.72 | $739.20 | $369.60 | $689.24 | $436.62 | 0.45 | 15% | 22% | 12/13 | -32% off 52w high; insider buying (1 Form 4s, $0.10M); next report ~2026-10-22 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 4 | **FUTU** | Futu Holdings Ltd | A | $102.17 | $197.90 | $98.95 | $584.44 | $370.23 | 0.52 | 15% | 19% | 11/11 | -50% off 52w high; next report ~2026-12-23 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 5 | **INTU** | INTUIT INC. | A | $281.08 | $493.80 | $246.90 | $493.69 | $312.74 | 0.57 | 15% | 13% | 14/15 | -59% off 52w high; 8-K: 2026-08-25: 2.02 Earnings release; 8.01 Other event; next report ~2026-11-18 |
+| 6 | **ELA** | ENVELA CORPORATION | A | $12.16 | $18.06 | $9.03 | $14.61 | $9.26 | 0.67 | 15% | 17% | 12/15 | -59% off 52w high; insider buying (1 Form 4s, $0.00M); next report ~2026-11-04 ⚠ micro-cap |
+| 7 | **PLMR** | Palomar Holdings, Inc. | A | $126.49 | $183.69 | $91.85 | $240.64 | $152.44 | 0.69 | 15% | 16% | 11/11 | insider buying (1 Form 4s, $0.00M); 8-K: 2026-08-11: 7.01 Reg FD disclosure; next report ~2026-11-04 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 8 | **PGR** | PROGRESSIVE CORP/OH/ | A | $210.31 | $361.85 | $180.92 | $429.99 | $272.39 | 0.58 | 15% | 23% | 15/15 | 8-K: 2026-09-18: 7.01 Reg FD disclosure; next report ~2026-11-02 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 9 | **GOOGL** | Alphabet Inc. | A | $343.50 | $547.17 | $273.59 | $68.52 | $43.40 | 0.63 | 15% | 25% | 12/12 | 8-K: 2026-08-10: 8.01 Other event; next report ~2026-10-22 |
+| 10 | **APP** | AppLovin Corporation | A | $268.22 | $390.30 | $195.15 | $211.31 | $133.86 | 0.69 | 15% | 25% | 9/11 | -64% off 52w high; 8-K: 2026-08-05: 2.02 Earnings release; next report ~2026-11-04 |
+| 11 | **BOOT** | Boot Barn Holdings, Inc. | A | $121.88 | $152.70 | $76.35 | $60.21 | $38.14 | 0.80 | 15% | 21% | 15/15 | -42% off 52w high; 8-K: 2026-09-14: 7.01 Reg FD disclosure; next report ~2026-10-28 |
+| 12 | **NFLX** | NETFLIX INC | A | $67.06 | $95.40 | $47.70 | $41.13 | $26.06 | 0.70 | 15% | 20% | 13/15 | -46% off 52w high; next report ~2026-10-16 |
+| 13 | **DECK** | DECKERS OUTDOOR CORP | A | $79.12 | $117.96 | $58.98 | $123.15 | $80.67 | 0.67 | 14% | 34% | 13/15 | -35% off 52w high; 8-K: 2026-08-31: 1.01 Material agreement; 2.03 New debt obligation; next report ~2026-10-29 |
+| 14 | **FIVE** | Five Below, Inc. | A | $221.19 | $334.50 | $167.25 | $170.32 | $107.89 | 0.66 | 15% | 20% | 14/15 | 8-K: 2026-09-23: 5.02 Director/officer change; 7.01 Reg FD disclosure; next report ~2026-12-03 |
+| 15 | **XPEL** | XPEL, INC. | A | $44.97 | $59.40 | $29.70 | – | – | 0.76 | 15% | 28% | 11/11 | 8-K: 2026-08-05: 2.02 Earnings release; next report ~2026-11-06 |
+| 16 | **RMD** | ResMed Inc. | A | $218.89 | $312.90 | $156.45 | $178.29 | $112.94 | 0.70 | 15% | 20% | 12/15 | -23% off 52w high; neg 8-K: 2026-08-17: Auditor change; next report ~2026-10-22 |
+| 17 | **NTES** | NETEASE, INC. | A | $117.21 | $149.35 | $74.67 | $174.22 | $110.36 | 0.78 | 15% | 17% | 13/14 | -25% off 52w high; next report ~2026-12-23 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 18 | **SMCI** | Super Micro Computer, Inc. | A | $43.69 | $64.81 | $32.40 | – | – | 0.67 | 15% | 21% | 12/15 | -26% off 52w high; 8-K: 2026-08-11: 2.02 Earnings release; next report ~2026-11-09 |
+| 19 | **HTHT** | H World Group Ltd | A | $41.78 | $56.86 | $28.43 | $50.45 | $31.96 | 0.73 | 15% | 17% | 12/14 | -26% off 52w high; next report ~2027-01-01 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 20 | **LMAT** | LEMAITRE VASCULAR, INC. | A | $78.96 | $85.80 | $42.90 | $47.56 | $30.13 | 0.92 | 15% | 11% | 15/15 | -33% off 52w high; 8-K: 2026-08-04: 2.02 Earnings release; next report ~2026-11-04 |
+| 21 | **ACGL** | ARCH CAPITAL GROUP LTD. | A | $93.60 | $133.37 | $66.69 | $269.86 | $170.95 | 0.70 | 15% | 18% | 13/15 | next report ~2026-11-03 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 22 | **PAYC** | Paycom Software, Inc. | A | $220.99 | $283.50 | $141.75 | $187.22 | $118.60 | 0.78 | 15% | 25% | 13/15 | 13D: SCHEDULE 13D/A 2026-09-03; 8-K: 2026-08-05: 2.02 Earnings release; next report ~2026-11-05 |
+| 23 | **EVR** | EVERCORE INC. | A | $261.68 | $288.32 | $144.16 | $567.01 | $391.87 | 0.91 | 13% | 31% | 14/15 | -33% off 52w high; next report ~2026-11-04 |
+| 24 | **IPAR** | INTERPARFUMS, INC. | A | $113.95 | $156.90 | $78.45 | $121.19 | $76.77 | 0.73 | 15% | 21% | 12/15 | 8-K: 2026-09-22: 8.01 Other event; next report ~2026-11-03 |
+| 25 | **AX** | Axos Financial, Inc. | A | $88.93 | $99.39 | $49.69 | $81.12 | $51.39 | 0.89 | 15% | 14% | 13/14 | 8-K: 2026-09-21: 2.01 Acquisition/disposition; next report ~2026-10-29 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 26 | **NMIH** | NMI Holdings, Inc. | A | $38.83 | $49.01 | $24.50 | $90.52 | $57.34 | 0.79 | 15% | 15% | 12/15 | next report ~2026-10-30 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 27 | **MSFT** | MICROSOFT CORPORATION | A | $517.53 | $538.50 | $269.25 | $141.88 | $89.88 | 0.96 | 15% | 29% | 15/15 | 8-K: 2026-09-02: 7.01 Reg FD disclosure; next report ~2026-10-07 |
+| 28 | **USLM** | UNITED STATES LIME & MINERALS  | A | $111.01 | $92.19 | $46.10 | $50.37 | $31.91 | 1.20 | 15% | 17% | 15/15 | -22% off 52w high; insider buying (1 Form 4s, $2.20M); next report ~2026-10-29 |
+| 29 | **ULTA** | ULTA BEAUTY, INC. | A | $543.69 | $600.70 | $300.35 | $391.53 | $264.16 | 0.91 | 14% | 56% | 13/15 | -24% off 52w high; 8-K: 2026-08-27: 2.02 Earnings release; next report ~2026-11-26 |
+| 30 | **NVDA** | NVIDIA CORP | A | $233.95 | $237.30 | $118.65 | $82.38 | $52.18 | 0.99 | 15% | 49% | 15/15 | 8-K: 2026-09-03: 8.01 Other event; next report ~2026-11-25 |
+| 31 | **KTB** | KONTOOR BRANDS, INC. | A | $64.71 | $71.33 | $35.66 | $119.62 | $75.78 | 0.91 | 15% | 23% | 9/11 | -27% off 52w high; 8-K: 2026-09-24: 5.02 Director/officer change; next report ~2026-11-11 |
+| 32 | **NSSC** | NAPCO SECURITY TECHNOLOGIES, I | A | $36.17 | $36.00 | $18.00 | $26.05 | $16.50 | 1.00 | 15% | 21% | 13/15 | -30% off 52w high; 8-K: 2026-08-24: 2.02 Earnings release; 7.01 Reg FD disclosure; next report ~2026-11-02 |
+| 33 | **DOCS** | Doximity, Inc. | A | $27.93 | $25.20 | $12.60 | $25.29 | $16.02 | 1.11 | 15% | 15% | 9/11 | -62% off 52w high; 8-K: 2026-08-06: 2.02 Earnings release; next report ~2026-11-05 |
+| 34 | **SSD** | Simpson Manufacturing Co., Inc | A | $173.56 | $180.90 | $90.45 | $169.84 | $113.62 | 0.96 | 14% | 18% | 13/15 | next report ~2026-11-05 |
+| 35 | **META** | Meta Platforms, Inc. | A | $728.08 | $731.73 | $365.87 | $252.18 | $159.75 | 1.00 | 15% | 24% | 14/15 | next report ~2026-10-29 |
+| 36 | **COCO** | The Vita Coco Company, Inc. | A | $55.97 | $54.30 | $27.15 | $32.53 | $20.61 | 1.03 | 15% | 16% | 9/11 | -35% off 52w high; next report ~2026-10-22 |
+| 37 | **CRUS** | CIRRUS LOGIC, INC. | A | $121.17 | $119.65 | $59.83 | $149.50 | $109.28 | 1.01 | 12% | 16% | 12/15 | -33% off 52w high; 8-K: 2026-08-05: 2.02 Earnings release; 7.01 Reg FD disclosure; next report ~2026-11-04 |
+| 38 | **ENSG** | ENSIGN GROUP, INC | A | $171.78 | $158.09 | $79.04 | $142.38 | $90.19 | 1.09 | 15% | 15% | 13/14 | -21% off 52w high; 8-K: 2026-08-20: 1.01 Material agreement; 2.03 New debt obligation; 7.01 Reg FD disclosure; next repo |
+| 39 | **PCTY** | PAYLOCITY HOLDING CORPORATION | A | $144.47 | $147.60 | $73.80 | $143.27 | $90.76 | 0.98 | 15% | 17% | 13/15 | 8-K: 2026-09-17: 1.01 Material agreement; 2.03 New debt obligation; next report ~2026-10-14 |
+| 40 | **URBN** | Urban Outfitters, Inc. | A | $80.80 | $81.38 | $40.69 | $51.22 | $33.65 | 0.99 | 14% | 14% | 13/15 | 8-K: 2026-08-27: 8.01 Other event; next report ~2026-12-09 |
+| 41 | **CINF** | CINCINNATI FINANCIAL CORPORATI | A | $161.95 | $145.89 | $72.95 | $275.42 | $217.53 | 1.11 | 10% | 12% | 12/15 | insider buying (1 Form 4s, $0.17M); 8-K: 2026-09-28: 1.01 Material agreement; 2.03 New debt obligation; next report ~202 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 42 | **MLI** | MUELLER INDUSTRIES INC | A | $62.56 | $55.80 | $27.90 | $47.49 | $30.08 | 1.12 | 15% | 29% | 14/15 | 8-K: 2026-08-10: 5.02 Director/officer change; 8.01 Other event; next report ~2026-10-21 |
+| 43 | **FSS** | FEDERAL SIGNAL CORPORATION | A | $116.34 | $97.28 | $48.64 | $83.14 | $55.15 | 1.20 | 14% | 13% | 15/15 | next report ~2026-10-29 |
+| 44 | **MA** | Mastercard Incorporated | A | $552.26 | $523.13 | $261.56 | $293.29 | $188.09 | 1.06 | 15% | 52% | 13/15 | next report ~2026-10-29 |
+| 45 | **UI** | UBIQUITI INC. | A | $620.52 | $475.50 | $237.75 | $236.89 | $150.07 | 1.30 | 15% | 77% | 14/15 | -44% off 52w high; 8-K: 2026-08-21: 2.02 Earnings release; 8.01 Other event; next report ~2026-10-30 |
+| 46 | **TPL** | TEXAS PACIFIC LAND CORPORATION | A | $340.19 | $235.20 | $117.60 | $134.02 | $84.90 | 1.45 | 15% | 41% | 10/11 | -38% off 52w high; insider buying (12 Form 4s, $0.01M); 13D: SCHEDULE 13D/A 2026-05-07, SCHEDULE 13D/A 2026-04-13; 8-K:  |
+| 47 | **IBEX** | IBEX LIMITED | A | $43.58 | $38.21 | $19.11 | $33.25 | $21.07 | 1.14 | 15% | 23% | 10/11 | 8-K: 2026-09-10: 1.01 Material agreement; 2.02 Earnings release; 2.03 New debt obligation; next report ~2026-11-19 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency;micro-cap |
+| 48 | **BMI** | BADGER METER, INC. | A | $127.77 | $92.08 | $46.04 | $73.83 | $51.38 | 1.39 | 13% | 17% | 12/14 | -37% off 52w high; insider buying (1 Form 4s, $0.10M); next report ~2026-10-22 |
+| 49 | **DHI** | D.R. Horton, Inc. | A | $135.00 | $116.27 | $58.14 | $175.28 | $111.03 | 1.16 | 15% | 23% | 12/15 | -23% off 52w high; 8-K: 2026-09-15: 8.01 Other event; next report ~2026-10-22 |
+| 50 | **IDXX** | IDEXX LABORATORIES INC /DE | A | $518.39 | $426.90 | $213.45 | $248.31 | $157.30 | 1.21 | 15% | 49% | 12/15 | -33% off 52w high; 8-K: 2026-08-04: 2.02 Earnings release; next report ~2026-11-03 |
+| 51 | **GRBK** | Green Brick Partners, Inc. | A | $66.66 | $57.70 | $28.85 | $40.69 | $25.77 | 1.16 | 15% | 19% | 12/15 | 8-K: 2026-08-27: 5.02 Director/officer change; next report ~2026-10-28 |
+| 52 | **SKY** | Champion Homes, Inc. | A | $88.10 | $78.87 | $39.43 | $76.12 | $48.22 | 1.12 | 15% | 19% | 12/15 | 8-K: 2026-08-26: 5.02 Director/officer change; 8.01 Other event; next report ~2026-11-04 |
+| 53 | **UFPT** | UFP Technologies, Inc. | A | $300.70 | $227.22 | $113.61 | $123.02 | $77.93 | 1.32 | 15% | 13% | 15/15 | 8-K: 2026-08-24: 7.01 Reg FD disclosure; next report ~2026-11-05 |
+| 54 | **GCT** | GIGACLOUD TECHNOLOGY INC | A | $53.75 | $40.76 | $20.38 | $67.88 | $43.00 | 1.32 | 15% | 26% | 11/11 | 8-K: 2026-08-10: 8.01 Other event; next report ~2026-11-05 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 55 | **LLY** | ELI LILLY AND COMPANY | A | $1,142.85 | $893.70 | $446.85 | $495.43 | $313.85 | 1.28 | 15% | 24% | 14/15 | 8-K: 2026-08-05: 2.02 Earnings release; next report ~2026-11-04 |
+| 56 | **EME** | EMCOR Group, Inc. | A | $786.61 | $628.32 | $314.16 | $414.42 | $262.53 | 1.25 | 15% | 26% | 13/15 | next report ~2026-10-29 |
+| 57 | **MELI** | MercadoLibre, Inc. | A | $1,696.56 | $1,102.80 | $551.40 | $3,863.85 | $2,447.66 | 1.54 | 15% | 14% | 12/14 | -30% off 52w high; insider buying (1 Form 4s, $0.20M); 13D: SCHEDULE 13D/A 2026-06-18; 8-K: 2026-09-14: 8.01 Other event |
+| 58 | **ATLC** | Atlanticus Holdings Corp | A | $91.89 | $63.88 | $31.94 | $774.86 | $490.85 | 1.44 | 15% | 34% | 13/14 | 13D: SCHEDULE 13D/A 2026-07-06; 8-K: 2026-09-17: 8.01 Other event; next report ~2026-11-05 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 59 | **TJX** | The TJX Companies, Inc. | A | $132.68 | $104.16 | $52.08 | $73.36 | $52.56 | 1.27 | 12% | 41% | 12/15 | -22% off 52w high; 8-K: 2026-09-17: 5.02 Director/officer change; next report ~2026-11-27 |
+| 60 | **AVGO** | Broadcom Inc. | A | $355.14 | $235.20 | $117.60 | $127.36 | $80.68 | 1.51 | 15% | 17% | 11/11 | -28% off 52w high; 8-K: 2026-09-02: 2.02 Earnings release; 8.01 Other event; next report ~2026-12-10 |
+| 61 | **CVCO** | CAVCO INDUSTRIES, INC. | A | $585.13 | $418.93 | $209.46 | $447.82 | $301.45 | 1.40 | 14% | 18% | 14/15 | next report ~2026-10-30 |
+| 62 | **ISRG** | Intuitive Surgical, Inc. | A | $391.95 | $261.60 | $130.80 | $141.90 | $89.89 | 1.50 | 15% | 13% | 14/15 | -35% off 52w high; next report ~2026-10-20 |
+| 63 | **ROST** | Ross Stores, Inc. | A | $228.54 | $180.50 | $90.25 | $130.22 | $87.10 | 1.27 | 14% | 25% | 12/15 | 8-K: 2026-09-17: 5.02 Director/officer change; 7.01 Reg FD disclosure; next report ~2026-12-01 |
+| 64 | **CRVL** | CORVEL CORPORATION | A | $75.47 | $52.48 | $26.24 | $32.82 | $22.35 | 1.44 | 13% | 30% | 13/14 | 8-K: 2026-08-05: 2.02 Earnings release; next report ~2026-11-05 ⚠ bank/insurer: OCF & debt tests less meaningful |
+| 65 | **IBKR** | INTERACTIVE BROKERS GROUP, INC | A | $88.30 | $55.50 | $27.75 | $536.75 | $354.27 | 1.59 | 14% | 16% | 14/15 | insider buying (3 Form 4s, $0.01M); next report ~2026-11-05 |
+| 66 | **ESEA** | EUROSEAS LTD. | A | $72.42 | $47.89 | $23.94 | $313.43 | $198.55 | 1.51 | 15% | 24% | 12/15 | insider buying (2 Form 4s, $0.09M); next report ~2026-10-07 ⚠ PE<5: check one-off gains;foreign filer/ADR: verify ADR ratio & reporting currency;micro-cap |
+| 67 | **FN** | FABRINET | A | $463.69 | $276.01 | $138.01 | $1.84 | $1.16 | 1.68 | 15% | 16% | 14/15 | -38% off 52w high; 8-K: 2026-08-17: 1.01 Material agreement; 2.02 Earnings release; 2.03 New debt obligation; 5.02 Direc |
+| 68 | **QLYS** | Qualys, Inc. | A | $193.00 | $125.32 | $62.66 | $127.92 | $88.81 | 1.54 | 13% | 31% | 14/15 | 8-K: 2026-08-04: 2.02 Earnings release; next report ~2026-11-03 |
+| 69 | **NXT** | Nextpower Inc. | A | $84.30 | $49.14 | $24.57 | $55.83 | $35.37 | 1.72 | 15% | 33% | 8/9 | -48% off 52w high; next report ~2026-11-02 |
+| 70 | **UTHR** | United Therapeutics Corporatio | A | $541.70 | $354.13 | $177.07 | $350.05 | $235.05 | 1.53 | 14% | 15% | 13/15 | 8-K: 2026-09-08: 1.01 Material agreement; 7.01 Reg FD disclosure; next report ~2026-11-04 |
+| 71 | **WTS** | WATTS WATER TECHNOLOGIES INC | A | $363.07 | $241.23 | $120.62 | $148.93 | $104.30 | 1.51 | 13% | 15% | 12/15 | 8-K: 2026-10-01: 5.02 Director/officer change; next report ~2026-11-05 |
+| 72 | **IRMD** | IRADIMED CORPORATION | A | $85.40 | $53.70 | $26.85 | $30.81 | $19.52 | 1.59 | 15% | 19% | 12/15 | -21% off 52w high; next report ~2026-10-30 |
+| 73 | **VITL** | Vital Farms, Inc. | A | $9.06 | $0.11 | $0.05 | – | – | 84.34 | 15% | 10% | 10/11 | -80% off 52w high; neg 8-K: 2026-08-06: Agreement terminated; next report ~2026-11-05 ⚠ micro-cap |
+| 74 | **IESC** | IES Holdings, Inc. | A | $339.34 | $185.19 | $92.59 | $89.30 | $56.57 | 1.83 | 15% | 25% | 15/15 | 8-K: 2026-08-11: 1.01 Material agreement; 3.02 Unregistered equity sale; 7.01 Reg FD disclosure; next report ~2026-10-30 |
+| 75 | **URI** | United Rentals, Inc. | A | $1,081.04 | $675.77 | $337.89 | $287.78 | $182.31 | 1.60 | 15% | 13% | 12/15 | 8-K: 2026-09-08: 7.01 Reg FD disclosure; next report ~2026-10-21 |
+| 76 | **HWKN** | HAWKINS, INC. | A | $131.41 | $55.67 | $27.83 | $63.21 | $43.97 | 2.36 | 13% | 14% | 14/15 | -29% off 52w high; insider buying (2 Form 4s, $0.26M); 8-K: 2026-08-14: 5.02 Director/officer change; next report ~2026- |
+| 77 | **HEI** | HEICO CORPORATION | A | $302.45 | $160.00 | $80.00 | $111.36 | $73.01 | 1.89 | 14% | 12% | 15/15 | 8-K: 2026-08-25: 2.02 Earnings release; next report ~2026-11-26 |
+| 78 | **MYRG** | MYR GROUP INC. | A | $304.77 | $147.14 | $73.57 | $158.05 | $123.07 | 2.07 | 10% | 13% | 13/14 | -39% off 52w high; 8-K: 2026-09-10: 1.01 Material agreement; 2.03 New debt obligation; next report ~2026-10-28 |
+| 79 | **STRL** | STERLING INFRASTRUCTURE, INC. | A | $533.42 | $197.60 | $98.80 | $244.58 | $154.93 | 2.70 | 15% | 17% | 13/15 | -47% off 52w high; next report ~2026-11-03 |
+| 80 | **KLAC** | KLA Corporation | A | $206.89 | $89.63 | $44.81 | $45.06 | $28.55 | 2.31 | 15% | 37% | 14/15 | -33% off 52w high; 8-K: 2026-08-06: 8.01 Other event; next report ~2026-10-15 |
+| 81 | **VCTR** | Victory Capital Holdings, Inc. | A | $113.23 | $63.04 | $31.52 | $139.90 | $88.63 | 1.80 | 15% | 14% | 12/15 | 8-K: 2026-09-11: 8.01 Other event; next report ~2026-11-05 |
+| 82 | **ANET** | Arista Networks, Inc. | A | $207.35 | $12.55 | $6.27 | $63.83 | $40.44 | 16.53 | 15% | 25% | 15/15 | 8-K: 2026-08-04: 2.02 Earnings release; next report ~2026-11-04 |
+| 83 | **CLBT** | Cellebrite DI Ltd. | A | $11.07 | $4.23 | $2.11 | $10.13 | $6.42 | 2.62 | 15% | 26% | 9/11 | -45% off 52w high; next report ~2026-11-10 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 84 | **CDNS** | CADENCE DESIGN SYSTEMS, INC. | A | $351.35 | $128.70 | $64.35 | $82.46 | $52.24 | 2.73 | 15% | 26% | 14/15 | next report ~2026-10-28 |
+| 85 | **LRCX** | LAM RESEARCH CORPORATION | A | $347.49 | $128.14 | $64.07 | $61.23 | $38.79 | 2.71 | 15% | 38% | 13/15 | -21% off 52w high; 8-K: 2026-08-27: 5.02 Director/officer change; next report ~2026-10-16 |
+| 86 | **ESLT** | ELBIT SYSTEMS LTD | A | $696.23 | $181.60 | $90.80 | $156.36 | $117.82 | 3.83 | 11% | 12% | 12/15 | -31% off 52w high; next report ~2026-11-24 ⚠ foreign filer/ADR: verify ADR ratio & reporting currency |
+| 87 | **MPWR** | Monolithic Power Systems, Inc. | A | $1,439.73 | $491.70 | $245.85 | $187.68 | $118.89 | 2.93 | 15% | 20% | 13/15 | 8-K: 2026-09-10: 8.01 Other event; next report ~2026-11-04 |
+| 88 | **AMAT** | APPLIED MATERIALS INC /DE | A | $540.04 | $234.91 | $117.45 | $111.09 | $70.38 | 2.30 | 15% | 31% | 12/15 | -27% off 52w high; 8-K: 2026-08-27: 5.02 Director/officer change; 7.01 Reg FD disclosure; next report ~2026-11-19 |
+| 89 | **SCCO** | SOUTHERN COPPER CORP/ | A | $205.54 | $98.33 | $49.17 | $79.91 | $61.79 | 2.09 | 11% | 23% | 12/15 | next report ~2026-10-30 |
+
+### Legend
+* **Tier A**: ≥80% of Big Five tests ≥10% (sales, EPS, BVPS, OCF growth over 10/5/1y; ROIC), every ROIC window ≥10%, long-term debt payable from ≤3 years of FCF. **B**: ≥67% and ROIC ≥10%. **C**: ≥60%.
+* **Sticker** = TTM EPS × (1+g)^10 × min(2g×100, 10y median P/E) ÷ 1.15^10. g = min(median EPS growth, max(median BVPS growth, median sales growth), 15%) over 10y/5y windows. **MOS (Buy)** = 50% of Sticker. Automated g has no analyst haircut: treat Sticker as an upper bound and see `reports/` for adjusted values.
+* **Payback** = price at which 8 years of FCF growing at g repays the purchase. **Ten Cap** = 10 × TTM FCF per share.
+* **Events**: drawdown from 52-week high, Form 4 open-market insider purchases (120d), SC 13D (180d), 8-K items (60d), estimated next report date.

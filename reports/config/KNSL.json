@@ -1,0 +1,14 @@
+{"ticker": "KNSL",
+ "peers": ["RLI", "WRB", "MKL", "PLMR", "SKWD", "ACGL"],
+ "forward_eps": {"KNSL": 21.52, "WRB": 5.11},
+ "size_premium": 0.005,
+ "dcf": {
+   "_why": "E&S softening: 2027 growth ~4% (Q2-26 GWP -5%, ex-property +3.7%), re-accelerating to low double digits as the cycle turns, fading to 5%. Pre-tax margin TTM ~35% (combined ratio ~75) fades to 27% (combined ratio ~82, still best-in-class). Capital need ~50% of incremental revenue (E&S carriers run lower leverage).",
+   "growth": [0.04, 0.08, 0.11, 0.12, 0.11, 0.10, 0.08, 0.07, 0.06, 0.05],
+   "margin_start": 0.33, "margin_end": 0.27,
+   "da_start": 0.01, "da_end": 0.01, "capex_start": 0.01, "capex_end": 0.01,
+   "nwc_pct": 0.50, "terminal_growth": 0.03, "exit_multiple": 11.0},
+ "ddm": {"g1": 0.12, "g2": 0.04, "years": 10},
+ "rule1_growth": 0.13,
+ "_why_rule1_growth": "Data says 15% cap (5y BVPS 27%, EPS 41%). Haircut to 13% for a softening E&S market and consensus 2027 EPS growth of only ~2%."
+}

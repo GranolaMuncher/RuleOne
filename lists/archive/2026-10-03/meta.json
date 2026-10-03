@@ -1,0 +1,18 @@
+{
+  "run_date": "2026-10-03",
+  "generated_utc": "2026-10-03T10:20:09.524083+00:00",
+  "universe": 5774,
+  "with_data": 4602,
+  "stage1": 270,
+  "valued": 262,
+  "price_date": "2026-10-02",
+  "params": {
+    "min_score": 0.6,
+    "min_revenue": 50000000.0,
+    "min_mcap": 300000000.0,
+    "limit": 0,
+    "tickers": "",
+    "no_events": false,
+    "first_year": 2012
+  }
+}

@@ -1,0 +1,17 @@
+{"ticker": "PGR",
+ "peers": ["ALL", "TRV", "CB", "HIG", "CINF", "WRB"],
+ "forward_eps": {"PGR": 16.39, "CB": 28.14, "WRB": 5.11},
+ "_why_beta": "5y regression beta 0.24 is unrepresentative of underwriting-cycle risk; use P&C industry beta ~0.80",
+ "beta": 0.80,
+ "pre_tax_cost_of_debt": 0.058,
+ "dcf": {
+   "_why": "Revenue = premiums earned + investment income. 'EBIT margin' = pre-tax margin: TTM 16.6% is a cycle peak (combined ratio ~87); fades to 10.5%, roughly PGR's through-cycle average and consistent with its 96 combined-ratio target plus ~4-5% investment margin. Growth slows in the soft market then normalises. Reinvestment = statutory capital needed at ~3:1 premium-to-surplus, i.e. 30% of each new revenue dollar.",
+   "growth": [0.05, 0.07, 0.08, 0.08, 0.07, 0.065, 0.06, 0.05, 0.045, 0.04],
+   "margin_start": 0.13, "margin_end": 0.105,
+   "da_start": 0.004, "da_end": 0.004, "capex_start": 0.004, "capex_end": 0.004,
+   "nwc_pct": 0.30, "terminal_growth": 0.03, "exit_multiple": 10.0},
+ "ddm": {"_why": "PGR pays a small fixed quarterly dividend plus a large variable annual dividend from excess capital; D0 = 3-yr average total DPS (FY23-25) to normalise lumpy specials",
+         "d0": 6.65, "g1": 0.07, "g2": 0.035, "years": 10},
+ "rule1_growth": 0.12,
+ "_why_rule1_growth": "Data-driven windage hits the 15% cap; consensus has EPS falling in 2026-27 (soft market). Use 12% = below 10y BVPS growth (15.3%) and 5y BVPS growth (12.2%)."
+}

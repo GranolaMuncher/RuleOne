@@ -1,0 +1,88 @@
+import math
+
+from ruleone.companyfacts import annual_series, ttm
+from ruleone.metrics import big_five, growth, normalize_splits, roic, windage_growth
+from ruleone.universe import _is_common
+from ruleone.valuation import (DCFInputs, dcf, gordon, payback_price, sticker_price, ten_cap_price,
+                               two_stage_ddm)
+
+
+def test_growth():
+    assert math.isclose(growth(100, 200, 1), 1.0)
+    assert math.isclose(growth(100, 259.37424601, 10), 0.10, rel_tol=1e-6)
+    assert growth(-1, 5, 5) is None and growth(5, None, 5) is None
+
+
+def test_sticker_price_matches_rule_one_book_example():
+    # EPS 1, g 10%: future EPS 2.594, PE min(20, 25)=20 -> 51.87 / 1.15^10 = 12.82
+    s = sticker_price(1.0, 0.10, 25)
+    assert math.isclose(s["future_pe"], 20)
+    assert math.isclose(s["sticker"], 2.5937424601 * 20 / 1.15 ** 10, rel_tol=1e-9)
+    assert math.isclose(s["mos_price"], s["sticker"] / 2)
+    assert sticker_price(-1, 0.1, 20) is None
+
+
+def test_payback_and_ten_cap():
+    assert math.isclose(payback_price(100, 100, 0.0), 8.0)
+    assert math.isclose(ten_cap_price(50, 100), 5.0)
+
+
+def test_dcf_perpetuity_and_exit_consistency():
+    n = 5
+    inp = DCFInputs(revenue0=1000, growth=[0.0] * n, ebit_margin=[0.2] * n, tax_rate=0.25, da_pct=[0.05] * n,
+                    capex_pct=[0.05] * n, nwc_pct_of_delta_rev=0.0, wacc=0.10, terminal_growth=0.0,
+                    exit_multiple=6.0, net_debt=0, shares=1, mid_year=False)
+    r = dcf(inp)
+    # flat FCF of 150 forever at 10% = 1500
+    assert math.isclose(r.ev_perpetuity, 1500, rel_tol=1e-9)
+    assert math.isclose(r.implied_exit_multiple_from_perp, 1500 / 250)
+    assert math.isclose(r.implied_growth_from_exit, 0.0, abs_tol=1e-9)
+
+
+def test_ddm():
+    assert math.isclose(gordon(1.0, 0.04, 0.09), 1.04 / 0.05)
+    two = two_stage_ddm(1.0, 0.04, 5, 0.04, 0.09)["value"]
+    assert math.isclose(two, gordon(1.0, 0.04, 0.09), rel_tol=1e-9)
+
+
+def test_split_normalization():
+    years = {2019: {"shares": 100, "eps": 10.0, "net_income": 1000},
+             2020: {"shares": 98, "eps": 11.0, "net_income": 1078},
+             2021: {"shares": 1960, "eps": 0.6, "net_income": 1176}}   # 20:1 split
+    out = normalize_splits(years)
+    assert math.isclose(out[2019]["eps"], 0.5) and math.isclose(out[2020]["eps"], 0.55)
+    assert out[2021]["eps"] == 0.6
+
+
+def test_big_five_and_windage():
+    years = {}
+    for i, y in enumerate(range(2015, 2026)):
+        k = 1.12 ** i
+        years[y] = {"end": f"{y}-12-31", "revenue": 100 * k, "eps": 1 * k, "shares": 10, "equity": 50 * k,
+                    "ocf": 20 * k, "capex": 5 * k, "op_income": 30 * k, "pretax": 30 * k, "tax": 6 * k,
+                    "net_income": 24 * k, "lt_debt": 10}
+    b = big_five(years)
+    assert b["tests_passed"] == b["tests_total"] == 15
+    assert math.isclose(windage_growth(b), 0.12, rel_tol=1e-9)
+    assert roic({"equity": 100, "lt_debt": 0, "op_income": 10, "pretax": 10, "tax": 2}) == 0.08
+
+
+def test_ttm_and_annual():
+    ents = [{"start": "2024-01-01", "end": "2024-12-31", "val": 100, "filed": "2025-02-01"},
+            {"start": "2024-01-01", "end": "2024-06-30", "val": 45, "filed": "2024-08-01"},
+            {"start": "2025-01-01", "end": "2025-06-30", "val": 60, "filed": "2025-08-01"},
+            {"start": "2023-01-01", "end": "2023-12-31", "val": 90, "filed": "2024-02-01"}]
+    assert ttm(ents) == (115, "2025-06-30")
+    assert annual_series(ents) == {"2023-12-31": 90, "2024-12-31": 100}
+
+
+def test_ticker_filter():
+    assert _is_common("BRK-B") and _is_common("AAPL")
+    assert not _is_common("BAC-PL") and not _is_common("ETI-P") and not _is_common("ABCDW")
+
+
+def test_post_filing_split():
+    from ruleone.metrics import post_filing_split
+    assert post_filing_split(32e6, 800e6) == 25.0
+    assert post_filing_split(100e6, 97e6) == 1.0
+    assert post_filing_split(None, 5) == 1.0

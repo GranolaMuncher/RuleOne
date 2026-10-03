@@ -1,0 +1,13 @@
+{"ticker": "ADBE",
+ "peers": ["INTU", "CRM", "NOW", "ADSK", "PTC", "WDAY"],
+ "forward_eps": {"ADBE": 26.41},
+ "_fwd_note": "ADBE forward EPS is FY2027 (Nov-27) non-GAAP consensus; GAAP is ~25% lower",
+ "dcf": {
+   "_why": "FY26 guide implies ~11-12% growth; ARR $27.5B. Model fades from 10% to 4% as generative-AI tools pressure seat pricing at the low end. GAAP operating margin (SBC treated as a real expense) 36% TTM, eased to 33% by year 10 for AI compute costs and freemium mix. Adobe runs negative working capital (deferred revenue), so ΔNWC = 0.",
+   "growth": [0.10, 0.09, 0.085, 0.08, 0.07, 0.065, 0.06, 0.05, 0.045, 0.04],
+   "margin_start": 0.36, "margin_end": 0.33,
+   "capex_start": 0.01, "capex_end": 0.015,
+   "nwc_pct": 0.0, "terminal_growth": 0.03, "exit_multiple": 14.0},
+ "rule1_growth": 0.10,
+ "_why_rule1_growth": "Data-driven 15% (EPS 10y 29.7%) is backward-looking; consensus FY27 non-GAAP EPS growth ~8%, revenue ~9-10%. BVPS growth is ~0% because of buybacks. Use 10%."
+}
