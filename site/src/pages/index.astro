@@ -1,0 +1,48 @@
+---
+import Base from "../layouts/Base.astro";
+import ScreenView from "../components/ScreenView.astro";
+import { loadRun, loadReports } from "../lib/data";
+
+const { lists, meta } = loadRun();
+const reports = loadReports().filter((r) => r.kind !== "model");
+const weekly = reports.find((r) => r.kind === "weekly");
+const dives = reports.filter((r) => r.kind === "deep-dive").slice(0, 4);
+---
+<Base title="RuleOne">
+  <h1>Rule #1 screen of every NYSE &amp; Nasdaq stock</h1>
+  <p class="muted lead">
+    Run {meta.run_date ?? "–"}, prices as of {meta.price_date ?? "–"}. Wonderful businesses (Phil Town's Big Five)
+    valued with Sticker Price, a 50% margin of safety, Payback Time and Ten Cap, plus the events that create bargains.
+    Automated Stickers use history-based growth with no analyst haircut, so treat them as upper bounds.
+    The <a href="/reports/">research</a> pages apply judgement.
+  </p>
+
+  {(weekly || dives.length > 0) && (
+    <div class="research">
+      {weekly && (
+        <a class="panel card" href={`/reports/${weekly.slug}/`}>
+          <span class="chip ONDECK">Weekly scout</span>
+          <strong>{weekly.title}</strong>
+          <span class="muted">{weekly.date}</span>
+        </a>
+      )}
+      {dives.map((r) => (
+        <a class="panel card" href={`/reports/${r.slug}/`}>
+          <span class="chip">Deep dive</span>
+          <strong>{r.title}</strong>
+          <span class="muted">{r.date}</span>
+        </a>
+      ))}
+    </div>
+  )}
+
+  <ScreenView lists={lists} meta={meta} csvBase="/data/latest/" />
+</Base>
+
+<style>
+  .lead { max-width: 860px; }
+  .research { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; margin-top: 16px; }
+  .card { display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: var(--ink); }
+  .card:hover { border-color: var(--accent); }
+  .card .chip { align-self: flex-start; }
+</style>

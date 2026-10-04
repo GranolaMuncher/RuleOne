@@ -1,0 +1,67 @@
+name: Deploy site
+
+# Builds the Astro site in site/ from lists/ and reports/ and publishes it to Cloudflare Pages.
+# Runs after the weekly job (workflow_call) and whenever results or the site change on the
+# main branches. Pushes made by the weekly job itself don't trigger `push`, hence the call.
+on:
+  workflow_call:
+  workflow_dispatch:
+  push:
+    branches: [main, claude/dazzling-knuth-dmucvz]
+    paths: ["lists/**", "reports/**", "site/**", "README.md", ".github/workflows/deploy-site.yml"]
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: deploy-site
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT || 'ruleone' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}   # latest commit, including results pushed earlier in this run
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Build
+        working-directory: site
+        run: |
+          npm ci
+          npm run build
+      - name: Check Cloudflare credentials
+        id: cf
+        run: |
+          if [ -z "$CF_TOKEN" ] || [ -z "$CF_ACCOUNT" ]; then
+            echo "::warning::CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID not set; built the site but skipped deploy."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Create Pages project (first run only)
+        if: steps.cf.outputs.ok == 'true'
+        working-directory: site
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@4 pages project create "$PROJECT" --production-branch=main || true
+      - name: Deploy
+        if: steps.cf.outputs.ok == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: site
+          wranglerVersion: "4"
+          command: pages deploy dist --project-name=${{ env.PROJECT }} --branch=main --commit-dirty=true

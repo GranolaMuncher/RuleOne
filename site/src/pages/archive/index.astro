@@ -1,0 +1,36 @@
+---
+import Base from "../../layouts/Base.astro";
+import { archiveDates, loadRun, archiveDir } from "../../lib/data";
+
+const runs = archiveDates().map((date) => {
+  const { lists, meta } = loadRun(archiveDir(date));
+  return { date, meta, buy: lists.buy_range.length, alt: lists.buy_range_alt_methods.length,
+    deck: lists.on_deck.length, top: lists.buy_range.slice(0, 6).map((s) => s.ticker) };
+});
+---
+<Base title="Archive">
+  <h1>Screen archive</h1>
+  <p class="muted">Every saved run. Each one is the full screen as of that date.</p>
+  <div class="tablewrap panel">
+    <table>
+      <thead><tr><th>Run</th><th>Prices as of</th><th class="num">Buy range</th><th class="num">Payback/Ten Cap</th><th class="num">On deck</th><th>Top buy-range names</th></tr></thead>
+      <tbody>
+        {runs.map((r) => (
+          <tr>
+            <td><a href={`/archive/${r.date}/`}>{r.date}</a></td>
+            <td>{r.meta.price_date ?? "–"}</td>
+            <td class="num">{r.buy}</td><td class="num">{r.alt}</td><td class="num">{r.deck}</td>
+            <td>{r.top.map((t) => <a class="tk" href={`/stock/${t}/`}>{t}</a>)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Base>
+<style>
+  .tablewrap { overflow-x: auto; padding: 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { padding: 8px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+  th { color: var(--muted); font-size: 12px; }
+  .tk { margin-right: 8px; font-weight: 600; }
+</style>

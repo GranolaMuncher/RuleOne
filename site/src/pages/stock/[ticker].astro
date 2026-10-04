@@ -1,0 +1,154 @@
+---
+import Base from "../../layouts/Base.astro";
+import { loadRun, loadHistory, loadReports, type Stock } from "../../lib/data";
+import { usd, pct, big, mult, upside, flagClass, STATUS_LABEL } from "../../lib/format";
+
+export function getStaticPaths() {
+  const { lists } = loadRun();
+  const history = loadHistory();
+  const reports = loadReports();
+  return lists.all_candidates.map((s) => ({
+    params: { ticker: s.ticker },
+    props: {
+      stock: s,
+      history: history.get(s.ticker) ?? [],
+      reports: reports.filter((r) => r.kind !== "model" && r.body.includes(s.ticker) &&
+        new RegExp(`\\b${s.ticker.replace(/[-.]/g, "\\$&")}\\b`).test(r.body)),
+      model: reports.find((r) => r.slug === `model/${s.ticker}`),
+    },
+  }));
+}
+const { stock: s, history, reports, model } = Astro.props as {
+  stock: Stock; history: { date: string; price: number | null; sticker: number | null; mos: number | null; status: string }[];
+  reports: { slug: string; title: string; date: string }[]; model?: { slug: string };
+};
+
+const levels = [
+  ["Buy (MOS)", s.mos, "50% of Sticker"],
+  ["Ten Cap", s.tenCap, "10× owner earnings"],
+  ["Payback Time", s.payback, "8-year FCF payback"],
+  ["Sticker", s.sticker, "Rule #1 intrinsic value"],
+] as const;
+
+// Price ladder: where today's price sits against the Rule #1 levels.
+const pts = [s.price, ...levels.map((l) => l[1])].filter((v): v is number => v != null && v > 0);
+const lo = Math.min(...pts) * 0.9, hi = Math.max(...pts) * 1.05;
+const x = (v: number) => ((v - lo) / (hi - lo)) * 100;
+
+// History sparkline (only appears once the name has been in buy range / on deck across runs).
+const H = history.filter((h) => h.price != null);
+const hv = H.flatMap((h) => [h.price!, h.sticker ?? h.price!, h.mos ?? h.price!]);
+const hmin = Math.min(...hv), hmax = Math.max(...hv);
+const sx = (i: number) => (H.length < 2 ? 50 : (i / (H.length - 1)) * 100);
+const sy = (v: number) => 38 - ((v - hmin) / (hmax - hmin || 1)) * 34;
+const line = (k: "price" | "sticker" | "mos") =>
+  H.filter((h) => h[k] != null).map((h, i) => `${i ? "L" : "M"}${sx(H.indexOf(h)).toFixed(2)},${sy(h[k]!).toFixed(2)}`).join(" ");
+---
+<Base title={`${s.ticker} · ${s.name}`} description={`${s.name} Rule #1 valuation: Sticker ${usd(s.sticker)}, buy price ${usd(s.mos)}.`}>
+  <p><a href="/">← Screen</a></p>
+  <div class="head">
+    <div>
+      <h1>{s.ticker} <span class="muted name">{s.name}</span></h1>
+      <p class="muted">{s.exchange} · {s.sector || "–"} · Market cap {big(s.marketCap)} · price {usd(s.price)} on {s.priceDate}</p>
+    </div>
+    <div class="badges">
+      <span class={`chip ${s.status.replace("*", "star").replace(/\s/g, "")}`}>{STATUS_LABEL[s.status] ?? s.status}</span>
+      <span class={`chip tier ${s.tier}`}>Tier {s.tier}</span>
+    </div>
+  </div>
+  {s.flags && <p>{s.flags.split(";").filter(Boolean).map((f) => <span class={`chip ${flagClass(f)}`}>{f}</span>)}</p>}
+
+  <section class="panel ladder" aria-label="Price versus Rule #1 levels">
+    <div class="track">
+      {[...levels].filter(([, v]) => v != null && v > 0).sort((a, b) => a[1]! - b[1]!).map(([label, v], i) => (
+        <div class={`mark ${i % 2 ? "low" : ""}`} style={`left:${x(v!)}%`}><span class="tick"></span><span class="lbl">{label}<br /><b>{usd(v, 0)}</b></span></div>
+      ))}
+      {s.price && <div class="price" style={`left:${x(s.price)}%`}><span class="lbl">Price<br /><b>{usd(s.price, 0)}</b></span></div>}
+    </div>
+  </section>
+
+  <div class="grid">
+    <section class="panel">
+      <h2>Valuation</h2>
+      <table class="kv">
+        {levels.map(([label, v, note]) => (
+          <tr><th>{label} <span class="muted">{note}</span></th><td class="num">{usd(v)}</td>
+            <td class={`num ${(upside(s.price, v) ?? 0) >= 0 ? "pos" : "neg"}`}>{pct(upside(s.price, v))}</td></tr>
+        ))}
+        <tr><th>Windage growth g</th><td class="num">{pct(s.growth, 1)}</td><td></td></tr>
+        <tr><th>Future P/E (min 2g, 10y median)</th><td class="num">{mult(s.futurePe)}</td><td></td></tr>
+        <tr><th>P/E TTM · 10y median</th><td class="num">{mult(s.pe)}</td><td class="num">{mult(s.histPe)}</td></tr>
+        <tr><th>EPS TTM</th><td class="num">{usd(s.eps)}</td><td></td></tr>
+        <tr><th>FCF yield</th><td class="num">{pct(s.fcfYield, 1)}</td><td></td></tr>
+      </table>
+    </section>
+    <section class="panel">
+      <h2>Big Five <span class="muted">{s.big5Tests} tests ≥10%</span></h2>
+      <table class="kv b5">
+        <tr><th></th><th class="num">10y</th><th class="num">5y</th><th class="num">1y</th></tr>
+        <tr><th>ROIC</th>{[s.roic10, s.roic5, s.roic1].map((v) => <td class={`num ${v != null && v >= 0.1 ? "pos" : "neg"}`}>{pct(v)}</td>)}</tr>
+        {Object.entries(s.growthTable).map(([k, vals]) => (
+          <tr><th>{k} growth</th>{vals.map((v) => <td class={`num ${v != null && v >= 0.1 ? "pos" : v == null ? "" : "neg"}`}>{pct(v)}</td>)}</tr>
+        ))}
+        <tr><th>Debt payoff (yrs of FCF)</th><td class="num">{s.debtPayoff == null ? "–" : s.debtPayoff.toFixed(1)}</td><td></td><td></td></tr>
+      </table>
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2>Events</h2>
+    <p>{s.events || "No notable events detected."}</p>
+    <p class="muted">Event score {s.eventScore ?? 0} · next report ≈ {s.nextReport || "–"} ·
+      <a href={`https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${s.ticker}&type=&dateb=&owner=include&count=40`} rel="noopener">SEC filings</a></p>
+  </section>
+
+  {H.length > 1 && (
+    <section class="panel">
+      <h2>History across runs</h2>
+      <svg viewBox="0 0 100 40" preserveAspectRatio="none" class="spark" role="img" aria-label="Price, Sticker and MOS history">
+        <path d={line("sticker")} class="s-st" /><path d={line("mos")} class="s-mos" /><path d={line("price")} class="s-px" />
+      </svg>
+      <p class="legend"><span class="k px"></span>Price <span class="k st"></span>Sticker <span class="k mos"></span>Buy (MOS) · {H[0].date} → {H[H.length - 1].date}</p>
+    </section>
+  )}
+
+  {(reports.length > 0 || model) && (
+    <section class="panel">
+      <h2>Research</h2>
+      <ul>
+        {model && <li><a href={`/reports/${model.slug}/`}>Valuation model output</a></li>}
+        {reports.map((r) => <li><a href={`/reports/${r.slug}/`}>{r.title}</a> <span class="muted">{r.date}</span></li>)}
+      </ul>
+    </section>
+  )}
+</Base>
+
+<style>
+  .head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+  .name { font-weight: 500; font-size: 18px; }
+  .badges { display: flex; gap: 6px; }
+  .chip.warn { margin-right: 6px; }
+  section.panel { margin-top: 14px; }
+  section.panel h2 { margin-top: 0; font-size: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+  .grid .panel { margin-top: 14px; }
+  .kv { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .kv th, .kv td { padding: 6px 4px; border-bottom: 1px solid var(--line); text-align: left; font-weight: 500; }
+  .kv th .muted { font-weight: 400; font-size: 12px; }
+  .kv td.num { text-align: right; }
+  .ladder { padding: 56px 20px 90px; overflow: hidden; }
+  .track { position: relative; height: 4px; background: var(--line); border-radius: 2px; margin: 0 40px; }
+  .mark, .price { position: absolute; top: 0; transform: translateX(-50%); }
+  .tick { display: block; width: 2px; height: 14px; margin-top: -5px; background: var(--muted); }
+  .mark .lbl { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); font-size: 11.5px; color: var(--muted); text-align: center; white-space: nowrap; }
+  .mark.low .tick { height: 40px; }
+  .mark.low .lbl { top: 40px; }
+  .price::before { content: ""; display: block; width: 14px; height: 14px; margin-top: -5px; border-radius: 50%; background: var(--accent); }
+  .price .lbl { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); font-size: 12px; text-align: center; white-space: nowrap; color: var(--accent); }
+  .spark { width: 100%; height: 90px; }
+  .spark path { fill: none; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+  .s-px { stroke: var(--accent); } .s-st { stroke: var(--deck); stroke-dasharray: 4 3; } .s-mos { stroke: var(--buy); stroke-dasharray: 2 3; }
+  .legend { font-size: 12.5px; color: var(--muted); }
+  .k { display: inline-block; width: 14px; height: 3px; margin: 0 4px 3px 10px; vertical-align: middle; }
+  .k.px { background: var(--accent); } .k.st { background: var(--deck); } .k.mos { background: var(--buy); }
+</style>

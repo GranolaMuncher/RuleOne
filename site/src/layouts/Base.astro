@@ -1,0 +1,97 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "Rule #1 / Buffett-Munger screen of every NYSE and Nasdaq stock, rebuilt weekly from SEC filings." } = Astro.props;
+const nav = [
+  ["/", "Screen"],
+  ["/reports/", "Research"],
+  ["/archive/", "Archive"],
+  ["/about/", "Method"],
+];
+const path = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title === "RuleOne" ? title : `${title} · RuleOne`}</title>
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap bar">
+        <a class="brand" href="/"><span class="logo" aria-hidden="true">①</span> RuleOne</a>
+        <nav>
+          {nav.map(([href, label]) => (
+            <a href={href} aria-current={(href === "/" ? path === "/" : path.startsWith(href)) ? "page" : undefined}>{label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <main class="wrap"><slot /></main>
+    <footer class="wrap foot">
+      Screening output and research notes, not investment advice. Data: SEC EDGAR XBRL, Yahoo Finance.
+      Automated extraction can be wrong, so verify against the filings before acting.
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #f7f7f5; --panel: #ffffff; --ink: #1b1d1f; --muted: #5f6368; --line: #e3e3df;
+    --accent: #1f6f5c; --accent-ink: #ffffff; --buy: #1f7a4d; --buy-bg: #e3f3ea; --alt: #8a5a00; --alt-bg: #fbf0d9;
+    --deck: #2a5db0; --deck-bg: #e5edfa; --warn: #a33a2a; --warn-bg: #fae6e2; --chip: #eeeeea;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121416; --panel: #1a1d20; --ink: #e8eaed; --muted: #9aa0a6; --line: #2c3035;
+      --accent: #5cc0a3; --accent-ink: #0d1f1a; --buy: #6fd39d; --buy-bg: #183526; --alt: #f0c060; --alt-bg: #3a2e12;
+      --deck: #8ab4f8; --deck-bg: #1c2a42; --warn: #f28b7a; --warn-bg: #3d1f1a; --chip: #24282c;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  a { color: var(--accent); }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 16px; }
+  .top { background: var(--panel); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 4px 12px; min-height: 56px; flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
+  .brand { font-weight: 700; color: var(--ink); text-decoration: none; font-size: 17px; white-space: nowrap; }
+  @media (max-width: 520px) { .top { position: static; } nav { margin: 0 -10px; } }
+  .logo { color: var(--accent); }
+  nav { display: flex; gap: 4px; overflow-x: auto; }
+  nav a { color: var(--muted); text-decoration: none; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
+  nav a[aria-current="page"], nav a:hover { color: var(--ink); background: var(--chip); }
+  main { padding-top: 24px; padding-bottom: 48px; }
+  h1 { font-size: 26px; line-height: 1.2; margin: 0 0 6px; }
+  h2 { font-size: 19px; margin: 32px 0 8px; }
+  .muted { color: var(--muted); }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .chip { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600;
+    background: var(--chip); white-space: nowrap; }
+  .chip.BUY { background: var(--buy-bg); color: var(--buy); }
+  .chip.BUYstar { background: var(--alt-bg); color: var(--alt); }
+  .chip.ONDECK { background: var(--deck-bg); color: var(--deck); }
+  .chip.warn { background: var(--warn-bg); color: var(--warn); font-weight: 500; }
+  .chip.info { font-weight: 500; color: var(--muted); }
+  .tier { font-weight: 700; }
+  .tier.A { color: var(--buy); } .tier.B { color: var(--deck); } .tier.C { color: var(--muted); }
+  .pos { color: var(--buy); } .neg { color: var(--warn); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .foot { color: var(--muted); font-size: 13px; padding-bottom: 32px; }
+  .prose { max-width: 860px; }
+  .prose table { border-collapse: collapse; display: block; overflow-x: auto; font-size: 14px; margin: 12px 0; }
+  .prose th, .prose td { border: 1px solid var(--line); padding: 5px 8px; vertical-align: top; }
+  .prose th { background: var(--chip); text-align: left; }
+  .prose blockquote { margin: 12px 0; padding: 8px 14px; border-left: 3px solid var(--accent); background: var(--panel); }
+  .prose code { background: var(--chip); padding: 1px 4px; border-radius: 4px; font-size: 13px; }
+  .prose h1 { font-size: 26px; } .prose h2 { border-top: 1px solid var(--line); padding-top: 20px; }
+</style>

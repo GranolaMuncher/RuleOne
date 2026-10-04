@@ -1,0 +1,15 @@
+---
+import { marked } from "marked";
+import Base from "../../layouts/Base.astro";
+import { loadReports, rewriteLinks } from "../../lib/data";
+
+export function getStaticPaths() {
+  return loadReports().map((r) => ({ params: { slug: r.slug }, props: { report: r } }));
+}
+const { report } = Astro.props;
+const html = rewriteLinks(await marked.parse(report.body, { gfm: true }), report.slug);
+---
+<Base title={report.title}>
+  <p><a href="/reports/">← Research</a></p>
+  <article class="prose" set:html={html} />
+</Base>

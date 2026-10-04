@@ -1,0 +1,18 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import { marked } from "marked";
+import Base from "../layouts/Base.astro";
+
+const ROOT = process.env.REPO_ROOT ?? path.resolve(process.cwd(), "..");
+const readme = fs.readFileSync(path.join(ROOT, "README.md"), "utf8");
+// The repo README is the single source of truth for the methodology.
+const method = readme.slice(readme.indexOf("## Methodology"), readme.indexOf("## Running it"));
+const html = await marked.parse(method, { gfm: true });
+---
+<Base title="Method">
+  <article class="prose">
+    <h1>How the screen works</h1>
+    <Fragment set:html={html} />
+  </article>
+</Base>

@@ -1,0 +1,87 @@
+---
+import StockTable from "./StockTable.astro";
+import type { Stock, ListKey } from "../lib/data";
+
+interface Props {
+  lists: Record<ListKey, Stock[]>;
+  meta: Record<string, any>;
+  csvBase?: string;
+}
+const { lists, meta, csvBase } = Astro.props;
+const sections: { key: ListKey; title: string; blurb: string; limit?: number; status?: boolean }[] = [
+  { key: "buy_range", title: "Buy range", blurb: "Price at or below the margin-of-safety price (50% of Sticker). This is Rule #1's strict buy signal." },
+  { key: "buy_range_alt_methods", title: "Buy on Payback Time / Ten Cap", blurb: "Below Town's Payback Time or Ten Cap price but not yet below MOS. Treat with care for insurers and brokers, whose cash flow includes float.", limit: 40 },
+  { key: "on_deck", title: "On deck", blurb: "Below Sticker but above the buy price. Set alerts at the MOS price.", limit: 40 },
+  { key: "event_watch", title: "Event watch", blurb: "Tier A/B businesses with a current event: a ≥20% drawdown, insider buying, an activist 13D or a negative 8-K.", limit: 30, status: true },
+  { key: "wonderful_companies", title: "Wonderful companies (tier A)", blurb: "Every tier A business with its current valuation, whatever the price.", status: true },
+];
+const funnel = [
+  ["Listed (NYSE + Nasdaq)", meta.universe],
+  ["With SEC XBRL history", meta.with_data],
+  ["Passed Big Five screen", meta.stage1],
+  ["Fully valued", meta.valued],
+];
+---
+<div class="funnel">
+  {funnel.map(([label, v]) => (
+    <div class="stat"><div class="v">{v?.toLocaleString?.() ?? "–"}</div><div class="l">{label}</div></div>
+  ))}
+  <div class="stat hi"><div class="v">{lists.buy_range.length}</div><div class="l">In buy range</div></div>
+  <div class="stat"><div class="v">{lists.buy_range_alt_methods.length}</div><div class="l">Buy on Payback / Ten Cap</div></div>
+  <div class="stat"><div class="v">{lists.on_deck.length}</div><div class="l">On deck</div></div>
+</div>
+
+<div class="filters panel">
+  <input type="search" id="q" placeholder="Filter by ticker, name or sector…" aria-label="Filter" />
+  <fieldset aria-label="Tier">
+    {["A", "B", "C"].map((t) => (
+      <label><input type="checkbox" class="tierbox" value={t} checked /> Tier {t}</label>
+    ))}
+  </fieldset>
+  <label><input type="checkbox" id="hideflag" /> Hide micro-caps & flagged</label>
+</div>
+
+{sections.map((s) => (
+  <section id={s.key}>
+    <div class="sechead">
+      <h2>{s.title} <span class="count">{lists[s.key].length}</span></h2>
+      {csvBase && <a class="dl" href={`${csvBase}${s.key}.csv`} download>CSV</a>}
+    </div>
+    <p class="muted blurb">{s.blurb}</p>
+    <StockTable rows={lists[s.key]} id={`t-${s.key}`} limit={s.limit} showStatus={s.status} />
+  </section>
+))}
+
+<style>
+  .funnel { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin: 18px 0; }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+  .stat .v { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stat .l { color: var(--muted); font-size: 12.5px; }
+  .stat.hi { background: var(--buy-bg); border-color: transparent; }
+  .stat.hi .v { color: var(--buy); }
+  .filters { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; padding: 10px 14px; position: sticky; top: 64px; z-index: 4; }
+  .filters input[type="search"] { flex: 1 1 240px; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--bg); color: var(--ink); font: inherit; }
+  fieldset { border: 0; padding: 0; margin: 0; display: flex; gap: 12px; }
+  label { font-size: 13.5px; color: var(--muted); white-space: nowrap; }
+  .sechead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .count { color: var(--muted); font-weight: 500; font-size: 15px; }
+  .dl { font-size: 13px; }
+  .blurb { margin: 0 0 10px; font-size: 13.5px; max-width: 820px; }
+</style>
+
+<script>
+  const q = document.getElementById("q") as HTMLInputElement;
+  const boxes = [...document.querySelectorAll<HTMLInputElement>(".tierbox")];
+  const hideflag = document.getElementById("hideflag") as HTMLInputElement;
+  function apply() {
+    const term = q.value.trim().toLowerCase();
+    const tiers = new Set(boxes.filter((b) => b.checked).map((b) => b.value));
+    document.querySelectorAll<HTMLTableRowElement>("table.stocks tbody tr").forEach((tr) => {
+      const flagged = !!tr.querySelector(".chip.warn");  // info chips (currency/ADR notes) don't hide
+      tr.hidden = !tiers.has(tr.dataset.tier ?? "") || (!!term && !(tr.dataset.search ?? "").includes(term)) ||
+        (hideflag.checked && flagged);
+    });
+  }
+  [q, hideflag, ...boxes].forEach((el) => el.addEventListener("input", apply));
+</script>

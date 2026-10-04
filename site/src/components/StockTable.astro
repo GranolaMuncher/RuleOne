@@ -1,0 +1,111 @@
+---
+import type { Stock } from "../lib/data";
+import { usd, pct, big, flagClass } from "../lib/format";
+
+interface Props {
+  rows: Stock[];
+  id: string;
+  limit?: number;
+  showStatus?: boolean;
+}
+const { rows, id, limit, showStatus = false } = Astro.props;
+const shown = limit ? rows.slice(0, limit) : rows;
+const statusClass = (s: string) => s.replace("*", "star").replace(/\s/g, "");
+---
+{shown.length === 0 ? (
+  <p class="muted">None this run.</p>
+) : (
+  <div class="tablewrap">
+    <table class="stocks" data-sortable id={id}>
+      <thead>
+        <tr>
+          <th data-key="ticker">Ticker</th>
+          {showStatus && <th data-key="status">Status</th>}
+          <th data-key="tier" title="A ≥80% Big Five, ROIC ≥10% every window, debt ≤3y FCF">Tier</th>
+          <th class="num" data-key="price" data-type="num">Price</th>
+          <th class="num" data-key="mos" data-type="num" title="Margin-of-safety buy price = 50% of Sticker">Buy (MOS)</th>
+          <th class="num" data-key="sticker" data-type="num">Sticker</th>
+          <th class="num" data-key="pts" data-type="num" title="Price ÷ Sticker (lower is cheaper)">P/Stk</th>
+          <th class="num" data-key="payback" data-type="num" title="8-year Payback Time price">Payback</th>
+          <th class="num" data-key="tencap" data-type="num" title="10× owner earnings per share">Ten Cap</th>
+          <th class="num" data-key="growth" data-type="num" title="Windage growth used for Sticker">g</th>
+          <th class="num" data-key="roic" data-type="num">ROIC 5y</th>
+          <th class="num" data-key="b5" data-type="num">Big 5</th>
+          <th class="num" data-key="mcap" data-type="num">Mkt cap</th>
+          <th data-key="events">Events / flags</th>
+        </tr>
+      </thead>
+      <tbody>
+        {shown.map((s) => (
+          <tr data-tier={s.tier} data-search={`${s.ticker} ${s.name} ${s.sector}`.toLowerCase()}>
+            <td data-v={s.ticker}><a href={`/stock/${s.ticker}/`} class="tk">{s.ticker}</a><div class="nm">{s.name}</div></td>
+            {showStatus && <td data-v={s.status}><span class={`chip ${statusClass(s.status)}`}>{s.status}</span></td>}
+            <td data-v={s.tier}><span class={`tier ${s.tier}`}>{s.tier}</span></td>
+            <td class="num" data-v={s.price ?? ""}>{usd(s.price)}</td>
+            <td class="num" data-v={s.mos ?? ""}><strong>{usd(s.mos)}</strong></td>
+            <td class="num" data-v={s.sticker ?? ""}>{usd(s.sticker)}</td>
+            <td class="num" data-v={s.priceToSticker ?? ""}>{s.priceToSticker == null ? "–" : s.priceToSticker.toFixed(2)}</td>
+            <td class="num" data-v={s.payback ?? ""}>{usd(s.payback)}</td>
+            <td class="num" data-v={s.tenCap ?? ""}>{usd(s.tenCap)}</td>
+            <td class="num" data-v={s.growth ?? ""}>{pct(s.growth)}</td>
+            <td class="num" data-v={s.roic5 ?? ""}>{pct(s.roic5)}</td>
+            <td class="num" data-v={s.big5Score ?? ""}>{s.big5Tests}</td>
+            <td class="num" data-v={s.marketCap ?? ""}>{big(s.marketCap)}</td>
+            <td class="ev" data-v={s.eventScore ?? 0}>
+              {s.events && <span>{s.events}</span>}
+              {s.flags && s.flags.split(";").filter(Boolean).map((f) => <span class={`chip ${flagClass(f)}`}>{f}</span>)}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}
+{limit && rows.length > limit && <p class="muted more">Showing {limit} of {rows.length}. Full list in the CSV download.</p>}
+
+<style>
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th, td { padding: 7px 9px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { position: sticky; top: 0; background: var(--panel); text-align: left; font-size: 12px; color: var(--muted);
+    font-weight: 600; cursor: pointer; user-select: none; white-space: nowrap; }
+  th.num { text-align: right; }
+  th[aria-sort="ascending"]::after { content: " ▲"; } th[aria-sort="descending"]::after { content: " ▼"; }
+  tbody tr:hover { background: var(--chip); }
+  tr:last-child td { border-bottom: 0; }
+  .tk { font-weight: 700; text-decoration: none; }
+  .nm { color: var(--muted); font-size: 12px; max-width: 190px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ev { min-width: 260px; max-width: 420px; color: var(--muted); font-size: 12.5px; }
+  .ev .chip { margin: 3px 4px 0 0; white-space: normal; }
+  .more { font-size: 13px; }
+  tr[hidden] { display: none; }
+</style>
+
+<script>
+  function setup(table: HTMLTableElement) {
+    if (table.dataset.ready) return;
+    table.dataset.ready = "1";
+    const tbody = table.tBodies[0];
+    table.querySelectorAll<HTMLTableCellElement>("th").forEach((th, col) => {
+      th.addEventListener("click", () => {
+        const numeric = th.dataset.type === "num";
+        const asc = th.getAttribute("aria-sort") !== "ascending";
+        table.querySelectorAll("th").forEach((h) => h.removeAttribute("aria-sort"));
+        th.setAttribute("aria-sort", asc ? "ascending" : "descending");
+        const rows = [...tbody.rows];
+        rows.sort((a, b) => {
+          const va = a.cells[col].dataset.v ?? "";
+          const vb = b.cells[col].dataset.v ?? "";
+          if (numeric) {
+            const na = va === "" ? Infinity : Number(va);
+            const nb = vb === "" ? Infinity : Number(vb);
+            return asc ? na - nb : (nb === Infinity ? -Infinity : nb) - (na === Infinity ? -Infinity : na);
+          }
+          return asc ? va.localeCompare(vb) : vb.localeCompare(va);
+        });
+        rows.forEach((r) => tbody.appendChild(r));
+      });
+    });
+  }
+  document.querySelectorAll<HTMLTableElement>("table[data-sortable]").forEach(setup);
+</script>

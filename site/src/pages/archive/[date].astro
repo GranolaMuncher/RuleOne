@@ -1,0 +1,17 @@
+---
+import Base from "../../layouts/Base.astro";
+import ScreenView from "../../components/ScreenView.astro";
+import { archiveDates, archiveDir, loadRun } from "../../lib/data";
+
+export function getStaticPaths() {
+  return archiveDates().map((date) => ({ params: { date } }));
+}
+const { date } = Astro.params;
+const { lists, meta } = loadRun(archiveDir(date!));
+---
+<Base title={`Screen ${date}`}>
+  <p><a href="/archive/">← Archive</a></p>
+  <h1>Screen of {date}</h1>
+  <p class="muted">Prices as of {meta.price_date ?? "–"}.</p>
+  <ScreenView lists={lists} meta={meta} csvBase={`/data/${date}/`} />
+</Base>

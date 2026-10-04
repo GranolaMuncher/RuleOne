@@ -1,0 +1,33 @@
+---
+import Base from "../../layouts/Base.astro";
+import { loadReports } from "../../lib/data";
+
+const reports = loadReports();
+const groups = [
+  ["weekly", "Weekly scout memos", "Research written each week on the names in or near buy range."],
+  ["deep-dive", "Deep dives", "Full DCF, comps, DDM and Rule #1 assessments with stated assumptions."],
+  ["model", "Model output", "The raw output of the valuation engine (`python -m ruleone.deepdive`) behind each deep dive."],
+] as const;
+---
+<Base title="Research">
+  <h1>Research</h1>
+  {groups.map(([kind, title, blurb]) => {
+    const items = reports.filter((r) => r.kind === kind);
+    return items.length > 0 && (
+      <section>
+        <h2>{title}</h2>
+        <p class="muted">{blurb}</p>
+        <ul class="list">
+          {items.map((r) => (
+            <li class="panel"><a href={`/reports/${r.slug}/`}>{r.title}</a> {r.date && <span class="muted">· {r.date}</span>}</li>
+          ))}
+        </ul>
+      </section>
+    );
+  })}
+</Base>
+<style>
+  .list { list-style: none; padding: 0; display: grid; gap: 8px; max-width: 860px; }
+  .list li { padding: 10px 14px; }
+  .list a { font-weight: 600; text-decoration: none; }
+</style>

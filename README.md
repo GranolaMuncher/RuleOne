@@ -2,7 +2,7 @@
 
 This repo has two parts:
 
-1. **A screener that runs on a schedule.** It scans every NYSE and Nasdaq common stock (about 5,800 SEC registrants), keeps the "wonderful companies" (Phil Town's Big Five), values each one (Sticker Price, Margin-of-Safety buy price, Payback Time, Ten Cap) and checks for **events**: drawdowns, insider buying, activist 13Ds and negative 8-Ks. It writes ranked lists to [`lists/`](lists/). A GitHub Action re-runs it after every US trading day.
+1. **A screener that runs on a schedule.** It scans every NYSE and Nasdaq common stock (about 5,800 SEC registrants), keeps the "wonderful companies" (Phil Town's Big Five), values each one (Sticker Price, Margin-of-Safety buy price, Payback Time, Ten Cap) and checks for **events**: drawdowns, insider buying, activist 13Ds and negative 8-Ks. It writes ranked lists to [`lists/`](lists/). A GitHub Action re-runs it every Saturday and publishes the results to a website (Astro + Cloudflare Pages) built from [`site/`](site/).
 2. **A deep-dive engine** (`ruleone.deepdive`). It builds a full valuation of one company from a JSON assumptions file: a 10-year DCF with both perpetuity and exit-multiple terminal values, a CAPM WACC, a sensitivity grid, a peer comps table with implied values, DDM/Gordon models and the Rule #1 prices. Finished research reports are in [`reports/`](reports/).
 
 Everything comes from free primary sources, with no API keys:
@@ -53,7 +53,9 @@ A company moves to stage 2 if it passes at least 60% of the tests it has data fo
 
 **Rank score** = 2 × Big Five pass rate + 2 × discount to Sticker + a tier bonus + 0.25 × event score.
 
-**Known limitations.** Banks and insurers do not fit the Big Five well: operating cash flow and debt mean something different for them, and ROIC is better replaced with ROE. Foreign IFRS filers (20-F) are not covered yet. Forward/analyst estimates are not part of the automated screen. The deep-dive config accepts them.
+**Foreign filers.** 20-F filers that report under US GAAP in another currency (CNY, HKD, ...) are detected from their XBRL units. Their figures are converted to USD at spot (TTM) and at fiscal-year-end rates (history), restated per ADS using the ADS ratio implied by share counts, and use Yahoo trailing EPS because they file no XBRL 10-Qs. Big Five growth is measured in the reporting currency, so FX swings do not distort it.
+
+**Known limitations.** Banks and insurers do not fit the Big Five well: operating cash flow and debt mean something different for them, and ROIC is better replaced with ROE. IFRS filers (TSM, NVO and others) are not covered yet. Forward/analyst estimates are not part of the automated screen. The deep-dive config accepts them.
 
 ## Running it
 
@@ -66,10 +68,26 @@ python -m ruleone.deepdive reports/config/MSFT.json # full valuation model -> re
 python -m pytest -q tests
 ```
 
-### Running it on a schedule
+### Weekly pipeline and website
 
-[`.github/workflows/screener.yml`](.github/workflows/screener.yml) runs Tuesday to Saturday at 11:17 UTC, after each US trading day. It commits refreshed lists, and you can also start it by hand from **Actions → Rule One screener → Run workflow**. Before the first run:
+[`.github/workflows/weekly.yml`](.github/workflows/weekly.yml) runs every **Saturday at 11:17 UTC**, after Friday's close. You can also start it from **Actions → Weekly Rule One run → Run workflow**. Each run does three things:
 
-1. Merge this branch into the default branch, since scheduled workflows only run there.
-2. Under **Settings → Secrets and variables → Actions → Variables**, add `SEC_USER_AGENT`, set to your name and email.
-3. Under **Settings → Actions → General → Workflow permissions**, allow **Read and write**.
+1. **Screen:** runs the whole-market screen and commits `lists/`.
+2. **Scout** (optional): Claude Code, through [`anthropics/claude-code-action`](https://github.com/anthropics/claude-code-action), follows [`scout/PROMPT.md`](scout/PROMPT.md). It researches the top buy-range names and writes `reports/weekly/<date>_scout.md`, and the workflow commits the memo.
+3. **Deploy:** builds the Astro site in [`site/`](site/) and publishes it to **Cloudflare Pages** through [`deploy-site.yml`](.github/workflows/deploy-site.yml). The same workflow also runs whenever `lists/`, `reports/` or `site/` change.
+
+The site has a sortable, filterable screen with CSV downloads, a page per stock with its price against the Rule #1 levels, the Big Five and its run history, plus the research reports, the archive of every run and the methodology. Preview it locally with `cd site && npm install && npm run dev`.
+
+**One-time setup** (Settings → Secrets and variables → Actions):
+
+| Kind | Name | Value |
+|---|---|---|
+| Variable | `SEC_USER_AGENT` | Your name and email. SEC requires this. |
+| Secret | `CLOUDFLARE_API_TOKEN` | A Cloudflare API token with **Account → Cloudflare Pages → Edit** |
+| Secret | `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare account ID (in the dashboard sidebar) |
+| Variable (optional) | `CLOUDFLARE_PAGES_PROJECT` | Pages project name. The default is `ruleone`, which publishes to `ruleone.pages.dev` if the name is free. |
+| Secret (optional) | `ANTHROPIC_API_KEY` **or** `CLAUDE_CODE_OAUTH_TOKEN` | Turns on the weekly Claude scout memo. Create the OAuth token with `claude setup-token`. |
+
+Also set **Settings → Actions → General → Workflow permissions** to **Read and write**. Without the Cloudflare secrets, the site still builds but the deploy step is skipped with a warning. Without a Claude secret, the scout step is skipped.
+
+The site is **public** by default. To restrict it to you, add a Cloudflare Access policy (Zero Trust → Access → Applications) for the Pages domain.
