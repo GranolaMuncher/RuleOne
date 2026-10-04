@@ -70,7 +70,8 @@ TS_URL = ("https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/financ
 
 def load_share_fallback(fetcher: Fetcher, ticker: str) -> dict:
     """Latest diluted share count / trailing EPS from Yahoo, for filers whose XBRL
-    only reports these per share class (e.g. Visa)."""
+    only reports these per share class (e.g. Visa). For ADRs Yahoo reports both
+    per ADS (share count in ADS-equivalents, EPS in the reporting currency)."""
     now = int(datetime.now(timezone.utc).timestamp())
     data = fetcher.get_json(TS_URL.format(sym=ticker, p1=now - 3 * 365 * 86400, p2=now), ttl_hours=24)
     out = {}
@@ -81,4 +82,16 @@ def load_share_fallback(fetcher: Fetcher, ticker: str) -> dict:
                 last = max(pts, key=lambda p: p["asOfDate"])
                 out[key] = last["reportedValue"]["raw"]
                 out[key + "_date"] = last["asOfDate"]
+                if key == "trailingDilutedEPS":
+                    out["eps_currency"] = last.get("currencyCode") or "USD"
     return out
+
+
+def load_fx(fetcher: Fetcher, currency: str) -> dict | None:
+    """Units of `currency` per 1 USD: spot plus 10y monthly history."""
+    if currency == "USD":
+        return {"price": 1.0, "series": []}
+    fx = load_prices(fetcher, f"{currency}=X", rng="10y", interval="1mo")
+    if not fx or not fx.get("price"):
+        return None
+    return fx

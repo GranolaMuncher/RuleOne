@@ -32,7 +32,7 @@ Balance sheet (latest): cash $0.2B, debt $0.2B, equity $2.0B; diluted shares 0.0
 | 9 | 4.2 | 6.0% | 27.7% | 0.9 | 0.0 | 0.0 | 0.1 | 0.8 | 0.4 |
 | 10 | 4.4 | 5.0% | 27.0% | 0.9 | 0.0 | 0.0 | 0.1 | 0.8 | 0.4 |
 
-PV of FCF $4.0B. Terminal value — perpetuity (g = 3.0%): TV $13.1B, PV $5.2B → EV $9.2B → **$401.72/share** (implies 10.7x terminal EBITDA). Exit multiple (11.0x EBITDA): TV $13.5B, PV $5.4B → EV $9.4B → **$408.65/share** (implies g = 3.2%). Net debt $0.0B.
+PV of FCF $4.0B. Terminal value — perpetuity (g = 3.0%): TV $13.1B, PV $5.2B → EV $9.2B → **$401.71/share** (implies 10.7x terminal EBITDA). Exit multiple (11.0x EBITDA): TV $13.5B, PV $5.4B → EV $9.4B → **$408.65/share** (implies g = 3.2%). Net debt $0.0B.
 
 Sensitivity, perpetuity method ($/share): rows WACC, columns terminal g
 

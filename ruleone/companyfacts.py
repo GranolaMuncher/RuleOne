@@ -1,10 +1,14 @@
 """Stage 2: per-company detail from the SEC companyfacts API.
 
+All money values are returned in the filer's reporting currency
+(`out["currency"]`); `ruleone.normalize` converts them to USD.
+
 Builds fiscal-year annual series from 10-K filings plus trailing-twelve-month
 (TTM) values: TTM = last FY + current YTD - prior-year YTD (from 10-Qs).
 """
 from __future__ import annotations
 
+from collections import Counter
 from datetime import date
 
 from .concepts import FLOW, INSTANT
@@ -22,9 +26,33 @@ def _days(e):
     return (_d(e["end"]) - _d(e["start"])).days
 
 
-def _entries(gaap: dict, tags, unit):
+# Tags used to decide which currency a filer reports in.
+_CURRENCY_PROBE = ("Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax", "NetIncomeLoss",
+                   "StockholdersEquity", "Assets", "NetCashProvidedByUsedInOperatingActivities")
+
+
+def reporting_currency(gaap: dict) -> str:
+    """ISO code of the currency a filer reports in.
+
+    Foreign private issuers (20-F) tag their statements in local currency and
+    often add "convenience translation" USD facts for the latest year only.
+    The reporting currency is the one with the most facts on core tags; ties
+    go to the non-USD currency, since convenience translations never outnumber
+    the primary statements.
+    """
+    counts: Counter = Counter()
+    for tag in _CURRENCY_PROBE:
+        for unit, ents in gaap.get(tag, {}).get("units", {}).items():
+            if len(unit) == 3 and unit.isalpha() and unit.isupper():
+                counts[unit] += len(ents)
+    if not counts:
+        return "USD"
+    return max(counts, key=lambda c: (counts[c], c != "USD"))
+
+
+def _entries(gaap: dict, tags, unit, currency: str = "USD"):
     """Merged fact list across alias tags; earlier tags win per (start, end)."""
-    unit = unit.replace("-per-", "/")      # frames "USD-per-shares" == facts "USD/shares"
+    unit = unit.replace("USD", currency).replace("-per-", "/")   # frames "USD-per-shares" == facts "USD/shares"
     seen, out = set(), []
     for tag in tags:
         ents = [e for e in gaap.get(tag, {}).get("units", {}).get(unit, [])
@@ -90,10 +118,11 @@ def load_company(fetcher: Fetcher, cik: int, ttl_hours: float = 24 * 3) -> dict 
         return None
     gaap = facts.get("facts", {}).get("us-gaap", {})
     dei = facts.get("facts", {}).get("dei", {})
-    out = {"name": facts.get("entityName"), "annual": {}, "ttm": {}, "latest": {}}
+    cur = reporting_currency(gaap)
+    out = {"name": facts.get("entityName"), "currency": cur, "annual": {}, "ttm": {}, "latest": {}}
     by_end: dict[str, dict] = {}
     for field, (unit, tags) in FLOW.items():
-        ents = _entries(gaap, tags, unit)
+        ents = _entries(gaap, tags, unit, cur)
         if not ents:
             continue
         for end, v in annual_series(ents).items():
@@ -111,7 +140,7 @@ def load_company(fetcher: Fetcher, cik: int, ttl_hours: float = 24 * 3) -> dict 
             out["ttm"].setdefault("_end", end)
     fy_ends = sorted(e for e, r in by_end.items() if "revenue" in r or "net_income" in r)
     for field, (unit, tags) in INSTANT.items():
-        ents = _entries(gaap, tags, unit)
+        ents = _entries(gaap, tags, unit, cur)
         if not ents:
             continue
         for end in fy_ends:

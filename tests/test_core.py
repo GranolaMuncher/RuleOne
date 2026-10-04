@@ -86,3 +86,27 @@ def test_post_filing_split():
     assert post_filing_split(32e6, 800e6) == 25.0
     assert post_filing_split(100e6, 97e6) == 1.0
     assert post_filing_split(None, 5) == 1.0
+
+
+def test_reporting_currency_ignores_convenience_usd():
+    from ruleone.companyfacts import reporting_currency
+    gaap = {"NetIncomeLoss": {"units": {"CNY": [{}] * 9, "USD": [{}] * 2}},
+            "Revenues": {"units": {"CNY": [{}] * 9, "USD": [{}] * 2}}}
+    assert reporting_currency(gaap) == "CNY"
+    assert reporting_currency({"NetIncomeLoss": {"units": {"USD": [{}]}}}) == "USD"
+    assert reporting_currency({}) == "USD"
+
+
+def test_convert_to_usd_per_ads():
+    from ruleone.normalize import convert
+    # HKD filer, 1 ADS = 8 ordinary shares -> share factor 1/8
+    row = {"revenue": 7.8e9, "eps": 10.0, "shares": 1e9, "end": "2025-12-31"}
+    out = convert(row, fx=7.8, per_share_factor=1 / 8)
+    assert math.isclose(out["revenue"], 1e9)
+    assert math.isclose(out["eps"], 10.0 / 7.8 * 8)
+    assert out["shares"] == 1e9 and out["end"] == "2025-12-31"
+
+
+def test_ads_ratio_detected_as_fractional_split():
+    from ruleone.metrics import post_filing_split
+    assert post_filing_split(1.12e9, 140e6) == 1 / 8

@@ -32,17 +32,17 @@ Balance sheet (latest): cash $4.4B, debt $6.4B, equity $11.8B; diluted shares 0.
 | 9 | 48.4 | 4.5% | 33.3% | 12.7 | 1.4 | 0.7 | 0.0 | 13.4 | 5.7 |
 | 10 | 50.3 | 4.0% | 33.0% | 13.0 | 1.5 | 0.8 | 0.0 | 13.8 | 5.3 |
 
-PV of FCF $69.2B. Terminal value — perpetuity (g = 3.0%): TV $188.4B, PV $69.3B → EV $138.5B → **$338.87/share** (implies 10.4x terminal EBITDA). Exit multiple (14.0x EBITDA): TV $253.1B, PV $93.1B → EV $162.3B → **$397.96/share** (implies g = 4.8%). Net debt $2.0B.
+PV of FCF $69.3B. Terminal value — perpetuity (g = 3.0%): TV $188.5B, PV $69.4B → EV $138.6B → **$339.12/share** (implies 10.4x terminal EBITDA). Exit multiple (14.0x EBITDA): TV $253.1B, PV $93.1B → EV $162.4B → **$398.11/share** (implies g = 4.8%). Net debt $2.0B.
 
 Sensitivity, perpetuity method ($/share): rows WACC, columns terminal g
 
 | WACC \ g | 2.0% | 2.5% | 3.0% | 3.5% | 4.0% |
 |---|---|---|---|---|---|
-| 9.5% | $361 | $375 | $392 | $411 | $433 |
-| 10.0% | $338 | $350 | $363 | $379 | $398 |
-| 10.5% | $317 | $327 | $339 | $352 | $367 |
+| 9.5% | $361 | $375 | $392 | $411 | $434 |
+| 10.0% | $338 | $350 | $364 | $379 | $398 |
+| 10.5% | $317 | $328 | $339 | $352 | $367 |
 | 11.0% | $299 | $308 | $318 | $329 | $341 |
-| 11.5% | $283 | $290 | $299 | $308 | $319 |
+| 11.5% | $283 | $291 | $299 | $308 | $319 |
 
 **Comparable companies** (TTM; forward P/E uses next-FY consensus EPS supplied in config)
 

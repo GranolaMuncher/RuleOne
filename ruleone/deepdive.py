@@ -16,8 +16,9 @@ from statistics import mean, median
 
 from .companyfacts import load_company
 from .http import Fetcher
-from .metrics import big_five, fcf, normalize_splits, windage_growth
-from .prices import beta, load_prices, load_share_fallback, price_near
+from .metrics import big_five, fcf, windage_growth
+from .normalize import normalize
+from .prices import beta, load_prices, price_near
 from .universe import load_universe
 from .valuation import (DCFInputs, WACC, dcf, dcf_sensitivity, gordon, historical_pe, payback_price,
                         sticker_price, ten_cap_price, two_stage_ddm)
@@ -30,27 +31,20 @@ def fade(start: float, end: float, n: int) -> list[float]:
 
 
 def snapshot(fetcher: Fetcher, listing, today: date) -> dict:
-    """Financials + market data used by comps and the DCF."""
+    """Financials + market data used by comps and the DCF, in USD per listed share."""
     cf = load_company(fetcher, listing.cik)
     px = load_prices(fetcher, listing.ticker)
-    t, L = cf["ttm"], cf["latest"]
+    nz = normalize(fetcher, listing, cf, today)
+    t = nz["ttm"]
     if t.get("op_income") is None and t.get("pretax") is not None:
         # insurers/financials report no operating-income line: EBIT ~= pre-tax + interest
         t["op_income"] = t["pretax"] + (t.get("interest") or 0)
-    shares = L.get("diluted_shares") if L.get("diluted_shares_date") and \
-        (today - date.fromisoformat(L["diluted_shares_date"])).days < 460 else None
-    eps = t.get("eps")
-    if not shares or not eps:
-        yf = load_share_fallback(fetcher, listing.ticker)
-        shares = shares or yf.get("quarterlyDilutedAverageShares")
-        eps = eps or yf.get("trailingDilutedEPS")
-    price = px["price"]
+    shares, eps, price = nz["shares"], nz["eps"], px["price"]
     mcap = price * shares
-    debt = (L.get("lt_debt") or 0) + (L.get("debt_current") or 0)
-    cash = L.get("cash") or 0
+    debt, cash = nz["debt"], nz["cash"]
     ebitda = (t.get("op_income") or 0) + (t.get("da") or 0)
     f = fcf(t)
-    return {"ticker": listing.ticker, "name": cf["name"], "cf": cf, "px": px, "price": price,
+    return {"ticker": listing.ticker, "name": cf["name"], "cf": cf, "nz": nz, "px": px, "price": price,
             "shares": shares, "eps_ttm": eps, "mcap": mcap, "debt": debt, "cash": cash,
             "ev": mcap + debt - cash, "ebitda": ebitda, "revenue": t.get("revenue"), "fcf": f,
             "pe_ttm": price / eps if eps and eps > 0 else None,
@@ -77,8 +71,9 @@ def run(cfg: dict, fetcher: Fetcher, today: date | None = None) -> tuple[str, di
     today = today or date.today()
     uni = {l.ticker: l for l in load_universe(fetcher).values()}
     tgt = snapshot(fetcher, uni[cfg["ticker"]], today)
-    cf, t, L = tgt["cf"], tgt["cf"]["ttm"], tgt["cf"]["latest"]
-    annual = normalize_splits(cf["annual"])
+    cf, nz = tgt["cf"], tgt["nz"]
+    t, L = nz["ttm"], nz["latest"]
+    annual = nz["annual_usd"]
     b5 = big_five(cf["annual"])
     fwd = cfg.get("forward_eps", {})
 
@@ -163,7 +158,7 @@ def run(cfg: dict, fetcher: Fetcher, today: date | None = None) -> tuple[str, di
                "history": {y: dps_hist[y] for y in ys[-11:]}}
 
     # ---------------- Rule #1
-    eps_by_end = {r["end"]: r["eps"] for r in annual.values() if r.get("eps")}
+    eps_by_end = nz["eps_by_end"]
     hpe = historical_pe(eps_by_end, lambda dd_: price_near(tgt["px"]["series"], dd_))
     g_hist = windage_growth(b5)
     g_r1 = cfg.get("rule1_growth", g_hist)
@@ -182,6 +177,9 @@ def run(cfg: dict, fetcher: Fetcher, today: date | None = None) -> tuple[str, di
 
     # ---------------- Markdown
     md = [f"### Model output: {tgt['name']} ({tgt['ticker']}), price {_m(tgt['price'],'$')} as of {tgt['px']['as_of']}\n"]
+    if nz["notes"]:
+        md.append("\n_Basis: " + "; ".join(nz["notes"]) + ". All figures USD, per listed share; "
+                  "history converted at each fiscal year-end rate._\n")
     md.append("\n**Financial snapshot** (SEC XBRL; FY = fiscal year, TTM through " + str(t.get("_end")) + ")\n\n")
     yrs = sorted(annual)[-4:]
     md.append("| Metric | " + " | ".join(f"FY{y}" for y in yrs) + " | TTM |\n|---|" + "---|" * (len(yrs) + 1) + "\n")
@@ -227,7 +225,7 @@ def run(cfg: dict, fetcher: Fetcher, today: date | None = None) -> tuple[str, di
             v = implied[k]
             md.append(f"| {lab} | {_m(v['min'],'$')} | {_m(v['median'],'$')} | {_m(v['mean'],'$')} | {_m(v['max'],'$')} |\n")
     if ddm:
-        md.append(f"\n**Dividends**: DPS history " + ", ".join(f"FY{y} ${v:.2f}" for y, v in ddm["history"].items())
+        md.append("\n**Dividends**: DPS history " + ", ".join(f"FY{y} ${v:.2f}" for y, v in ddm["history"].items())
                   + f". 5y DPS CAGR {_m(ddm['g5'],'%')}, 10y {_m(ddm['g10'],'%')}; payout {_m(ddm['payout'],'%')} of TTM EPS. "
                   f"Ke {_m(ddm['ke'],'%')}. Gordon (D0 {_m(ddm['d0'],'$')}, g {_m(ddm['g2'],'%')}): **{_m(ddm['gordon'],'$')}**; "
                   f"two-stage ({ddm['years']}y at {_m(ddm['g1'],'%')}, then {_m(ddm['g2'],'%')}): **{_m(ddm['two_stage'],'$')}**.\n")

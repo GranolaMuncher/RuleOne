@@ -22,8 +22,9 @@ from .companyfacts import load_company
 from .events import event_score, event_summary, load_events
 from .frames import load_frames
 from .http import Fetcher
-from .metrics import big_five, fcf, normalize_splits, post_filing_split, windage_growth
-from .prices import load_prices, load_share_fallback, price_near
+from .metrics import big_five, fcf, windage_growth
+from .normalize import normalize
+from .prices import load_prices, price_near
 from .universe import load_universe
 from .valuation import historical_pe, payback_price, sticker_price, ten_cap_price
 
@@ -65,37 +66,13 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
     px = load_prices(fetcher, listing.ticker)
     if not px or not px.get("price") or px.get("currency") != "USD":
         return None
-    ttm, latest = cf["ttm"], cf["latest"]
-    # diluted weighted shares match the EPS denominator and handle multi-class issuers
-    def fresh(key):      # ignore share counts not reported in the last ~15 months
-        d = latest.get(key + "_date")
-        return latest.get(key) if d and (today - date.fromisoformat(d)).days <= 460 else None
-
-    shares = fresh("diluted_shares") or fresh("shares_outstanding")
-    eps = ttm.get("eps")
-    yf = load_share_fallback(fetcher, listing.ticker)
-    split = post_filing_split(shares, yf.get("quarterlyDilutedAverageShares"))
-    if split != 1.0:                 # split after the latest filing: restate to today's share basis
-        shares *= split
-        eps = eps / split if eps else eps
-    shares = shares or yf.get("quarterlyDilutedAverageShares")
-    eps = eps or yf.get("trailingDilutedEPS")
-    # TTM EPS spliced across a split (FY pre-split + YTD post-split) is garbage:
-    # cross-check against TTM net income / current diluted shares.
-    if eps and shares and ttm.get("net_income"):
-        implied = ttm["net_income"] / shares
-        if implied > 0 and not 0.75 <= eps / implied <= 1.33:
-            eps = implied
-    annual_n = normalize_splits(cf["annual"])
-    last_sh = next((annual_n[y]["shares"] for y in sorted(annual_n, reverse=True) if annual_n[y].get("shares")), None)
-    hist_split = post_filing_split(last_sh, shares)
-    if not eps and ttm.get("net_income") and shares:
-        eps = ttm["net_income"] / shares
-    if not shares or not eps:
+    nz = normalize(fetcher, listing, cf, today)
+    if not nz:
         return None
+    ttm, shares, eps = nz["ttm"], nz["shares"], nz["eps"]
     price = px["price"]
-    mcap = price * shares if shares else None
-    eps_by_end = {r["end"]: r["eps"] / hist_split for r in annual_n.values() if r.get("eps")}
+    mcap = price * shares
+    eps_by_end = nz["eps_by_end"]
     hpe = historical_pe(eps_by_end, lambda d: price_near(px["series"], d))
     g = windage_growth(b)
     st = sticker_price(eps, g, hpe["median"]) if g else None
@@ -117,7 +94,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
         status = "NO STICKER"
     ev = load_events(fetcher, listing.cik, px, today) if with_events else {}
     rec_pe = price / eps if eps and eps > 0 else None
-    debt = (latest.get("lt_debt") or 0) + (latest.get("debt_current") or 0)
+    debt = nz["debt"]
     rec = {
         "ticker": listing.ticker, "name": cf["name"] or listing.name, "exchange": listing.exchange,
         "cik": listing.cik, "sector": ev.get("sic"), "status": status, "tier": quality_tier(b),
@@ -136,9 +113,10 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
                                  "ocf_g10", "ocf_g5", "ocf_g1")},
         "flags": ";".join(f for f, c in (
             ("PE<5: check one-off gains", rec_pe is not None and rec_pe < 5),
-            ("bank/insurer: OCF & debt tests less meaningful", any(w in (ev.get("sic") or "") for w in
-                                                                  ("Bank", "Insurance", "Savings", "Credit", "Finance"))),
-            ("foreign filer/ADR: verify ADR ratio & reporting currency", bool(ev.get("foreign_filer"))),
+            ("financial (bank/insurer/broker): OCF-based tests less meaningful", any(w in (ev.get("sic") or "") for w in
+                                                                  ("Bank", "Insurance", "Savings", "Credit", "Finance",
+                                                                   "Brokers", "Security"))),
+            ("; ".join(nz["notes"]), bool(nz["notes"])),
             ("micro-cap", mcap is not None and mcap < 1e9)) if c),
         "drawdown_52w": ev.get("drawdown_52w"), "event_score": event_score(ev) if ev else 0.0,
         "events": event_summary(ev) if ev else "", "next_report_est": ev.get("next_earnings_est"),
@@ -246,12 +224,16 @@ def write_outputs(results: list[dict], outdir: Path, meta: dict):
         (d / "README.md").write_text("".join(md))
         (d / "meta.json").write_text(json.dumps(meta, indent=2))
     hist = outdir / "history.csv"
-    new = not hist.exists()
-    with open(hist, "a", newline="") as fh:
+    header = ["run_date", "ticker", "status", "tier", "price", "sticker", "mos_price",
+              "payback_price", "ten_cap_price", "rank_score"]
+    kept = []
+    if hist.exists():   # a same-day re-run replaces that day's rows instead of duplicating them
+        with open(hist, newline="") as fh:
+            kept = [r for r in list(csv.reader(fh))[1:] if r and r[0] != today]
+    with open(hist, "w", newline="") as fh:
         w = csv.writer(fh)
-        if new:
-            w.writerow(["run_date", "ticker", "status", "tier", "price", "sticker", "mos_price",
-                        "payback_price", "ten_cap_price", "rank_score"])
+        w.writerow(header)
+        w.writerows(kept)
         for r in results:
             if r["status"] in ("BUY", "BUY*", "ON DECK"):
                 w.writerow([today, r["ticker"], r["status"], r["tier"], round(r["price"], 2),
