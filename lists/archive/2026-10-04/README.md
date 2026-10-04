@@ -1,5 +1,5 @@
 # Rule #1 Screen — 2026-10-04
-Universe: **5,774** NYSE + Nasdaq common stocks → **4,602** with SEC XBRL history → **270** passed the Big Five quality screen → **262** fully valued (USD-priced, current filings).
+Universe: **5,776** NYSE + Nasdaq common stocks → **4,602** with SEC XBRL history → **270** passed the Big Five quality screen → **262** fully valued (USD-priced, current filings).
 Prices as of 2026-10-02. Fundamentals: SEC EDGAR 10-K/10-Q XBRL (TTM through latest 10-Q).
 > Screening output, not investment advice. Automated XBRL extraction can mis-tag items; verify against the filings before acting. See `README.md` for methodology.
 
