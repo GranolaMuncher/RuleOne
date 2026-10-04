@@ -3,7 +3,7 @@ import { loadUniverse } from "../../lib/data";
 
 // Compact column-oriented feed for the All stocks page (gzip/brotli on Cloudflare keeps it small).
 export const COLS = [
-  "ticker", "name", "exchange", "sector", "status", "tier", "price", "marketCap",
+  "ticker", "name", "exchange", "sector", "industry", "status", "tier", "price", "marketCap",
   "w1", "m1", "m3", "ytd", "y1", "offHigh", "pe", "sticker", "mos", "pts", "payback", "tenCap",
   "growth", "roic5", "big5", "big5Tests", "fcfYield", "detail", "flags", "events",
 ] as const;
@@ -12,7 +12,7 @@ const r4 = (v: number | null) => (v == null ? null : Math.round(v * 10000) / 100
 
 export const GET: APIRoute = () => {
   const rows = loadUniverse().map((u) => [
-    u.ticker, u.name, u.exchange, u.sector, u.status, u.tier, r4(u.price), u.marketCap == null ? null : Math.round(u.marketCap),
+    u.ticker, u.name, u.exchange, u.sector, u.industry, u.status, u.tier, r4(u.price), u.marketCap == null ? null : Math.round(u.marketCap),
     r4(u.chg.w1), r4(u.chg.m1), r4(u.chg.m3), r4(u.chg.ytd), r4(u.chg.y1), r4(u.offHigh), r4(u.pe),
     r4(u.sticker), r4(u.mos), r4(u.priceToSticker), r4(u.payback), r4(u.tenCap),
     r4(u.growth), r4(u.roic[1]), r4(u.big5Score), u.big5Tests, r4(u.fcfYield), u.detail, u.flags, u.events,

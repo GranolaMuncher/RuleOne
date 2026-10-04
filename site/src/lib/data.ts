@@ -239,6 +239,7 @@ export interface UniverseRow {
   name: string;
   exchange: string;
   sector: string;
+  industry: string;
   detail: string; // "ttm" = detailed stage-2 analysis, "fy" = last-fiscal-year screen
   status: string;
   tier: string;
@@ -278,7 +279,7 @@ export interface UniverseRow {
 export function toUniverseRow(r: Row): UniverseRow {
   const g = (k: string) => [num(r[`${k}_g10`]), num(r[`${k}_g5`]), num(r[`${k}_g1`])];
   return {
-    ticker: r.ticker, name: r.name, exchange: r.exchange, sector: r.sector, detail: r.detail,
+    ticker: r.ticker, name: r.name, exchange: r.exchange, sector: r.sector, industry: r.industry ?? "", detail: r.detail,
     status: r.status, tier: r.tier, qualityPass: r.quality_pass === "yes",
     price: num(r.price), priceDate: r.price_date, marketCap: num(r.market_cap),
     chg: { w1: num(r.chg_1w), m1: num(r.chg_1m), m3: num(r.chg_3m), m6: num(r.chg_6m), ytd: num(r.chg_ytd), y1: num(r.chg_1y) },

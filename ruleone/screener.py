@@ -24,6 +24,7 @@ from .frames import load_frames
 from .http import Fetcher
 from .marketwide import build_universe, load_current_shares, load_spark, write_universe
 from .metrics import big_five, fcf, windage_growth
+from .sectors import refresh_reference
 from .normalize import normalize
 from .prices import load_prices, price_near
 from .universe import load_universe
@@ -306,7 +307,9 @@ def main(argv=None):
         weekly = load_spark(fetcher, tickers, "1y", "1wk", log=log)
         monthly = load_spark(fetcher, tickers, "10y", "1mo", log=log)
         shares = load_current_shares(fetcher, today)
-        rows = build_universe(universe, frames, results, weekly, monthly, shares, quality_pass, quality_tier)
+        sectors = refresh_reference(fetcher, set(universe), Path(a.out) / "reference" / "sic.csv", today, log=log)
+        rows = build_universe(universe, frames, results, weekly, monthly, shares, quality_pass, quality_tier,
+                              sectors)
         write_universe(rows, Path(a.out) / "latest", Path(a.out) / "archive" / meta["run_date"])
         meta["universe_rows"] = len(rows)
         meta["universe_priced"] = sum(1 for r in rows if r.get("price"))

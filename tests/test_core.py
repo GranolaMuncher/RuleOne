@@ -137,3 +137,16 @@ def test_normalize_keeps_negative_eps(monkeypatch):
           "latest": {"diluted_shares": 43e6, "diluted_shares_date": "2026-06-28"}}
     out = nz.normalize(None, SimpleNamespace(ticker="X"), cf, date(2026, 10, 4))
     assert out["eps"] == -0.05
+
+
+def test_sic_to_sector():
+    from ruleone.sectors import sic_to_sector
+    assert sic_to_sector("7372") == "Information Technology"     # prepackaged software
+    assert sic_to_sector(2834) == "Health Care"                  # pharma
+    assert sic_to_sector(2800) == "Materials"                    # chemicals
+    assert sic_to_sector(6331) == "Financials"                   # P&C insurance
+    assert sic_to_sector(6798) == "Real Estate"                  # REITs
+    assert sic_to_sector(3711) == "Consumer Discretionary"       # motor vehicles
+    assert sic_to_sector(4911) == "Utilities"
+    assert sic_to_sector(1311) == "Energy"
+    assert sic_to_sector("") == ""

@@ -156,6 +156,15 @@ def status_of(price, mos, payback, ten_cap, sticker) -> str:
     return "ABOVE STICKER" if sticker else "NO STICKER"
 
 
+def sector_fields(ref: dict | None) -> dict:
+    """Sector/industry columns. Filers with no SIC are almost all closed-end funds and BDCs."""
+    if not ref:
+        return {"sector": "", "industry": "", "sic": ""}
+    if not ref.get("sic"):
+        return {"sector": "Funds & BDCs", "industry": "Closed-end fund / BDC (no SIC code)", "sic": ""}
+    return {"sector": ref.get("sector", ""), "industry": ref.get("industry", ""), "sic": ref.get("sic", "")}
+
+
 def valuation_label(price, mos, sticker) -> str:
     if not price:
         return "NO PRICE"
@@ -167,7 +176,7 @@ def valuation_label(price, mos, sticker) -> str:
 
 
 UNIVERSE_COLUMNS = [
-    "ticker", "name", "exchange", "sector", "detail", "status", "tier", "quality_pass",
+    "ticker", "name", "exchange", "sector", "industry", "sic", "detail", "status", "tier", "quality_pass",
     "price", "price_date", "market_cap", "chg_1w", "chg_1m", "chg_3m", "chg_6m", "chg_ytd", "chg_1y",
     "off_high", "above_low", "high52", "low52",
     "eps", "eps_basis", "pe", "hist_pe_median", "windage_growth", "sticker", "mos_price", "price_to_sticker",
@@ -182,7 +191,7 @@ SNAPSHOT_COLUMNS = ["ticker", "price", "sticker", "mos_price", "pe", "off_high",
 
 
 def build_universe(universe: dict, frames: dict, detailed: list[dict], weekly: dict, monthly: dict,
-                   cur_shares: dict, quality_pass: set, tier_of) -> list[dict]:
+                   cur_shares: dict, quality_pass: set, tier_of, sectors: dict | None = None) -> list[dict]:
     """One row per listed stock; stage-2 rows override the FY-based numbers."""
     detail_by_ticker = {r["ticker"]: r for r in detailed}
     rows = []
@@ -212,7 +221,7 @@ def build_universe(universe: dict, frames: dict, detailed: list[dict], weekly: d
             flags.append("micro-cap")
         row = {
             "ticker": t, "name": meta.get("longName") or listing.name, "exchange": listing.exchange,
-            "sector": "", "detail": "fy", "tier": tier_of(b5) if b5.get("tests_total", 0) >= 6 else "",
+            **sector_fields((sectors or {}).get(cik)), "detail": "fy", "tier": tier_of(b5) if b5.get("tests_total", 0) >= 6 else "",
             "quality_pass": "yes" if cik in quality_pass else "", **ps, **{k: v for k, v in val.items() if k != "split_after_fy"},
             "eps_basis": f"FY{b5.get('fy')}" if b5.get("fy") else "",
             "price_to_sticker": ps["price"] / val["sticker"] if ps["price"] and val["sticker"] else None,
@@ -233,7 +242,7 @@ def build_universe(universe: dict, frames: dict, detailed: list[dict], weekly: d
             row["status"] = valuation_label(row["price"], row["mos_price"], row["sticker"])
         d = detail_by_ticker.get(t)
         if d:   # detailed TTM / ADR-normalised analysis wins
-            for k in ("sector", "status", "tier", "market_cap", "sticker", "mos_price", "payback_price",
+            for k in ("status", "tier", "market_cap", "sticker", "mos_price", "payback_price",
                       "ten_cap_price", "price_to_sticker", "windage_growth", "hist_pe_median", "fcf_yield",
                       "big5_score", "big5_tests", "events", "flags",
                       "roic10", "roic5", "roic1", "sales_g10", "sales_g5", "sales_g1", "eps_g10", "eps_g5",

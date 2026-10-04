@@ -59,7 +59,7 @@ const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
   <div class="head">
     <div>
       <h1>{u.ticker} <span class="muted name">{u.name}</span></h1>
-      <p class="muted">{u.exchange}{u.sector && ` · ${u.sector}`} · Market cap {big(u.marketCap)} · {usd(u.price)} on {u.priceDate || "–"}</p>
+      <p class="muted">{u.exchange}{u.sector && <> · <a href={`/stocks/#sector=${encodeURIComponent(u.sector)}`}>{u.sector}</a></>}{u.industry && <> · <a href={`/stocks/#sector=${encodeURIComponent(u.sector)}&industry=${encodeURIComponent(u.industry)}`}>{u.industry}</a></>} · Market cap {big(u.marketCap)} · {usd(u.price)} on {u.priceDate || "–"}</p>
     </div>
     <div class="badges">
       <span class={`chip ${statusClass}`}>{STATUS_LABEL[u.status] ?? u.status}</span>

@@ -24,9 +24,15 @@ const total = loadUniverse().length;
   </div>
 
   <form class="filters panel" id="filters" onsubmit="return false">
-    <label class="grow">Search<input type="search" name="q" placeholder="Ticker or name…" /></label>
+    <label class="grow">Search<input type="search" name="q" placeholder="Ticker, name or industry…" /></label>
     <label>Exchange
       <select name="ex"><option value="">All</option><option>NYSE</option><option>Nasdaq</option></select>
+    </label>
+    <label>Sector
+      <select name="sector"><option value="">All sectors</option></select>
+    </label>
+    <label class="wide">Industry
+      <select name="industry"><option value="">All industries</option></select>
     </label>
     <label>Status
       <select name="status">
@@ -68,6 +74,7 @@ const total = loadUniverse().length;
       <thead>
         <tr>
           <th data-k="ticker">Ticker</th>
+          <th data-k="sector">Sector</th>
           <th data-k="status">Status</th>
           <th data-k="tier">Tier</th>
           <th class="num" data-k="price">Price</th>
@@ -110,6 +117,7 @@ const total = loadUniverse().length;
   .filters { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: flex-end; padding: 12px 14px; }
   .filters label { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: var(--muted); }
   .filters label.grow { flex: 1 1 200px; }
+  .filters label.wide select { max-width: 280px; }
   .filters label.check { flex-direction: row; align-items: center; gap: 6px; font-size: 13px; padding-bottom: 6px; }
   input, select { font: inherit; font-size: 14px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line);
     background: var(--bg); color: var(--ink); min-width: 0; }
@@ -147,6 +155,8 @@ const total = loadUniverse().length;
     v == null ? "–" : v >= 1e12 ? `$${(v / 1e12).toFixed(2)}T` : v >= 1e9 ? `$${(v / 1e9).toFixed(1)}B` : `$${(v / 1e6).toFixed(0)}M`;
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
   const STATUS: Record<string, string> = { BUY: "BUY", "BUY*": "BUYstar", "ON DECK": "ONDECK" };
+  const SHORT: Record<string, string> = { "Information Technology": "Tech", "Consumer Discretionary": "Cons. disc.",
+    "Consumer Staples": "Cons. staples", "Communication Services": "Comm. services", "Health Care": "Health care" };
   const LABEL: Record<string, string> = { "BELOW MOS": "below MOS", "BELOW STICKER": "below sticker", "ABOVE STICKER": "above sticker", "NO STICKER": "–", "NO PRICE": "–" };
 
   const form = document.getElementById("filters") as HTMLFormElement;
@@ -161,11 +171,12 @@ const total = loadUniverse().length;
   const val = (n: string) => (form.elements.namedItem(n) as HTMLInputElement | null);
   const get = (n: string) => { const el = val(n); return el ? (el.type === "checkbox" ? (el.checked ? "1" : "") : el.value) : ""; };
   const set = (n: string, v: string) => { const el = val(n); if (!el) return; if (el.type === "checkbox") el.checked = !!v; else el.value = v; };
-  const FIELDS = ["q", "ex", "status", "tier", "off", "m1", "b5", "pe", "pts", "mcap", "hasSticker", "hideFlagged"];
+  const FIELDS = ["q", "ex", "sector", "industry", "status", "tier", "off", "m1", "b5", "pe", "pts", "mcap", "hasSticker", "hideFlagged"];
 
   function filterRows() {
     const q = get("q").trim().toLowerCase();
     const ex = get("ex"), status = get("status"), tier = get("tier");
+    const sector = get("sector"), industry = get("industry");
     const off = get("off") ? -Number(get("off")) / 100 : null;
     const m1 = get("m1") ? Number(get("m1")) / 100 : null;
     const b5 = get("b5") ? Number(get("b5")) : null;
@@ -175,8 +186,11 @@ const total = loadUniverse().length;
     const hasSticker = !!get("hasSticker"), hideFlagged = !!get("hideFlagged");
     const minTests = b5 != null ? 8 : 0;   // a Big 5 % on 3 or 4 tests is noise
     view = rows.filter((r) => {
-      if (q && !(r.ticker.toLowerCase().includes(q) || (r.name || "").toLowerCase().includes(q))) return false;
+      if (q && !(r.ticker.toLowerCase().includes(q) || (r.name || "").toLowerCase().includes(q) ||
+        (r.industry || "").toLowerCase().includes(q))) return false;
       if (ex && r.exchange !== ex) return false;
+      if (sector && r.sector !== sector) return false;
+      if (industry && r.industry !== industry) return false;
       if (status === "below") { if (!(r.pts != null && r.pts <= 1)) return false; }
       else if (status && r.status !== status) return false;
       if (tier && !(r.tier && tier.includes(r.tier))) return false;
@@ -191,6 +205,26 @@ const total = loadUniverse().length;
       return true;
     });
     sortRows();
+  }
+
+  // Sector / industry dropdowns are built from the data, with counts; industries follow the sector.
+  function fillSelect(name: string, values: Map<string, number>, allLabel: string) {
+    const el = val(name) as unknown as HTMLSelectElement;
+    const keep = el.value;
+    const opts = [...values.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+    el.innerHTML = `<option value="">${allLabel}</option>` +
+      opts.map(([v, n]) => `<option value="${esc(v)}">${esc(v)} (${n})</option>`).join("");
+    el.value = opts.some(([v]) => v === keep) ? keep : "";
+  }
+  function refreshOptions() {
+    const count = (key: string, pick: (r: Row) => boolean) => {
+      const m = new Map<string, number>();
+      for (const r of rows) if (r[key] && pick(r)) m.set(r[key], (m.get(r[key]) ?? 0) + 1);
+      return m;
+    };
+    fillSelect("sector", count("sector", () => true), "All sectors");
+    const sector = get("sector");
+    fillSelect("industry", count("industry", (r) => !sector || r.sector === sector), "All industries");
   }
 
   const testsTotal = (r: Row) => Number(String(r.big5Tests || "0/0").split("/")[1]) || 0;
@@ -220,6 +254,7 @@ const total = loadUniverse().length;
       const ttm = r.detail === "ttm" ? `<span class="chip ttm mini" title="Detailed TTM analysis">TTM</span>` : "";
       return `<tr>
         <td><a class="tk" href="/stock/${encodeURIComponent(r.ticker)}/">${esc(r.ticker)}</a>${ttm}${flagged}<div class="nm">${esc(r.name || "")}</div></td>
+        <td title="${esc(r.industry || "")}">${esc(SHORT[r.sector] ?? r.sector ?? "") || "–"}<div class="nm">${esc(r.industry || "")}</div></td>
         <td>${r.status && STATUS[r.status] ? `<span class="chip ${STATUS[r.status]}">${esc(r.status)}</span>` : `<span class="muted">${esc(LABEL[r.status] ?? (r.status || "").toLowerCase())}</span>`}</td>
         <td><span class="tier ${r.tier}">${r.tier || "–"}</span></td>
         <td class="num">${fmtUsd(r.price)}</td>
@@ -277,11 +312,13 @@ const total = loadUniverse().length;
     b.addEventListener("click", () => {
       const [vals, k, asc] = PRESETS[b.dataset.preset!];
       for (const f of FIELDS) set(f, vals[f] ?? "");
+      refreshOptions();
       sortKey = k; sortAsc = asc;
       document.querySelectorAll("[data-preset]").forEach((x) => x.classList.toggle("active", x === b && b.dataset.preset !== "reset"));
       filterRows();
     }));
 
+  val("sector")!.addEventListener("change", () => { set("industry", ""); refreshOptions(); });
   form.addEventListener("input", () => { document.querySelectorAll("[data-preset]").forEach((x) => x.classList.remove("active")); filterRows(); });
   document.querySelectorAll<HTMLTableCellElement>("#all th").forEach((th) =>
     th.addEventListener("click", () => {
@@ -294,7 +331,7 @@ const total = loadUniverse().length;
   document.getElementById("next")!.addEventListener("click", () => { page++; render(); window.scrollTo({ top: 0 }); });
 
   document.getElementById("csv")!.addEventListener("click", () => {
-    const cols = ["ticker", "name", "exchange", "status", "tier", "price", "w1", "m1", "m3", "ytd", "y1", "offHigh", "pe",
+    const cols = ["ticker", "name", "exchange", "sector", "industry", "status", "tier", "price", "w1", "m1", "m3", "ytd", "y1", "offHigh", "pe",
       "mos", "sticker", "pts", "payback", "tenCap", "growth", "roic5", "big5", "big5Tests", "fcfYield", "marketCap", "detail", "flags", "events"];
     const q = (v: any) => (v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v));
     const csv = [cols.join(","), ...view.map((r) => cols.map((c) => q(r[c])).join(","))].join("\n");
@@ -309,7 +346,10 @@ const total = loadUniverse().length;
     const res = await fetch("/data/universe.json");
     const data = await res.json();
     rows = data.rows.map((r: any[]) => Object.fromEntries(data.cols.map((c: string, i: number) => [c, r[i]])));
+    refreshOptions();                       // options must exist before saved sector/industry can be restored
     const startPage = loadState();
+    refreshOptions();
+    for (const f of ["sector", "industry"]) set(f, new URLSearchParams(location.hash.slice(1)).get(f) ?? "");
     filterRows();
     page = Math.min(Math.max(startPage, 0), Math.max(0, Math.ceil(view.length / PAGE) - 1));
     render();
