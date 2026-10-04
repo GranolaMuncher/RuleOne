@@ -1,7 +1,7 @@
 """The Intelligent Investor, from the owner's own recordings.
 
 The owner reads their copy (revised edition, 2006) and records each chapter, either read aloud
-or as their own takeaways, into a PRIVATE repo checked out at .work/library/. Each run:
+or as their own takeaways, into a PRIVATE repo checked out at .work/library/ (any folder). Each run:
 
     python -m ruleone.book prepare --count 2   # transcribe chapters with new or changed recordings
     (Claude rewrites knowledge/intelligent_investor/chapters/<key>.md as study notes)
@@ -28,7 +28,7 @@ KNOW = ROOT / "knowledge" / "intelligent_investor"
 CHAPTERS = KNOW / "chapters"
 PROGRESS = KNOW / "progress.json"
 WORK = ROOT / ".work" / "book"
-LIBRARY = Path(os.environ.get("LIBRARY_DIR", ROOT / ".work" / "library")) / "intelligent-investor"
+LIBRARY = Path(os.environ.get("LIBRARY_DIR", ROOT / ".work" / "library"))
 
 AUDIO = {".m4a", ".mp3", ".wav", ".ogg", ".oga", ".webm", ".aac", ".flac", ".mp4"}
 TEXT = {".txt", ".md"}
@@ -72,10 +72,13 @@ def chapter_key(filename: str) -> str | None:
 
 
 def scan(library: Path = LIBRARY) -> dict[str, list[Path]]:
+    """Chapter files anywhere in the library repo (top level or any folder)."""
     found: dict[str, list[Path]] = {}
     if not library.exists():
         return found
     for f in sorted(library.rglob("*")):
+        if ".git" in f.parts:
+            continue
         if f.is_file() and f.suffix.lower() in AUDIO | TEXT and (key := chapter_key(f.name)):
             found.setdefault(key, []).append(f)
     return found

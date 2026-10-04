@@ -38,7 +38,7 @@ You own the revised edition (2006). For each chapter, record yourself reading it
    - `ch08.m4a`, or for several parts `ch08-part1.m4a`, `ch08-part2.m4a`, `ch08-commentary.m4a`.
    - Use `intro` and `postscript` for those sections.
    - A typed memo works too: `ch08.txt`.
-2. In `ruleone-library`, open **Add file → Upload files** (this works from a phone browser) and put the files in a folder named `intelligent-investor/`. GitHub's web upload limit is 25 MB per file, which is about 45–60 minutes of voice memo. Split longer chapters into parts.
+2. In `ruleone-library`, open **Add file → Upload files** (this works from a phone browser) and drop the files in. No folder is needed. GitHub's web upload limit is 25 MB per file, which is about 45–60 minutes of voice memo. Split longer chapters into parts.
 3. Notes appear by the next morning ([`professor-book.yml`](../.github/workflows/professor-book.yml) runs daily at 03:23 UTC). For notes sooner, go to **Actions → Professor (The Intelligent Investor) → Run workflow**. Adding another part later updates that chapter's notes.
 
 Your recordings and their transcripts stay in the private repo and on the temporary runner. They are never committed to the public repo.

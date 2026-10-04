@@ -1,7 +1,7 @@
 name: Professor (The Intelligent Investor)
 
 # Turns the owner's chapter recordings of The Intelligent Investor into study notes.
-# Recordings live in a PRIVATE repo (vars.LIBRARY_REPO, folder intelligent-investor/), read with
+# Recordings live in a PRIVATE repo (vars.LIBRARY_REPO; files anywhere in it), read with
 # a read-only token (secrets.LIBRARY_TOKEN). Audio and transcripts stay on the runner; only the
 # Professor's notes in knowledge/intelligent_investor/ are committed.
 on:

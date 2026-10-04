@@ -17,4 +17,4 @@ rulers: []
 - Zweig's commentary updates the dot-com era lessons. Listen for his examples of 'can't-miss' growth stories that missed.
 
 ## Record this chapter
-Read it (and Zweig's commentary) aloud, or record your own takeaways afterwards. Then upload the file as `intro.m4a` (or `intro-part2.m4a`, `intro-commentary.m4a`, `intro.txt`) to the `intelligent-investor/` folder of your private library repo.
+Read it (and Zweig's commentary) aloud, or record your own takeaways afterwards. Then upload the file as `intro.m4a` (or `intro-part2.m4a`, `intro-commentary.m4a`, `intro.txt`) to your private `ruleone-library` repo.
