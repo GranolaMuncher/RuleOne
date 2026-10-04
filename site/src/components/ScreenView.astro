@@ -67,6 +67,17 @@ const funnel = [
   <label class="dy">Industry
     <select id="indfilter"><option value="">All industries</option></select>
   </label>
+  <label class="dy">Market cap
+    <select id="mcapfilter">
+      <option value="">Any</option>
+      <option value="3e8-2e9">Small ($300M–2B)</option>
+      <option value="2e9-1e10">Mid ($2B–10B)</option>
+      <option value="1e10-2e11">Large ($10B–200B)</option>
+      <option value="2e11-">Mega (≥ $200B)</option>
+      <option value="1e9-">≥ $1B</option>
+      <option value="1e10-">≥ $10B</option>
+    </select>
+  </label>
   <label class="dy">Div yield ≥
     <select id="dyfilter">
       <option value="">Any</option><option value="0.0001">Pays dividend</option><option value="0.01">1%</option>
@@ -118,6 +129,15 @@ const funnel = [
   const dyfilter = document.getElementById("dyfilter") as HTMLSelectElement;
   const secfilter = document.getElementById("secfilter") as HTMLSelectElement;
   const indfilter = document.getElementById("indfilter") as HTMLSelectElement;
+  const mcapfilter = document.getElementById("mcapfilter") as HTMLSelectElement;
+  // "lo-hi" in dollars; empty hi = no upper bound
+  const inMcap = (v: string | undefined) => {
+    if (!mcapfilter.value) return true;
+    if (!v) return false;
+    const [lo, hi] = mcapfilter.value.split("-");
+    const m = Number(v);
+    return m >= Number(lo) && (!hi || m < Number(hi));
+  };
   const industryCounts = JSON.parse(document.getElementById("industry-counts")!.textContent!) as Record<string, Record<string, number>>;
   // Industry options follow the chosen sector; the current choice is kept if it still applies.
   function fillIndustries() {
@@ -137,8 +157,9 @@ const funnel = [
         (hideflag.checked && flagged) ||
         (!!dyfilter.value && !(tr.dataset.dy !== "" && Number(tr.dataset.dy) >= Number(dyfilter.value))) ||
         (!!secfilter.value && tr.dataset.sector !== secfilter.value) ||
-        (!!indfilter.value && tr.dataset.industry !== indfilter.value);
+        (!!indfilter.value && tr.dataset.industry !== indfilter.value) ||
+        !inMcap(tr.dataset.mcap);
     });
   }
-  [q, hideflag, dyfilter, secfilter, indfilter, ...boxes].forEach((el) => el.addEventListener("input", apply));
+  [q, hideflag, dyfilter, secfilter, indfilter, mcapfilter, ...boxes].forEach((el) => el.addEventListener("input", apply));
 </script>
