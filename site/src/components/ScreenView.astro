@@ -19,6 +19,15 @@ const sectorCounts = new Map<string, number>();
 for (const s of lists.all_candidates.length ? lists.all_candidates : Object.values(lists).flat())
   if (s.sector) sectorCounts.set(s.sector, (sectorCounts.get(s.sector) ?? 0) + 1);
 const sectorOptions = [...sectorCounts].sort((a, b) => a[0].localeCompare(b[0]));
+// Industry counts per sector ("" = all sectors), for the dependent Industry dropdown.
+const industryCounts: Record<string, Record<string, number>> = { "": {} };
+for (const s of lists.all_candidates.length ? lists.all_candidates : Object.values(lists).flat()) {
+  if (!s.industry) continue;
+  for (const key of ["", s.sector]) {
+    industryCounts[key] ??= {};
+    industryCounts[key][s.industry] = (industryCounts[key][s.industry] ?? 0) + 1;
+  }
+}
 const sections: { key: ListKey; title: string; blurb: string; limit?: number; status?: boolean }[] = [
   { key: "buy_range", title: "Buy range", blurb: "Price at or below the margin-of-safety price (50% of Sticker). This is Rule #1's strict buy signal." },
   { key: "buy_range_alt_methods", title: "Buy on Payback Time / Ten Cap", blurb: "Below Town's Payback Time or Ten Cap price but not yet below MOS. Treat with care for insurers and brokers, whose cash flow includes float.", limit: 40 },
@@ -55,6 +64,9 @@ const funnel = [
       {sectorOptions.map(([sec, n]) => <option value={sec}>{sec} ({n})</option>)}
     </select>
   </label>
+  <label class="dy">Industry
+    <select id="indfilter"><option value="">All industries</option></select>
+  </label>
   <label class="dy">Div yield ≥
     <select id="dyfilter">
       <option value="">Any</option><option value="0.0001">Pays dividend</option><option value="0.01">1%</option>
@@ -88,6 +100,7 @@ const funnel = [
   fieldset { border: 0; padding: 0; margin: 0; display: flex; gap: 12px; }
   label { font-size: 13.5px; color: var(--muted); white-space: nowrap; }
   label.dy { display: flex; align-items: center; gap: 6px; }
+  label.dy #indfilter { max-width: 260px; }
   label.dy select { font: inherit; font-size: 13.5px; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--line);
     background: var(--bg); color: var(--ink); }
   .sechead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
@@ -96,12 +109,25 @@ const funnel = [
   .blurb { margin: 0 0 10px; font-size: 13.5px; max-width: 820px; }
 </style>
 
+<script type="application/json" id="industry-counts" set:html={JSON.stringify(industryCounts)} />
+
 <script>
   const q = document.getElementById("q") as HTMLInputElement;
   const boxes = [...document.querySelectorAll<HTMLInputElement>(".tierbox")];
   const hideflag = document.getElementById("hideflag") as HTMLInputElement;
   const dyfilter = document.getElementById("dyfilter") as HTMLSelectElement;
   const secfilter = document.getElementById("secfilter") as HTMLSelectElement;
+  const indfilter = document.getElementById("indfilter") as HTMLSelectElement;
+  const industryCounts = JSON.parse(document.getElementById("industry-counts")!.textContent!) as Record<string, Record<string, number>>;
+  // Industry options follow the chosen sector; the current choice is kept if it still applies.
+  function fillIndustries() {
+    const keep = indfilter.value;
+    const opts = Object.entries(industryCounts[secfilter.value] ?? {}).sort((a, b) => a[0].localeCompare(b[0]));
+    indfilter.replaceChildren(new Option("All industries", ""), ...opts.map(([name, n]) => new Option(`${name} (${n})`, name)));
+    indfilter.value = opts.some(([name]) => name === keep) ? keep : "";
+  }
+  secfilter.addEventListener("change", () => { fillIndustries(); apply(); });
+  fillIndustries();
   function apply() {
     const term = q.value.trim().toLowerCase();
     const tiers = new Set(boxes.filter((b) => b.checked).map((b) => b.value));
@@ -110,8 +136,9 @@ const funnel = [
       tr.hidden = !tiers.has(tr.dataset.tier ?? "") || (!!term && !(tr.dataset.search ?? "").includes(term)) ||
         (hideflag.checked && flagged) ||
         (!!dyfilter.value && !(tr.dataset.dy !== "" && Number(tr.dataset.dy) >= Number(dyfilter.value))) ||
-        (!!secfilter.value && tr.dataset.sector !== secfilter.value);
+        (!!secfilter.value && tr.dataset.sector !== secfilter.value) ||
+        (!!indfilter.value && tr.dataset.industry !== indfilter.value);
     });
   }
-  [q, hideflag, dyfilter, secfilter, ...boxes].forEach((el) => el.addEventListener("input", apply));
+  [q, hideflag, dyfilter, secfilter, indfilter, ...boxes].forEach((el) => el.addEventListener("input", apply));
 </script>
