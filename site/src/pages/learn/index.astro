@@ -1,11 +1,13 @@
 ---
 import { marked } from "marked";
 import Base from "../../layouts/Base.astro";
-import { loadCourse, loadEpisodes, loadProgress } from "../../lib/data";
+import { chapterLabel, learnHref, loadBook, loadCourse, loadEpisodes, loadProgress } from "../../lib/data";
 
 const course = loadCourse();
 const episodes = loadEpisodes();
 const progress = loadProgress();
+const book = loadBook();
+const bookDone = book.filter((c) => c.status === "notes").length;
 const byId = new Map(episodes.map((e) => [e.id, e]));
 const modules = (course?.modules ?? []).map((m) => ({
   ...m,
@@ -73,6 +75,22 @@ const RULERS: [string, string][] = [
     ))}
   </div>
 
+  <h2 id="graham">The Intelligent Investor</h2>
+  <p class="muted">
+    Benjamin Graham, revised edition with Jason Zweig's commentary. You read and record each chapter, and the Professor turns
+    your recording into study notes. Until then, each chapter has a short preview of what to listen for.{" "}
+    <strong>{bookDone} of {book.length}</strong> chapters have notes.
+  </p>
+  <ol class="panel chapters">
+    {book.map((c) => (
+      <li data-ep={`ii-${c.key}`}>
+        <span class="tick" aria-hidden="true"></span>
+        <a href={`/learn/graham/${c.key}/`}>{chapterLabel(c.key)}{c.key.startsWith("ch") && ` · ${c.title}`}</a>
+        <span class={`chip ${c.status === "notes" ? "BUY" : ""} st`}>{c.status === "notes" ? "notes" : "preview"}</span>
+      </li>
+    ))}
+  </ol>
+
   <h2>RULERS</h2>
   <p class="muted">Each episode is tagged with the parts of the Rule #1 checklist it teaches. "Reduce basis" means buying in tranches, not options.</p>
   <p>{RULERS.map(([k, v]) => <span class="chip r">{k}</span><span class="rl">{v}</span>)}</p>
@@ -84,7 +102,7 @@ const RULERS: [string, string][] = [
         {[...course.glossary].sort((a, b) => a.term.localeCompare(b.term)).map((g) => (
           <div class="panel">
             <dt>{g.term}</dt>
-            <dd>{g.definition} <span class="muted small">{g.episodes.map((id, j) => <>{j ? ", " : "· "}<a href={`/learn/${id}/`}>{id}</a></>)}</span></dd>
+            <dd>{g.definition} <span class="muted small">{g.episodes.map((id, j) => <>{j ? ", " : "· "}<a href={learnHref(id)}>{id.startsWith("ii-") ? "II " + chapterLabel(id.slice(3)) : id}</a></>)}</span></dd>
           </div>
         ))}
       </dl>
@@ -131,6 +149,9 @@ const RULERS: [string, string][] = [
   .tick { width: 14px; height: 14px; border: 1.5px solid var(--line); border-radius: 4px; flex: none; transform: translateY(2px); }
   .eps li.done .tick { background: var(--accent); border-color: var(--accent); }
   .eps li.done a { color: var(--muted); }
+  .chapters { list-style: none; margin: 0; display: grid; gap: 6px; max-width: 900px; }
+  .chapters li { display: flex; gap: 8px; align-items: baseline; }
+  .chapters .st { margin-left: auto; font-size: 11px; }
   .chip.r { margin-right: 4px; color: var(--accent); }
   .rl { margin-right: 14px; }
   .gloss { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 8px; }

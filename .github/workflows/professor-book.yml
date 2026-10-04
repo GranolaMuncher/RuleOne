@@ -1,0 +1,104 @@
+name: Professor (The Intelligent Investor)
+
+# Turns the owner's chapter recordings of The Intelligent Investor into study notes.
+# Recordings live in a PRIVATE repo (vars.LIBRARY_REPO, folder intelligent-investor/), read with
+# a read-only token (secrets.LIBRARY_TOKEN). Audio and transcripts stay on the runner; only the
+# Professor's notes in knowledge/intelligent_investor/ are committed.
+on:
+  schedule:
+    - cron: "23 3 * * *"   # daily; does nothing unless a chapter has new recordings
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Chapters this run"
+        default: "2"
+
+permissions:
+  contents: write
+  deployments: write
+
+concurrency:
+  group: professor   # shares the group with the podcast run so the two never commit at once
+  cancel-in-progress: false
+
+jobs:
+  notes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    outputs:
+      recorded: ${{ steps.record.outputs.recorded }}
+    env:
+      LIBRARY_REPO: ${{ vars.LIBRARY_REPO }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: secrets
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          LIB: ${{ secrets.LIBRARY_TOKEN }}
+        run: |
+          for name in KEY OAUTH; do
+            clean=$(printf '%s' "${!name}" | tr -d '[:space:]')
+            if [ -n "$clean" ]; then
+              echo "::add-mask::$clean"
+              echo "CLEAN_$name=$clean" >> "$GITHUB_ENV"
+              echo "has_claude=true" >> "$GITHUB_OUTPUT"
+            fi
+          done
+          if [ -n "$LIB" ] && [ -n "$LIBRARY_REPO" ]; then
+            echo "has_library=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::Set the LIBRARY_TOKEN secret and LIBRARY_REPO variable to enable book notes (docs/LIBRARY.md)."
+          fi
+      - uses: actions/checkout@v4
+        if: steps.secrets.outputs.has_library == 'true'
+        with:
+          repository: ${{ vars.LIBRARY_REPO }}
+          token: ${{ secrets.LIBRARY_TOKEN }}
+          path: .work/library
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        if: steps.secrets.outputs.has_library == 'true'
+        with:
+          python-version: "3.11"
+      - if: steps.secrets.outputs.has_library == 'true'
+        run: pip install -r requirements.txt faster-whisper
+      - uses: actions/cache@v4
+        if: steps.secrets.outputs.has_library == 'true'
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-base-en
+      - id: prepare
+        name: Transcribe chapters with new recordings
+        if: steps.secrets.outputs.has_library == 'true' && steps.secrets.outputs.has_claude == 'true'
+        run: python -m ruleone.book prepare --count "${{ github.event.inputs.count || '2' }}"
+      - uses: anthropics/claude-code-action@v1
+        if: steps.secrets.outputs.has_library == 'true' && steps.secrets.outputs.has_claude == 'true' && hashFiles('.work/book/*.txt') != ''
+        with:
+          anthropic_api_key: ${{ env.CLEAN_KEY }}
+          claude_code_oauth_token: ${{ env.CLEAN_OAUTH }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: "Follow the instructions in agents/professor/BOOK.md exactly."
+          claude_args: |
+            --max-turns 80
+            --allowedTools Read,Write,Edit,Glob,Grep
+      - id: record
+        name: Record progress and commit notes
+        if: steps.secrets.outputs.has_library == 'true'
+        run: |
+          rm -rf .work/library   # never let the private checkout near git add
+          out=$(python -m ruleone.book record); echo "$out"
+          echo "recorded=$([ "$out" != "recorded: none" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          git config user.name "rule-one-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add knowledge
+          if git diff --cached --quiet; then echo "no notes"; exit 0; fi
+          git commit -m "Professor: The Intelligent Investor ${out#recorded: }"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+  deploy:
+    needs: notes
+    if: needs.notes.outputs.recorded == 'true'
+    uses: ./.github/workflows/deploy-site.yml
+    secrets: inherit

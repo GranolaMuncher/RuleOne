@@ -19,7 +19,31 @@ The options below run from fastest to most faithful. They can be combined.
 - Berkshire Hathaway shareholder letters, 1977 onward (free at berkshirehathaway.com). Graham's ideas run throughout, especially Mr. Market (1987) and margin of safety.
 - *Security Analysis* (1934 first edition) enters the US public domain on 1 Jan 2030. The Professor can ingest it in full then.
 
-## Recommendation
+## Chosen path: you read your own copy and record it (built)
+
+You own the revised edition (2006). For each chapter, record yourself reading it aloud, record your own takeaways afterwards, or do both. The Professor writes study notes from the recordings. If you include takeaways, it also checks your understanding against Graham's argument. Until a chapter is recorded, its page on **Learn → The Intelligent Investor** shows a short "what to listen for" preview from general knowledge.
+
+**One-time setup (about 10 minutes):**
+1. On GitHub, go to **New repository**, name it `ruleone-library` and choose **Private**. Tick *Add a README* so it isn't empty.
+2. Create a token at **Settings → Developer settings → Fine-grained tokens → Generate new token**:
+   - Repository access: *Only select repositories* → `ruleone-library`.
+   - Permissions: **Contents: Read-only**.
+   - Expiry: up to a year (you'll renew it then).
+3. In **RuleOne → Settings → Secrets and variables → Actions**:
+   - Secret `LIBRARY_TOKEN` = the token.
+   - Variable `LIBRARY_REPO` = `granolamuncher/ruleone-library`.
+
+**Each chapter:**
+1. Record it on your phone (Voice Memos or any recorder; m4a, mp3 and wav all work). Name the file by chapter:
+   - `ch08.m4a`, or for several parts `ch08-part1.m4a`, `ch08-part2.m4a`, `ch08-commentary.m4a`.
+   - Use `intro` and `postscript` for those sections.
+   - A typed memo works too: `ch08.txt`.
+2. In `ruleone-library`, open **Add file → Upload files** (this works from a phone browser) and put the files in a folder named `intelligent-investor/`. GitHub's web upload limit is 25 MB per file, which is about 45–60 minutes of voice memo. Split longer chapters into parts.
+3. Notes appear by the next morning ([`professor-book.yml`](../.github/workflows/professor-book.yml) runs daily at 03:23 UTC). For notes sooner, go to **Actions → Professor (The Intelligent Investor) → Run workflow**. Adding another part later updates that chapter's notes.
+
+Your recordings and their transcripts stay in the private repo and on the temporary runner. They are never committed to the public repo.
+
+## Other options (if you change your mind)
 
 Start **A + E now**. They need nothing from you and give a cited Graham module within a day. Then add **C** (or **B** if you'd rather only use what you highlighted) to replace the general-knowledge notes with chapter-accurate ones. **D** is optional, but it's the best way to really *learn* the book rather than just have it summarised.
 

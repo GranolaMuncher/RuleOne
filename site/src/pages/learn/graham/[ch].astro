@@ -1,0 +1,61 @@
+---
+import { marked } from "marked";
+import Base from "../../../layouts/Base.astro";
+import { chapterLabel, loadBook } from "../../../lib/data";
+
+export function getStaticPaths() {
+  const chs = loadBook();
+  return chs.map((c, i) => ({ params: { ch: c.key }, props: { ch: c, prev: chs[i - 1] ?? null, next: chs[i + 1] ?? null } }));
+}
+const { ch, prev, next } = Astro.props;
+const html = await marked.parse(ch.body, { gfm: true });
+const RULERS: Record<string, string> = { R: "Radar", U: "Understand", L: "Love", E: "Event", Rb: "Reduce basis", S: "Story" };
+---
+<Base title={`${chapterLabel(ch.key)} · The Intelligent Investor`} description={`Study notes: ${ch.title}`}>
+  <p class="crumbs"><a href="/learn/#graham">← The Intelligent Investor</a></p>
+  <h1>{chapterLabel(ch.key)}{ch.key.startsWith("ch") && <span class="sub"> · {ch.title}</span>}</h1>
+  <p class="meta">
+    <span class={`chip ${ch.status === "notes" ? "BUY" : ""}`}>{ch.status === "notes" ? "Study notes" : "Preview"}</span>
+    {ch.rulers.map((r) => <span class="chip r">{RULERS[r] ?? r}</span>)}
+  </p>
+  <article class="prose" set:html={html} />
+  {ch.concepts.length > 0 && <p class="tags">{ch.concepts.map((c) => <span class="chip">{c.replace(/-/g, " ")}</span>)}</p>}
+  {ch.status === "notes" && (
+    <div class="panel actions">
+      <label><input type="checkbox" id="studied" /> I've studied this chapter</label>
+      <span class="muted small">Saved in this browser</span>
+    </div>
+  )}
+  <div class="pager" role="navigation" aria-label="Chapters">
+    {prev ? <a href={`/learn/graham/${prev.key}/`}>← {chapterLabel(prev.key)}</a> : <span></span>}
+    {next ? <a href={`/learn/graham/${next.key}/`}>{chapterLabel(next.key)} →</a> : <span></span>}
+  </div>
+  <p class="muted small">Notes on Benjamin Graham's <em>The Intelligent Investor</em> (revised edition, commentary by Jason Zweig), written by an AI from the owner's own recordings. No book text is published here. Not investment advice.</p>
+</Base>
+
+<script is:inline define:vars={{ id: "ii-" + ch.key }}>
+  const box = document.getElementById("studied");
+  if (box) {
+    const KEY = "ruleone.learn.done";
+    const read = () => { try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch { return []; } };
+    box.checked = read().includes(id);
+    box.addEventListener("change", () => {
+      const s = new Set(read()); box.checked ? s.add(id) : s.delete(id);
+      try { localStorage.setItem(KEY, JSON.stringify([...s].sort())); } catch {}
+    });
+  }
+</script>
+
+<style>
+  .crumbs { margin: 0 0 8px; }
+  .sub { font-weight: 500; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip.r { color: var(--accent); }
+  .prose details { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; margin: 6px 0; }
+  .prose details summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; max-width: 860px; }
+  .actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; max-width: 860px; margin: 20px 0 12px; }
+  .actions label { font-weight: 600; cursor: pointer; }
+  .pager { display: flex; justify-content: space-between; gap: 16px; max-width: 860px; flex-wrap: wrap; margin: 12px 0 16px; }
+  .small { font-size: 13px; }
+</style>

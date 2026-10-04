@@ -412,3 +412,28 @@ export function loadEpisodes(): Episode[] {
     };
   });
 }
+
+// ---------------------------------------------------------------- learn (The Intelligent Investor)
+export interface BookChapter {
+  key: string; title: string; status: "preview" | "notes"; sources: string[];
+  concepts: string[]; rulers: string[]; body: string;
+}
+
+export function loadBook(): BookChapter[] {
+  const dir = path.join(ROOT, "knowledge", "intelligent_investor", "chapters");
+  if (!fs.existsSync(dir)) return [];
+  const rank = (k: string) => (k === "intro" ? -1 : k === "postscript" ? 99 : Number(k.slice(2)));
+  return fs.readdirSync(dir).filter((f) => f.endsWith(".md")).map((f) => {
+    const [meta, body] = frontMatter(fs.readFileSync(path.join(dir, f), "utf8"));
+    const l = (k: string) => (Array.isArray(meta[k]) ? (meta[k] as string[]) : []);
+    const key = f.replace(/\.md$/, "");
+    return {
+      key, title: String(meta.title ?? key), status: meta.status === "notes" ? "notes" : "preview",
+      sources: l("sources"), concepts: l("concepts"), rulers: l("rulers"), body: body.replace(/^#\s+.*\n/, ""),
+    } as BookChapter;
+  }).sort((a, b) => rank(a.key) - rank(b.key));
+}
+
+/** Glossary/source ids: "001" is a podcast episode, "ii-ch08" a book chapter. */
+export const learnHref = (id: string) => (id.startsWith("ii-") ? `/learn/graham/${id.slice(3)}/` : `/learn/${id}/`);
+export const chapterLabel = (k: string) => (k === "intro" ? "Introduction" : k === "postscript" ? "Postscript" : `Chapter ${Number(k.slice(2))}`);

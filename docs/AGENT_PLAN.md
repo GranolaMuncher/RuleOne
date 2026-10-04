@@ -164,7 +164,7 @@ Revisit this only if you later want agents to *choose* work dynamically, for exa
 ## Decisions (2026-10-04)
 
 - **InvestED:** the agent transcribes every episode itself, in order, and teaches it as a structured course (see Professor above). Built.
-- ***The Intelligent Investor*:** no book text in the public repo. The ingestion options are in [`LIBRARY.md`](LIBRARY.md).
+- ***The Intelligent Investor*:** you read your own copy (revised edition, 2006) and record each chapter into a private repo. [`professor-book.yml`](../.github/workflows/professor-book.yml) turns the recordings into chapter notes. Built. Setup steps are in [`LIBRARY.md`](LIBRARY.md).
 - **Holdings:** no private tracking by any agent. The [Holdings page](https://ruleone.pages.dev/holdings/) keeps your tickers and buy prices in your own browser, with export and import. Built.
 - **Notifications:** none for now (no push or email). Events surface in the weekly memo, on the site and on the Holdings page.
 - **Reduce basis:** tranche buying only. This is value investing, so no options.
