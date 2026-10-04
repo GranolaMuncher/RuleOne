@@ -29,6 +29,7 @@ const statusClass = (s: string) => s.replace("*", "star").replace(/\s/g, "");
           <th class="num" data-key="payback" data-type="num" title="8-year Payback Time price">Payback</th>
           <th class="num" data-key="tencap" data-type="num" title="10× owner earnings per share">Ten Cap</th>
           <th class="num" data-key="growth" data-type="num" title="Windage growth used for Sticker">g</th>
+          <th class="num" data-key="dy" data-type="num" title="Trailing 12-month dividends ÷ price (5-year dividend growth on hover)">Div yield</th>
           <th class="num" data-key="roic" data-type="num">ROIC 5y</th>
           <th class="num" data-key="b5" data-type="num">Big 5</th>
           <th class="num" data-key="mcap" data-type="num">Mkt cap</th>
@@ -48,6 +49,7 @@ const statusClass = (s: string) => s.replace("*", "star").replace(/\s/g, "");
             <td class="num" data-v={s.payback ?? ""}>{usd(s.payback)}</td>
             <td class="num" data-v={s.tenCap ?? ""}>{usd(s.tenCap)}</td>
             <td class="num" data-v={s.growth ?? ""}>{pct(s.growth)}</td>
+            <td class="num" data-v={s.divYield ?? ""} title={s.divGrowth5y != null ? `5-year dividend growth ${pct(s.divGrowth5y, 1)}/yr` : undefined}>{pct(s.divYield, 1)}</td>
             <td class="num" data-v={s.roic5 ?? ""}>{pct(s.roic5)}</td>
             <td class="num" data-v={s.big5Score ?? ""}>{s.big5Tests}</td>
             <td class="num" data-v={s.marketCap ?? ""}>{big(s.marketCap)}</td>

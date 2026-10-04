@@ -22,7 +22,7 @@ from .companyfacts import load_company
 from .events import event_score, event_summary, load_events
 from .frames import load_frames
 from .http import Fetcher
-from .marketwide import (build_universe, load_current_shares, load_spark, load_total_return,
+from .marketwide import (build_universe, dividend_stats, load_current_shares, load_spark, load_total_return,
                          write_price_history, write_universe)
 from .metrics import big_five, fcf, windage_growth
 from .sectors import refresh_reference
@@ -134,7 +134,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
 COLUMNS = ["ticker", "name", "exchange", "sector", "status", "tier", "price", "price_date", "market_cap",
            "sticker", "mos_price", "payback_price", "ten_cap_price", "price_to_sticker", "buy_signals",
            "windage_growth", "future_pe", "hist_pe_median", "pe_ttm", "eps_ttm", "fcf_ttm", "fcf_yield",
-           "ttm_end", "debt", "debt_payoff_years", "big5_score", "big5_tests", "roic10", "roic5", "roic1",
+           "ttm_end", "div_ttm", "div_yield", "div_growth_5y", "tr_5y", "tr_10y", "debt", "debt_payoff_years", "big5_score", "big5_tests", "roic10", "roic5", "roic1",
            "sales_g10", "sales_g5", "sales_g1", "eps_g10", "eps_g5", "eps_g1", "bvps_g10", "bvps_g5",
            "bvps_g1", "ocf_g10", "ocf_g5", "ocf_g1", "drawdown_52w", "event_score", "events",
            "next_report_est", "flags", "rank_score", "cik"]
@@ -145,6 +145,8 @@ def _fmt(v, kind=""):
         return "–"
     if kind == "pct":
         return f"{v:.0%}"
+    if kind == "pct1":
+        return f"{v:.1%}"
     if kind == "usd":
         return f"${v:,.2f}"
     if kind == "big":
@@ -164,13 +166,13 @@ def write_csv(path: Path, rows):
 
 def md_table(rows, n=None):
     head = ("| # | Ticker | Company | Tier | Price | Sticker | MOS (Buy) | Payback | Ten Cap | P/Sticker "
-            "| Growth | ROIC 5y | Big5 | Events |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n")
+            "| Growth | Div yld | ROIC 5y | Big5 | Events |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n")
     lines = []
     for i, r in enumerate(rows[:n] if n else rows, 1):
         lines.append(f"| {i} | **{r['ticker']}** | {r['name'][:30]} | {r['tier']} | {_fmt(r['price'],'usd')} | "
                      f"{_fmt(r['sticker'],'usd')} | {_fmt(r['mos_price'],'usd')} | {_fmt(r['payback_price'],'usd')} | "
                      f"{_fmt(r['ten_cap_price'],'usd')} | {_fmt(r['price_to_sticker'],'x')} | "
-                     f"{_fmt(r['windage_growth'],'pct')} | {_fmt(r['roic5'],'pct')} | {r['big5_tests']} | "
+                     f"{_fmt(r['windage_growth'],'pct')} | {_fmt(r.get('div_yield'),'pct1')} | {_fmt(r['roic5'],'pct')} | {r['big5_tests']} | "
                      f"{(r['events'] or '').replace('|','/')[:120]}"
                      f"{' ⚠ ' + r['flags'] if r.get('flags') else ''} |")
     return head + "\n".join(lines) + "\n"
@@ -302,7 +304,7 @@ def main(argv=None):
             "universe": len(universe), "with_data": with_data, "stage1": stage1,
             "valued": len(results), "price_date": price_date,
             "params": {k: v for k, v in vars(a).items() if k not in ("cache", "out")}}
-    lists = write_outputs(results, Path(a.out), meta)
+    rows = None
     if not a.tickers and not a.no_universe:
         tickers = [l.ticker for l in universe.values()]
         weekly = load_spark(fetcher, tickers, "1y", "1wk", log=log)
@@ -312,6 +314,13 @@ def main(argv=None):
         total_return = load_total_return(fetcher, tickers, log=log)
         rows = build_universe(universe, frames, results, weekly, monthly, shares, quality_pass, quality_tier,
                               sectors, total_return)
+    else:
+        total_return = load_total_return(fetcher, [r["ticker"] for r in results], log=log)
+    for r in results:   # dividend yield / growth / total return on the screen lists too
+        r.update({k: v for k, v in dividend_stats(total_return.get(r["ticker"]), r["price"]).items()
+                  if k != "div_special"})
+    lists = write_outputs(results, Path(a.out), meta)
+    if rows is not None:
         write_universe(rows, Path(a.out) / "latest", Path(a.out) / "archive" / meta["run_date"])
         write_price_history(monthly, Path(a.out) / "latest", total_return)
         meta["universe_rows"] = len(rows)

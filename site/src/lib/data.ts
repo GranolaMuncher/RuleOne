@@ -31,6 +31,9 @@ export interface Stock {
   pe: number | null;
   eps: number | null;
   fcfYield: number | null;
+  divYield: number | null;
+  divGrowth5y: number | null;
+  tr10y: number | null;
   debtPayoff: number | null;
   big5Score: number | null;
   big5Tests: string;
@@ -111,6 +114,9 @@ export function toStock(r: Row): Stock {
     pe: num(r.pe_ttm),
     eps: num(r.eps_ttm),
     fcfYield: num(r.fcf_yield),
+    divYield: num(r.div_yield),
+    divGrowth5y: num(r.div_growth_5y),
+    tr10y: num(r.tr_10y),
     debtPayoff: num(r.debt_payoff_years),
     big5Score: num(r.big5_score),
     big5Tests: r.big5_tests,
