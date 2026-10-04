@@ -78,6 +78,12 @@ const funnel = [
       <option value="1e10-">≥ $10B</option>
     </select>
   </label>
+  <label class="dy">P/E ≤
+    <select id="pefilter">
+      <option value="">Any</option><option value="10">10</option><option value="15">15</option>
+      <option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="40">40</option>
+    </select>
+  </label>
   <label class="dy">Div yield ≥
     <select id="dyfilter">
       <option value="">Any</option><option value="0.0001">Pays dividend</option><option value="0.01">1%</option>
@@ -130,6 +136,10 @@ const funnel = [
   const secfilter = document.getElementById("secfilter") as HTMLSelectElement;
   const indfilter = document.getElementById("indfilter") as HTMLSelectElement;
   const mcapfilter = document.getElementById("mcapfilter") as HTMLSelectElement;
+  const pefilter = document.getElementById("pefilter") as HTMLSelectElement;
+  // trailing P/E; loss-makers (no positive P/E) drop out once a cap is chosen
+  const inPe = (v: string | undefined) =>
+    !pefilter.value || (!!v && Number(v) > 0 && Number(v) <= Number(pefilter.value));
   // "lo-hi" in dollars; empty hi = no upper bound
   const inMcap = (v: string | undefined) => {
     if (!mcapfilter.value) return true;
@@ -158,8 +168,8 @@ const funnel = [
         (!!dyfilter.value && !(tr.dataset.dy !== "" && Number(tr.dataset.dy) >= Number(dyfilter.value))) ||
         (!!secfilter.value && tr.dataset.sector !== secfilter.value) ||
         (!!indfilter.value && tr.dataset.industry !== indfilter.value) ||
-        !inMcap(tr.dataset.mcap);
+        !inMcap(tr.dataset.mcap) || !inPe(tr.dataset.pe);
     });
   }
-  [q, hideflag, dyfilter, secfilter, indfilter, mcapfilter, ...boxes].forEach((el) => el.addEventListener("input", apply));
+  [q, hideflag, dyfilter, secfilter, indfilter, mcapfilter, pefilter, ...boxes].forEach((el) => el.addEventListener("input", apply));
 </script>
