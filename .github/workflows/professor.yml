@@ -1,0 +1,82 @@
+name: Professor (InvestED notes)
+
+# Works through the InvestED podcast in episode order: download + transcribe the next few
+# episodes on the runner (faster-whisper, CPU), have Claude write study notes and update the
+# course, commit knowledge/, then redeploy the site. Transcripts stay on the runner.
+on:
+  schedule:
+    - cron: "41 1,7,13,19 * * *"   # four batches a day; about three weeks to finish the back catalogue
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Episodes this run"
+        default: "6"
+
+permissions:
+  contents: write
+  deployments: write
+
+concurrency:
+  group: professor
+  cancel-in-progress: false
+
+jobs:
+  notes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    outputs:
+      recorded: ${{ steps.record.outputs.recorded }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: secrets
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          for name in KEY OAUTH; do
+            clean=$(printf '%s' "${!name}" | tr -d '[:space:]')
+            if [ -n "$clean" ]; then
+              echo "::add-mask::$clean"
+              echo "CLEAN_$name=$clean" >> "$GITHUB_ENV"
+              echo "has_claude=true" >> "$GITHUB_OUTPUT"
+            fi
+          done
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt faster-whisper
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-base-en
+      - name: Download and transcribe the next episodes
+        if: steps.secrets.outputs.has_claude == 'true'
+        run: python -m ruleone.podcast prepare --count "${{ github.event.inputs.count || '6' }}"
+      - uses: anthropics/claude-code-action@v1
+        if: steps.secrets.outputs.has_claude == 'true' && hashFiles('.work/invested/*.txt') != ''
+        with:
+          anthropic_api_key: ${{ env.CLEAN_KEY }}
+          claude_code_oauth_token: ${{ env.CLEAN_OAUTH }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: "Follow the instructions in agents/professor/PROMPT.md exactly."
+          claude_args: |
+            --max-turns 120
+            --allowedTools Bash,Read,Write,Edit,Glob,Grep
+      - id: record
+        name: Record progress and commit notes
+        run: |
+          out=$(python -m ruleone.podcast record); echo "$out"
+          echo "recorded=$([ "$out" != "recorded: none" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          git config user.name "rule-one-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add knowledge
+          if git diff --cached --quiet; then echo "no notes"; exit 0; fi
+          git commit -m "Professor: InvestED ${out#recorded: }"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+  deploy:
+    needs: notes
+    if: needs.notes.outputs.recorded == 'true'
+    uses: ./.github/workflows/deploy-site.yml
+    secrets: inherit

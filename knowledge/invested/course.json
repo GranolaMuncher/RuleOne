@@ -1,0 +1,149 @@
+{
+  "title": "InvestED, in order: a Rule #1 course",
+  "source": "InvestED: The Rule #1 Podcast (Phil Town and Danielle Town), https://feeds.megaphone.fm/investedpodcast",
+  "updated": "2026-10-04",
+  "modules": [
+    {
+      "id": "m0",
+      "title": "Orientation",
+      "goal": "Why Rule #1 investing, who's teaching, and how the course works.",
+      "lesson": "Rule #1 is Buffett's *don't lose money*. Everything in this course protects the downside first, then looks for a wonderful business at about half of what it's worth (a $10 bill for $5). Expect investing to teach you about yourself as much as about markets.",
+      "episodes": [
+        "000"
+      ]
+    },
+    {
+      "id": "m1",
+      "title": "Understand the business",
+      "goal": "Circle of competence, the three circles, reading 10-Ks, and investing in line with your values.",
+      "lesson": "Munger's four filters run in order, and **understanding** comes first: if you can't understand the business, stop.\n\n1. **Find ideas without throwing darts.** Events (scary industry news) and great investors' buys point you somewhere. Treat them as tips, never as decisions.\n2. **Start inside your circles.** Overlap what you love, what you're good at and where you make and spend money.\n3. **Learn what a manager would know.** Read industry books for the key numbers, then several years of 10-K *Business* and *MD&A*, then the top competitors' filings.\n4. **Check your values.** You're buying a piece of the whole company and you vote with that money, so prefer simple, hard-to-ruin businesses you'd like to see thrive for 20 years.\n5. **Respect the edge.** Losses happen at the boundary of your competence. When you feel the tension or the 10-K stays murky, put the idea in the *too-hard* pile.",
+      "episodes": [
+        "001",
+        "002"
+      ]
+    },
+    {
+      "id": "m2",
+      "title": "Moats",
+      "goal": "The five moats (brand, secret, toll bridge, switching, price), how to spot a durable competitive advantage, and how to tell when it's eroding.",
+      "lesson": "",
+      "episodes": []
+    },
+    {
+      "id": "m3",
+      "title": "Management",
+      "goal": "Owner-oriented, honest and capable leaders, and how to judge them from letters, calls and capital allocation.",
+      "lesson": "",
+      "episodes": []
+    },
+    {
+      "id": "m4",
+      "title": "The numbers: Big Five and ROIC",
+      "goal": "ROIC, sales, EPS, equity (BVPS) and operating cash flow growth, plus debt, and what they reveal about a moat.",
+      "lesson": "",
+      "episodes": []
+    },
+    {
+      "id": "m5",
+      "title": "Valuation and margin of safety",
+      "goal": "Sticker Price, the MOS price, Payback Time, Ten Cap and the reasoning behind each.",
+      "lesson": "",
+      "episodes": []
+    },
+    {
+      "id": "m6",
+      "title": "Events and buying",
+      "goal": "Waiting for a business to go on sale, events, buying in tranches and building a watchlist.",
+      "lesson": "",
+      "episodes": []
+    },
+    {
+      "id": "m7",
+      "title": "Psychology and practice",
+      "goal": "Fear, greed, patience, the tension signal, inversion and avoiding noise.",
+      "lesson": "",
+      "episodes": []
+    },
+    {
+      "id": "m8",
+      "title": "Portfolio and selling",
+      "goal": "Concentration, position sizing, when the story changes, and when to sell.",
+      "lesson": "",
+      "episodes": []
+    },
+    {
+      "id": "m9",
+      "title": "The masters",
+      "goal": "Buffett, Munger, Graham, Pabrai, Spier and others: their ideas and their records.",
+      "lesson": "",
+      "episodes": []
+    },
+    {
+      "id": "m10",
+      "title": "Case studies and interviews",
+      "goal": "Companies analysed on the show, and guests' stories and lessons.",
+      "lesson": "",
+      "episodes": []
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Rule #1",
+      "definition": "Don't lose money. Rule #2: don't forget Rule #1 (Buffett).",
+      "episodes": [
+        "000",
+        "002"
+      ]
+    },
+    {
+      "term": "Four Ms",
+      "definition": "Meaning (understand it), Moat, Management, Margin of safety: Munger's four filters, applied in order.",
+      "episodes": [
+        "001"
+      ]
+    },
+    {
+      "term": "Circle of competence",
+      "definition": "The set of businesses you truly understand. Knowing where it ends matters more than how big it is.",
+      "episodes": [
+        "001",
+        "002"
+      ]
+    },
+    {
+      "term": "Event",
+      "definition": "Temporary bad news that puts a good business on sale.",
+      "episodes": [
+        "001"
+      ]
+    },
+    {
+      "term": "Margin of safety",
+      "definition": "Buying far enough below value (Rule #1: 50% of Sticker) that mistakes don't lose you money.",
+      "episodes": [
+        "000"
+      ]
+    },
+    {
+      "term": "Inversion",
+      "definition": "Making the best case against your idea, then rebutting it or walking away.",
+      "episodes": [
+        "002"
+      ]
+    },
+    {
+      "term": "20-punch card",
+      "definition": "Buffett's thought experiment: only 20 purchases in a lifetime, so each must count.",
+      "episodes": [
+        "002"
+      ]
+    },
+    {
+      "term": "Too-hard pile",
+      "definition": "Ideas you pass on because you can't understand them well enough.",
+      "episodes": [
+        "002"
+      ]
+    }
+  ]
+}

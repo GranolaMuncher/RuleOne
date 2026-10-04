@@ -1,0 +1,234 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="Holdings" description="Your positions checked against the Rule #1 numbers. Stored only in your browser.">
+  <h1>Holdings</h1>
+  <p class="muted lede">
+    Add what you own and what you paid, one line per tranche. Each position is checked against this week's screen (Sticker,
+    buy price, Big Five, drawdown, filings) and gets its <strong>dangers</strong> and <strong>insights</strong>.
+    Everything stays in this browser: nothing is uploaded and the site never sees it. Use Export to back it up or move it to another device.
+  </p>
+
+  <form id="add" class="panel addform" autocomplete="off">
+    <label>Ticker<input id="f-t" list="tickers" required placeholder="e.g. PGR" maxlength="10" /></label>
+    <label>Buy price ($)<input id="f-p" type="number" step="any" min="0" required placeholder="0.00" /></label>
+    <label>Shares <span class="muted">(optional)</span><input id="f-s" type="number" step="any" min="0" /></label>
+    <label>Date <span class="muted">(optional)</span><input id="f-d" type="date" /></label>
+    <label class="wide">Why I own it <span class="muted">(your story, optional)</span><input id="f-n" maxlength="200" placeholder="Moat, management, what would make me sell" /></label>
+    <button type="submit">Add tranche</button>
+    <datalist id="tickers"></datalist>
+    <p id="f-err" class="err" role="alert"></p>
+  </form>
+
+  <div id="summary" class="summary"></div>
+  <div id="list" class="hl" aria-live="polite"><p class="muted">Loading this week's data…</p></div>
+
+  <div class="tools">
+    <button type="button" id="export">Export JSON</button>
+    <label class="btn">Import JSON<input type="file" id="import" accept="application/json" hidden /></label>
+    <button type="button" id="clear" class="ghost">Clear all</button>
+  </div>
+  <p class="muted small">
+    Checks are mechanical readings of automated SEC data, not advice. Rule #1 sells when the <em>story</em> changes
+    (the moat, management or the reason you bought), not just because the price fell. "Reduce basis" here means adding tranches at or below the buy price.
+  </p>
+</Base>
+
+<script is:inline>
+(() => {
+  const KEY = "ruleone.holdings";
+  const $ = (id) => document.getElementById(id);
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch { return []; } };
+  const save = (lots) => { try { localStorage.setItem(KEY, JSON.stringify(lots)); } catch {} };
+  let lots = load();
+  let uni = new Map();
+  const open = new Set();
+
+  const money = (v) => v == null ? "–" : "$" + (Math.abs(v) >= 1000 ? v.toLocaleString(undefined, { maximumFractionDigits: 0 }) : v.toFixed(2));
+  const pct = (v, sign = true) => v == null ? "–" : (sign && v > 0 ? "+" : "") + (v * 100).toFixed(1) + "%";
+  const cls = (v) => v == null ? "" : v >= 0 ? "pos" : "neg";
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  fetch("/data/universe.json").then((r) => r.json()).then(({ cols, rows }) => {
+    const ix = Object.fromEntries(cols.map((c, i) => [c, i]));
+    const opts = [];
+    for (const r of rows) {
+      const o = {}; for (const c of cols) o[c] = r[ix[c]];
+      uni.set(o.ticker, o);
+      opts.push(`<option value="${esc(o.ticker)}">${esc(o.name)}</option>`);
+    }
+    $("tickers").innerHTML = opts.join("");
+    render();
+  }).catch(() => { $("list").innerHTML = '<p class="err">Could not load this week\'s data. Try reloading the page.</p>'; });
+
+  function checks(u, avg, weight) {
+    const d = [], i = [];   // dangers, insights
+    if (!u) { d.push("Not in this week's NYSE/Nasdaq universe (delisted, renamed, OTC or a fund?). Check the ticker."); return { d, i }; }
+    const p = u.price;
+    if (u.sticker == null) d.push("No Sticker Price: earnings are negative or the data is missing, so you can't confirm a margin of safety from the numbers.");
+    else {
+      if (p != null && p > u.sticker) d.push(`Price is ${pct(p / u.sticker - 1, false)} above Sticker. By Rule #1 it's overvalued: check the story is strong enough to keep holding.`);
+      else if (p != null && u.mos != null && p <= u.mos) i.push(`Below the buy (MOS) price of ${money(u.mos)}. If the story is intact, this is the zone for another tranche.`);
+      else if (p != null) i.push(`Between buy price ${money(u.mos)} and Sticker ${money(u.sticker)}: fairly valued, so hold rather than add.`);
+      if (avg != null && u.mos != null) (avg <= u.mos ? i : d).push(avg <= u.mos
+        ? `Your average cost ${money(avg)} is at or below the MOS price, which is a real margin of safety.`
+        : `Your average cost ${money(avg)} is ${pct(avg / u.mos - 1, false)} above the MOS price, so your margin of safety is thinner than Rule #1 asks.`);
+    }
+    if (u.big5 != null) {
+      if (u.big5 < 0.5) d.push(`Big Five pass rate is only ${pct(u.big5, false)}. Growth or returns are weak, so ask whether the moat is eroding.`);
+      else if (u.big5 >= 0.8) i.push(`Big Five pass rate ${pct(u.big5, false)} (${esc(u.big5Tests)} tests): the numbers still look like a moat.`);
+    }
+    if (u.roic5 != null && u.roic5 < 0.1) d.push(`5-year ROIC is ${pct(u.roic5, false)}, below the 10% Rule #1 floor.`);
+    if (u.offHigh != null && u.offHigh <= -0.3) d.push(`${pct(u.offHigh, false)} from its 52-week high. Is this an event (temporary) or a problem (story changed)? Read the latest 10-Q and 8-Ks.`);
+    else if (u.offHigh != null && u.offHigh <= -0.15) i.push(`${pct(u.offHigh, false)} off its 52-week high: watch for an event.`);
+    if (u.m1 != null && u.m1 <= -0.15) d.push(`Down ${pct(u.m1, false)} in the past month. Find out why before doing anything.`);
+    if (avg != null && p != null && p / avg - 1 <= -0.2) d.push(`${pct(p / avg - 1, false)} below your cost. Re-check the story: sell if it changed, consider adding if it didn't and the price is below MOS.`);
+    const ev = String(u.events || "");
+    if (/neg 8-K|Restructuring|impairment|Bankruptcy|Delisting|Cybersecurity|Auditor change|unreliable|Debt acceleration/i.test(ev)) d.push("Recent negative 8-K: " + esc(ev.match(/neg 8-K:[^;]*/)?.[0] ?? ev));
+    if (/insider buying/i.test(ev)) i.push("Insiders bought on the open market recently: " + esc(ev.match(/insider buying[^;]*/)?.[0]));
+    if (/13D/.test(ev)) i.push("An activist (13D) stake was filed: " + esc(ev.match(/13D:[^;]*/)?.[0]));
+    const nxt = ev.match(/next report ~(\d{4}-\d{2}-\d{2})/);
+    if (nxt) i.push(`Next report expected around ${nxt[1]}. Re-check the story after it.`);
+    if (u.divYield) i.push(`Dividend yield ${pct(u.divYield, false)}${u.divGrowth5y != null ? `, 5-year dividend growth ${pct(u.divGrowth5y)}/yr` : ""}.`);
+    if (weight != null && weight > 0.25) d.push(`${pct(weight, false)} of your entered portfolio. Phil Town sizes full positions at about 10%, so this is concentrated.`);
+    if (u.flags) i.push("Data note: " + esc(String(u.flags).replace(/;\s*/g, "; ")));
+    return { d, i };
+  }
+
+  function render() {
+    if (!uni.size) return;
+    const groups = new Map();
+    lots.forEach((l, idx) => { (groups.get(l.ticker) ?? groups.set(l.ticker, []).get(l.ticker)).push({ ...l, idx }); });
+    let totCost = 0, totVal = 0, haveShares = true;
+    const pos = [...groups].map(([t, ls]) => {
+      const u = uni.get(t);
+      const sh = ls.reduce((a, l) => a + (l.shares || 0), 0);
+      const avg = sh > 0 ? ls.reduce((a, l) => a + l.price * (l.shares || 0), 0) / sh : ls.reduce((a, l) => a + l.price, 0) / ls.length;
+      const val = sh > 0 && u?.price != null ? sh * u.price : null;
+      if (sh > 0) { totCost += sh * avg; totVal += val ?? sh * avg; } else haveShares = false;
+      return { t, u, ls, sh, avg, val };
+    });
+    pos.forEach((p) => { p.weight = p.val != null && totVal > 0 ? p.val / totVal : null; p.c = checks(p.u, p.avg, p.weight); });
+    pos.sort((a, b) => b.c.d.length - a.c.d.length || a.t.localeCompare(b.t));
+
+    if (!pos.length) {
+      $("summary").innerHTML = "";
+      $("list").innerHTML = '<div class="panel empty">No holdings yet. Add a ticker and the price you paid above. Each purchase is its own tranche.</div>';
+      return;
+    }
+    const dangers = pos.reduce((a, p) => a + p.c.d.length, 0);
+    $("summary").innerHTML = `<div class="panel stat"><div class="k">Positions</div><div class="v">${pos.length}</div></div>`
+      + `<div class="panel stat"><div class="k">Dangers</div><div class="v ${dangers ? "neg" : "pos"}">${dangers}</div></div>`
+      + (totCost > 0 ? `<div class="panel stat"><div class="k">Entered value</div><div class="v">${money(totVal)} <span class="${cls(totVal / totCost - 1)} small">${pct(totVal / totCost - 1)}</span></div>${haveShares ? "" : '<div class="muted small">Only lots with shares are counted</div>'}</div>` : "");
+
+    $("list").innerHTML = pos.map((p) => {
+      const u = p.u, gain = u?.price != null ? u.price / p.avg - 1 : null;
+      const ps = u?.pts;
+      return `<article class="panel hold" data-t="${esc(p.t)}">
+        <button type="button" class="head" aria-expanded="${open.has(p.t)}">
+          <span class="tk"><strong>${esc(p.t)}</strong> <span class="muted nm">${esc(u?.name ?? "")}</span></span>
+          <span class="cells">
+            <span><span class="k">Avg cost</span>${money(p.avg)}</span>
+            <span><span class="k">Price</span>${money(u?.price)}</span>
+            <span class="${cls(gain)}"><span class="k">Gain</span>${pct(gain)}</span>
+            <span><span class="k">Price/Sticker</span>${ps == null ? "–" : (ps * 100).toFixed(0) + "%"}</span>
+            <span><span class="k">Status</span>${esc(u?.status ?? "–")}</span>
+          </span>
+          <span class="badges">${p.c.d.length ? `<span class="chip warn">${p.c.d.length} danger${p.c.d.length > 1 ? "s" : ""}</span>` : '<span class="chip BUY">no dangers</span>'}</span>
+        </button>
+        <div class="body" ${open.has(p.t) ? "" : "hidden"}>
+          ${p.c.d.length ? `<h3 class="neg">Dangers</h3><ul>${p.c.d.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
+          ${p.c.i.length ? `<h3>Insights</h3><ul>${p.c.i.map((x) => `<li>${x}</li>`).join("")}</ul>` : ""}
+          <p class="levels muted">Buy (MOS) ${money(u?.mos)} · Sticker ${money(u?.sticker)} · Payback ${money(u?.payback)} · Ten Cap ${money(u?.tenCap)} ${u ? `· <a href="/stock/${encodeURIComponent(p.t)}/">Stock page →</a>` : ""}</p>
+          <table class="lots"><thead><tr><th>Tranche</th><th class="num">Price</th><th class="num">Shares</th><th>Date</th><th>Why I own it</th><th></th></tr></thead><tbody>
+            ${p.ls.map((l, k) => `<tr><td>${k + 1}</td><td class="num">${money(l.price)}</td><td class="num">${l.shares ?? "–"}</td><td>${esc(l.date ?? "")}</td><td>${esc(l.note ?? "")}</td>
+              <td><button type="button" class="ghost del" data-idx="${l.idx}" aria-label="Remove tranche ${k + 1} of ${esc(p.t)}">Remove</button></td></tr>`).join("")}
+          </tbody></table>
+        </div>
+      </article>`;
+    }).join("");
+  }
+
+  $("list").addEventListener("click", (e) => {
+    const del = e.target.closest(".del");
+    if (del) { lots.splice(Number(del.dataset.idx), 1); save(lots); render(); return; }
+    const head = e.target.closest(".head");
+    if (head) {
+      const t = head.closest(".hold").dataset.t;
+      open.has(t) ? open.delete(t) : open.add(t);
+      head.setAttribute("aria-expanded", String(open.has(t)));
+      head.nextElementSibling.hidden = !open.has(t);
+    }
+  });
+
+  $("add").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const t = $("f-t").value.trim().toUpperCase().replace(".", "-");
+    const price = parseFloat($("f-p").value);
+    if (!t || !(price > 0)) { $("f-err").textContent = "Enter a ticker and a buy price above zero."; return; }
+    $("f-err").textContent = uni.size && !uni.has(t) ? `${t} isn't in this week's universe. Added anyway, check the symbol.` : "";
+    const sh = parseFloat($("f-s").value);
+    lots.push({ ticker: t, price, shares: sh > 0 ? sh : null, date: $("f-d").value || null, note: $("f-n").value.trim() || null });
+    save(lots); open.add(t); render();
+    ["f-t", "f-p", "f-s", "f-d", "f-n"].forEach((id) => ($(id).value = ""));
+    $("f-t").focus();
+  });
+
+  $("export").addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify({ version: 1, exported: new Date().toISOString(), lots }, null, 2)], { type: "application/json" });
+    const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: "ruleone-holdings.json" });
+    a.click(); URL.revokeObjectURL(a.href);
+  });
+  $("import").addEventListener("change", async (e) => {
+    const f = e.target.files?.[0]; if (!f) return;
+    try {
+      const data = JSON.parse(await f.text());
+      const arr = (Array.isArray(data) ? data : data.lots).filter((l) => l && typeof l.ticker === "string" && l.price > 0);
+      lots = arr.map((l) => ({ ticker: l.ticker.toUpperCase(), price: +l.price, shares: l.shares > 0 ? +l.shares : null, date: l.date ?? null, note: l.note ?? null }));
+      save(lots); render(); $("f-err").textContent = `Imported ${lots.length} tranche(s).`;
+    } catch { $("f-err").textContent = "That file isn't a RuleOne holdings export."; }
+    e.target.value = "";
+  });
+  $("clear").addEventListener("click", () => {
+    if (lots.length && confirm("Remove all holdings from this browser? Export first if you want a backup.")) { lots = []; save(lots); render(); }
+  });
+})();
+</script>
+
+<style is:global>
+  .lede { max-width: 860px; }
+  .small { font-size: 13px; }
+  .err { color: var(--warn); margin: 0; min-height: 1em; grid-column: 1 / -1; font-size: 14px; }
+  .addform { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px 12px; align-items: end; margin: 16px 0; }
+  .addform label { display: grid; gap: 4px; font-size: 13px; font-weight: 600; }
+  .addform .wide { grid-column: span 2; }
+  @media (max-width: 520px) { .addform .wide { grid-column: 1 / -1; } }
+  .addform input, .tools button, .tools .btn, .addform button, .hold .del {
+    font: inherit; padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--ink); min-width: 0; }
+  .addform button { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600; cursor: pointer; }
+  .tools { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+  .tools button, .tools .btn { cursor: pointer; font-size: 14px; }
+  .ghost { background: transparent !important; color: var(--muted) !important; cursor: pointer; }
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 12px; }
+  .summary .k, .hold .k { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); font-weight: 400; }
+  .summary .v { font-size: 22px; font-weight: 700; }
+  .hl { display: grid; gap: 10px; }
+  .hold { padding: 0; overflow: hidden; }
+  .hold .head { all: unset; box-sizing: border-box; width: 100%; cursor: pointer; display: grid; grid-template-columns: minmax(140px, 1.2fr) 3fr auto; gap: 8px 16px; align-items: center; padding: 12px 16px; }
+  .hold .head:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .hold .nm { display: block; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hold .cells { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; font-variant-numeric: tabular-nums; }
+  @media (max-width: 760px) {
+    .hold .head { grid-template-columns: 1fr auto; }
+    .hold .cells { grid-column: 1 / -1; grid-row: 2; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  .hold .body { border-top: 1px solid var(--line); padding: 4px 16px 14px; }
+  .hold h3 { font-size: 14px; margin: 12px 0 4px; }
+  .hold ul { margin: 0; padding-left: 20px; }
+  .hold li { margin: 3px 0; }
+  .hold .levels { font-size: 13px; margin: 10px 0; }
+  .lots { border-collapse: collapse; font-size: 13px; width: 100%; display: block; overflow-x: auto; }
+  .lots th, .lots td { padding: 4px 8px; border-bottom: 1px solid var(--line); text-align: left; }
+  .lots .del { padding: 2px 8px; font-size: 12px; }
+  .empty { color: var(--muted); }
+</style>

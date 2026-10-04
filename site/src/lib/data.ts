@@ -355,3 +355,60 @@ export function loadMonthly(): Map<string, PriceSeries> {
   }
   return _monthly;
 }
+
+// ---------------------------------------------------------------- learn (InvestED course)
+const KNOW = path.join(ROOT, "knowledge", "invested");
+
+export interface Module { id: string; title: string; goal: string; lesson: string; episodes: string[] }
+export interface Course {
+  title: string; source: string; updated: string; modules: Module[];
+  glossary: { term: string; definition: string; episodes: string[] }[];
+}
+export interface Episode {
+  id: string; number: number; title: string; date: string; minutes: number | null;
+  guests: string[]; module: string; concepts: string[]; rulers: string[]; body: string;
+}
+
+export function loadCourse(): Course | null {
+  const f = path.join(KNOW, "course.json");
+  return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : null;
+}
+
+export function loadProgress(): { done: string[]; total: number | null; updated: string } {
+  const f = path.join(KNOW, "progress.json");
+  if (!fs.existsSync(f)) return { done: [], total: null, updated: "" };
+  const p = JSON.parse(fs.readFileSync(f, "utf8"));
+  return { done: p.done ?? [], total: p.total ?? null, updated: p.updated ?? "" };
+}
+
+/** Minimal front-matter reader for the Professor's notes (scalars and [a, b] lists only). */
+function frontMatter(text: string): [Record<string, string | string[]>, string] {
+  const m = text.match(/^---\n([\s\S]*?)\n---\n?/);
+  if (!m) return [{}, text];
+  const meta: Record<string, string | string[]> = {};
+  for (const line of m[1].split("\n")) {
+    const kv = line.match(/^(\w+):\s*(.*)$/);
+    if (!kv) continue;
+    const v = kv[2].trim();
+    meta[kv[1]] = v.startsWith("[")
+      ? v.slice(1, -1).split(",").map((s) => s.trim().replace(/^["']|["']$/g, "")).filter(Boolean)
+      : v.replace(/^["']|["']$/g, "");
+  }
+  return [meta, text.slice(m[0].length)];
+}
+
+export function loadEpisodes(): Episode[] {
+  const dir = path.join(KNOW, "episodes");
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir).filter((f) => f.endsWith(".md")).sort().map((f) => {
+    const [meta, body] = frontMatter(fs.readFileSync(path.join(dir, f), "utf8"));
+    const s = (k: string) => (typeof meta[k] === "string" ? (meta[k] as string) : "");
+    const l = (k: string) => (Array.isArray(meta[k]) ? (meta[k] as string[]) : []);
+    const id = f.replace(/\.md$/, "");
+    return {
+      id, number: Number(s("episode") || id), title: s("title") || id, date: s("date"),
+      minutes: s("minutes") ? Number(s("minutes")) : null, guests: l("guests"), module: s("module"),
+      concepts: l("concepts"), rulers: l("rulers"), body: body.replace(/^#\s+.*\n/, ""),
+    };
+  });
+}

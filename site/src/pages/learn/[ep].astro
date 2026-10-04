@@ -1,0 +1,60 @@
+---
+import { marked } from "marked";
+import Base from "../../layouts/Base.astro";
+import { loadCourse, loadEpisodes } from "../../lib/data";
+
+export function getStaticPaths() {
+  const eps = loadEpisodes();
+  return eps.map((e, i) => ({ params: { ep: e.id }, props: { ep: e, prev: eps[i - 1] ?? null, next: eps[i + 1] ?? null } }));
+}
+const { ep, prev, next } = Astro.props;
+const mod = loadCourse()?.modules.find((m) => m.id === ep.module);
+const html = (await marked.parse(ep.body, { gfm: true })).replace(/href="(\d{3})\.md"/g, 'href="/learn/$1/"');
+const RULERS: Record<string, string> = { R: "Radar", U: "Understand", L: "Love", E: "Event", Rb: "Reduce basis", S: "Story" };
+---
+<Base title={`${ep.id} · ${ep.title}`} description={`Study notes for InvestED episode ${ep.number}: ${ep.title}`}>
+  <p class="crumbs"><a href="/learn/">← Learn</a>{mod && <> · <span class="muted">Module: {mod.title}</span></>}</p>
+  <h1>{ep.id} · {ep.title}</h1>
+  <p class="muted meta">
+    {ep.date}{ep.minutes && ` · ${ep.minutes} min`}{ep.guests.length > 0 && ` · with ${ep.guests.join(", ")}`}
+    {ep.rulers.map((r) => <span class="chip r" title={RULERS[r] ?? r}>{RULERS[r] ?? r}</span>)}
+  </p>
+  <article class="prose" set:html={html} />
+  {ep.concepts.length > 0 && <p class="tags">{ep.concepts.map((c) => <span class="chip">{c.replace(/-/g, " ")}</span>)}</p>}
+
+  <div class="panel actions">
+    <label><input type="checkbox" id="studied" /> I've studied this episode</label>
+    <span class="muted small">Saved in this browser</span>
+  </div>
+  <div class="pager" role="navigation" aria-label="Episodes">
+    {prev ? <a href={`/learn/${prev.id}/`}>← {prev.id} · {prev.title}</a> : <span></span>}
+    {next ? <a href={`/learn/${next.id}/`}>{next.id} · {next.title} →</a> : <span class="muted">The Professor hasn't reached the next episode yet</span>}
+  </div>
+  <p class="muted small">AI study notes from an automatic transcript. Names and figures may be misheard, and quotes are short excerpts for study. Not investment advice.</p>
+</Base>
+
+<script is:inline define:vars={{ id: ep.id }}>
+  const KEY = "ruleone.learn.done";
+  const read = () => { try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch { return []; } };
+  const box = document.getElementById("studied");
+  box.checked = read().includes(id);
+  box.addEventListener("change", () => {
+    const s = new Set(read());
+    box.checked ? s.add(id) : s.delete(id);
+    try { localStorage.setItem(KEY, JSON.stringify([...s].sort())); } catch {}
+  });
+</script>
+
+<style>
+  .crumbs { margin: 0 0 8px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .chip.r { color: var(--accent); }
+  .prose details { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; margin: 6px 0; }
+  .prose details summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+  .prose ol li { margin-bottom: 8px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; max-width: 860px; }
+  .actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; max-width: 860px; margin: 20px 0 12px; }
+  .actions label { font-weight: 600; cursor: pointer; }
+  .pager { display: flex; margin-bottom: 16px; justify-content: space-between; gap: 16px; max-width: 860px; flex-wrap: wrap; }
+  .small { font-size: 13px; }
+</style>

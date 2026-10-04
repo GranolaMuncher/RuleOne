@@ -1,6 +1,6 @@
 name: Deploy site
 
-# Builds the Astro site in site/ from lists/ and reports/ and publishes it to Cloudflare Pages.
+# Builds the Astro site in site/ from lists/, reports/ and knowledge/ and publishes it to Cloudflare Pages.
 # Runs after the weekly job (workflow_call) and whenever results or the site change on the
 # main branches. Pushes made by the weekly job itself don't trigger `push`, hence the call.
 on:
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main, claude/dazzling-knuth-dmucvz]
-    paths: ["lists/**", "reports/**", "site/**", "README.md", ".github/workflows/deploy-site.yml"]
+    paths: ["lists/**", "reports/**", "knowledge/**", "site/**", "README.md", ".github/workflows/deploy-site.yml"]
 
 permissions:
   contents: read

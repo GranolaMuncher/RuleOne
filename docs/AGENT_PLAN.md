@@ -20,7 +20,7 @@ Status: **proposed**, not yet built. This file is the hand-off spec, so any sess
 | 3 | **Methodology professor: "Professor"** | Builds and maintains the knowledge base (InvestED, Rule #1, Buffett/Munger, *The Intelligent Investor*); reviews RULERS dossiers for methodology errors | Sunday ingest; Saturday review step | Opus 5.5 | `knowledge/`, review notes in `research/reviews/` |
 | 4 | **Site & repo engineer: "Engineer"** | Keeps the pipeline green, checks data quality, fixes bugs, keeps the site building, and updates dependencies | On any workflow failure; weekly health check; monthly dependency check | Sonnet 5.5 | Pull requests only; `ops/health/` |
 | 5 | **Editor** (coordinator) | Reconciles agents 1–3, resolves disagreements, writes the weekly brief and the action list, decides escalations | Saturday, last step before deploy | Sonnet 5.5 | `reports/weekly/` |
-| 6 | *(optional, later)* **Portfolio & alerts** | Tracks your holdings and buy-price alerts; push/email when a watched stock crosses its buy price or an event hits | Daily | Haiku 4.5 | `research/alerts/` |
+| 6 | **Holdings page** (not an agent) | You enter tickers and buy prices on [/holdings/](https://ruleone.pages.dev/holdings/); the page checks each one against the weekly data and shows dangers and insights. Stored only in your browser. No alerts, no push or email | Every page load | none | browser `localStorage` |
 
 ### Weekly flow (Saturday)
 
@@ -32,7 +32,7 @@ Data engine ──► Radar weekly roll-up ──► RULERS analyst ──► Pr
 Engineer: on failure of any step, and a health check after deploy
 ```
 
-Weekdays: Radar runs nightly and appends to `research/news/<date>.md`. If an event hits a stock already in buy range or on deck, it opens a GitHub issue labelled `event` (optional: push notification).
+Weekdays: Radar runs nightly and appends to `research/news/<date>.md`. If an event hits a stock already in buy range or on deck, it opens a GitHub issue labelled `event` No push or email notifications for now.
 
 ## Agent specs
 
@@ -64,7 +64,7 @@ Weekdays: Radar runs nightly and appends to `research/news/<date>.md`. If an eve
 | **U: Understanding** | The business in three sentences; how it makes money; circle-of-competence score 1–5, with what you would need to learn |
 | **L: Love** | Meaning test: products, mission, management integrity, ESG issues. Would you own the whole company? Yes/no, with reasons |
 | **E: Event** | The current event (from Radar), temporary vs structural, evidence for each side, what would prove it temporary |
-| **R: Reduce basis** | Tranche plan: starter, add and full-position prices tied to the MOS, Ten Cap and Payback levels; when to stop buying; optional cost-basis reduction ideas (marked as such) |
+| **R: Reduce basis** | Tranche plan: starter, add and full-position prices tied to the MOS, Ten Cap and Payback levels; when to stop buying. **Tranche buying only: no options strategies.** |
 | **S: Story** | The thesis in one paragraph, three things that must stay true, and the sell-if-wrong triggers |
 | **Numbers** | Sticker / MOS / Payback / Ten Cap (adjusted growth with reasoning), DCF summary from `python -m ruleone.deepdive`, dividend and total return |
 | **Verdict** | BUY / ACCUMULATE / WATCH / AVOID, entry and trim levels, confidence 1–5 |
@@ -84,7 +84,7 @@ It creates `reports/config/<TICKER>.json` and runs the deep-dive engine for any 
 | `knowledge/CHECKLIST.md` | The single consolidated checklist the RULERS analyst must apply. Every item links to its source note |
 | `knowledge/CONFLICTS.md` | Places where the schools disagree, e.g. Town's 50% MOS vs Graham's margin of safety, or Buffett's "wonderful company at a fair price" vs Graham's cigar butts, and which one this repo follows |
 
-**Sunday ingest:** check the InvestED feed for new episodes and summarise them from show notes or a transcript (yours, or a published one). Update the topic notes and `CHECKLIST.md` when an episode adds or changes a rule.
+**InvestED ingest (built):** [`professor.yml`](../.github/workflows/professor.yml) runs four times a day. `python -m ruleone.podcast prepare` downloads the next six episodes **in order** from the RSS feed and transcribes them on the runner with faster-whisper (`base.en`, about 4 minutes per 40-minute episode). Claude then follows [`agents/professor/PROMPT.md`](../agents/professor/PROMPT.md) and writes one study note per episode, with key ideas and timestamps, a RuleOne mapping, Buffett/Munger/Graham links, an exercise and a quiz. It also folds each episode into `knowledge/invested/course.json` (11 modules with a running lesson synthesis, plus a glossary). `record` marks progress in `progress.json`. Transcripts never leave the runner. The site renders the course at `/learn/`, where you can mark episodes studied (saved in your browser). The back catalogue (498 episodes, about 307 hours) takes about three weeks. After that, each run picks up new episodes. Update `CHECKLIST.md` when an episode adds or changes a rule.
 
 **Saturday review:** read each new or changed RULERS dossier and flag methodology errors, for example:
 - a growth rate above the lower of history and analyst estimates
@@ -159,12 +159,12 @@ Revisit this only if you later want agents to *choose* work dynamically, for exa
 3. **Professor knowledge base.** Seed `knowledge/rule1` and `CHECKLIST.md` first, then the InvestED episode ingest and the Saturday review.
 4. **Editor.** Once there are three outputs to reconcile.
 5. **Engineer.** On-failure trigger first, then the health check, then the monthly dependency check.
-6. **Optional:** portfolio and alerts.
+6. ~~Portfolio and alerts~~ → the Holdings page (built, browser-only).
 
-## Open questions for the owner
+## Decisions (2026-10-04)
 
-- **InvestED source:** RSS show notes only, or will you supply transcripts (private location)?
-- ***The Intelligent Investor*:** will you add your own notes or highlights? (Book text can't go in the public repo.)
-- **Holdings:** track your actual positions for the Reduce-basis plans and alerts? Those would need a private store; the site is public.
-- **Notifications:** GitHub issues only, or also email/push?
-- **Cost-basis reduction:** should "Reduce basis" include options strategies (e.g. selling puts at the buy price), or stay with tranche buying only?
+- **InvestED:** the agent transcribes every episode itself, in order, and teaches it as a structured course (see Professor above). Built.
+- ***The Intelligent Investor*:** no book text in the public repo. The ingestion options are in [`LIBRARY.md`](LIBRARY.md).
+- **Holdings:** no private tracking by any agent. The [Holdings page](https://ruleone.pages.dev/holdings/) keeps your tickers and buy prices in your own browser, with export and import. Built.
+- **Notifications:** none for now (no push or email). Events surface in the weekly memo, on the site and on the Holdings page.
+- **Reduce basis:** tranche buying only. This is value investing, so no options.
