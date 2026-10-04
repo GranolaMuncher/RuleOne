@@ -27,7 +27,7 @@ concurrency:
 jobs:
   screen:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     outputs:
       has_claude: ${{ steps.secrets.outputs.has_claude }}
     env:

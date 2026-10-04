@@ -54,6 +54,9 @@ const total = loadUniverse().length;
     <label>Big 5 ≥
       <select name="b5"><option value="">Any</option><option value="0.4">40%</option><option value="0.6">60%</option><option value="0.8">80%</option></select>
     </label>
+    <label>Div yield ≥
+      <select name="dy"><option value="">Any</option><option value="0.0001">Pays dividend</option><option value="0.01">1%</option><option value="0.02">2%</option><option value="0.03">3%</option><option value="0.04">4%</option><option value="0.05">5%</option></select>
+    </label>
     <label>Max P/E<input type="number" name="pe" min="0" step="1" placeholder="any" /></label>
     <label>Max Price/Sticker<input type="number" name="pts" min="0" step="0.1" placeholder="any" /></label>
     <label>Market cap ≥
@@ -89,6 +92,8 @@ const total = loadUniverse().length;
           <th class="num" data-k="sticker">Sticker</th>
           <th class="num" data-k="pts" title="Price ÷ Sticker">P/Stk</th>
           <th class="num" data-k="tenCap">Ten Cap</th>
+          <th class="num" data-k="divYield" title="Trailing 12-month dividends ÷ price">Div yield</th>
+          <th class="num" data-k="tr10y" title="10-year total return per year, dividends reinvested">TR 10y/yr</th>
           <th class="num" data-k="roic5">ROIC 5y</th>
           <th class="num" data-k="big5">Big 5</th>
           <th class="num" data-k="marketCap">Mkt cap</th>
@@ -171,7 +176,7 @@ const total = loadUniverse().length;
   const val = (n: string) => (form.elements.namedItem(n) as HTMLInputElement | null);
   const get = (n: string) => { const el = val(n); return el ? (el.type === "checkbox" ? (el.checked ? "1" : "") : el.value) : ""; };
   const set = (n: string, v: string) => { const el = val(n); if (!el) return; if (el.type === "checkbox") el.checked = !!v; else el.value = v; };
-  const FIELDS = ["q", "ex", "sector", "industry", "status", "tier", "off", "m1", "b5", "pe", "pts", "mcap", "hasSticker", "hideFlagged"];
+  const FIELDS = ["q", "ex", "sector", "industry", "status", "tier", "off", "m1", "b5", "dy", "pe", "pts", "mcap", "hasSticker", "hideFlagged"];
 
   function filterRows() {
     const q = get("q").trim().toLowerCase();
@@ -181,6 +186,7 @@ const total = loadUniverse().length;
     const m1 = get("m1") ? Number(get("m1")) / 100 : null;
     const b5 = get("b5") ? Number(get("b5")) : null;
     const pe = get("pe") ? Number(get("pe")) : null;
+    const dy = get("dy") ? Number(get("dy")) : null;
     const pts = get("pts") ? Number(get("pts")) : null;
     const mcap = get("mcap") ? Number(get("mcap")) : null;
     const hasSticker = !!get("hasSticker"), hideFlagged = !!get("hideFlagged");
@@ -198,6 +204,7 @@ const total = loadUniverse().length;
       if (m1 != null && !(r.m1 != null && r.m1 <= m1)) return false;
       if (b5 != null && !(r.big5 != null && r.big5 >= b5 && testsTotal(r) >= minTests)) return false;
       if (pe != null && !(r.pe != null && r.pe > 0 && r.pe <= pe)) return false;
+      if (dy != null && !(r.divYield != null && r.divYield >= dy)) return false;
       if (pts != null && !(r.pts != null && r.pts <= pts)) return false;
       if (mcap != null && !(r.marketCap != null && r.marketCap >= mcap)) return false;
       if (hasSticker && r.sticker == null) return false;
@@ -269,6 +276,8 @@ const total = loadUniverse().length;
         <td class="num">${fmtUsd(r.sticker)}</td>
         <td class="num">${r.pts == null ? "–" : r.pts.toFixed(2)}</td>
         <td class="num">${fmtUsd(r.tenCap)}</td>
+        <td class="num">${r.divYield == null ? "–" : (r.divYield * 100).toFixed(1) + "%"}</td>
+        <td class="num ${cls(r.tr10y)}">${r.tr10y == null ? "–" : (r.tr10y * 100).toFixed(1) + "%"}</td>
         <td class="num">${r.roic5 == null ? "–" : (r.roic5 * 100).toFixed(0) + "%"}</td>
         <td class="num">${esc(r.big5Tests || "–")}</td>
         <td class="num">${fmtBig(r.marketCap)}</td>
@@ -332,7 +341,7 @@ const total = loadUniverse().length;
 
   document.getElementById("csv")!.addEventListener("click", () => {
     const cols = ["ticker", "name", "exchange", "sector", "industry", "status", "tier", "price", "w1", "m1", "m3", "ytd", "y1", "offHigh", "pe",
-      "mos", "sticker", "pts", "payback", "tenCap", "growth", "roic5", "big5", "big5Tests", "fcfYield", "marketCap", "detail", "flags", "events"];
+      "mos", "sticker", "pts", "payback", "tenCap", "growth", "divYield", "divGrowth5y", "tr10y", "roic5", "big5", "big5Tests", "fcfYield", "marketCap", "detail", "flags", "events"];
     const q = (v: any) => (v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v));
     const csv = [cols.join(","), ...view.map((r) => cols.map((c) => q(r[c])).join(","))].join("\n");
     const a = document.createElement("a");

@@ -101,6 +101,9 @@ const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
         <tr><th>P/E · 10y median</th><td class="num">{mult(u.pe)}</td><td class="num">{mult(u.histPe)}</td></tr>
         <tr><th>EPS <span class="muted">{u.epsBasis}</span></th><td class="num">{usd(u.eps)}</td><td></td></tr>
         <tr><th>FCF yield</th><td class="num">{pct(u.fcfYield, 1)}</td><td></td></tr>
+        <tr><th>Dividend (TTM) · yield</th><td class="num">{usd(u.divTtm)}</td><td class="num">{pct(u.divYield, 1)}</td></tr>
+        {u.divGrowth5y != null && <tr><th>Dividend growth <span class="muted">5y, per year</span></th><td class="num">{pct(u.divGrowth5y, 1)}</td><td></td></tr>}
+        <tr><th>Total return <span class="muted">per year, dividends reinvested · 5y · 10y</span></th><td class="num">{pct(u.tr5y, 1)}</td><td class="num">{pct(u.tr10y, 1)}</td></tr>
         <tr><th>Revenue · net income <span class="muted">last FY</span></th><td class="num">{big(u.revenue)}</td><td class="num">{big(u.netIncome)}</td></tr>
       </table>
     </section>

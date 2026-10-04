@@ -263,6 +263,11 @@ export interface UniverseRow {
   payback: number | null;
   tenCap: number | null;
   fcfYield: number | null;
+  divTtm: number | null;
+  divYield: number | null;
+  divGrowth5y: number | null;
+  tr5y: number | null;
+  tr10y: number | null;
   big5Score: number | null;
   big5Tests: string;
   roic: (number | null)[];
@@ -287,6 +292,7 @@ export function toUniverseRow(r: Row): UniverseRow {
     eps: num(r.eps), epsBasis: r.eps_basis, pe: num(r.pe), histPe: num(r.hist_pe_median), growth: num(r.windage_growth),
     sticker: num(r.sticker), mos: num(r.mos_price), priceToSticker: num(r.price_to_sticker),
     payback: num(r.payback_price), tenCap: num(r.ten_cap_price), fcfYield: num(r.fcf_yield),
+    divTtm: num(r.div_ttm), divYield: num(r.div_yield), divGrowth5y: num(r.div_growth_5y), tr5y: num(r.tr_5y), tr10y: num(r.tr_10y),
     big5Score: num(r.big5_score), big5Tests: r.big5_tests,
     roic: [num(r.roic10), num(r.roic5), num(r.roic1)],
     growthTable: { Sales: g("sales"), EPS: g("eps"), BVPS: g("bvps"), OCF: g("ocf") },
@@ -316,7 +322,7 @@ export function loadSnapshots(): Map<string, { date: string; price: number | nul
 }
 
 // ---------------------------------------------------------------- price history
-export interface PriceSeries { dates: string[]; closes: number[] }
+export interface PriceSeries { dates: string[]; closes: number[]; adj?: number[] }
 
 function monthAdd(ym: string, n: number): string {
   const [y, m] = ym.split("-").map(Number);
@@ -334,7 +340,8 @@ export function loadMonthly(): Map<string, PriceSeries> {
     const months = r.start.includes(" ")
       ? r.start.split(" ")
       : Array.from({ length: closes.length - 1 }, (_, i) => monthAdd(r.start, i));
-    _monthly.set(r.ticker, { dates: [...months.map((m) => `${m}-01`), r.live], closes });
+    const adj = r.adj ? r.adj.split(" ").map(Number) : undefined;
+    _monthly.set(r.ticker, { dates: [...months.map((m) => `${m}-01`), r.live], closes, adj: adj?.length === closes.length ? adj : undefined });
   }
   return _monthly;
 }

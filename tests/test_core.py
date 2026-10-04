@@ -156,3 +156,14 @@ def test_contiguous_months():
     from ruleone.marketwide import _contiguous_months
     assert _contiguous_months(["2025-11", "2025-12", "2026-01"])
     assert not _contiguous_months(["2025-11", "2026-01"])
+
+
+def test_dividend_stats():
+    from ruleone.marketwide import dividend_stats
+    series = [(f"{2016 + i // 12}-{i % 12 + 1:02d}-01", 100.0, 50.0 + i * 0.5) for i in range(121)]
+    divs = [("2025-12-15", 1.0), ("2025-06-15", 1.0), ("2020-03-15", 0.5), ("2020-09-15", 0.5)]
+    out = dividend_stats({"series": series, "dividends": divs}, 100.0)
+    assert out["div_ttm"] == 2.0 and abs(out["div_yield"] - 0.02) < 1e-12
+    assert abs(out["div_growth_5y"] - ((2.0 / 1.0) ** 0.2 - 1)) < 1e-9
+    assert out["tr_10y"] is not None and out["tr_5y"] is not None
+    assert dividend_stats(None, 10)["div_yield"] is None

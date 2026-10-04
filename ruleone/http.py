@@ -26,7 +26,7 @@ class Fetcher:
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self.ua = user_agent or os.environ.get("SEC_USER_AGENT") or DEFAULT_UA
         self.session = requests.Session()
-        self._min_interval = {"sec": 1.0 / sec_rps, "yahoo": 0.25}
+        self._min_interval = {"sec": 1.0 / sec_rps, "yahoo": 0.15}
         self._last = {"sec": 0.0, "yahoo": 0.0}
         self._lock = threading.Lock()
 

@@ -3,7 +3,7 @@ import type { PriceSeries } from "../lib/data";
 
 interface Props {
   ticker: string;
-  monthly?: PriceSeries;
+  monthly?: PriceSeries;   // closes + optional dividend-adjusted closes (adj)
   weekly: number[];        // last ~53 weekly closes, final = live quote
   liveDate: string;
   mos: number | null;
@@ -15,48 +15,60 @@ const { ticker, monthly, weekly, liveDate, mos, sticker } = Astro.props;
 const live = new Date(`${liveDate || new Date().toISOString().slice(0, 10)}T00:00:00Z`);
 const weeklyDates = weekly.map((_, i) =>
   new Date(live.getTime() - (weekly.length - 1 - i) * 7 * 86400000).toISOString().slice(0, 10));
+const hasTR = !!monthly?.adj?.length;
 const data = {
   ticker,
-  monthly: monthly ?? { dates: [], closes: [] },
+  monthly: monthly ?? { dates: [], closes: [], adj: [] },
   weekly: { dates: weeklyDates, closes: weekly },
   refs: [
-    mos ? { label: "Buy", value: mos, cls: "mos" } : null,
-    sticker ? { label: "Sticker", value: sticker, cls: "st" } : null,
+    mos ? { label: "Buy", value: mos } : null,
+    sticker ? { label: "Sticker", value: sticker } : null,
   ].filter(Boolean),
 };
 const years = monthly ? (new Date(monthly.dates.at(-1)!).getTime() - new Date(monthly.dates[0]).getTime()) / (365.25 * 86400000) : 0;
 const fullLabel = years >= 9.5 ? "10Y" : `All (${Math.max(1, Math.round(years))}Y)`;
-// Year-end closes for the table view.
-const yearEnd: [string, number][] = [];
+// Year-end values for the table view.
+const yearEnd: [string, number, number | null][] = [];
 if (monthly) {
   monthly.dates.forEach((d, i) => {
-    if (d.slice(5, 7) === "12" || i === monthly.dates.length - 1) yearEnd.push([i === monthly.dates.length - 1 ? `${d} (latest)` : d.slice(0, 4), monthly.closes[i]]);
+    const lastPt = i === monthly.dates.length - 1;
+    if (d.slice(5, 7) === "12" || lastPt)
+      yearEnd.push([lastPt ? `${d} (latest)` : d.slice(0, 4), monthly.closes[i], monthly.adj?.length ? monthly.adj[i] : null]);
   });
 }
+const money = (v: number) => `$${v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 ---
 <section class="panel pc" data-pricechart>
   <div class="pc-head">
-    <h2>Price history</h2>
-    <div class="pc-controls" role="group" aria-label="Range">
+    <h2>{hasTR ? "Price and total return" : "Price history"}</h2>
+    <div class="pc-controls" role="group" aria-label="Chart options">
       <button type="button" data-range="1y">1Y</button>
       {years >= 4.5 && <button type="button" data-range="5y">5Y</button>}
       {monthly && <button type="button" data-range="max">{fullLabel}</button>}
-      <label class="pc-log"><input type="checkbox" data-log /> Log scale</label>
+      {hasTR && <label class="pc-opt"><input type="checkbox" data-tr checked /> Total return</label>}
+      <label class="pc-opt"><input type="checkbox" data-log /> Log scale</label>
     </div>
   </div>
+  {hasTR && (
+    <div class="pc-legend" data-legend>
+      <span><i class="key s1"></i>Price</span>
+      <span data-legend-tr><i class="key s2"></i>Total return (dividends reinvested)</span>
+    </div>
+  )}
   <p class="pc-sub muted" data-sub></p>
   <div class="pc-plot" data-plot tabindex="0" aria-label={`${ticker} price chart. Use left and right arrow keys to read values.`}>
-    <svg data-svg role="img" aria-label={`${ticker} closing price history`}></svg>
-    <div class="pc-tip" data-tip hidden><strong data-tip-v></strong><span data-tip-d></span></div>
+    <svg data-svg role="img" aria-label={`${ticker} ${hasTR ? "price and total return" : "closing price"} history`}></svg>
+    <div class="pc-tip" data-tip hidden></div>
   </div>
   <p class="pc-note muted" data-note></p>
   {yearEnd.length > 0 && (
     <details class="pc-table">
-      <summary>Show year-end prices</summary>
+      <summary>Show year-end values</summary>
       <table>
-        <thead><tr><th>Year</th><th class="num">Close</th></tr></thead>
-        <tbody>{yearEnd.map(([y, c]) => <tr><td>{y}</td><td class="num">${c.toLocaleString("en-US", { maximumFractionDigits: 2 })}</td></tr>)}</tbody>
+        <thead><tr><th>Year</th><th class="num">Price</th>{hasTR && <th class="num">Dividend-adjusted</th>}</tr></thead>
+        <tbody>{yearEnd.map(([y, c, a]) => <tr><td>{y}</td><td class="num">{money(c)}</td>{hasTR && <td class="num">{a == null ? "–" : money(a)}</td>}</tr>)}</tbody>
       </table>
+      {hasTR && <p class="muted small">Dividend-adjusted values are back-adjusted to today's price: the gap to the price column is the value of dividends reinvested since then.</p>}
     </details>
   )}
   <script type="application/json" data-json set:html={JSON.stringify(data)} />
@@ -70,44 +82,52 @@ if (monthly) {
   .pc-controls button { font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 8px; border: 1px solid var(--line);
     background: var(--panel); color: var(--muted); cursor: pointer; }
   .pc-controls button[aria-pressed="true"] { background: var(--chip); color: var(--ink); font-weight: 600; border-color: var(--muted); }
-  .pc-log { font-size: 13px; color: var(--muted); margin-left: 6px; display: flex; align-items: center; gap: 4px; }
+  .pc-opt { font-size: 13px; color: var(--muted); margin-left: 6px; display: flex; align-items: center; gap: 4px; }
+  .pc-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; font-size: 13px; color: var(--ink); }
+  .pc-legend .key { display: inline-block; width: 16px; height: 2px; border-radius: 1px; vertical-align: middle; margin-right: 6px; }
+  .key.s1 { background: var(--series-1); } .key.s2 { background: var(--series-2); }
   .pc-sub { margin: 6px 0 0; font-size: 13px; }
   .pc-plot { position: relative; margin-top: 6px; outline: none; }
   .pc-plot:focus-visible { box-shadow: 0 0 0 2px var(--accent); border-radius: 6px; }
   .pc-plot svg { display: block; width: 100%; height: 300px; overflow: visible; }
   .pc-tip { position: absolute; top: 0; pointer-events: none; background: var(--panel); border: 1px solid var(--line);
-    border-radius: 8px; padding: 6px 9px; font-size: 12.5px; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(0,0,0,.12);
-    white-space: nowrap; }
+    border-radius: 8px; padding: 6px 9px; font-size: 12.5px; box-shadow: 0 2px 8px rgba(0,0,0,.12); white-space: nowrap; }
   .pc-tip[hidden] { display: none; }
-  .pc-tip strong { font-size: 14px; font-variant-numeric: tabular-nums; }
-  .pc-tip span { color: var(--muted); }
   .pc-note { font-size: 12.5px; margin: 6px 0 0; min-height: 1em; }
   .pc-table { margin-top: 8px; font-size: 13px; }
   .pc-table table { border-collapse: collapse; margin-top: 6px; }
-  .pc-table th, .pc-table td { padding: 3px 12px 3px 0; border-bottom: 1px solid var(--line); text-align: left; }
+  .pc-table th, .pc-table td { padding: 3px 14px 3px 0; border-bottom: 1px solid var(--line); text-align: left; }
   .pc-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .pc-table .small { font-size: 12px; max-width: 560px; }
 </style>
 
 <style is:global>
   [data-pricechart] .grid { stroke: var(--line); stroke-width: 1; }
   [data-pricechart] .axis { fill: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
-  [data-pricechart] .line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-  [data-pricechart] .area { fill: var(--accent); opacity: .1; }
-  [data-pricechart] .ref { stroke-width: 1.5; stroke-dasharray: 6 4; }
-  [data-pricechart] .ref.mos { stroke: var(--buy); }
-  [data-pricechart] .ref.st { stroke: var(--deck); }
+  [data-pricechart] .line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  [data-pricechart] .line.s1 { stroke: var(--series-1); } [data-pricechart] .line.s2 { stroke: var(--series-2); }
+  [data-pricechart] .area { fill: var(--series-1); opacity: .08; }
+  [data-pricechart] .ref { stroke: var(--muted); stroke-width: 1.25; stroke-dasharray: 6 4; }
   [data-pricechart] .reflabel { fill: var(--ink); font-size: 11.5px; font-weight: 600; }
-  [data-pricechart] .refkey.mos { fill: var(--buy); } [data-pricechart] .refkey.st { fill: var(--deck); }
+  [data-pricechart] .reflabel.ref-t { fill: var(--muted); font-weight: 500; }
   [data-pricechart] .cross { stroke: var(--muted); stroke-width: 1; }
-  [data-pricechart] .dot { fill: var(--accent); stroke: var(--panel); stroke-width: 2; }
+  [data-pricechart] .dot { stroke: var(--panel); stroke-width: 2; }
+  [data-pricechart] .dot.s1 { fill: var(--series-1); } [data-pricechart] .dot.s2 { fill: var(--series-2); }
+  [data-pricechart] .tip-row { display: flex; align-items: center; gap: 8px; }
+  [data-pricechart] .tip-row strong { font-size: 14px; font-variant-numeric: tabular-nums; }
+  [data-pricechart] .tip-row span { color: var(--muted); }
+  [data-pricechart] .tip-date { color: var(--muted); margin-top: 2px; }
+  [data-pricechart] .tip-key { display: inline-block; width: 12px; height: 2px; border-radius: 1px; }
+  [data-pricechart] .tip-key.s1 { background: var(--series-1); } [data-pricechart] .tip-key.s2 { background: var(--series-2); }
 </style>
 
 <script>
-  type Series = { dates: string[]; closes: number[] };
-  type Ref = { label: string; value: number; cls: string };
+  type Series = { dates: string[]; closes: number[]; adj?: number[] };
+  type Ref = { label: string; value: number };
   const NS = "http://www.w3.org/2000/svg";
   const fmt = (v: number) => v === 0 ? "$0" : "$" + v.toLocaleString("en-US", { minimumFractionDigits: v < 10 ? 2 : 0, maximumFractionDigits: v < 10 ? 2 : 0 });
   const fmtFull = (v: number) => "$" + v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const pctS = (v: number) => `${v >= 0 ? "+" : ""}${(v * 100).toFixed(0)}%`;
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const dateLabel = (d: string, weekly: boolean, last: boolean) => {
     const [y, m, day] = d.split("-").map(Number);
@@ -118,9 +138,8 @@ if (monthly) {
   function niceTicks(lo: number, hi: number, count: number, log: boolean): number[] {
     if (log) {
       const out: number[] = [];
-      const steps = [1, 2, 5];
       for (let p = Math.floor(Math.log10(lo)); p <= Math.ceil(Math.log10(hi)); p++)
-        for (const s of steps) { const v = s * 10 ** p; if (v >= lo && v <= hi) out.push(v); }
+        for (const s of [1, 2, 5]) { const v = s * 10 ** p; if (v >= lo && v <= hi) out.push(v); }
       return out.length > 7 ? out.filter((_, i) => i % 2 === 0) : out;
     }
     const raw = (hi - lo) / count;
@@ -137,6 +156,7 @@ if (monthly) {
     parent.appendChild(e);
     return e;
   }
+  function span(text: string, cls?: string) { const s = document.createElement("span"); if (cls) s.className = cls; s.textContent = text; return s; }
 
   function setup(root: HTMLElement) {
     const data = JSON.parse(root.querySelector("[data-json]")!.textContent!) as
@@ -147,32 +167,50 @@ if (monthly) {
     const note = root.querySelector("[data-note]") as HTMLElement;
     const sub = root.querySelector("[data-sub]") as HTMLElement;
     const logBox = root.querySelector("[data-log]") as HTMLInputElement;
+    const trBox = root.querySelector("[data-tr]") as HTMLInputElement | null;
+    const legendTr = root.querySelector("[data-legend-tr]") as HTMLElement | null;
     const buttons = [...root.querySelectorAll<HTMLButtonElement>("[data-range]")];
+    const hasAdj = !!data.monthly.adj && data.monthly.adj.length === data.monthly.closes.length;
     let range = data.monthly.closes.length > 1 ? "max" : "1y";
-    let pts: { d: string; v: number; x: number; y: number }[] = [];
+    let pts: { d: string; v: number; t: number | null; x: number; y: number; yt: number | null }[] = [];
     let weekly = false;
     let cursor = -1;
 
+    // Dividend adjustment factor (adj/close) for a date, from the nearest month at or before it.
+    function factorAt(d: string): number {
+      if (!hasAdj) return 1;
+      const m = data.monthly;
+      let k = m.dates.length - 1;
+      while (k > 0 && m.dates[k] > d) k--;
+      return m.adj![k] / m.closes[k];
+    }
+
     function series(): Series {
-      if (range === "1y") return data.weekly;
-      if (range === "5y") { const n = 61; return { dates: data.monthly.dates.slice(-n), closes: data.monthly.closes.slice(-n) }; }
-      return data.monthly;
+      if (range === "1y") {
+        const w = data.weekly;
+        return hasAdj ? { ...w, adj: w.closes.map((c, i) => c * factorAt(w.dates[i])) } : w;
+      }
+      const m = data.monthly;
+      const n = range === "5y" ? 61 : m.closes.length;
+      return { dates: m.dates.slice(-n), closes: m.closes.slice(-n), adj: hasAdj ? m.adj!.slice(-n) : undefined };
     }
 
     function draw() {
       const s = series();
+      const showTR = !!(s.adj && (!trBox || trBox.checked));
+      if (legendTr) legendTr.style.visibility = showTR ? "visible" : "hidden";
       weekly = range === "1y";
       buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.range === range)));
       svg.replaceChildren();
       if (s.closes.length < 2) { note.textContent = "No price history available."; return; }
       const W = plot.clientWidth || 700, H = 300, padL = 52, padT = 12, padB = 26;
-      // Right margin sized to the longest end label (≈6.8px per character at 11.5px + key + gap).
-      const labelChars = Math.max(fmt(s.closes.at(-1)!).length, ...data.refs.map((r) => `${r.label} ${fmt(r.value)}`.length + 2));
+      const labelChars = Math.max(fmt(s.closes.at(-1)!).length, ...data.refs.map((r) => `${r.label} ${fmt(r.value)}`.length + 1));
       const padR = Math.ceil(labelChars * 6.8) + 14;
       svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
       const log = logBox.checked;
-      const lo0 = Math.min(...s.closes), hi0 = Math.max(...s.closes);
-      // Reference lines widen the y-range only when they sit reasonably near the prices.
+      const vals = showTR ? [...s.closes, ...s.adj!] : s.closes;
+      const lo0 = Math.min(...vals), hi0 = Math.max(...vals);
+      // Reference lines widen the y-range only when they sit reasonably near the data.
       const shown = data.refs.filter((r) => r.value >= lo0 * 0.5 && r.value <= hi0 * 1.5);
       const hidden = data.refs.filter((r) => !shown.includes(r));
       let lo = Math.min(lo0, ...shown.map((r) => r.value)), hi = Math.max(hi0, ...shown.map((r) => r.value));
@@ -185,7 +223,6 @@ if (monthly) {
         el("line", { x1: padL, x2: W - padR, y1: y(t), y2: y(t), class: "grid" }, svg);
         el("text", { x: padL - 8, y: y(t) + 4, "text-anchor": "end", class: "axis" }, svg).textContent = fmt(t);
       }
-      // x labels: years (or months for 1Y), thinned to fit
       const labelEvery = Math.max(1, Math.ceil(s.dates.length / Math.max(2, Math.floor((W - padL - padR) / 70))));
       s.dates.forEach((d, i) => {
         const [yy, mm] = d.split("-").map(Number);
@@ -194,55 +231,66 @@ if (monthly) {
         el("text", { x: x(i), y: H - 6, "text-anchor": "middle", class: "axis" }, svg).textContent = weekly ? `${MONTHS[mm - 1]} ${String(yy).slice(2)}` : String(yy);
       });
 
-      pts = s.closes.map((v, i) => ({ d: s.dates[i], v, x: x(i), y: y(v) }));
-      const line = pts.map((p, i) => `${i ? "L" : "M"}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join("");
-      el("path", { d: `${line}L${pts.at(-1)!.x.toFixed(1)},${H - padB}L${pts[0].x.toFixed(1)},${H - padB}Z`, class: "area" }, svg);
-      for (const r of shown)
-        el("line", { x1: padL, x2: W - padR, y1: y(r.value), y2: y(r.value), class: `ref ${r.cls}` }, svg);
-      el("path", { d: line, class: "line" }, svg);
+      pts = s.closes.map((v, i) => ({ d: s.dates[i], v, t: showTR ? s.adj![i] : null, x: x(i), y: y(v), yt: showTR ? y(s.adj![i]) : null }));
+      const path = (k: "y" | "yt") => pts.map((p, i) => `${i ? "L" : "M"}${p.x.toFixed(1)},${(p[k] as number).toFixed(1)}`).join("");
+      const priceLine = path("y");
+      el("path", { d: `${priceLine}L${pts.at(-1)!.x.toFixed(1)},${H - padB}L${pts[0].x.toFixed(1)},${H - padB}Z`, class: "area" }, svg);
+      for (const r of shown) el("line", { x1: padL, x2: W - padR, y1: y(r.value), y2: y(r.value), class: "ref" }, svg);
+      if (showTR) el("path", { d: path("yt"), class: "line s2" }, svg);
+      el("path", { d: priceLine, class: "line s1" }, svg);
       const last = pts.at(-1)!;
-      el("circle", { cx: last.x, cy: last.y, r: 4, class: "dot" }, svg);
-      // Right-edge labels (latest price + reference lines): keep them >= 15px apart so they never collide.
-      const labels = [{ text: fmt(last.v), y: last.y, cls: "" },
-        ...shown.map((r) => ({ text: `${r.label} ${fmt(r.value)}`, y: y(r.value), cls: r.cls }))].sort((a, b) => a.y - b.y);
-      const gap = 15, ly = labels.map((l) => l.y);
-      for (let i = 1; i < ly.length; i++) ly[i] = Math.max(ly[i], ly[i - 1] + gap);
+      el("circle", { cx: last.x, cy: last.y, r: 4, class: "dot s1" }, svg);
+
+      // Right-edge labels: latest price (both lines end there) + reference lines, kept >= 15px apart.
+      const labels = [{ text: fmt(last.v), y: last.y, ref: false },
+        ...shown.map((r) => ({ text: `${r.label} ${fmt(r.value)}`, y: y(r.value), ref: true }))].sort((a, b) => a.y - b.y);
+      const ly = labels.map((l) => l.y);
+      for (let i = 1; i < ly.length; i++) ly[i] = Math.max(ly[i], ly[i - 1] + 15);
       const overflow = ly.length ? ly[ly.length - 1] - (H - padB) : 0;
       if (overflow > 0) for (let i = 0; i < ly.length; i++) ly[i] -= overflow;
-      labels.forEach((l, i) => {
-        const lx = W - padR + 8;
-        if (l.cls) el("rect", { x: lx, y: ly[i] - 1.5, width: 10, height: 3, rx: 1.5, class: `refkey ${l.cls}` }, svg);
-        el("text", { x: l.cls ? lx + 14 : lx, y: ly[i] + 4, class: "reflabel" }, svg).textContent = l.text;
-      });
+      labels.forEach((l, i) => el("text", { x: W - padR + 8, y: ly[i] + 4, class: l.ref ? "reflabel ref-t" : "reflabel" }, svg).textContent = l.text);
 
-      const first = s.closes[0], chg = last.v / first - 1;
       const yrs = (new Date(last.d).getTime() - new Date(s.dates[0]).getTime()) / (365.25 * 86400000);
-      const cagr = yrs >= 1.5 ? (last.v / first) ** (1 / yrs) - 1 : null;
-      sub.textContent = `${chg >= 0 ? "+" : ""}${(chg * 100).toFixed(0)}% since ${dateLabel(s.dates[0], weekly, false).replace("Week of ", "")}` +
-        (cagr != null ? ` · ${(cagr * 100).toFixed(1)}% a year` : "") + " · split-adjusted closes, dividends excluded";
+      const since = dateLabel(s.dates[0], weekly, false).replace("Week of ", "");
+      const chg = last.v / s.closes[0] - 1;
+      const ann = (r: number) => (yrs >= 1.5 ? ` (${(((1 + r) ** (1 / yrs) - 1) * 100).toFixed(1)}%/yr)` : "");
+      let text = `Since ${since}: price ${pctS(chg)}${ann(chg)}`;
+      if (showTR) { const tr = s.adj!.at(-1)! / s.adj![0] - 1; text += ` · total return ${pctS(tr)}${ann(tr)}`; }
+      sub.textContent = text + " · split-adjusted";
       note.textContent = hidden.length
-        ? `${hidden.map((r) => `${r.label} ${fmt(r.value)}`).join(" and ")} ${hidden.length > 1 ? "are" : "is"} far outside this price range, not drawn.`
+        ? `${hidden.map((r) => `${r.label} ${fmt(r.value)}`).join(" and ")} ${hidden.length > 1 ? "are" : "is"} far outside this range, not drawn.`
         : "";
       if (cursor >= pts.length) cursor = -1;
       if (cursor >= 0) showAt(cursor);
     }
 
-    let cross: SVGLineElement | null = null, hdot: SVGCircleElement | null = null;
+    let marks: SVGElement[] = [];
     function showAt(i: number) {
       cursor = i;
       const p = pts[i];
-      cross?.remove(); hdot?.remove();
-      const H = 300;
-      cross = el("line", { x1: p.x, x2: p.x, y1: 10, y2: H - 26, class: "cross" }, svg) as SVGLineElement;
-      hdot = el("circle", { cx: p.x, cy: p.y, r: 4, class: "dot" }, svg) as SVGCircleElement;
-      (tip.querySelector("[data-tip-v]") as HTMLElement).textContent = fmtFull(p.v);
-      (tip.querySelector("[data-tip-d]") as HTMLElement).textContent = dateLabel(p.d, weekly, i === pts.length - 1);
+      marks.forEach((m) => m.remove());
+      marks = [el("line", { x1: p.x, x2: p.x, y1: 12, y2: 300 - 26, class: "cross" }, svg)];
+      if (p.yt != null) marks.push(el("circle", { cx: p.x, cy: p.yt, r: 4, class: "dot s2" }, svg));
+      marks.push(el("circle", { cx: p.x, cy: p.y, r: 4, class: "dot s1" }, svg));
+      // Values lead, labels follow; built with textContent.
+      tip.replaceChildren();
+      const row = (val: string, label: string, key: string) => {
+        const r = document.createElement("div"); r.className = "tip-row";
+        const k = document.createElement("i"); k.className = `tip-key ${key}`;
+        const strong = document.createElement("strong"); strong.textContent = val;
+        r.append(k, strong, span(label));
+        return r;
+      };
+      tip.append(row(fmtFull(p.v), "price", "s1"));
+      if (p.t != null) tip.append(row(fmtFull(p.t), "dividend-adjusted", "s2"));
+      const d = document.createElement("div"); d.className = "tip-date"; d.textContent = dateLabel(p.d, weekly, i === pts.length - 1);
+      tip.append(d);
       tip.hidden = false;
       const w = plot.clientWidth, tw = tip.offsetWidth;
       tip.style.left = `${Math.min(Math.max(p.x - tw / 2, 0), w - tw)}px`;
-      tip.style.top = `${Math.max(p.y - 62, 0)}px`;
+      tip.style.top = `${Math.max(Math.min(p.y, p.yt ?? p.y) - tip.offsetHeight - 14, 0)}px`;
     }
-    function hide() { cursor = -1; tip.hidden = true; cross?.remove(); hdot?.remove(); }
+    function hide() { cursor = -1; tip.hidden = true; marks.forEach((m) => m.remove()); marks = []; }
     plot.addEventListener("pointermove", (e) => {
       if (!pts.length) return;
       const rect = svg.getBoundingClientRect();
@@ -263,6 +311,7 @@ if (monthly) {
     plot.addEventListener("blur", hide);
     buttons.forEach((b) => b.addEventListener("click", () => { range = b.dataset.range!; hide(); draw(); }));
     logBox.addEventListener("change", () => { hide(); draw(); });
+    trBox?.addEventListener("change", () => { hide(); draw(); });
     new ResizeObserver(() => draw()).observe(plot);
     draw();
   }
