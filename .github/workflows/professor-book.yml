@@ -50,13 +50,18 @@ jobs:
           else
             echo "::notice::Set the LIBRARY_TOKEN secret and LIBRARY_REPO variable to enable book notes (docs/LIBRARY.md)."
           fi
-      - uses: actions/checkout@v4
+      - name: Fetch the private library
         if: steps.secrets.outputs.has_library == 'true'
-        with:
-          repository: ${{ vars.LIBRARY_REPO }}
-          token: ${{ secrets.LIBRARY_TOKEN }}
-          path: .work/library
-          persist-credentials: false
+        env:
+          LIB: ${{ secrets.LIBRARY_TOKEN }}
+        run: |
+          # A plain clone succeeds on an empty repo (nothing uploaded yet) but still fails on a bad token.
+          # The token goes in a one-off header, so it is never written to the clone's config.
+          auth=$(printf 'x-access-token:%s' "$(printf '%s' "$LIB" | tr -d '[:space:]')" | base64 -w0)
+          echo "::add-mask::$auth"
+          git -c http.extraHeader="Authorization: Basic $auth" clone --depth 1 --quiet \
+            "https://github.com/${LIBRARY_REPO}.git" .work/library
+          echo "library files: $(find .work/library -type f -not -path '*/.git/*' | wc -l)"
       - uses: actions/setup-python@v5
         if: steps.secrets.outputs.has_library == 'true'
         with:
