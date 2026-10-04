@@ -36,6 +36,12 @@ const dives = reports.filter((r) => r.kind === "deep-dive").slice(0, 4);
     </div>
   )}
 
+  <a class="panel allcard" href="/stocks/">
+    <strong>Browse all {(meta.universe_rows ?? meta.universe)?.toLocaleString?.() ?? ""} NYSE &amp; Nasdaq stocks →</strong>
+    <span class="muted">Every listing with 1w–1y price moves, % off 52-week high, P/E, Sticker and buy price, and Big Five.
+      Filter, sort and download as CSV.</span>
+  </a>
+
   <ScreenView lists={lists} meta={meta} csvBase="/data/latest/" />
 </Base>
 
@@ -45,4 +51,7 @@ const dives = reports.filter((r) => r.kind === "deep-dive").slice(0, 4);
   .card { display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: var(--ink); }
   .card:hover { border-color: var(--accent); }
   .card .chip { align-self: flex-start; }
+  .allcard { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; text-decoration: none; color: var(--ink);
+    border-color: var(--accent); }
+  .allcard:hover { background: var(--chip); }
 </style>

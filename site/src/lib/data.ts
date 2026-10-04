@@ -232,3 +232,84 @@ export function rewriteLinks(html: string, slug: string): string {
     return `href="/reports/${joined}/${hash}"`;
   });
 }
+
+// ---------------------------------------------------------------- all stocks
+export interface UniverseRow {
+  ticker: string;
+  name: string;
+  exchange: string;
+  sector: string;
+  detail: string; // "ttm" = detailed stage-2 analysis, "fy" = last-fiscal-year screen
+  status: string;
+  tier: string;
+  qualityPass: boolean;
+  price: number | null;
+  priceDate: string;
+  marketCap: number | null;
+  chg: { w1: number | null; m1: number | null; m3: number | null; m6: number | null; ytd: number | null; y1: number | null };
+  offHigh: number | null;
+  aboveLow: number | null;
+  high52: number | null;
+  low52: number | null;
+  eps: number | null;
+  epsBasis: string;
+  pe: number | null;
+  histPe: number | null;
+  growth: number | null;
+  sticker: number | null;
+  mos: number | null;
+  priceToSticker: number | null;
+  payback: number | null;
+  tenCap: number | null;
+  fcfYield: number | null;
+  big5Score: number | null;
+  big5Tests: string;
+  roic: (number | null)[];
+  growthTable: Record<string, (number | null)[]>;
+  revenue: number | null;
+  netIncome: number | null;
+  debtPayoff: number | null;
+  fy: string;
+  events: string;
+  flags: string;
+  spark: number[];
+}
+
+export function toUniverseRow(r: Row): UniverseRow {
+  const g = (k: string) => [num(r[`${k}_g10`]), num(r[`${k}_g5`]), num(r[`${k}_g1`])];
+  return {
+    ticker: r.ticker, name: r.name, exchange: r.exchange, sector: r.sector, detail: r.detail,
+    status: r.status, tier: r.tier, qualityPass: r.quality_pass === "yes",
+    price: num(r.price), priceDate: r.price_date, marketCap: num(r.market_cap),
+    chg: { w1: num(r.chg_1w), m1: num(r.chg_1m), m3: num(r.chg_3m), m6: num(r.chg_6m), ytd: num(r.chg_ytd), y1: num(r.chg_1y) },
+    offHigh: num(r.off_high), aboveLow: num(r.above_low), high52: num(r.high52), low52: num(r.low52),
+    eps: num(r.eps), epsBasis: r.eps_basis, pe: num(r.pe), histPe: num(r.hist_pe_median), growth: num(r.windage_growth),
+    sticker: num(r.sticker), mos: num(r.mos_price), priceToSticker: num(r.price_to_sticker),
+    payback: num(r.payback_price), tenCap: num(r.ten_cap_price), fcfYield: num(r.fcf_yield),
+    big5Score: num(r.big5_score), big5Tests: r.big5_tests,
+    roic: [num(r.roic10), num(r.roic5), num(r.roic1)],
+    growthTable: { Sales: g("sales"), EPS: g("eps"), BVPS: g("bvps"), OCF: g("ocf") },
+    revenue: num(r.revenue), netIncome: num(r.net_income), debtPayoff: num(r.debt_payoff_years),
+    fy: r.fy_end || r.fy, events: r.events, flags: r.flags ?? "",
+    spark: (r.spark_1y || "").split(" ").filter(Boolean).map(Number),
+  };
+}
+
+let _universe: UniverseRow[] | null = null;
+export function loadUniverse(): UniverseRow[] {
+  if (!_universe) _universe = readCsv(path.join(LISTS, "latest", "universe.csv")).map(toUniverseRow);
+  return _universe;
+}
+
+/** {ticker: [{date, price, sticker, mos, status}]} from each run's compact snapshot. */
+export function loadSnapshots(): Map<string, { date: string; price: number | null; sticker: number | null; mos: number | null; status: string }[]> {
+  const out = new Map<string, { date: string; price: number | null; sticker: number | null; mos: number | null; status: string }[]>();
+  for (const date of archiveDates().slice().reverse()) {
+    for (const r of readCsv(path.join(archiveDir(date), "universe_snapshot.csv"))) {
+      const list = out.get(r.ticker) ?? [];
+      list.push({ date, price: num(r.price), sticker: num(r.sticker), mos: num(r.mos_price), status: r.status });
+      out.set(r.ticker, list);
+    }
+  }
+  return out;
+}

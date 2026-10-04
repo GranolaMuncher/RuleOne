@@ -27,6 +27,7 @@ Everything comes from free primary sources, with no API keys:
 | `event_watch.csv` | Tier A/B companies with a current event (≥20% drawdown, insider buys, 13D, negative 8-K) |
 | `wonderful_companies.csv` | All Tier A businesses with their valuation |
 | `all_candidates.csv` | Every company that passed the quality screen |
+| `universe.csv` | **Every** NYSE/Nasdaq listing (~5,800): price moves (1w–1y, YTD, % off 52-week high), P/E, Sticker, buy price, Payback, Ten Cap and Big Five. Names outside the quality screen are valued on last-fiscal-year SEC data and get a valuation label (below MOS / below Sticker / above Sticker), not a buy signal |
 
 Each run is also archived at `lists/archive/YYYY-MM-DD/`. `lists/history.csv` adds one row per run for every name in buy range or on deck, so you can see how prices move against Sticker over time.
 
@@ -50,6 +51,8 @@ A company moves to stage 2 if it passes at least 60% of the tests it has data fo
 * **Ten Cap price** = 10 × TTM owner earnings per share. Owner earnings are approximated as OCF − total capex, which treats all capex as maintenance and is conservative.
 
 **Events** mean the temporary bad news Rule #1 investors wait for: a drawdown from the 52-week high, open-market Form 4 purchases ("P" codes, last 120 days), SC 13D filings (180 days), and 8-K items such as restructuring, impairment, officer departures, restatements and cyber incidents (60 days). The next report date is estimated from the last 10-Q or 10-K.
+
+**All stocks table.** Every listing is priced with Yahoo's batch quote endpoint (1-year weekly and 10-year monthly closes). It is valued from the last fiscal year of SEC XBRL frames, with the share count from the latest 10-Q cover page, so stock splits after the 10-K are corrected. Non-US filers are flagged because their per-share figures may be per ordinary share rather than per ADS. Names that pass the quality screen use the detailed TTM, currency-adjusted numbers instead.
 
 **Rank score** = 2 × Big Five pass rate + 2 × discount to Sticker + a tier bonus + 0.25 × event score.
 
@@ -76,7 +79,7 @@ python -m pytest -q tests
 2. **Scout** (optional): Claude Code, through [`anthropics/claude-code-action`](https://github.com/anthropics/claude-code-action), follows [`scout/PROMPT.md`](scout/PROMPT.md). It researches the top buy-range names and writes `reports/weekly/<date>_scout.md`, and the workflow commits the memo.
 3. **Deploy:** builds the Astro site in [`site/`](site/) and publishes it to **Cloudflare Pages** through [`deploy-site.yml`](.github/workflows/deploy-site.yml). The same workflow also runs whenever `lists/`, `reports/` or `site/` change.
 
-The site has a sortable, filterable screen with CSV downloads, a page per stock with its price against the Rule #1 levels, the Big Five and its run history, plus the research reports, the archive of every run and the methodology. Preview it locally with `cd site && npm install && npm run dev`.
+The site has a sortable, filterable screen with CSV downloads, an **All stocks** page (every listing, with filters for drawdown, 1-month move, Big Five, P/E, Price/Sticker and market cap, quick presets, and a CSV export of the filtered view), a page per stock with its price against the Rule #1 levels, the Big Five and its run history, plus the research reports, the archive of every run and the methodology. Preview it locally with `cd site && npm install && npm run dev`.
 
 **One-time setup** (Settings → Secrets and variables → Actions):
 

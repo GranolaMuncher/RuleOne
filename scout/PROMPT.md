@@ -19,7 +19,10 @@ Do not commit or push. The workflow does that after you finish.
 4. Re-haircut growth the way `reports/2026-10-03_deep_dive_PGR_KNSL_ADBE.md` does: g = lower of historical
    growth and the analyst ~5-year estimate, max 15%. Recompute
    Sticker = EPS × (1+g)^10 × min(2g×100, 10y median P/E) ÷ 1.15^10, with MOS = 50%.
-5. Write `reports/weekly/<today YYYY-MM-DD>_scout.md` with these sections:
+5. Scan `lists/latest/universe.csv` (every listing) for notable movers the shortlist misses: stocks with
+   `big5_score` ≥ 0.6 on at least 8 tests and market cap ≥ $1B that fell ≥ 20% in the last month or sit
+   ≥ 40% off their 52-week high. Add up to five of them, with one line each on why they fell, to section (b).
+6. Write `reports/weekly/<today YYYY-MM-DD>_scout.md` with these sections:
    - (a) a ranked **Actionable now** table: ticker, price, adjusted Sticker, MOS buy price, Payback and
      Ten Cap prices, event, verdict (BUY / ACCUMULATE / WATCH / AVOID), entry and trim levels
    - (b) a **Watch list: set alerts at** table for on-deck names
@@ -27,9 +30,9 @@ Do not commit or push. The workflow does that after you finish.
    - (d) data issues found
    - (e) sources, as markdown links
    Keep it under about two pages. State that it is research, not investment advice.
-6. If a name is a top-3 opportunity and has no `reports/config/<TICKER>.json`, create one with justified
+7. If a name is a top-3 opportunity and has no `reports/config/<TICKER>.json`, create one with justified
    assumptions (follow the existing configs as examples), run `python -m ruleone.deepdive reports/config/<TICKER>.json`,
    and summarise the result in the memo.
-7. If you hit a bug in `ruleone/`, make a minimal fix, add a test, and run `python -m pytest -q tests`.
-8. End with a five-line summary: number in buy range, top 3 ideas with buy prices, and anything that
+8. If you hit a bug in `ruleone/`, make a minimal fix, add a test, and run `python -m pytest -q tests`.
+9. End with a five-line summary: number in buy range, top 3 ideas with buy prices, and anything that
    needs the owner's attention.

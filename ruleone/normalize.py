@@ -68,7 +68,9 @@ def normalize(fetcher: Fetcher, listing, cf: dict, today: date) -> dict | None:
 
     # TTM EPS spliced across a split (FY pre-split + YTD post-split) is garbage:
     # cross-check against TTM net income / current shares.
-    if eps_source == "xbrl" and eps and shares and ttm.get("net_income"):
+    # Only correct positive figures: a negative reported EPS is a real loss, not a splice
+    # artefact, and must not be replaced by a near-zero positive implied value.
+    if eps_source == "xbrl" and eps and eps > 0 and shares and ttm.get("net_income"):
         implied = ttm["net_income"] / shares
         if implied > 0 and not 0.75 <= eps / implied <= 1.33:
             eps = implied

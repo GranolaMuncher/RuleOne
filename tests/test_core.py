@@ -110,3 +110,30 @@ def test_convert_to_usd_per_ads():
 def test_ads_ratio_detected_as_fractional_split():
     from ruleone.metrics import post_filing_split
     assert post_filing_split(1.12e9, 140e6) == 1 / 8
+
+
+def test_marketwide_labels_and_price_stats():
+    from ruleone.marketwide import price_stats, status_of, valuation_label
+    assert status_of(50, 60, None, None, 120) == "BUY"
+    assert status_of(100, 60, 110, None, 120) == "BUY*"
+    assert valuation_label(50, 60, 120) == "BELOW MOS"
+    assert valuation_label(100, 60, 120) == "BELOW STICKER"
+    assert valuation_label(130, 60, 120) == "ABOVE STICKER"
+    assert valuation_label(130, None, None) == "NO STICKER"
+    weekly = [(f"2026-{m:02d}-01", float(m), float(m)) for m in range(1, 11)]
+    ps = price_stats({"regularMarketPrice": 10.0, "fiftyTwoWeekHigh": 20.0, "fiftyTwoWeekLow": 5.0}, weekly)
+    assert ps["off_high"] == -0.5 and ps["above_low"] == 1.0
+    assert abs(ps["chg_1w"] - (10 / 9 - 1)) < 1e-9
+
+
+def test_normalize_keeps_negative_eps(monkeypatch):
+    from datetime import date
+    from types import SimpleNamespace
+    import ruleone.normalize as nz
+    monkeypatch.setattr(nz, "load_fx", lambda f, c: {"price": 1.0, "series": []})
+    monkeypatch.setattr(nz, "load_share_fallback", lambda f, t: {})
+    cf = {"currency": "USD", "annual": {},
+          "ttm": {"_end": "2026-06-28", "eps": -0.05, "net_income": 154000},
+          "latest": {"diluted_shares": 43e6, "diluted_shares_date": "2026-06-28"}}
+    out = nz.normalize(None, SimpleNamespace(ticker="X"), cf, date(2026, 10, 4))
+    assert out["eps"] == -0.05

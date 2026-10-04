@@ -1,5 +1,5 @@
 # Rule #1 Screen — 2026-10-04
-Universe: **5,776** NYSE + Nasdaq common stocks → **4,602** with SEC XBRL history → **270** passed the Big Five quality screen → **262** fully valued (USD-priced, current filings).
+Universe: **5,774** NYSE + Nasdaq common stocks → **4,602** with SEC XBRL history → **270** passed the Big Five quality screen → **262** fully valued (USD-priced, current filings).
 Prices as of 2026-10-02. Fundamentals: SEC EDGAR 10-K/10-Q XBRL (TTM through latest 10-Q).
 > Screening output, not investment advice. Automated XBRL extraction can mis-tag items; verify against the filings before acting. See `README.md` for methodology.
 
@@ -116,7 +116,7 @@ Prices as of 2026-10-02. Fundamentals: SEC EDGAR 10-K/10-Q XBRL (TTM through lat
 | 5 | **BRBR** | BellRing Brands, Inc. | B | $7.43 | $42.60 | $21.30 | $30.10 | $19.07 | 0.17 | 15% | 40% | 8/11 | -79% off 52w high; insider buying (1 Form 4s, $0.02M); next report ~2026-11-03 ⚠ micro-cap |
 | 6 | **ELA** | ENVELA CORPORATION | A | $12.16 | $18.06 | $9.03 | $14.61 | $9.26 | 0.67 | 15% | 17% | 12/15 | -59% off 52w high; insider buying (1 Form 4s, $0.00M); next report ~2026-11-04 ⚠ micro-cap |
 | 7 | **TPL** | TEXAS PACIFIC LAND CORPORATION | A | $340.19 | $235.20 | $117.60 | $134.02 | $84.90 | 1.45 | 15% | 41% | 10/11 | -38% off 52w high; insider buying (12 Form 4s, $0.01M); 13D: SCHEDULE 13D/A 2026-05-07, SCHEDULE 13D/A 2026-04-13; 8-K:  |
-| 8 | **VITL** | Vital Farms, Inc. | A | $9.06 | $0.11 | $0.05 | – | – | 84.34 | 15% | 10% | 10/11 | -80% off 52w high; neg 8-K: 2026-08-06: Agreement terminated; next report ~2026-11-05 ⚠ micro-cap |
+| 8 | **VITL** | Vital Farms, Inc. | A | $9.06 | – | – | – | – | – | 15% | 10% | 10/11 | -80% off 52w high; neg 8-K: 2026-08-06: Agreement terminated; next report ~2026-11-05 ⚠ micro-cap |
 | 9 | **LULU** | lululemon athletica inc. | B | $94.46 | $364.50 | $182.25 | $187.21 | $118.59 | 0.26 | 15% | 34% | 11/15 | -58% off 52w high; 13D: SCHEDULE 13D/A 2026-09-03, SCHEDULE 13D/A 2026-08-03; 8-K: 2026-09-14: 5.02 Director/officer cha |
 | 10 | **IBP** | Installed Building Products, I | B | $193.00 | $265.60 | $132.80 | $171.58 | $108.69 | 0.73 | 15% | 17% | 11/15 | -45% off 52w high; insider buying (1 Form 4s, $0.20M); 8-K: 2026-10-01: 7.01 Reg FD disclosure; next report ~2026-11-05 |
 | 11 | **BLBD** | Blue Bird Corp | B | $56.53 | $71.04 | $35.52 | $52.40 | $45.76 | 0.80 | 8% | 16% | 11/15 | -32% off 52w high; insider buying (1 Form 4s, $0.02M); 13D: SCHEDULE 13D 2026-04-08; 8-K: 2026-10-01: 8.01 Other event;  |
@@ -214,7 +214,7 @@ Prices as of 2026-10-02. Fundamentals: SEC EDGAR 10-K/10-Q XBRL (TTM through lat
 | 69 | **UTHR** | United Therapeutics Corporatio | A | $541.70 | $354.13 | $177.07 | $350.05 | $235.05 | 1.53 | 14% | 15% | 13/15 | 8-K: 2026-09-08: 1.01 Material agreement; 7.01 Reg FD disclosure; next report ~2026-11-04 |
 | 70 | **WTS** | WATTS WATER TECHNOLOGIES INC | A | $363.07 | $241.23 | $120.62 | $148.93 | $104.30 | 1.51 | 13% | 15% | 12/15 | 8-K: 2026-10-01: 5.02 Director/officer change; next report ~2026-11-05 |
 | 71 | **IRMD** | IRADIMED CORPORATION | A | $85.40 | $53.70 | $26.85 | $30.81 | $19.52 | 1.59 | 15% | 19% | 12/15 | -21% off 52w high; next report ~2026-10-30 |
-| 72 | **VITL** | Vital Farms, Inc. | A | $9.06 | $0.11 | $0.05 | – | – | 84.34 | 15% | 10% | 10/11 | -80% off 52w high; neg 8-K: 2026-08-06: Agreement terminated; next report ~2026-11-05 ⚠ micro-cap |
+| 72 | **VITL** | Vital Farms, Inc. | A | $9.06 | – | – | – | – | – | 15% | 10% | 10/11 | -80% off 52w high; neg 8-K: 2026-08-06: Agreement terminated; next report ~2026-11-05 ⚠ micro-cap |
 | 73 | **IESC** | IES Holdings, Inc. | A | $339.34 | $185.19 | $92.59 | $89.30 | $56.57 | 1.83 | 15% | 25% | 15/15 | 8-K: 2026-08-11: 1.01 Material agreement; 3.02 Unregistered equity sale; 7.01 Reg FD disclosure; next report ~2026-10-30 |
 | 74 | **URI** | United Rentals, Inc. | A | $1,081.04 | $675.77 | $337.89 | $287.78 | $182.31 | 1.60 | 15% | 13% | 12/15 | 8-K: 2026-09-08: 7.01 Reg FD disclosure; next report ~2026-10-21 |
 | 75 | **HWKN** | HAWKINS, INC. | A | $131.41 | $55.67 | $27.83 | $63.21 | $43.97 | 2.36 | 13% | 14% | 14/15 | -29% off 52w high; insider buying (2 Form 4s, $0.26M); 8-K: 2026-08-14: 5.02 Director/officer change; next report ~2026- |

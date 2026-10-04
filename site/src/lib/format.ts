@@ -22,6 +22,8 @@ export const STATUS_LABEL: Record<string, string> = {
   "ON DECK": "On deck",
   "ABOVE STICKER": "Above Sticker",
   "NO STICKER": "No Sticker",
+  "BELOW MOS": "Below buy price (fails quality screen)",
+  "BELOW STICKER": "Below Sticker (fails quality screen)",
 };
 
 /** Flags that question the numbers are warnings; basis notes (currency, ADR, EPS source) are info. */

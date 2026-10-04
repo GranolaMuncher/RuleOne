@@ -1,7 +1,7 @@
 {
   "run_date": "2026-10-04",
-  "generated_utc": "2026-10-04T17:27:23.613056+00:00",
-  "universe": 5776,
+  "generated_utc": "2026-10-04T17:54:42.341042+00:00",
+  "universe": 5774,
   "with_data": 4602,
   "stage1": 270,
   "valued": 262,
@@ -13,6 +13,9 @@
     "limit": 0,
     "tickers": "",
     "no_events": false,
-    "first_year": 2012
-  }
+    "first_year": 2012,
+    "no_universe": false
+  },
+  "universe_rows": 5774,
+  "universe_priced": 5774
 }

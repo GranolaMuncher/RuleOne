@@ -22,6 +22,7 @@ from .companyfacts import load_company
 from .events import event_score, event_summary, load_events
 from .frames import load_frames
 from .http import Fetcher
+from .marketwide import build_universe, load_current_shares, load_spark, write_universe
 from .metrics import big_five, fcf, windage_growth
 from .normalize import normalize
 from .prices import load_prices, price_near
@@ -253,6 +254,7 @@ def main(argv=None):
     ap.add_argument("--tickers", default="", help="comma list: skip stage-1 filter, analyze these")
     ap.add_argument("--no-events", action="store_true")
     ap.add_argument("--first-year", type=int, default=date.today().year - 14)
+    ap.add_argument("--no-universe", action="store_true", help="skip the all-stocks table")
     a = ap.parse_args(argv)
 
     today = date.today()
@@ -266,6 +268,7 @@ def main(argv=None):
         s1map, with_data, stage1 = {}, len(picks), len(picks)
     else:
         frames = load_frames(fetcher, set(universe), a.first_year, today.year, log=log)
+        quality_pass = set()
         s1map = {}
         for cik, years in frames.items():
             try:
@@ -275,6 +278,7 @@ def main(argv=None):
         with_data = len(s1map)
         picks = [universe[c] for c, b in s1map.items() if stage1_pass(b, a.min_score, a.min_revenue, today)]
         picks.sort(key=lambda l: -s1map[l.cik]["big5_score"])
+        quality_pass = {l.cik for l in picks}
         stage1 = len(picks)
         log(f"stage 1: {with_data} with data, {stage1} pass quality screen")
     if a.limit:
@@ -297,6 +301,18 @@ def main(argv=None):
             "valued": len(results), "price_date": price_date,
             "params": {k: v for k, v in vars(a).items() if k not in ("cache", "out")}}
     lists = write_outputs(results, Path(a.out), meta)
+    if not a.tickers and not a.no_universe:
+        tickers = [l.ticker for l in universe.values()]
+        weekly = load_spark(fetcher, tickers, "1y", "1wk", log=log)
+        monthly = load_spark(fetcher, tickers, "10y", "1mo", log=log)
+        shares = load_current_shares(fetcher, today)
+        rows = build_universe(universe, frames, results, weekly, monthly, shares, quality_pass, quality_tier)
+        write_universe(rows, Path(a.out) / "latest", Path(a.out) / "archive" / meta["run_date"])
+        meta["universe_rows"] = len(rows)
+        meta["universe_priced"] = sum(1 for r in rows if r.get("price"))
+        for d in (Path(a.out) / "latest", Path(a.out) / "archive" / meta["run_date"]):
+            (d / "meta.json").write_text(json.dumps(meta, indent=2))
+        log(f"universe table: {meta['universe_rows']} rows, {meta['universe_priced']} priced")
     log("done: " + ", ".join(f"{k}={len(v)}" for k, v in lists.items()))
 
 
