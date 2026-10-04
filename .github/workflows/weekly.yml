@@ -102,6 +102,25 @@ jobs:
           claude_args: |
             --max-turns 80
             --allowedTools Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch
+      - name: Show why Claude stopped
+        if: failure()
+        run: |
+          # The action hides output for security; print only the final result message.
+          python3 - <<'EOF'
+          import json, pathlib
+          p = pathlib.Path("${{ runner.temp }}/claude-execution-output.json")
+          if not p.exists():
+              print("no execution file"); raise SystemExit
+          data = json.loads(p.read_text())
+          events = data if isinstance(data, list) else [data]
+          for e in events:
+              if isinstance(e, dict) and e.get("type") == "result":
+                  print("result:", e.get("result") or e.get("errors") or e.get("subtype"))
+              if isinstance(e, dict) and e.get("type") == "assistant":
+                  for c in (e.get("message") or {}).get("content", []):
+                      if c.get("type") == "text":
+                          print("assistant:", c["text"][:500])
+          EOF
       - name: Commit memo
         run: |
           git config user.name "rule-one-bot"
