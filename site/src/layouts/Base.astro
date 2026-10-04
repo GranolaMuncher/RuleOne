@@ -83,6 +83,7 @@ const path = Astro.url.pathname;
   .chip.ONDECK { background: var(--deck-bg); color: var(--deck); }
   .chip.warn { background: var(--warn-bg); color: var(--warn); font-weight: 500; }
   .chip.info { font-weight: 500; color: var(--muted); }
+  .chip.warn, .chip.info { white-space: normal; }
   .tier { font-weight: 700; }
   .tier.A { color: var(--buy); } .tier.B { color: var(--deck); } .tier.C { color: var(--muted); }
   .pos { color: var(--buy); } .neg { color: var(--warn); }

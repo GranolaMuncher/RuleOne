@@ -1,0 +1,270 @@
+---
+import type { PriceSeries } from "../lib/data";
+
+interface Props {
+  ticker: string;
+  monthly?: PriceSeries;
+  weekly: number[];        // last ~53 weekly closes, final = live quote
+  liveDate: string;
+  mos: number | null;
+  sticker: number | null;
+}
+const { ticker, monthly, weekly, liveDate, mos, sticker } = Astro.props;
+
+// Weekly points carry no dates; they are consecutive weeks ending at the live quote.
+const live = new Date(`${liveDate || new Date().toISOString().slice(0, 10)}T00:00:00Z`);
+const weeklyDates = weekly.map((_, i) =>
+  new Date(live.getTime() - (weekly.length - 1 - i) * 7 * 86400000).toISOString().slice(0, 10));
+const data = {
+  ticker,
+  monthly: monthly ?? { dates: [], closes: [] },
+  weekly: { dates: weeklyDates, closes: weekly },
+  refs: [
+    mos ? { label: "Buy", value: mos, cls: "mos" } : null,
+    sticker ? { label: "Sticker", value: sticker, cls: "st" } : null,
+  ].filter(Boolean),
+};
+const years = monthly ? (new Date(monthly.dates.at(-1)!).getTime() - new Date(monthly.dates[0]).getTime()) / (365.25 * 86400000) : 0;
+const fullLabel = years >= 9.5 ? "10Y" : `All (${Math.max(1, Math.round(years))}Y)`;
+// Year-end closes for the table view.
+const yearEnd: [string, number][] = [];
+if (monthly) {
+  monthly.dates.forEach((d, i) => {
+    if (d.slice(5, 7) === "12" || i === monthly.dates.length - 1) yearEnd.push([i === monthly.dates.length - 1 ? `${d} (latest)` : d.slice(0, 4), monthly.closes[i]]);
+  });
+}
+---
+<section class="panel pc" data-pricechart>
+  <div class="pc-head">
+    <h2>Price history</h2>
+    <div class="pc-controls" role="group" aria-label="Range">
+      <button type="button" data-range="1y">1Y</button>
+      {years >= 4.5 && <button type="button" data-range="5y">5Y</button>}
+      {monthly && <button type="button" data-range="max">{fullLabel}</button>}
+      <label class="pc-log"><input type="checkbox" data-log /> Log scale</label>
+    </div>
+  </div>
+  <p class="pc-sub muted" data-sub></p>
+  <div class="pc-plot" data-plot tabindex="0" aria-label={`${ticker} price chart. Use left and right arrow keys to read values.`}>
+    <svg data-svg role="img" aria-label={`${ticker} closing price history`}></svg>
+    <div class="pc-tip" data-tip hidden><strong data-tip-v></strong><span data-tip-d></span></div>
+  </div>
+  <p class="pc-note muted" data-note></p>
+  {yearEnd.length > 0 && (
+    <details class="pc-table">
+      <summary>Show year-end prices</summary>
+      <table>
+        <thead><tr><th>Year</th><th class="num">Close</th></tr></thead>
+        <tbody>{yearEnd.map(([y, c]) => <tr><td>{y}</td><td class="num">${c.toLocaleString("en-US", { maximumFractionDigits: 2 })}</td></tr>)}</tbody>
+      </table>
+    </details>
+  )}
+  <script type="application/json" data-json set:html={JSON.stringify(data)} />
+</section>
+
+<style>
+  .pc { margin-top: 14px; }
+  .pc-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .pc-head h2 { margin: 0; font-size: 16px; }
+  .pc-controls { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .pc-controls button { font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--panel); color: var(--muted); cursor: pointer; }
+  .pc-controls button[aria-pressed="true"] { background: var(--chip); color: var(--ink); font-weight: 600; border-color: var(--muted); }
+  .pc-log { font-size: 13px; color: var(--muted); margin-left: 6px; display: flex; align-items: center; gap: 4px; }
+  .pc-sub { margin: 6px 0 0; font-size: 13px; }
+  .pc-plot { position: relative; margin-top: 6px; outline: none; }
+  .pc-plot:focus-visible { box-shadow: 0 0 0 2px var(--accent); border-radius: 6px; }
+  .pc-plot svg { display: block; width: 100%; height: 300px; overflow: visible; }
+  .pc-tip { position: absolute; top: 0; pointer-events: none; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 8px; padding: 6px 9px; font-size: 12.5px; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(0,0,0,.12);
+    white-space: nowrap; }
+  .pc-tip[hidden] { display: none; }
+  .pc-tip strong { font-size: 14px; font-variant-numeric: tabular-nums; }
+  .pc-tip span { color: var(--muted); }
+  .pc-note { font-size: 12.5px; margin: 6px 0 0; min-height: 1em; }
+  .pc-table { margin-top: 8px; font-size: 13px; }
+  .pc-table table { border-collapse: collapse; margin-top: 6px; }
+  .pc-table th, .pc-table td { padding: 3px 12px 3px 0; border-bottom: 1px solid var(--line); text-align: left; }
+  .pc-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+</style>
+
+<style is:global>
+  [data-pricechart] .grid { stroke: var(--line); stroke-width: 1; }
+  [data-pricechart] .axis { fill: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+  [data-pricechart] .line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  [data-pricechart] .area { fill: var(--accent); opacity: .1; }
+  [data-pricechart] .ref { stroke-width: 1.5; stroke-dasharray: 6 4; }
+  [data-pricechart] .ref.mos { stroke: var(--buy); }
+  [data-pricechart] .ref.st { stroke: var(--deck); }
+  [data-pricechart] .reflabel { fill: var(--ink); font-size: 11.5px; font-weight: 600; }
+  [data-pricechart] .refkey.mos { fill: var(--buy); } [data-pricechart] .refkey.st { fill: var(--deck); }
+  [data-pricechart] .cross { stroke: var(--muted); stroke-width: 1; }
+  [data-pricechart] .dot { fill: var(--accent); stroke: var(--panel); stroke-width: 2; }
+</style>
+
+<script>
+  type Series = { dates: string[]; closes: number[] };
+  type Ref = { label: string; value: number; cls: string };
+  const NS = "http://www.w3.org/2000/svg";
+  const fmt = (v: number) => v === 0 ? "$0" : "$" + v.toLocaleString("en-US", { minimumFractionDigits: v < 10 ? 2 : 0, maximumFractionDigits: v < 10 ? 2 : 0 });
+  const fmtFull = (v: number) => "$" + v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const dateLabel = (d: string, weekly: boolean, last: boolean) => {
+    const [y, m, day] = d.split("-").map(Number);
+    if (last) return `${MONTHS[m - 1]} ${day}, ${y} (latest)`;
+    return weekly ? `Week of ${MONTHS[m - 1]} ${day}, ${y}` : `${MONTHS[m - 1]} ${y}`;
+  };
+
+  function niceTicks(lo: number, hi: number, count: number, log: boolean): number[] {
+    if (log) {
+      const out: number[] = [];
+      const steps = [1, 2, 5];
+      for (let p = Math.floor(Math.log10(lo)); p <= Math.ceil(Math.log10(hi)); p++)
+        for (const s of steps) { const v = s * 10 ** p; if (v >= lo && v <= hi) out.push(v); }
+      return out.length > 7 ? out.filter((_, i) => i % 2 === 0) : out;
+    }
+    const raw = (hi - lo) / count;
+    const mag = 10 ** Math.floor(Math.log10(raw));
+    const step = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((s) => s >= raw) ?? raw;
+    const out: number[] = [];
+    for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(+v.toFixed(10));
+    return out;
+  }
+
+  function el<K extends keyof SVGElementTagNameMap>(tag: K, attrs: Record<string, string | number>, parent: Element) {
+    const e = document.createElementNS(NS, tag);
+    for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, String(v));
+    parent.appendChild(e);
+    return e;
+  }
+
+  function setup(root: HTMLElement) {
+    const data = JSON.parse(root.querySelector("[data-json]")!.textContent!) as
+      { ticker: string; monthly: Series; weekly: Series; refs: Ref[] };
+    const svg = root.querySelector("[data-svg]") as SVGSVGElement;
+    const plot = root.querySelector("[data-plot]") as HTMLElement;
+    const tip = root.querySelector("[data-tip]") as HTMLElement;
+    const note = root.querySelector("[data-note]") as HTMLElement;
+    const sub = root.querySelector("[data-sub]") as HTMLElement;
+    const logBox = root.querySelector("[data-log]") as HTMLInputElement;
+    const buttons = [...root.querySelectorAll<HTMLButtonElement>("[data-range]")];
+    let range = data.monthly.closes.length > 1 ? "max" : "1y";
+    let pts: { d: string; v: number; x: number; y: number }[] = [];
+    let weekly = false;
+    let cursor = -1;
+
+    function series(): Series {
+      if (range === "1y") return data.weekly;
+      if (range === "5y") { const n = 61; return { dates: data.monthly.dates.slice(-n), closes: data.monthly.closes.slice(-n) }; }
+      return data.monthly;
+    }
+
+    function draw() {
+      const s = series();
+      weekly = range === "1y";
+      buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.range === range)));
+      svg.replaceChildren();
+      if (s.closes.length < 2) { note.textContent = "No price history available."; return; }
+      const W = plot.clientWidth || 700, H = 300, padL = 52, padT = 12, padB = 26;
+      // Right margin sized to the longest end label (≈6.8px per character at 11.5px + key + gap).
+      const labelChars = Math.max(fmt(s.closes.at(-1)!).length, ...data.refs.map((r) => `${r.label} ${fmt(r.value)}`.length + 2));
+      const padR = Math.ceil(labelChars * 6.8) + 14;
+      svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+      const log = logBox.checked;
+      const lo0 = Math.min(...s.closes), hi0 = Math.max(...s.closes);
+      // Reference lines widen the y-range only when they sit reasonably near the prices.
+      const shown = data.refs.filter((r) => r.value >= lo0 * 0.5 && r.value <= hi0 * 1.5);
+      const hidden = data.refs.filter((r) => !shown.includes(r));
+      let lo = Math.min(lo0, ...shown.map((r) => r.value)), hi = Math.max(hi0, ...shown.map((r) => r.value));
+      if (log) { lo = lo / 1.08; hi = hi * 1.05; } else { const pad = (hi - lo) * 0.06 || hi * 0.05; lo = Math.max(0, lo - pad); hi = hi + pad; }
+      const tf = (v: number) => (log ? Math.log(Math.max(v, 1e-6)) : v);
+      const y = (v: number) => padT + (1 - (tf(v) - tf(lo)) / (tf(hi) - tf(lo))) * (H - padT - padB);
+      const x = (i: number) => padL + (i / (s.closes.length - 1)) * (W - padL - padR);
+
+      for (const t of niceTicks(lo, hi, 5, log)) {
+        el("line", { x1: padL, x2: W - padR, y1: y(t), y2: y(t), class: "grid" }, svg);
+        el("text", { x: padL - 8, y: y(t) + 4, "text-anchor": "end", class: "axis" }, svg).textContent = fmt(t);
+      }
+      // x labels: years (or months for 1Y), thinned to fit
+      const labelEvery = Math.max(1, Math.ceil(s.dates.length / Math.max(2, Math.floor((W - padL - padR) / 70))));
+      s.dates.forEach((d, i) => {
+        const [yy, mm] = d.split("-").map(Number);
+        const isTick = weekly ? i % labelEvery === 0 : mm === 1 && (yy % Math.max(1, Math.round(labelEvery / 12)) === 0);
+        if (!isTick || i === s.dates.length - 1) return;
+        el("text", { x: x(i), y: H - 6, "text-anchor": "middle", class: "axis" }, svg).textContent = weekly ? `${MONTHS[mm - 1]} ${String(yy).slice(2)}` : String(yy);
+      });
+
+      pts = s.closes.map((v, i) => ({ d: s.dates[i], v, x: x(i), y: y(v) }));
+      const line = pts.map((p, i) => `${i ? "L" : "M"}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join("");
+      el("path", { d: `${line}L${pts.at(-1)!.x.toFixed(1)},${H - padB}L${pts[0].x.toFixed(1)},${H - padB}Z`, class: "area" }, svg);
+      for (const r of shown)
+        el("line", { x1: padL, x2: W - padR, y1: y(r.value), y2: y(r.value), class: `ref ${r.cls}` }, svg);
+      el("path", { d: line, class: "line" }, svg);
+      const last = pts.at(-1)!;
+      el("circle", { cx: last.x, cy: last.y, r: 4, class: "dot" }, svg);
+      // Right-edge labels (latest price + reference lines): keep them >= 15px apart so they never collide.
+      const labels = [{ text: fmt(last.v), y: last.y, cls: "" },
+        ...shown.map((r) => ({ text: `${r.label} ${fmt(r.value)}`, y: y(r.value), cls: r.cls }))].sort((a, b) => a.y - b.y);
+      const gap = 15, ly = labels.map((l) => l.y);
+      for (let i = 1; i < ly.length; i++) ly[i] = Math.max(ly[i], ly[i - 1] + gap);
+      const overflow = ly.length ? ly[ly.length - 1] - (H - padB) : 0;
+      if (overflow > 0) for (let i = 0; i < ly.length; i++) ly[i] -= overflow;
+      labels.forEach((l, i) => {
+        const lx = W - padR + 8;
+        if (l.cls) el("rect", { x: lx, y: ly[i] - 1.5, width: 10, height: 3, rx: 1.5, class: `refkey ${l.cls}` }, svg);
+        el("text", { x: l.cls ? lx + 14 : lx, y: ly[i] + 4, class: "reflabel" }, svg).textContent = l.text;
+      });
+
+      const first = s.closes[0], chg = last.v / first - 1;
+      const yrs = (new Date(last.d).getTime() - new Date(s.dates[0]).getTime()) / (365.25 * 86400000);
+      const cagr = yrs >= 1.5 ? (last.v / first) ** (1 / yrs) - 1 : null;
+      sub.textContent = `${chg >= 0 ? "+" : ""}${(chg * 100).toFixed(0)}% since ${dateLabel(s.dates[0], weekly, false).replace("Week of ", "")}` +
+        (cagr != null ? ` · ${(cagr * 100).toFixed(1)}% a year` : "") + " · split-adjusted closes, dividends excluded";
+      note.textContent = hidden.length
+        ? `${hidden.map((r) => `${r.label} ${fmt(r.value)}`).join(" and ")} ${hidden.length > 1 ? "are" : "is"} far outside this price range, not drawn.`
+        : "";
+      if (cursor >= pts.length) cursor = -1;
+      if (cursor >= 0) showAt(cursor);
+    }
+
+    let cross: SVGLineElement | null = null, hdot: SVGCircleElement | null = null;
+    function showAt(i: number) {
+      cursor = i;
+      const p = pts[i];
+      cross?.remove(); hdot?.remove();
+      const H = 300;
+      cross = el("line", { x1: p.x, x2: p.x, y1: 10, y2: H - 26, class: "cross" }, svg) as SVGLineElement;
+      hdot = el("circle", { cx: p.x, cy: p.y, r: 4, class: "dot" }, svg) as SVGCircleElement;
+      (tip.querySelector("[data-tip-v]") as HTMLElement).textContent = fmtFull(p.v);
+      (tip.querySelector("[data-tip-d]") as HTMLElement).textContent = dateLabel(p.d, weekly, i === pts.length - 1);
+      tip.hidden = false;
+      const w = plot.clientWidth, tw = tip.offsetWidth;
+      tip.style.left = `${Math.min(Math.max(p.x - tw / 2, 0), w - tw)}px`;
+      tip.style.top = `${Math.max(p.y - 62, 0)}px`;
+    }
+    function hide() { cursor = -1; tip.hidden = true; cross?.remove(); hdot?.remove(); }
+    plot.addEventListener("pointermove", (e) => {
+      if (!pts.length) return;
+      const rect = svg.getBoundingClientRect();
+      const px = ((e.clientX - rect.left) / rect.width) * (svg.viewBox.baseVal.width || rect.width);
+      let best = 0;
+      for (let i = 1; i < pts.length; i++) if (Math.abs(pts[i].x - px) < Math.abs(pts[best].x - px)) best = i;
+      showAt(best);
+    });
+    plot.addEventListener("pointerleave", hide);
+    plot.addEventListener("keydown", (e) => {
+      if (!pts.length) return;
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        e.preventDefault();
+        const next = cursor < 0 ? pts.length - 1 : cursor + (e.key === "ArrowRight" ? 1 : -1);
+        showAt(Math.min(Math.max(next, 0), pts.length - 1));
+      } else if (e.key === "Escape") hide();
+    });
+    plot.addEventListener("blur", hide);
+    buttons.forEach((b) => b.addEventListener("click", () => { range = b.dataset.range!; hide(); draw(); }));
+    logBox.addEventListener("change", () => { hide(); draw(); });
+    new ResizeObserver(() => draw()).observe(plot);
+    draw();
+  }
+  document.querySelectorAll<HTMLElement>("[data-pricechart]").forEach(setup);
+</script>

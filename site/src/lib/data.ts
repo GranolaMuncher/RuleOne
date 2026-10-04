@@ -314,3 +314,27 @@ export function loadSnapshots(): Map<string, { date: string; price: number | nul
   }
   return out;
 }
+
+// ---------------------------------------------------------------- price history
+export interface PriceSeries { dates: string[]; closes: number[] }
+
+function monthAdd(ym: string, n: number): string {
+  const [y, m] = ym.split("-").map(Number);
+  const t = y * 12 + (m - 1) + n;
+  return `${Math.floor(t / 12)}-${String((t % 12) + 1).padStart(2, "0")}`;
+}
+
+let _monthly: Map<string, PriceSeries> | null = null;
+/** 10-year monthly closes per ticker; the final point is the live quote. */
+export function loadMonthly(): Map<string, PriceSeries> {
+  if (_monthly) return _monthly;
+  _monthly = new Map();
+  for (const r of readCsv(path.join(LISTS, "latest", "prices_monthly.csv"))) {
+    const closes = r.closes.split(" ").map(Number);
+    const months = r.start.includes(" ")
+      ? r.start.split(" ")
+      : Array.from({ length: closes.length - 1 }, (_, i) => monthAdd(r.start, i));
+    _monthly.set(r.ticker, { dates: [...months.map((m) => `${m}-01`), r.live], closes });
+  }
+  return _monthly;
+}

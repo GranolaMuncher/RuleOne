@@ -276,3 +276,32 @@ def write_universe(rows: list[dict], latest: Path, arch: Path):
             for r in rows:
                 if r.get("price"):
                     w.writerow({k: _cell(r.get(k)) for k in SNAPSHOT_COLUMNS})
+
+
+def _contiguous_months(months: list[str]) -> bool:
+    y, m = map(int, months[0].split("-"))
+    for ym in months[1:]:
+        m += 1
+        if m == 13:
+            y, m = y + 1, 1
+        if ym != f"{y:04d}-{m:02d}":
+            return False
+    return True
+
+
+def write_price_history(monthly: dict, latest: Path):
+    """10-year monthly closes per ticker for the site's price charts (latest only, not archived).
+
+    Row: ticker, start (YYYY-MM of the first close, or every month space-separated if the
+    series has gaps), live (date of the final close, which is the live quote), closes.
+    """
+    with open(latest / "prices_monthly.csv", "w", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["ticker", "start", "live", "closes"])
+        for t in sorted(monthly):
+            series = monthly[t].get("series") or []
+            if len(series) < 2:
+                continue
+            months = [d[:7] for d, _, _ in series[:-1]]
+            start = months[0] if _contiguous_months(months) else " ".join(months)
+            w.writerow([t, start, series[-1][0], " ".join(f"{c:.5g}" for _, c, _ in series)])

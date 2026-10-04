@@ -150,3 +150,9 @@ def test_sic_to_sector():
     assert sic_to_sector(4911) == "Utilities"
     assert sic_to_sector(1311) == "Energy"
     assert sic_to_sector("") == ""
+
+
+def test_contiguous_months():
+    from ruleone.marketwide import _contiguous_months
+    assert _contiguous_months(["2025-11", "2025-12", "2026-01"])
+    assert not _contiguous_months(["2025-11", "2026-01"])

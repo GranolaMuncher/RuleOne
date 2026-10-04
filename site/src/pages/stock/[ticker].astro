@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { loadRun, loadUniverse, loadSnapshots, loadReports, type Stock, type UniverseRow } from "../../lib/data";
+import PriceChart from "../../components/PriceChart.astro";
+import { loadRun, loadUniverse, loadSnapshots, loadReports, loadMonthly, type PriceSeries, type Stock, type UniverseRow } from "../../lib/data";
 import { usd, pct, big, mult, upside, flagClass, STATUS_LABEL } from "../../lib/format";
 
 export function getStaticPaths() {
@@ -9,10 +10,12 @@ export function getStaticPaths() {
   const snaps = loadSnapshots();
   const reports = loadReports();
   const universe = loadUniverse();
+  const monthlyAll = loadMonthly();
   return universe.map((u) => ({
     params: { ticker: u.ticker },
     props: {
       u,
+      monthly: monthlyAll.get(u.ticker),
       detail: detailed.get(u.ticker),
       snaps: snaps.get(u.ticker) ?? [],
       reports: reports.filter((r) => r.kind !== "model" && r.body.includes(u.ticker) &&
@@ -21,8 +24,8 @@ export function getStaticPaths() {
     },
   }));
 }
-const { u, detail, snaps, reports, model } = Astro.props as {
-  u: UniverseRow; detail?: Stock;
+const { u, monthly, detail, snaps, reports, model } = Astro.props as {
+  u: UniverseRow; monthly?: PriceSeries; detail?: Stock;
   snaps: { date: string; price: number | null; sticker: number | null; mos: number | null; status: string }[];
   reports: { slug: string; title: string; date: string }[]; model?: { slug: string };
 };
@@ -39,17 +42,7 @@ const pts = [u.price, ...levels.map((l) => l[1])].filter((v): v is number => v !
 const lo = pts.length ? Math.min(...pts) * 0.9 : 0, hi = pts.length ? Math.max(...pts) * 1.05 : 1;
 const x = (v: number) => ((v - lo) / (hi - lo || 1)) * 100;
 
-// 1-year weekly price chart with buy price / Sticker reference lines (when in range).
-const W = 100, Hh = 40;
-const sp = u.spark;
-const near = (v: number | null) => v != null && v > 0 && sp.length > 0 && v >= Math.min(...sp) * 0.7 && v <= Math.max(...sp) * 1.3;
-const refs = [u.mos, u.sticker].filter((v): v is number => near(v));
-const ymin = sp.length ? Math.min(...sp, ...refs) * 0.95 : 0;
-const ymax = sp.length ? Math.max(...sp, ...refs) * 1.03 : 1;
-const sy = (v: number) => Hh - ((v - ymin) / (ymax - ymin || 1)) * Hh;
-const path = sp.map((v, i) => `${i ? "L" : "M"}${((i / Math.max(sp.length - 1, 1)) * W).toFixed(2)},${sy(v).toFixed(2)}`).join(" ");
-const refLine = (v: number | null) => (v != null && v >= ymin && v <= ymax ? sy(v) : null);
-const mosY = refLine(u.mos), stY = refLine(u.sticker);
+
 
 const changes = [["1 week", u.chg.w1], ["1 month", u.chg.m1], ["3 months", u.chg.m3], ["6 months", u.chg.m6], ["YTD", u.chg.ytd], ["1 year", u.chg.y1]] as const;
 const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
@@ -72,7 +65,7 @@ const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
   {u.flags && <p>{u.flags.split(";").filter(Boolean).map((f) => <span class={`chip ${flagClass(f)}`}>{f}</span>)}</p>}
 
   <section class="panel">
-    <h2>Price, last 12 months</h2>
+    <h2>Price moves</h2>
     <div class="changes">
       {changes.map(([label, v]) => (
         <div><span class="muted">{label}</span><b class={v == null ? "" : v >= 0 ? "pos" : "neg"}>{pct(v)}</b></div>
@@ -80,21 +73,9 @@ const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
       <div><span class="muted">Off 52w high</span><b class={(u.offHigh ?? 0) < 0 ? "neg" : ""}>{pct(u.offHigh)}</b></div>
       <div><span class="muted">52w range</span><b>{usd(u.low52, 0)}–{usd(u.high52, 0)}</b></div>
     </div>
-    {sp.length > 1 ? (
-      <>
-        <svg viewBox={`0 0 ${W} ${Hh}`} preserveAspectRatio="none" class="chart" role="img" aria-label="Weekly closing price, last 12 months">
-          {stY != null && <line x1="0" x2={W} y1={stY} y2={stY} class="ref st" />}
-          {mosY != null && <line x1="0" x2={W} y1={mosY} y2={mosY} class="ref mos" />}
-          <path d={path} class="px" />
-        </svg>
-        <p class="legend"><span class="k px"></span>Weekly close
-          {stY != null && <><span class="k st"></span>Sticker {usd(u.sticker, 0)}</>}
-          {mosY != null && <><span class="k mos"></span>Buy (MOS) {usd(u.mos, 0)}</>}
-          {(stY == null || mosY == null) && (u.sticker || u.mos) && <span> · {[stY == null && u.sticker ? `Sticker ${usd(u.sticker, 0)}` : "", mosY == null && u.mos ? `buy price ${usd(u.mos, 0)}` : ""].filter(Boolean).join(" and ")} {(stY == null && u.sticker) && (mosY == null && u.mos) ? "are" : "is"} far from the price range, not drawn</span>}
-        </p>
-      </>
-    ) : <p class="muted">No price history available.</p>}
   </section>
+
+  <PriceChart ticker={u.ticker} monthly={monthly} weekly={u.spark} liveDate={u.priceDate} mos={u.mos} sticker={u.sticker} />
 
   {pts.length > 1 && (
     <section class="panel ladder" aria-label="Price versus Rule #1 levels">
@@ -181,11 +162,6 @@ const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
   .changes { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; margin-bottom: 10px; }
   .changes div { display: flex; flex-direction: column; font-size: 12.5px; }
   .changes b { font-size: 16px; font-variant-numeric: tabular-nums; }
-  .chart { width: 100%; height: 180px; display: block; }
-  .chart .px { fill: none; stroke: var(--accent); stroke-width: 2; vector-effect: non-scaling-stroke; }
-  .chart .ref { stroke-width: 1.5; vector-effect: non-scaling-stroke; }
-  .chart .st { stroke: var(--deck); stroke-dasharray: 5 4; }
-  .chart .mos { stroke: var(--buy); stroke-dasharray: 2 3; }
   .legend { font-size: 12.5px; color: var(--muted); }
   .k { display: inline-block; width: 14px; height: 3px; margin: 0 4px 3px 10px; vertical-align: middle; }
   .k.px { background: var(--accent); } .k.st { background: var(--deck); } .k.mos { background: var(--buy); }
