@@ -136,7 +136,7 @@ COLUMNS = ["ticker", "name", "exchange", "sector", "industry", "status", "tier",
            "windage_growth", "future_pe", "hist_pe_median", "pe_ttm", "eps_ttm", "fcf_ttm", "fcf_yield",
            "ttm_end", "div_ttm", "div_yield", "div_growth_5y", "tr_5y", "tr_10y", "debt", "debt_payoff_years", "big5_score", "big5_tests", "roic10", "roic5", "roic1",
            "sales_g10", "sales_g5", "sales_g1", "eps_g10", "eps_g5", "eps_g1", "bvps_g10", "bvps_g5",
-           "bvps_g1", "ocf_g10", "ocf_g5", "ocf_g1", "drawdown_52w", "event_score", "events",
+           "bvps_g1", "ocf_g10", "ocf_g5", "ocf_g1", "chg_1w", "chg_1m", "chg_3m", "drawdown_52w", "event_score", "events",
            "next_report_est", "flags", "rank_score", "cik"]
 
 
@@ -321,6 +321,11 @@ def main(argv=None):
     for r in results:
         r.update(sector_fields(sector_ref.get(r["cik"])) if sector_ref.get(r["cik"]) else
                  {"industry": r.get("sector") or "", "sector": ""})
+    if rows is not None:   # recent price moves from the All stocks table
+        moves = {u["ticker"]: u for u in rows}
+        for r in results:
+            u = moves.get(r["ticker"]) or {}
+            r.update({k: u.get(k) for k in ("chg_1w", "chg_1m", "chg_3m")})
     for r in results:   # dividend yield / growth / total return on the screen lists too
         r.update({k: v for k, v in dividend_stats(total_return.get(r["ticker"]), r["price"]).items()
                   if k != "div_special"})

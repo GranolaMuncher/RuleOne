@@ -43,6 +43,7 @@ export interface Stock {
   roic1: number | null;
   growthTable: Record<string, (number | null)[]>;
   drawdown: number | null;
+  chg1m: number | null;
   eventScore: number | null;
   events: string;
   nextReport: string;
@@ -127,6 +128,7 @@ export function toStock(r: Row): Stock {
     roic1: num(r.roic1),
     growthTable: { Sales: g("sales"), EPS: g("eps"), BVPS: g("bvps"), OCF: g("ocf") },
     drawdown: num(r.drawdown_52w),
+    chg1m: num(r.chg_1m),
     eventScore: num(r.event_score),
     events: r.events,
     nextReport: r.next_report_est,

@@ -13,7 +13,9 @@ const { lists: rawLists, meta, csvBase } = Astro.props;
 const uni = new Map(loadUniverse().map((u) => [u.ticker, u]));
 const lists = Object.fromEntries(Object.entries(rawLists).map(([k, rows]) => [k, rows.map((s) => {
   const u = uni.get(s.ticker);
-  return u?.sector ? { ...s, sector: u.sector, industry: u.industry || s.industry } : s;
+  if (!u) return s;
+  // older runs lack sector and price-move columns: borrow them from the current All stocks table
+  return { ...s, sector: u.sector || s.sector, industry: u.industry || s.industry, chg1m: s.chg1m ?? u.chg.m1 };
 })])) as Record<ListKey, Stock[]>;
 const sectorCounts = new Map<string, number>();
 for (const s of lists.all_candidates.length ? lists.all_candidates : Object.values(lists).flat())
@@ -84,6 +86,14 @@ const funnel = [
       <option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50%</option>
     </select>
   </label>
+  <label class="dy">1-month change
+    <select id="m1filter">
+      <option value="">Any</option>
+      <option value="-0.05">Down ≥ 5%</option><option value="-0.1">Down ≥ 10%</option>
+      <option value="-0.2">Down ≥ 20%</option><option value="-0.3">Down ≥ 30%</option>
+      <option value="0.1">Up ≥ 10%</option>
+    </select>
+  </label>
   <label class="dy">P/E ≤
     <select id="pefilter">
       <option value="">Any</option><option value="10">10</option><option value="15">15</option>
@@ -144,6 +154,14 @@ const funnel = [
   const mcapfilter = document.getElementById("mcapfilter") as HTMLSelectElement;
   const pefilter = document.getElementById("pefilter") as HTMLSelectElement;
   const ddfilter = document.getElementById("ddfilter") as HTMLSelectElement;
+  const m1filter = document.getElementById("m1filter") as HTMLSelectElement;
+  // negative threshold = fell at least that much; positive = rose at least that much
+  const inM1 = (v: string | undefined) => {
+    if (!m1filter.value) return true;
+    if (!v) return false;
+    const t = Number(m1filter.value), c = Number(v);
+    return t < 0 ? c <= t : c >= t;
+  };
   // drawdown is stored as a negative fraction (price / 52-week high - 1)
   const inDd = (v: string | undefined) =>
     !ddfilter.value || (!!v && -Number(v) >= Number(ddfilter.value));
@@ -178,8 +196,8 @@ const funnel = [
         (!!dyfilter.value && !(tr.dataset.dy !== "" && Number(tr.dataset.dy) >= Number(dyfilter.value))) ||
         (!!secfilter.value && tr.dataset.sector !== secfilter.value) ||
         (!!indfilter.value && tr.dataset.industry !== indfilter.value) ||
-        !inMcap(tr.dataset.mcap) || !inPe(tr.dataset.pe) || !inDd(tr.dataset.dd);
+        !inMcap(tr.dataset.mcap) || !inPe(tr.dataset.pe) || !inDd(tr.dataset.dd) || !inM1(tr.dataset.m1);
     });
   }
-  [q, hideflag, dyfilter, secfilter, indfilter, mcapfilter, pefilter, ddfilter, ...boxes].forEach((el) => el.addEventListener("input", apply));
+  [q, hideflag, dyfilter, secfilter, indfilter, mcapfilter, pefilter, ddfilter, m1filter, ...boxes].forEach((el) => el.addEventListener("input", apply));
 </script>
