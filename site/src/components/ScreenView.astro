@@ -78,6 +78,12 @@ const funnel = [
       <option value="1e10-">≥ $10B</option>
     </select>
   </label>
+  <label class="dy">Off 52w high ≥
+    <select id="ddfilter">
+      <option value="">Any</option><option value="0.1">10%</option><option value="0.2">20%</option>
+      <option value="0.3">30%</option><option value="0.4">40%</option><option value="0.5">50%</option>
+    </select>
+  </label>
   <label class="dy">P/E ≤
     <select id="pefilter">
       <option value="">Any</option><option value="10">10</option><option value="15">15</option>
@@ -137,6 +143,10 @@ const funnel = [
   const indfilter = document.getElementById("indfilter") as HTMLSelectElement;
   const mcapfilter = document.getElementById("mcapfilter") as HTMLSelectElement;
   const pefilter = document.getElementById("pefilter") as HTMLSelectElement;
+  const ddfilter = document.getElementById("ddfilter") as HTMLSelectElement;
+  // drawdown is stored as a negative fraction (price / 52-week high - 1)
+  const inDd = (v: string | undefined) =>
+    !ddfilter.value || (!!v && -Number(v) >= Number(ddfilter.value));
   // trailing P/E; loss-makers (no positive P/E) drop out once a cap is chosen
   const inPe = (v: string | undefined) =>
     !pefilter.value || (!!v && Number(v) > 0 && Number(v) <= Number(pefilter.value));
@@ -168,8 +178,8 @@ const funnel = [
         (!!dyfilter.value && !(tr.dataset.dy !== "" && Number(tr.dataset.dy) >= Number(dyfilter.value))) ||
         (!!secfilter.value && tr.dataset.sector !== secfilter.value) ||
         (!!indfilter.value && tr.dataset.industry !== indfilter.value) ||
-        !inMcap(tr.dataset.mcap) || !inPe(tr.dataset.pe);
+        !inMcap(tr.dataset.mcap) || !inPe(tr.dataset.pe) || !inDd(tr.dataset.dd);
     });
   }
-  [q, hideflag, dyfilter, secfilter, indfilter, mcapfilter, pefilter, ...boxes].forEach((el) => el.addEventListener("input", apply));
+  [q, hideflag, dyfilter, secfilter, indfilter, mcapfilter, pefilter, ddfilter, ...boxes].forEach((el) => el.addEventListener("input", apply));
 </script>

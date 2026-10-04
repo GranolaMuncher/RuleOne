@@ -38,7 +38,7 @@ const statusClass = (s: string) => s.replace("*", "star").replace(/\s/g, "");
       </thead>
       <tbody>
         {shown.map((s) => (
-          <tr data-tier={s.tier} data-dy={s.divYield ?? ""} data-mcap={s.marketCap ?? ""} data-pe={s.pe ?? ""} data-sector={s.sector} data-industry={s.industry} data-search={`${s.ticker} ${s.name} ${s.sector} ${s.industry}`.toLowerCase()}>
+          <tr data-tier={s.tier} data-dy={s.divYield ?? ""} data-mcap={s.marketCap ?? ""} data-pe={s.pe ?? ""} data-dd={s.drawdown ?? ""} data-sector={s.sector} data-industry={s.industry} data-search={`${s.ticker} ${s.name} ${s.sector} ${s.industry}`.toLowerCase()}>
             <td data-v={s.ticker}><a href={`/stock/${s.ticker}/`} class="tk">{s.ticker}</a><div class="nm">{s.name}</div>{s.sector && <div class="sec" title={s.industry}>{s.sector}</div>}</td>
             {showStatus && <td data-v={s.status}><span class={`chip ${statusClass(s.status)}`}>{s.status}</span></td>}
             <td data-v={s.tier}><span class={`tier ${s.tier}`}>{s.tier}</span></td>
