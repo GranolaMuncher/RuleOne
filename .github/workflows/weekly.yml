@@ -90,11 +90,24 @@ jobs:
           path: .cache
           key: sec-cache-${{ github.run_id }}
           restore-keys: sec-cache-
+      - name: Clean Claude credentials
+        # Tokens copied from a terminal often pick up line breaks where the window wrapped.
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          for name in KEY OAUTH; do
+            clean=$(printf '%s' "${!name}" | tr -d '[:space:]')
+            if [ -n "$clean" ]; then
+              echo "::add-mask::$clean"
+              echo "CLEAN_$name=$clean" >> "$GITHUB_ENV"
+            fi
+          done
       - uses: anthropics/claude-code-action@v1
         with:
           # Set ONE of these repository secrets.
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          anthropic_api_key: ${{ env.CLEAN_KEY }}
+          claude_code_oauth_token: ${{ env.CLEAN_OAUTH }}
           # Use the workflow's own token; without it the action tries an OIDC exchange
           # for the Claude GitHub App, which fails on schedule/dispatch runs.
           github_token: ${{ secrets.GITHUB_TOKEN }}
