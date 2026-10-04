@@ -1,13 +1,24 @@
 ---
 import StockTable from "./StockTable.astro";
-import type { Stock, ListKey } from "../lib/data";
+import { loadUniverse, type Stock, type ListKey } from "../lib/data";
 
 interface Props {
   lists: Record<ListKey, Stock[]>;
   meta: Record<string, any>;
   csvBase?: string;
 }
-const { lists, meta, csvBase } = Astro.props;
+const { lists: rawLists, meta, csvBase } = Astro.props;
+// Broad sector / industry from the All stocks table, so older archived runs (whose rows
+// only carried the SEC industry text) filter the same way.
+const uni = new Map(loadUniverse().map((u) => [u.ticker, u]));
+const lists = Object.fromEntries(Object.entries(rawLists).map(([k, rows]) => [k, rows.map((s) => {
+  const u = uni.get(s.ticker);
+  return u?.sector ? { ...s, sector: u.sector, industry: u.industry || s.industry } : s;
+})])) as Record<ListKey, Stock[]>;
+const sectorCounts = new Map<string, number>();
+for (const s of lists.all_candidates.length ? lists.all_candidates : Object.values(lists).flat())
+  if (s.sector) sectorCounts.set(s.sector, (sectorCounts.get(s.sector) ?? 0) + 1);
+const sectorOptions = [...sectorCounts].sort((a, b) => a[0].localeCompare(b[0]));
 const sections: { key: ListKey; title: string; blurb: string; limit?: number; status?: boolean }[] = [
   { key: "buy_range", title: "Buy range", blurb: "Price at or below the margin-of-safety price (50% of Sticker). This is Rule #1's strict buy signal." },
   { key: "buy_range_alt_methods", title: "Buy on Payback Time / Ten Cap", blurb: "Below Town's Payback Time or Ten Cap price but not yet below MOS. Treat with care for insurers and brokers, whose cash flow includes float.", limit: 40 },
@@ -32,12 +43,18 @@ const funnel = [
 </div>
 
 <div class="filters panel">
-  <input type="search" id="q" placeholder="Filter by ticker, name or sector…" aria-label="Filter" />
+  <input type="search" id="q" placeholder="Filter by ticker, name or industry…" aria-label="Filter" />
   <fieldset aria-label="Tier">
     {["A", "B", "C"].map((t) => (
       <label><input type="checkbox" class="tierbox" value={t} checked /> Tier {t}</label>
     ))}
   </fieldset>
+  <label class="dy">Sector
+    <select id="secfilter">
+      <option value="">All sectors</option>
+      {sectorOptions.map(([sec, n]) => <option value={sec}>{sec} ({n})</option>)}
+    </select>
+  </label>
   <label class="dy">Div yield ≥
     <select id="dyfilter">
       <option value="">Any</option><option value="0.0001">Pays dividend</option><option value="0.01">1%</option>
@@ -84,6 +101,7 @@ const funnel = [
   const boxes = [...document.querySelectorAll<HTMLInputElement>(".tierbox")];
   const hideflag = document.getElementById("hideflag") as HTMLInputElement;
   const dyfilter = document.getElementById("dyfilter") as HTMLSelectElement;
+  const secfilter = document.getElementById("secfilter") as HTMLSelectElement;
   function apply() {
     const term = q.value.trim().toLowerCase();
     const tiers = new Set(boxes.filter((b) => b.checked).map((b) => b.value));
@@ -91,8 +109,9 @@ const funnel = [
       const flagged = !!tr.querySelector(".chip.warn");  // info chips (currency/ADR notes) don't hide
       tr.hidden = !tiers.has(tr.dataset.tier ?? "") || (!!term && !(tr.dataset.search ?? "").includes(term)) ||
         (hideflag.checked && flagged) ||
-        (!!dyfilter.value && !(tr.dataset.dy !== "" && Number(tr.dataset.dy) >= Number(dyfilter.value)));
+        (!!dyfilter.value && !(tr.dataset.dy !== "" && Number(tr.dataset.dy) >= Number(dyfilter.value))) ||
+        (!!secfilter.value && tr.dataset.sector !== secfilter.value);
     });
   }
-  [q, hideflag, dyfilter, ...boxes].forEach((el) => el.addEventListener("input", apply));
+  [q, hideflag, dyfilter, secfilter, ...boxes].forEach((el) => el.addEventListener("input", apply));
 </script>

@@ -14,6 +14,7 @@ export interface Stock {
   name: string;
   exchange: string;
   sector: string;
+  industry: string;
   status: string;
   tier: string;
   price: number | null;
@@ -97,6 +98,7 @@ export function toStock(r: Row): Stock {
     name: r.name,
     exchange: r.exchange,
     sector: r.sector,
+    industry: r.industry ?? "",
     status: r.status,
     tier: r.tier,
     price: num(r.price),

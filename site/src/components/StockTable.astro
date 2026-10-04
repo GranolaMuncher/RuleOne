@@ -38,8 +38,8 @@ const statusClass = (s: string) => s.replace("*", "star").replace(/\s/g, "");
       </thead>
       <tbody>
         {shown.map((s) => (
-          <tr data-tier={s.tier} data-dy={s.divYield ?? ""} data-search={`${s.ticker} ${s.name} ${s.sector}`.toLowerCase()}>
-            <td data-v={s.ticker}><a href={`/stock/${s.ticker}/`} class="tk">{s.ticker}</a><div class="nm">{s.name}</div></td>
+          <tr data-tier={s.tier} data-dy={s.divYield ?? ""} data-sector={s.sector} data-search={`${s.ticker} ${s.name} ${s.sector} ${s.industry}`.toLowerCase()}>
+            <td data-v={s.ticker}><a href={`/stock/${s.ticker}/`} class="tk">{s.ticker}</a><div class="nm">{s.name}</div>{s.sector && <div class="sec" title={s.industry}>{s.sector}</div>}</td>
             {showStatus && <td data-v={s.status}><span class={`chip ${statusClass(s.status)}`}>{s.status}</span></td>}
             <td data-v={s.tier}><span class={`tier ${s.tier}`}>{s.tier}</span></td>
             <td class="num" data-v={s.price ?? ""}>{usd(s.price)}</td>
@@ -77,6 +77,7 @@ const statusClass = (s: string) => s.replace("*", "star").replace(/\s/g, "");
   tr:last-child td { border-bottom: 0; }
   .tk { font-weight: 700; text-decoration: none; }
   .nm { color: var(--muted); font-size: 12px; max-width: 190px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .sec { color: var(--muted); font-size: 11.5px; max-width: 190px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .ev { min-width: 260px; max-width: 420px; color: var(--muted); font-size: 12.5px; }
   .ev .chip { margin: 3px 4px 0 0; white-space: normal; }
   .more { font-size: 13px; }

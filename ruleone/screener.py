@@ -22,10 +22,10 @@ from .companyfacts import load_company
 from .events import event_score, event_summary, load_events
 from .frames import load_frames
 from .http import Fetcher
-from .marketwide import (build_universe, dividend_stats, load_current_shares, load_spark, load_total_return,
+from .marketwide import (build_universe, dividend_stats, sector_fields, load_current_shares, load_spark, load_total_return,
                          write_price_history, write_universe)
 from .metrics import big_five, fcf, windage_growth
-from .sectors import refresh_reference
+from .sectors import load_reference, refresh_reference
 from .normalize import normalize
 from .prices import load_prices, price_near
 from .universe import load_universe
@@ -131,7 +131,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
 
 
 # ---------------------------------------------------------------- output
-COLUMNS = ["ticker", "name", "exchange", "sector", "status", "tier", "price", "price_date", "market_cap",
+COLUMNS = ["ticker", "name", "exchange", "sector", "industry", "status", "tier", "price", "price_date", "market_cap",
            "sticker", "mos_price", "payback_price", "ten_cap_price", "price_to_sticker", "buy_signals",
            "windage_growth", "future_pe", "hist_pe_median", "pe_ttm", "eps_ttm", "fcf_ttm", "fcf_yield",
            "ttm_end", "div_ttm", "div_yield", "div_growth_5y", "tr_5y", "tr_10y", "debt", "debt_payoff_years", "big5_score", "big5_tests", "roic10", "roic5", "roic1",
@@ -316,6 +316,11 @@ def main(argv=None):
                               sectors, total_return)
     else:
         total_return = load_total_return(fetcher, [r["ticker"] for r in results], log=log)
+    # Same sector / industry as the All stocks table (reference file; refreshed above on full runs)
+    sector_ref = sectors if rows is not None else load_reference(Path(a.out) / "reference" / "sic.csv")
+    for r in results:
+        r.update(sector_fields(sector_ref.get(r["cik"])) if sector_ref.get(r["cik"]) else
+                 {"industry": r.get("sector") or "", "sector": ""})
     for r in results:   # dividend yield / growth / total return on the screen lists too
         r.update({k: v for k, v in dividend_stats(total_return.get(r["ticker"]), r["price"]).items()
                   if k != "div_special"})
