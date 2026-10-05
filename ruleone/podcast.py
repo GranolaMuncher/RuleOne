@@ -108,6 +108,20 @@ def transcribe(audio: Path, model_name: str) -> str:
     return " ".join(lines).strip()
 
 
+def audio_problem(text: str, duration: int | None) -> str | None:
+    """Flag feed audio that is broken (silent, truncated, garbled): speech runs ~120-180 words a minute."""
+    words = len(text.split())
+    if not duration or duration < 120:
+        return None if words else "no speech found"
+    wpm = words / (duration / 60)
+    if wpm < 50:
+        return f"only {words} words transcribed for {duration // 60} min of audio"
+    last = max((int(m) for m in re.findall(r"\[(\d+):\d\d\]", text)), default=0)
+    if duration > 600 and last < 0.6 * duration / 60:
+        return f"speech stops at about {last} min of a {duration // 60}-min episode"
+    return None
+
+
 def fetch_episodes() -> list[dict]:
     resp = requests.get(FEED, headers=UA, timeout=60)
     resp.raise_for_status()
@@ -143,12 +157,20 @@ def prepare(count: int, model_name: str, ids: list[str] | None = None) -> list[d
                 with audio.open("wb") as fh:
                     for chunk in r.iter_content(1 << 20):
                         fh.write(chunk)
-            text = transcribe(audio, model_name)
-        except Exception as exc:  # one bad download shouldn't sink the batch; it is retried next run
-            print(f"{eid}: skipped this run ({exc})", flush=True)
+        except Exception as exc:  # a failed download is retried next run
+            print(f"{eid}: download failed, retry next run ({exc})", flush=True)
+            audio.unlink(missing_ok=True)
             continue
+        try:
+            text = transcribe(audio, model_name)
+        except Exception as exc:  # undecodable audio won't fix itself, so fall back to the show notes
+            text, ep["audio_problem"] = "", f"audio could not be decoded ({type(exc).__name__})"
         finally:
             audio.unlink(missing_ok=True)
+        if not ep.get("audio_problem") and (problem := audio_problem(text, ep["duration"])):
+            ep["audio_problem"] = problem
+        if ep.get("audio_problem"):
+            print(f"{eid}: AUDIO PROBLEM: {ep['audio_problem']}", flush=True)
         (WORK / f"{eid}.txt").write_text(text + "\n")
         ep["id"] = eid
         ep["transcript"] = f".work/invested/{eid}.txt"

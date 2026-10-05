@@ -366,7 +366,7 @@ export interface Course {
 }
 export interface Episode {
   id: string; number: number; title: string; date: string; minutes: number | null;
-  guests: string[]; module: string; concepts: string[]; rulers: string[]; body: string;
+  guests: string[]; module: string; concepts: string[]; rulers: string[]; body: string; audio: string;
 }
 
 export function loadCourse(): Course | null {
@@ -408,7 +408,7 @@ export function loadEpisodes(): Episode[] {
     return {
       id, number: Number(s("episode") || id), title: s("title") || id, date: s("date"),
       minutes: s("minutes") ? Number(s("minutes")) : null, guests: l("guests"), module: s("module"),
-      concepts: l("concepts"), rulers: l("rulers"), body: body.replace(/^#\s+.*\n/, ""),
+      concepts: l("concepts"), rulers: l("rulers"), body: body.replace(/^#\s+.*\n/, ""), audio: s("audio"),
     };
   });
 }

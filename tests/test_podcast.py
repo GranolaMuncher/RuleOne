@@ -21,3 +21,13 @@ def test_next_batch_skips_done_and_skipped():
     eps = parse_feed(FEED)
     state = {"done": ["000"], "skipped": {"001": "broken audio"}}
     assert [episode_id(e) for e in next_batch(eps, state, 2)] == ["002", "x20150601"]
+
+
+def test_audio_problem_flags_silent_or_truncated_audio():
+    from ruleone.podcast import audio_problem
+    normal = " ".join(f"[{m:02d}:00] " + "word " * 150 for m in range(40))
+    assert audio_problem(normal, 40 * 60) is None
+    assert "only" in audio_problem("hello there", 40 * 60)
+    cut = " ".join(f"[{m:02d}:00] " + "word " * 300 for m in range(10))  # plenty of words, stops at 9 min
+    assert "stops" in audio_problem(cut, 40 * 60)
+    assert audio_problem("Happy holidays everyone", 78) is None

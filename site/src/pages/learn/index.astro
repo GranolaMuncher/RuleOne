@@ -67,6 +67,7 @@ const RULERS: [string, string][] = [
                 <span class="tick" aria-hidden="true"></span>
                 <a href={`/learn/${e.id}/`}>{e.id} · {e.title}</a>
                 {e.minutes && <span class="muted small"> · {e.minutes} min</span>}
+                {e.audio === "problem" && <span class="chip warn small" title="The public feed audio is damaged; listen on Spotify">audio issue</span>}
               </li>
             ))}
           </ol>

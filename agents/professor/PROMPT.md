@@ -24,6 +24,7 @@ You are the Professor. You are working through the InvestED podcast (Phil Town a
      - `## Check yourself`: 2–4 questions, each answer in `<details><summary>Answer</summary>…</details>`.
      - `## Short quotes`: at most 2, each 25 words or fewer, marked "auto-transcribed".
    - **Reruns.** If the episode is a rerun ("FROM THE VAULT", "Best of", "Encore") of an episode already in the notes, write a short note that links the original (`[001](001.md)`) and records only what's new.
+   - **Broken feed audio.** If the episode in `batch.json` has `audio_problem`, the public feed's audio is damaged (the owner reports one episode plays properly only on Spotify). Write the note from `show_notes` plus whatever of the transcript is usable. Add `audio: problem` to the front matter, start the body with `> **Audio problem in the public feed:** <the audio_problem text>. Listen on Spotify for the full episode; these notes come from the show notes.`, and keep the note short. Never invent content you couldn't hear.
    - **Off-topic episodes.** Guest interviews that aren't about investing (mindfulness, careers, life) still get notes. Put them in `m10` (or `m7` if they're about psychology) and keep only what helps an investor.
 3. **Copyright.** Never paste long passages. These are study notes in your own words. The transcript itself must never be committed. It lives only in `.work/`.
 
