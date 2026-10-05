@@ -1,16 +1,22 @@
 name: Professor (InvestED notes)
 
-# Works through the InvestED podcast in episode order: download + transcribe the next few
-# episodes on the runner (faster-whisper, CPU), have Claude write study notes and update the
-# course, commit knowledge/, then redeploy the site. Transcripts stay on the runner.
+# Works through the InvestED podcast in episode order, several runners at a time:
+#   plan    -> picks the next episodes and splits them into contiguous shards
+#   notes   -> one runner per shard: download + transcribe (faster-whisper, CPU), Claude writes
+#              the study notes; only the notes leave the runner (as a short-lived artifact)
+#   curate  -> folds all new notes into the course, records progress, commits, redeploys
+# Transcripts never leave the runners and are never committed.
 on:
   schedule:
-    - cron: "41 1,7,13,19 * * *"   # four batches a day; about three weeks to finish the back catalogue
+    - cron: "41 */3 * * *"   # every 3 hours until the back catalogue is done, then picks up new episodes
   workflow_dispatch:
     inputs:
       count:
         description: "Episodes this run"
-        default: "6"
+        default: "24"
+      shards:
+        description: "Parallel runners"
+        default: "4"
 
 permissions:
   contents: write
@@ -21,14 +27,43 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  notes:
+  plan:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 10
     outputs:
-      recorded: ${{ steps.record.outputs.recorded }}
+      shards: ${{ steps.plan.outputs.shards }}
+      ids: ${{ steps.plan.outputs.ids }}
+      has_claude: ${{ steps.secrets.outputs.has_claude }}
     steps:
       - uses: actions/checkout@v4
       - id: secrets
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: echo "has_claude=$([ -n "$KEY$OAUTH" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - id: plan
+        run: |
+          out=$(python -m ruleone.podcast plan --count "${{ github.event.inputs.count || '24' }}" --shards "${{ github.event.inputs.shards || '4' }}")
+          echo "$out"
+          echo "shards=$(echo "$out" | python -c 'import json,sys; print(json.dumps(json.load(sys.stdin)["shards"]))')" >> "$GITHUB_OUTPUT"
+          echo "ids=$(echo "$out" | python -c 'import json,sys; print(json.load(sys.stdin)["ids"])')" >> "$GITHUB_OUTPUT"
+
+  notes:
+    needs: plan
+    if: needs.plan.outputs.has_claude == 'true' && needs.plan.outputs.shards != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    strategy:
+      fail-fast: false
+      matrix:
+        ids: ${{ fromJSON(needs.plan.outputs.shards) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Clean Claude credentials
         env:
           KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -38,7 +73,6 @@ jobs:
             if [ -n "$clean" ]; then
               echo "::add-mask::$clean"
               echo "CLEAN_$name=$clean" >> "$GITHUB_ENV"
-              echo "has_claude=true" >> "$GITHUB_OUTPUT"
             fi
           done
       - uses: actions/setup-python@v5
@@ -49,23 +83,100 @@ jobs:
         with:
           path: ~/.cache/huggingface
           key: whisper-base-en
-      - name: Download and transcribe the next episodes
-        if: steps.secrets.outputs.has_claude == 'true'
-        run: python -m ruleone.podcast prepare --count "${{ github.event.inputs.count || '6' }}"
+      - name: Download and transcribe this shard
+        run: python -m ruleone.podcast prepare --ids "${{ matrix.ids }}"
       - uses: anthropics/claude-code-action@v1
-        if: steps.secrets.outputs.has_claude == 'true' && hashFiles('.work/invested/*.txt') != ''
+        if: hashFiles('.work/invested/*.txt') != ''
+        continue-on-error: true   # a usage-limit stop still keeps the notes already written
         with:
           anthropic_api_key: ${{ env.CLEAN_KEY }}
           claude_code_oauth_token: ${{ env.CLEAN_OAUTH }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          prompt: "Follow the instructions in agents/professor/PROMPT.md exactly."
+          prompt: >-
+            Follow agents/professor/PROMPT.md, steps 1 to 3 only (write the episode notes).
+            Do NOT edit knowledge/invested/course.json; a later curate step updates the course for the whole run.
           claude_args: |
+            --model claude-sonnet-5-5
             --max-turns 120
-            --allowedTools Bash,Read,Write,Edit,Glob,Grep
+            --allowedTools Read,Write,Edit,Glob,Grep
+      - name: Collect notes
+        run: |
+          mkdir -p out
+          for id in $(echo "${{ matrix.ids }}" | tr ',' ' '); do
+            f="knowledge/invested/episodes/$id.md"
+            [ -f "$f" ] && cp "$f" out/ || echo "no notes for $id"
+          done
+          ls out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: notes-${{ strategy.job-index }}
+          path: out/*.md
+          retention-days: 2
+          if-no-files-found: ignore
+
+  curate:
+    needs: [plan, notes]
+    if: always() && needs.plan.result == 'success' && needs.plan.outputs.ids != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    outputs:
+      recorded: ${{ steps.record.outputs.recorded }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: notes-*
+          merge-multiple: true
+          path: .work/new-notes
+      - id: new
+        name: Place new notes
+        run: |
+          mkdir -p .work/invested
+          : > .work/invested/new.txt
+          for id in $(echo "${{ needs.plan.outputs.ids }}" | tr ',' ' '); do
+            if [ -f ".work/new-notes/$id.md" ]; then
+              cp ".work/new-notes/$id.md" knowledge/invested/episodes/
+              echo "$id" >> .work/invested/new.txt
+            fi
+          done
+          echo "count=$(wc -l < .work/invested/new.txt)" >> "$GITHUB_OUTPUT"
+          echo "new notes: $(tr '\n' ' ' < .work/invested/new.txt)"
+      - name: Clean Claude credentials
+        if: steps.new.outputs.count != '0'
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          for name in KEY OAUTH; do
+            clean=$(printf '%s' "${!name}" | tr -d '[:space:]')
+            if [ -n "$clean" ]; then
+              echo "::add-mask::$clean"
+              echo "CLEAN_$name=$clean" >> "$GITHUB_ENV"
+            fi
+          done
+      - uses: anthropics/claude-code-action@v1
+        if: steps.new.outputs.count != '0'
+        continue-on-error: true   # notes still get committed; the course catches up next run
+        with:
+          anthropic_api_key: ${{ env.CLEAN_KEY }}
+          claude_code_oauth_token: ${{ env.CLEAN_OAUTH }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: "Follow the instructions in agents/professor/CURATE.md exactly."
+          claude_args: |
+            --max-turns 60
+            --allowedTools Read,Write,Edit,Glob,Grep
+      - uses: actions/setup-python@v5
+        if: steps.new.outputs.count != '0'
+        with:
+          python-version: "3.11"
       - id: record
         name: Record progress and commit notes
+        if: steps.new.outputs.count != '0'
         run: |
-          out=$(python -m ruleone.podcast record); echo "$out"
+          pip install -q -r requirements.txt
+          out=$(python -m ruleone.podcast record --ids "$(tr '\n' ',' < .work/invested/new.txt)"); echo "$out"
           echo "recorded=$([ "$out" != "recorded: none" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
           git config user.name "rule-one-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -76,7 +187,7 @@ jobs:
           git push origin "HEAD:${GITHUB_REF_NAME}"
 
   deploy:
-    needs: notes
-    if: needs.notes.outputs.recorded == 'true'
+    needs: curate
+    if: always() && needs.curate.outputs.recorded == 'true'
     uses: ./.github/workflows/deploy-site.yml
     secrets: inherit

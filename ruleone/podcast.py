@@ -108,55 +108,85 @@ def transcribe(audio: Path, model_name: str) -> str:
     return " ".join(lines).strip()
 
 
-def prepare(count: int, model_name: str) -> list[dict]:
+def fetch_episodes() -> list[dict]:
     resp = requests.get(FEED, headers=UA, timeout=60)
     resp.raise_for_status()
-    episodes = parse_feed(resp.text)
+    return parse_feed(resp.text)
+
+
+def plan(count: int, shards: int) -> list[list[str]]:
+    """Split the next `count` episodes into contiguous shards for parallel runners."""
+    ids = [episode_id(e) for e in next_batch(fetch_episodes(), load_progress(), count)]
+    size = -(-len(ids) // max(shards, 1)) if ids else 0
+    return [ids[i:i + size] for i in range(0, len(ids), size)] if ids else []
+
+
+def prepare(count: int, model_name: str, ids: list[str] | None = None) -> list[dict]:
+    episodes = fetch_episodes()
     state = load_progress()
-    batch = next_batch(episodes, state, count)
+    if ids:
+        wanted = set(ids)
+        batch = [e for e in episodes if episode_id(e) in wanted]
+    else:
+        batch = next_batch(episodes, state, count)
     WORK.mkdir(parents=True, exist_ok=True)
     for f in WORK.glob("*"):
         f.unlink()
+    done = []
     for ep in batch:
         eid = episode_id(ep)
         audio = WORK / f"{eid}.mp3"
         t0 = time.time()
-        with requests.get(ep["audio"], headers=UA, timeout=300, stream=True) as r:
-            r.raise_for_status()
-            with audio.open("wb") as fh:
-                for chunk in r.iter_content(1 << 20):
-                    fh.write(chunk)
-        text = transcribe(audio, model_name)
-        audio.unlink()
+        try:
+            with requests.get(ep["audio"], headers=UA, timeout=300, stream=True) as r:
+                r.raise_for_status()
+                with audio.open("wb") as fh:
+                    for chunk in r.iter_content(1 << 20):
+                        fh.write(chunk)
+            text = transcribe(audio, model_name)
+        except Exception as exc:  # one bad download shouldn't sink the batch; it is retried next run
+            print(f"{eid}: skipped this run ({exc})", flush=True)
+            continue
+        finally:
+            audio.unlink(missing_ok=True)
         (WORK / f"{eid}.txt").write_text(text + "\n")
         ep["id"] = eid
         ep["transcript"] = f".work/invested/{eid}.txt"
         ep["notes"] = f"knowledge/invested/episodes/{eid}.md"
+        done.append(ep)
         print(f"{eid} {ep['title'][:60]}: {len(text.split())} words in {time.time() - t0:.0f}s", flush=True)
     (WORK / "batch.json").write_text(json.dumps({
-        "episodes": batch,
-        "remaining": len([e for e in episodes if episode_id(e) not in set(state["done"])]) - len(batch),
+        "episodes": done,
+        "remaining": len([e for e in episodes if episode_id(e) not in set(state["done"])]) - len(done),
         "total": len(episodes),
     }, indent=2))
-    return batch
+    return done
 
 
-def record() -> list[str]:
-    """Mark batch episodes done once the Professor has written their notes."""
-    batch_file = WORK / "batch.json"
-    if not batch_file.exists():
-        return []
+def record(ids: list[str] | None = None, total: int | None = None) -> list[str]:
+    """Mark episodes done once the Professor has written their notes.
+
+    Without ids, uses this runner's batch.json; with ids (the parallel workflow), checks those."""
+    if ids is None:
+        batch_file = WORK / "batch.json"
+        if not batch_file.exists():
+            return []
+        batch = json.loads(batch_file.read_text())
+        ids, total = [e["id"] for e in batch["episodes"]], batch.get("total")
     state = load_progress()
-    batch = json.loads(batch_file.read_text())
     added = []
-    for ep in batch["episodes"]:
-        if (ROOT / ep["notes"]).exists() and ep["id"] not in state["done"]:
-            state["done"].append(ep["id"])
-            added.append(ep["id"])
+    for eid in ids:
+        if (EPISODES / f"{eid}.md").exists() and eid not in state["done"]:
+            state["done"].append(eid)
+            added.append(eid)
     if added:
-        state["total"] = batch.get("total", state.get("total"))
+        state["total"] = total or state.get("total")
         save_progress(state)
     return added
+
+
+def _ids(text: str) -> list[str]:
+    return [i for i in re.split(r"[,\s]+", text or "") if i]
 
 
 def main() -> None:
@@ -165,13 +195,23 @@ def main() -> None:
     p = sub.add_parser("prepare")
     p.add_argument("--count", type=int, default=6)
     p.add_argument("--model", default="base.en")
-    sub.add_parser("record")
+    p.add_argument("--ids", default="", help="comma list of episode ids (overrides --count)")
+    pl = sub.add_parser("plan")
+    pl.add_argument("--count", type=int, default=24)
+    pl.add_argument("--shards", type=int, default=4)
+    r = sub.add_parser("record")
+    r.add_argument("--ids", default="")
     args = ap.parse_args()
     if args.cmd == "prepare":
-        batch = prepare(args.count, args.model)
+        batch = prepare(args.count, args.model, _ids(args.ids))
         print(f"prepared {len(batch)} episode(s)")
+    elif args.cmd == "plan":
+        shards = plan(args.count, args.shards)
+        print(json.dumps({"shards": [",".join(s) for s in shards], "ids": ",".join(i for s in shards for i in s)}))
     else:
-        print("recorded:", ", ".join(record()) or "none")
+        ids = _ids(args.ids)
+        total = len(fetch_episodes()) if ids else None
+        print("recorded:", ", ".join(record(ids or None, total)) or "none")
 
 
 if __name__ == "__main__":

@@ -28,6 +28,8 @@ You are the Professor. You are working through the InvestED podcast (Phil Town a
 3. **Copyright.** Never paste long passages. These are study notes in your own words. The transcript itself must never be committed. It lives only in `.work/`.
 
 ## After the batch
+_Parallel runs: if the workflow tells you to write notes only, stop after step 3. A separate curate step does step 4 for the whole run (see `CURATE.md`)._
+
 4. Update `knowledge/invested/course.json`:
    - Append each episode id to its module's `episodes`, keeping numeric order.
    - Revise that module's `lesson` (markdown, at most about 250 words) so it stays a tight synthesis of everything taught so far: a numbered set of steps or principles, not a list of episodes. If episodes disagree with or refine earlier ones, say so.

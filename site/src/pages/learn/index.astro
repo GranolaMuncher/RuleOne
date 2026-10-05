@@ -34,7 +34,7 @@ const RULERS: [string, string][] = [
       <div class="k">Professor's progress</div>
       <div class="v">{progress.done.length} <span class="muted">of {total} episodes</span></div>
       <div class="pbar" role="progressbar" aria-valuenow={pct} aria-valuemin="0" aria-valuemax="100"><span style={`width:${Math.max(pct, 1)}%`}></span></div>
-      <div class="muted small">Updated {progress.updated || "n/a"} · about 24 new episodes a day until caught up</div>
+      <div class="muted small">Updated {progress.updated || "n/a"} · about 190 new episodes a day until caught up</div>
     </div>
     <div class="panel stat">
       <div class="k">Your progress</div>
@@ -81,6 +81,17 @@ const RULERS: [string, string][] = [
     your recording into study notes. Until then, each chapter has a short preview of what to listen for.{" "}
     <strong>{bookDone} of {book.length}</strong> chapters have notes.
   </p>
+  <details class="panel howto">
+    <summary>How to record a chapter</summary>
+    <ol>
+      <li><strong>Read and record</strong> on your phone: read the chapter aloud, record your takeaways afterwards, or both.</li>
+      <li><strong>Rename the recording</strong> after the chapter: <code>intro</code>, <code>ch01</code>…<code>ch20</code>, <code>postscript</code>, or for parts <code>ch08-part2</code>, <code>ch08-commentary</code>. A typed memo like <code>ch08.txt</code> works too.</li>
+      <li>In Voice Memos tap <strong>⋯ → Save to Files</strong>.</li>
+      <li>Open <a href="https://github.com/GranolaMuncher/ruleone-library" rel="noopener">github.com/GranolaMuncher/ruleone-library</a> in your phone's browser (not the GitHub app). Tap <strong>Add file → Upload files</strong> (or <strong>uploading an existing file</strong> while it's empty), pick the recording, then <strong>Commit changes</strong>. The limit is 25 MB per file, about 45–60 minutes.</li>
+      <li>Notes appear here by the next morning. For notes sooner: <strong>RuleOne → Actions → Professor (The Intelligent Investor) → Run workflow</strong>.</li>
+    </ol>
+    <p class="muted small">Your recordings stay private. Only the Professor's notes are published. If uploads stop producing notes, the library access key has probably expired (see <code>docs/RECORDING.md</code> in the repo).</p>
+  </details>
   <ol class="panel chapters">
     {book.map((c) => (
       <li data-ep={`ii-${c.key}`}>
@@ -149,6 +160,10 @@ const RULERS: [string, string][] = [
   .tick { width: 14px; height: 14px; border: 1.5px solid var(--line); border-radius: 4px; flex: none; transform: translateY(2px); }
   .eps li.done .tick { background: var(--accent); border-color: var(--accent); }
   .eps li.done a { color: var(--muted); }
+  .howto { max-width: 900px; margin-bottom: 10px; }
+  .howto summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+  .howto ol { margin: 10px 0 6px; padding-left: 22px; display: grid; gap: 6px; }
+  .howto code { background: var(--chip); padding: 1px 4px; border-radius: 4px; font-size: 13px; }
   .chapters { list-style: none; margin: 0; display: grid; gap: 6px; max-width: 900px; }
   .chapters li { display: flex; gap: 8px; align-items: baseline; }
   .chapters .st { margin-left: auto; font-size: 11px; }
