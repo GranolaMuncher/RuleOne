@@ -134,15 +134,24 @@ jobs:
         name: Place new notes
         run: |
           mkdir -p .work/invested
-          : > .work/invested/new.txt
+          : > .work/invested/recorded.txt
           for id in $(echo "${{ needs.plan.outputs.ids }}" | tr ',' ' '); do
             if [ -f ".work/new-notes/$id.md" ]; then
               cp ".work/new-notes/$id.md" knowledge/invested/episodes/
-              echo "$id" >> .work/invested/new.txt
+              echo "$id" >> .work/invested/recorded.txt
             fi
           done
-          echo "count=$(wc -l < .work/invested/new.txt)" >> "$GITHUB_OUTPUT"
-          echo "new notes: $(tr '\n' ' ' < .work/invested/new.txt)"
+          # Curate every note not yet in the course (this run's, plus any an earlier curate missed).
+          python3 - <<'PY'
+          import json, pathlib
+          course = json.loads(pathlib.Path("knowledge/invested/course.json").read_text())
+          inside = {e for m in course["modules"] for e in m["episodes"]}
+          notes = sorted(p.stem for p in pathlib.Path("knowledge/invested/episodes").glob("*.md"))
+          pathlib.Path(".work/invested/new.txt").write_text("".join(f"{i}\n" for i in notes if i not in inside))
+          PY
+          echo "count=$(cat .work/invested/recorded.txt .work/invested/new.txt | wc -l)" >> "$GITHUB_OUTPUT"
+          echo "new notes: $(tr '\n' ' ' < .work/invested/recorded.txt)"
+          echo "to curate: $(tr '\n' ' ' < .work/invested/new.txt)"
       - name: Clean Claude credentials
         if: steps.new.outputs.count != '0'
         env:
@@ -164,9 +173,10 @@ jobs:
           claude_code_oauth_token: ${{ env.CLEAN_OAUTH }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: "Follow the instructions in agents/professor/CURATE.md exactly."
+          show_full_output: true   # no transcripts in this job, only public notes, so the log is safe to show
           claude_args: |
-            --max-turns 60
-            --allowedTools Read,Write,Edit,Glob,Grep
+            --max-turns 80
+            --allowedTools Read,Write,Edit,Glob,Grep,Bash(date:*),Bash(python3:*)
       - uses: actions/setup-python@v5
         if: steps.new.outputs.count != '0'
         with:
@@ -176,8 +186,8 @@ jobs:
         if: steps.new.outputs.count != '0'
         run: |
           pip install -q -r requirements.txt
-          out=$(python -m ruleone.podcast record --ids "$(tr '\n' ',' < .work/invested/new.txt)"); echo "$out"
-          echo "recorded=$([ "$out" != "recorded: none" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+          out=$(python -m ruleone.podcast record --ids "$(tr '\n' ',' < .work/invested/recorded.txt)"); echo "$out"
+          echo "recorded=$(git status --porcelain knowledge | grep -q . && echo true || echo false)" >> "$GITHUB_OUTPUT"
           git config user.name "rule-one-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add knowledge
