@@ -1,89 +1,146 @@
 {
   "title": "InvestED, in order: a Rule #1 course",
   "source": "InvestED: The Rule #1 Podcast (Phil Town and Danielle Town), https://feeds.megaphone.fm/investedpodcast",
-  "updated": "2026-10-04",
+  "updated": "2026-10-05",
   "modules": [
     {
       "id": "m0",
       "title": "Orientation",
       "goal": "Why Rule #1 investing, who's teaching, and how the course works.",
-      "lesson": "Rule #1 is Buffett's *don't lose money*. Everything in this course protects the downside first, then looks for a wonderful business at about half of what it's worth (a $10 bill for $5). Expect investing to teach you about yourself as much as about markets.",
+      "lesson": "1. **Retirement is a numbers problem you can't outsource to hope.** A typical plan is mostly the house plus a fund returning ~6%; after inflation it can run dry in about five years of drawing income, whereas the same savings at 15% changes the outcome ([029](episodes/029.md)).\n2. **Compounding works both ways.** Inflation shrinks spending power and salaries lag it; debt compounds against you too ([030](episodes/030.md)).\n3. **The best hedge is owning businesses with pricing power:** a moat lets a company raise prices with inflation.\n4. **Two levers:** save more, and earn a higher return by learning to invest yourself.\n5. Rule #1 (don't lose money) still frames everything; the retirement maths is *why* it matters.",
       "episodes": [
-        "000"
+        "000",
+        "029",
+        "030"
       ]
     },
     {
       "id": "m1",
       "title": "Understand the business",
       "goal": "Circle of competence, the three circles, reading 10-Ks, and investing in line with your values.",
-      "lesson": "Munger's four filters run in order, and **understanding** comes first: if you can't understand the business, stop.\n\n1. **Find ideas without throwing darts.** Events (scary industry news) and great investors' buys point you somewhere. Treat them as tips, never as decisions.\n2. **Start inside your circles.** Overlap what you love, what you're good at and where you make and spend money.\n3. **Learn what a manager would know.** Read industry books for the key numbers, then several years of 10-K *Business* and *MD&A*, then the top competitors' filings.\n4. **Check your values.** You're buying a piece of the whole company and you vote with that money, so prefer simple, hard-to-ruin businesses you'd like to see thrive for 20 years.\n5. **Respect the edge.** Losses happen at the boundary of your competence. When you feel the tension or the 10-K stays murky, put the idea in the *too-hard* pile.",
+      "lesson": "Munger's four filters run in order, and **understanding** comes first: if you can't understand the business, stop.\n\n1. **Find ideas without throwing darts.** Events (scary industry news), great investors' buys and the products you already use point you somewhere. They are tips, never decisions ([001](episodes/001.md), [011](episodes/011.md), [016](episodes/016.md)).\n2. **Start inside your circles.** Overlap what you love, what you're good at and where you make and spend money. You know more than you think.\n3. **Concentrate and dig your canyon.** An inch wide, a mile deep: few businesses studied hard (scuttlebutt plus filings) beat many studied lightly.\n4. **Read the 10-K as a funnel** ([017](episodes/017.md)): Business, Risk Factors and MD&A first (several years, old to new), then peers' filings to see what's unusual. Check the company says plainly what makes it special ([018](episodes/018.md)).\n5. **Check your values.** You own part of the company and vote with that money. Use values as a gate, not a premium.\n6. **Respect the edge.** Losses happen at the boundary of your competence. When the 10-K stays murky or you feel tension, use the *too-hard* pile.\n7. **Finish with the next question:** what is the moat, and do the numbers show it?",
       "episodes": [
         "001",
-        "002"
+        "002",
+        "011",
+        "016",
+        "017"
       ]
     },
     {
       "id": "m2",
       "title": "Moats",
       "goal": "The five moats (brand, secret, toll bridge, switching, price), how to spot a durable competitive advantage, and how to tell when it's eroding.",
-      "lesson": "",
-      "episodes": []
+      "lesson": "1. **A moat is an *intrinsic*, *durable* advantage** (Buffett's water around the castle): if you removed it the business would suffer, and rivals with the whole market cap still couldn't win ([003](episodes/003.md)).\n2. **Five kinds (Phil's grouping, not exhaustive):** brand, secrets (patents), switching costs, toll bridge, and price, meaning *lowest cost*, not low price.\n3. **A moat buys time.** IBM's lock-in let it pivot; a moat also lets a company survive weak managers.\n4. **Moats need maintenance and can erode:** regulation removes one slowly; a brand is fragile to disappointment.\n5. **Find the claim, then test it on the ground** ([018](episodes/018.md)): Item 1 of the 10-K should say what makes the company different. Then check stores, customers and competitors. If management can't say it, worry.\n6. **The screen sees the result, not the cause:** high steady margins and returns (m4). The five types are the question to ask once a stock passes the numbers.",
+      "episodes": [
+        "003",
+        "018"
+      ]
     },
     {
       "id": "m3",
       "title": "Management",
       "goal": "Owner-oriented, honest and capable leaders, and how to judge them from letters, calls and capital allocation.",
-      "lesson": "",
-      "episodes": []
+      "lesson": "1. **Integrity means integrated:** what you see is what you get. Talent is mainly **capital allocation**: keep cash and earn a high ROE on it, or give it back ([005](episodes/005.md)).\n2. **Judge from documents:** shareholder letters (boilerplate, or candid about mistakes; dropped five-year plans), earnings calls (direct or evasive), biographies and share-count trends.\n3. **Leaders, not only managers,** and stakeholders matter (Mackey's conscious capitalism), though your values decide how much weight.\n4. **Use numbers as a scorecard** ([021](episodes/021.md)): debt, ROE and ROIC show what managers do with your money. A falling ROE after acquisitions signals overpaying.\n5. **Refinement:** management matters *less* than the business. Prefer a moat so strong that, in Munger's words, an idiot could run it, because someday one will. A management mistake often creates the sale price.",
+      "episodes": [
+        "005",
+        "021"
+      ]
     },
     {
       "id": "m4",
       "title": "The numbers: Big Five and ROIC",
       "goal": "ROIC, sales, EPS, equity (BVPS) and operating cash flow growth, plus debt, and what they reveal about a moat.",
-      "lesson": "",
-      "episodes": []
+      "lesson": "1. **ROE (profit ÷ equity) of 10%+ for ten years, not falling, with no debt** is the first proof of a moat ([004](episodes/004.md)). Ten years is long enough for competitors to attack.\n2. **Later refinement: ROIC** (return on all invested capital, debt included) is the better number; with no debt, ROE and ROIC match, so Phil simplifies to *avoid debt* ([021](episodes/021.md), [022](episodes/022.md)).\n3. **The big four growth rates:** equity (book value) per share, EPS, sales and operating cash flow per share. Look for each at about 10%+ a year and *moving together* ([019](episodes/019.md), [020](episodes/020.md)). Tangled lines (General Motors) mean too hard.\n4. **Operating cash flow is the canary** that catches accounting fictions first; EPS is partly a \"fiction\" of accruals.\n5. **The numbers are rear-view.** They show a moat existed; you still must understand why it will last ([023](episodes/023.md)).\n6. **Score a real case** ([043](episodes/043.md)): Chipotle against seven numbers. Tech is mostly avoided because moats there erode fast ([022](episodes/022.md)).",
+      "episodes": [
+        "004",
+        "019",
+        "020",
+        "022",
+        "043"
+      ]
     },
     {
       "id": "m5",
       "title": "Valuation and margin of safety",
       "goal": "Sticker Price, the MOS price, Payback Time, Ten Cap and the reasoning behind each.",
-      "lesson": "",
-      "episodes": []
+      "lesson": "1. **Price is what you pay, value is what you get;** a business isn't worth an infinite price ([006](episodes/006.md)). Value is cash that reaches the owner.\n2. **Payback time:** price ÷ owner cash flow (P/E is a crude version). About eight years or less is a fair price; twenty is \"forget it\" ([008](episodes/008.md), [045](episodes/045.md)).\n3. **Owner cash flow** = net earnings minus *maintenance* capex; growth capex is separate. **Cap rate** = first-year cash return on price, so $5 at 10% means paying about $50 ([050](episodes/050.md)).\n4. **Sticker price, four inputs** ([009](episodes/009.md), [024](episodes/024.md), [046](episodes/046.md)): trailing EPS, ten-year growth rate, future P/E (lower of twice growth or historical high), then discount at the 15% MARR. Refinement: take growth from *all* the big four, not EPS alone.\n5. **Buy at half the sticker price** (margin of safety) and sell near value. Aim for about 26% a year, a double in three years ([010](episodes/010.md)).\n6. **Values veto, they don't discount** ([044](episodes/044.md)). Farms and buildings obey the same cap-rate logic ([032](episodes/032.md)).\n7. **Don't call the market,** but stay rational: FOMO and endless waiting can both be greed ([041](episodes/041.md)).\n8. **Estimates are back-window projections;** stress-test growth (store counts) and treat all figures as dated.",
+      "episodes": [
+        "006",
+        "008",
+        "009",
+        "010",
+        "023",
+        "024",
+        "032",
+        "040",
+        "041",
+        "044",
+        "045",
+        "046",
+        "050"
+      ]
     },
     {
       "id": "m6",
       "title": "Events and buying",
       "goal": "Waiting for a business to go on sale, events, buying in tranches and building a watchlist.",
-      "lesson": "",
-      "episodes": []
+      "lesson": "1. **Mr. Market is moody; you may ignore him** and buy when fear puts a good business on sale ([007](episodes/007.md)). Volatility is not risk.\n2. **A good event is temporary and fixable,** at a business you understand and priced clearly below value ([025](episodes/025.md)). A fall that isn't an event (Apple) is no sale.\n3. **RULERS** ([012](episodes/012.md)): Radar, Understand, Love, Event, Reduce basis, Story. Buying as an owner, you *want* prices low, though the price must eventually return.\n4. **Buy in tranches** as the price falls, and keep cash as an advantage.\n5. **Whole-market gauges** only tell you how hard to hunt ([039](episodes/039.md)): wait in cash for \"six-inch bars\" inside your circle. Bargains come only after the first three filters.\n6. **Invert the story:** write the bear case first. A drop after buying tests whether you understood.",
+      "episodes": [
+        "007",
+        "012",
+        "025",
+        "039"
+      ]
     },
     {
       "id": "m7",
       "title": "Psychology and practice",
       "goal": "Fear, greed, patience, the tension signal, inversion and avoiding noise.",
-      "lesson": "",
-      "episodes": []
+      "lesson": "1. **Know what you don't know.** Even Buffett and Munger got a handful of ideas truly right; use a margin of safety for errors you can't foresee ([047](episodes/047.md)).\n2. **Volatility is risk only if you may have to sell soon.** For a long-term owner of unchanged value, a fall is an opportunity ([048](episodes/048.md), [035](episodes/035.md)).\n3. **Markets are emotional** (the efficient-market idea fails in the short run); govern your emotions and know the story so a drop isn't a surprise.\n4. **Practise before money:** open a brokerage account, paper trade, size by conviction, use limit orders ([014](episodes/014.md)).\n5. **Be mindful:** most people don't refuse to invest, they never look. A promise to yourself beats a goal ([027](episodes/027.md)).\n6. **Stay a student** and widen the circle slowly.",
+      "episodes": [
+        "014",
+        "027",
+        "035",
+        "047",
+        "048"
+      ]
     },
     {
       "id": "m8",
       "title": "Portfolio and selling",
       "goal": "Concentration, position sizing, when the story changes, and when to sell.",
-      "lesson": "",
-      "episodes": []
+      "lesson": "1. **Rank asset buckets by what they produce:** bonds are low risk and low return; gold and currency are hedges or too-hard bets (money is faith) ([036](episodes/036.md)); commodities are fungible, have no moat and come with leveraged futures ([037](episodes/037.md), [038](episodes/038.md)); annuities bet on your lifespan and inflation erodes them ([031](episodes/031.md)).\n2. **Fees, taxes and misaligned incentives** destroy compounding in mutual funds ([015](episodes/015.md)); robo-advisors automate modern portfolio theory cheaply but carry crowding risk ([049](episodes/049.md)).\n3. **Real estate follows the same rules;** a REIT adds liquidity, and the same four filters apply ([034](episodes/034.md)).\n4. **Reduce basis** ([026](episodes/026.md)): dividends return capital, lowering your basis until the holding acts like a growing \"equity bond\". Reinvest the cash; buying beats selling.\n5. **A dividend is only as safe as owner cash flow and low debt** ([028](episodes/028.md)); borrowed dividends are a warning. It is not a reason to buy.\n6. **Wait.** When rates and markets are stretched, great companies exist but none are cheap.",
+      "episodes": [
+        "015",
+        "026",
+        "028",
+        "031",
+        "034",
+        "036",
+        "037",
+        "038",
+        "049"
+      ]
     },
     {
       "id": "m9",
       "title": "The masters",
       "goal": "Buffett, Munger, Graham, Pabrai, Spier and others: their ideas and their records.",
-      "lesson": "",
-      "episodes": []
+      "lesson": "1. **Dhandho** ([013](episodes/013.md)): \"don't lose money\" means asymmetric bets, small loss if wrong, large gain if right. Measure risk as the time to earn your money back.\n2. **Size by conviction;** cash is a position.\n3. **Graham to Munger:** from hundreds of \"cigar butts\" to a few wonderful businesses.\n4. **Speculation versus investing** ([042](episodes/042.md)): ask whether the return holds if nothing wonderful happens (the equity-bond test). Confidence alone isn't enough; narrow the world to what you understand.",
+      "episodes": [
+        "013",
+        "042"
+      ]
     },
     {
       "id": "m10",
       "title": "Case studies and interviews",
       "goal": "Companies analysed on the show, and guests' stories and lessons.",
-      "lesson": "",
-      "episodes": []
+      "lesson": "1. **Real assets obey Rule #1** ([033](episodes/033.md)): understand them, find a durable edge (location), buy after a bust.\n2. **Buffett's Nebraska farm and New York building** show a cash-flow return, a bust seller and a margin of safety working together.\n3. **Specialists beat generalists;** break the overwhelming into small steps and use scuttlebutt.\n4. **Cycles come to you,** so you can wait for the price.",
+      "episodes": [
+        "033"
+      ]
     }
   ],
   "glossary": [
@@ -99,7 +156,14 @@
       "term": "Four Ms",
       "definition": "Meaning (understand it), Moat, Management, Margin of safety: Munger's four filters, applied in order.",
       "episodes": [
-        "001"
+        "001",
+        "005",
+        "006",
+        "009",
+        "017",
+        "018",
+        "041",
+        "042"
       ]
     },
     {
@@ -107,42 +171,261 @@
       "definition": "The set of businesses you truly understand. Knowing where it ends matters more than how big it is.",
       "episodes": [
         "001",
-        "002"
+        "002",
+        "003",
+        "011",
+        "016",
+        "017",
+        "047"
       ]
     },
     {
       "term": "Event",
       "definition": "Temporary bad news that puts a good business on sale.",
       "episodes": [
-        "001"
+        "001",
+        "007",
+        "011",
+        "012",
+        "023",
+        "025",
+        "039"
       ]
     },
     {
       "term": "Margin of safety",
       "definition": "Buying far enough below value (Rule #1: 50% of Sticker) that mistakes don't lose you money.",
       "episodes": [
-        "000"
+        "000",
+        "006",
+        "008",
+        "009",
+        "010",
+        "023",
+        "024",
+        "046"
       ]
     },
     {
       "term": "Inversion",
       "definition": "Making the best case against your idea, then rebutting it or walking away.",
       "episodes": [
-        "002"
+        "002",
+        "012"
       ]
     },
     {
       "term": "20-punch card",
       "definition": "Buffett's thought experiment: only 20 purchases in a lifetime, so each must count.",
       "episodes": [
-        "002"
+        "002",
+        "035"
       ]
     },
     {
       "term": "Too-hard pile",
       "definition": "Ideas you pass on because you can't understand them well enough.",
       "episodes": [
-        "002"
+        "002",
+        "020"
+      ]
+    },
+    {
+      "term": "Moat",
+      "definition": "A durable competitive advantage: brand, secrets, switching, toll bridge or low cost.",
+      "episodes": [
+        "003",
+        "018"
+      ]
+    },
+    {
+      "term": "ROE",
+      "definition": "Return on equity: profit divided by shareholders' equity. Rule #1 wants 10%+ for ten years.",
+      "episodes": [
+        "004",
+        "021",
+        "022"
+      ]
+    },
+    {
+      "term": "ROIC",
+      "definition": "Return on invested capital: profit on all capital, debt included. Better than ROE once debt is in play.",
+      "episodes": [
+        "021",
+        "022",
+        "043"
+      ]
+    },
+    {
+      "term": "Big four growth rates",
+      "definition": "Equity (book value), EPS, sales and operating cash flow per share, each ideally growing 10%+ together.",
+      "episodes": [
+        "019",
+        "020",
+        "023",
+        "043",
+        "046"
+      ]
+    },
+    {
+      "term": "Sticker price",
+      "definition": "Phil's estimate of value today: grow EPS ten years, apply a future P/E, discount at 15%.",
+      "episodes": [
+        "009",
+        "023",
+        "024",
+        "046"
+      ]
+    },
+    {
+      "term": "MARR",
+      "definition": "Minimum acceptable rate of return: 15% a year in Rule #1.",
+      "episodes": [
+        "009",
+        "010",
+        "024",
+        "046"
+      ]
+    },
+    {
+      "term": "Payback time",
+      "definition": "Years of cash flow needed to earn back the price paid. About eight or fewer is a fair price.",
+      "episodes": [
+        "008",
+        "045"
+      ]
+    },
+    {
+      "term": "Owner cash flow",
+      "definition": "Net earnings minus maintenance capex: the cash an owner could take out.",
+      "episodes": [
+        "026",
+        "045",
+        "050"
+      ]
+    },
+    {
+      "term": "Cap rate",
+      "definition": "First-year cash return on purchase price; the price test for real estate and cash-flow businesses.",
+      "episodes": [
+        "032",
+        "033",
+        "050"
+      ]
+    },
+    {
+      "term": "Mr. Market",
+      "definition": "Graham's moody business partner who quotes a price daily; you may ignore him.",
+      "episodes": [
+        "006",
+        "007",
+        "035"
+      ]
+    },
+    {
+      "term": "Efficient market hypothesis",
+      "definition": "The theory that price already reflects all information. Rule #1 relies on it failing in the short run.",
+      "episodes": [
+        "006",
+        "007",
+        "023",
+        "035"
+      ]
+    },
+    {
+      "term": "Volatility versus risk",
+      "definition": "Modern portfolio theory calls price movement risk; Rule #1 says a falling price on unchanged value lowers risk.",
+      "episodes": [
+        "007",
+        "015",
+        "024",
+        "048"
+      ]
+    },
+    {
+      "term": "Reduce basis",
+      "definition": "Lower the money at risk in a holding by taking cash back, such as dividends.",
+      "episodes": [
+        "012",
+        "026"
+      ]
+    },
+    {
+      "term": "Equity bond",
+      "definition": "A business whose cash payout to you grows over time, like a bond whose coupon keeps rising.",
+      "episodes": [
+        "012",
+        "026",
+        "042"
+      ]
+    },
+    {
+      "term": "RULERS",
+      "definition": "Radar, Understand, Love, Event, Reduce basis, Story: Phil's checklist.",
+      "episodes": [
+        "012",
+        "017",
+        "022"
+      ]
+    },
+    {
+      "term": "Canyon",
+      "definition": "A narrow area you study deeply: an inch wide and a mile deep.",
+      "episodes": [
+        "003",
+        "016",
+        "047"
+      ]
+    },
+    {
+      "term": "Scuttlebutt",
+      "definition": "Gathering information from customers, employees, suppliers and competitors.",
+      "episodes": [
+        "016",
+        "033"
+      ]
+    },
+    {
+      "term": "Dhandho",
+      "definition": "Gujarati for endeavours that create wealth: low-risk, high-uncertainty bets (Pabrai).",
+      "episodes": [
+        "013"
+      ]
+    },
+    {
+      "term": "REIT",
+      "definition": "Real estate investment trust: a listed company owning property that passes income to shareholders.",
+      "episodes": [
+        "034"
+      ]
+    },
+    {
+      "term": "Annuity",
+      "definition": "A contract paying income for life; essentially a bet on your lifespan that inflation erodes.",
+      "episodes": [
+        "031"
+      ]
+    },
+    {
+      "term": "Operating cash flow",
+      "definition": "Cash generated by running the business; catches accounting fictions first.",
+      "episodes": [
+        "020"
+      ]
+    },
+    {
+      "term": "Pricing power",
+      "definition": "Ability to raise prices without losing customers; the inflation hedge.",
+      "episodes": [
+        "030"
+      ]
+    },
+    {
+      "term": "Mark to market",
+      "definition": "Valuing a holding at today's quoted price rather than its value.",
+      "episodes": [
+        "010",
+        "043"
       ]
     }
   ]
