@@ -19,7 +19,7 @@
    "id": "m1",
    "title": "Understand the business",
    "goal": "Circle of competence, the three circles, reading 10-Ks, and investing in line with your values.",
-   "lesson": "Munger's four filters run in order, and **understanding** comes first: if you can't understand the business, stop.\n\n1. **Know your why** ([188](episodes/188.md)) and your values ([283](episodes/283.md)): own compounding machines that outrun inflation, and fund only businesses you would defend.\n2. **Find ideas without throwing darts.** Events, great investors' buys and products you use give names, never decisions ([001](episodes/001.md), [011](episodes/011.md), [016](episodes/016.md), [077](episodes/077.md), [190](episodes/190.md)).\n3. **Cloning is a legitimate edge** ([292](episodes/292.md), [293](episodes/293.md)): a 13F shows only long US positions, up to 45 days late, and weights use 13F value, not total assets. Fewer than about 20 holdings marks a Rule #1-style investor. Build a watch list, not a buy list. If you love a brand, check its parent.\n4. **Start inside your circles** ([076](episodes/076.md)): what you love, what you're good at, where you make and spend money. Radar's gate ([253](episodes/253.md)): two of three circles, a guru holding 4%+ and an industry you know.\n5. **Ignorance is the risk** ([078](episodes/078.md), [079](episodes/079.md), [150](episodes/150.md)): your feeling of competence outruns your knowledge. Keep bars six inches high ([282](episodes/282.md)).\n6. **End every project one of three ways** ([190](episodes/190.md), [281](episodes/281.md)): no, yes at $X, or too hard.\n7. **Research in order** ([017](episodes/017.md), [153](episodes/153.md)): root-canal test, use the product, name rivals, test the moat, then price. Concentrate and dig your canyon ([085](episodes/085.md), [016](episodes/016.md), [223](episodes/223.md)).\n8. **New industries and startups fail the list** ([135](episodes/135.md), [283](episodes/283.md)): no history or valuation means speculation.\n9. **Run the Meaning list** ([254](episodes/254.md), [256](episodes/256.md)): one-sentence business, rivals, core customer, problem solved, KPIs. A failed sentence is a red flag.\n10. **Work in layers** ([343](episodes/343.md)): Munger's 4 in your head in minutes, then Ackman's 8, then the long checklist (about 100 hours). Test ideas on a rational partner.\n11. **Price enters early; novices build a watch list first** ([344](episodes/344.md)): research great companies before they go on sale, since a sale can last half a day. The product is about 20 pages of checklist answers plus sources and open questions.\n12. **Stay a student** ([245](episodes/245.md), [047](episodes/047.md)).",
+   "lesson": "Munger's four filters run in order, and **understanding** comes first: if you can't understand the business, stop.\n\n1. **Know your why** ([188](episodes/188.md)) and your values ([283](episodes/283.md)): own compounding machines that outrun inflation, and fund only businesses you would defend.\n2. **Find ideas without throwing darts.** Events, great investors' buys and products you use give names, never decisions ([001](episodes/001.md), [011](episodes/011.md), [016](episodes/016.md), [077](episodes/077.md), [190](episodes/190.md)).\n3. **Cloning is a legitimate edge** ([292](episodes/292.md), [293](episodes/293.md)): a 13F shows only long US positions, up to 45 days late, and weights use 13F value, not total assets. Fewer than about 20 holdings marks a Rule #1-style investor. Build a watch list, not a buy list. If you love a brand, check its parent.\n4. **Start inside your circles** ([076](episodes/076.md)): what you love, what you're good at, where you make and spend money. Radar's gate ([253](episodes/253.md)): two of three circles, a guru holding 4%+ and an industry you know.\n5. **Ignorance is the risk** ([078](episodes/078.md), [079](episodes/079.md), [150](episodes/150.md)): your feeling of competence outruns your knowledge. Keep bars six inches high ([282](episodes/282.md)).\n6. **End every project one of three ways** ([190](episodes/190.md), [281](episodes/281.md)): no, yes at $X, or too hard.\n7. **Research in order** ([017](episodes/017.md), [153](episodes/153.md)): root-canal test, use the product, name rivals, test the moat, then price. Concentrate and dig your canyon ([085](episodes/085.md), [016](episodes/016.md), [223](episodes/223.md)).\n8. **New industries and startups fail the list** ([135](episodes/135.md), [283](episodes/283.md)): no history or valuation means speculation.\n9. **Run the Meaning list** ([254](episodes/254.md), [256](episodes/256.md)): one-sentence business, rivals, core customer, problem solved, KPIs. A failed sentence is a red flag.\n10. **Work in layers** ([343](episodes/343.md)): Munger's 4 in your head in minutes, then Ackman's 8, then the long checklist (about 100 hours). Test ideas on a rational partner.\n11. **Price enters early; novices build a watch list first** ([344](episodes/344.md)): research great companies before they go on sale, since a sale can last half a day. The product is about 20 pages of checklist answers plus sources and open questions.\n12. **Stay a student** ([245](episodes/245.md), [047](episodes/047.md)).\n13. **Run the pyramid on a live name** ([345](episodes/345.md), [346](episodes/346.md)): Munger's 4 in your head, Ackman's 8 over about a week, then the ~90-point list, which is *due diligence* (\"everyone selling is smarter than me, so what am I missing?\") rather than a to-do list. Keep one rules-story document per company (20-30 pages) plus separate notes for sources. Finish one company end to end, even if you never buy it; a rise after a pass doesn't prove the pass wrong.",
    "episodes": [
     "001",
     "002",
@@ -47,14 +47,16 @@
     "292",
     "293",
     "343",
-    "344"
+    "344",
+    "345",
+    "346"
    ]
   },
   {
    "id": "m2",
    "title": "Moats",
    "goal": "The five moats (brand, secret, toll bridge, switching, price), how to spot a durable competitive advantage, and how to tell when it's eroding.",
-   "lesson": "1. **A moat is an *intrinsic*, *durable* advantage** (Buffett's water around the castle): remove it and the business suffers ([003](episodes/003.md)). Necessary, not sufficient.\n2. **Six kinds** ([080](episodes/080.md), [088](episodes/088.md)): brand, toll bridge, price (*lowest cost*), switching, secrets (patents), network effect. Companies can stack several.\n3. **Moats are breachable.** Copying eroded Whole Foods ([116](episodes/116.md)); overcapacity wrecked USG ([113](episodes/113.md)).\n4. **Pricing power is the payoff** ([178](episodes/178.md), [269](episodes/269.md), [318](episodes/318.md)): the proven ability to raise prices as costs rise, shown by steady margins through past inflation. Generics have none.\n5. **Inflation sharpens the test** ([332](episodes/332.md), Buffett's 1979 to 1983 letters): the best business raises prices and earnings *without adding capital*, so earnings become free cash instead of a tapeworm's diet of inventory and plant. Add little debt, and measure results in purchasing power (a 20% return under 12% inflation can still erode you).\n6. **Scuttlebutt first** ([080](episodes/080.md)): staff, customers, bears, rivals.\n7. **Two tests** ([081](episodes/081.md), [082](episodes/082.md)): the numbers (ROE about 10%+, free cash flow ÷ revenue) and an *obvious* moat. Numbers look out the back window ([110](episodes/110.md)).\n8. **State it in a sentence** ([102](episodes/102.md), [105](episodes/105.md)); don't invent one.\n9. **Replication test** ([088](episodes/088.md)): could you spend the price and build a rival? A moat should survive an idiot.\n10. **Real, durable, intrinsic, hard to copy** ([257](episodes/257.md)); do customers *love or need* you? Need fades.\n11. **The \"disappears\" test** ([269](episodes/269.md)): if the company vanished without a ripple, there was no moat.\n12. **Innovation stack** ([259](episodes/259.md), [303](episodes/303.md)): ten-plus linked differences are hard to copy.\n13. **Anti-fragile = moat plus little debt** ([262](episodes/262.md)).\n14. **Look ten years out at the industry** ([310](episodes/310.md)): if a trend could breach the moat, \"cheap\" may be cheap for a reason.",
+   "lesson": "1. **A moat is an *intrinsic*, *durable* advantage** (Buffett's water around the castle): remove it and the business suffers ([003](episodes/003.md)). Necessary, not sufficient.\n2. **Six kinds** ([080](episodes/080.md), [088](episodes/088.md)): brand, toll bridge, price (*lowest cost*), switching, secrets (patents), network effect. Companies can stack several.\n3. **Moats are breachable.** Copying eroded Whole Foods ([116](episodes/116.md)); overcapacity wrecked USG ([113](episodes/113.md)).\n4. **Pricing power is the payoff** ([178](episodes/178.md), [269](episodes/269.md), [318](episodes/318.md)): the proven ability to raise prices as costs rise, shown by steady margins through past inflation. Generics have none.\n5. **Inflation sharpens the test** ([332](episodes/332.md), Buffett's 1979 to 1983 letters): the best business raises prices and earnings *without adding capital*, so earnings become free cash instead of a tapeworm's diet of inventory and plant. Add little debt, and measure results in purchasing power (a 20% return under 12% inflation can still erode you).\n6. **Scuttlebutt first** ([080](episodes/080.md)): staff, customers, bears, rivals.\n7. **Two tests** ([081](episodes/081.md), [082](episodes/082.md)): the numbers (ROE about 10%+, free cash flow ÷ revenue) and an *obvious* moat. Numbers look out the back window ([110](episodes/110.md)).\n8. **State it in a sentence** ([102](episodes/102.md), [105](episodes/105.md)); don't invent one.\n9. **Replication test** ([088](episodes/088.md)): could you spend the price and build a rival? A moat should survive an idiot.\n10. **Real, durable, intrinsic, hard to copy** ([257](episodes/257.md)); do customers *love or need* you? Need fades.\n11. **The \"disappears\" test** ([269](episodes/269.md)): if the company vanished without a ripple, there was no moat.\n12. **Innovation stack** ([259](episodes/259.md), [303](episodes/303.md)): ten-plus linked differences are hard to copy.\n13. **Anti-fragile = moat plus little debt** ([262](episodes/262.md)).\n14. **Look ten years out at the industry** ([310](episodes/310.md)): if a trend could breach the moat, \"cheap\" may be cheap for a reason.\n15. **Inflation case work** ([362](episodes/362.md)-[365](episodes/365.md)): refine pricing power into a test of *sales after a price rise*, not an announced increase, with a ten-year record through the last recession; Chipotle (brand plus secrets moat) shows it. Lists of price-raisers (CNN's) are only Radar: Walmart, Smucker and Hormel show a brand isn't always a moat, and a moat is still not a buy without the margin-of-safety price. Debt and dilution undermine cruise-line type moats. **Network-effect moats** ([355](episodes/355.md)) need evidence beyond love of the product; money-losing firms must show a durable moat and shrinking losses. Reruns [359](episodes/359.md) (of [303](episodes/303.md)) and [360](episodes/360.md) (of [310](episodes/310.md)) add only the rental-house test: as sure of ten-year earnings as of a house bought at a 10% yield.",
    "episodes": [
     "003",
     "018",
@@ -71,7 +73,14 @@
     "303",
     "310",
     "318",
-    "332"
+    "332",
+    "355",
+    "359",
+    "360",
+    "362",
+    "363",
+    "364",
+    "365"
    ]
   },
   {
@@ -130,7 +139,7 @@
    "id": "m5",
    "title": "Valuation and margin of safety",
    "goal": "Sticker Price, the MOS price, Payback Time, Ten Cap and the reasoning behind each.",
-   "lesson": "1. **Price is what you pay, value is what you get** ([006](episodes/006.md)). Value is cash reaching the owner ([177](episodes/177.md)); compare cash with earnings ([069](episodes/069.md), [095](episodes/095.md)).\n2. **Owner earnings** ([177](episodes/177.md), [181](episodes/181.md)-[183](episodes/183.md)): net income + D&A + working capital + tax, less *maintenance* capex. **Refinement** ([278](episodes/278.md)): operating cash flow − maintenance capex + tax provision. Use a multi-year typical figure.\n3. **Maintenance capex is the art** ([184](episodes/184.md), [186](episodes/186.md), [278](episodes/278.md)): read the words, use depreciation, or default to 50% of capex.\n4. **Ten cap** ([146](episodes/146.md), [183](episodes/183.md), [279](episodes/279.md)): owner earnings × 10, a pre-tax 10% yield that *prices* a business. **With debt** ([341](episodes/341.md)): subtract net debt (debt less spare cash). Interest is already in owner earnings, so subtract only the principal; the old book skipped this because Rule #1 avoids heavy debt.\n5. **Payback time** ([008](episodes/008.md), [059](episodes/059.md), [279](episodes/279.md)): years of free cash flow to recover the price. Buy at about eight years; six is almost always good.\n6. **Sticker price** ([009](episodes/009.md), [024](episodes/024.md), [054](episodes/054.md), [121](episodes/121.md), [280](episodes/280.md)): grow EPS ten years, apply a future P/E (at most twice growth), discount at 15%, halve. Use the lower of historical and analyst growth ([093](episodes/093.md), [122](episodes/122.md)). The most speculative of the three. **Refined** ([327](episodes/327.md), [328](episodes/328.md)): Phil now runs the 10-cap first and treats the DCF as the optimistic case; a 15% MARR against a market pricing near 6% explains selling Chipotle too early. Use a growth range (the windage).\n7. **Triangulate** ([071](episodes/071.md), [280](episodes/280.md)): all three in one ballpark; a wide gap needs an explanation ([186](episodes/186.md)).\n8. **Velocity matters** ([328](episodes/328.md)): a stock bought at half price that snaps back in a year leaves only about 7 to 9% growth afterwards.\n9. **Read the gap.** Negative owner earnings flagged Sears ([185](episodes/185.md)). Too hard is a fine answer.\n10. **Dividends are not an input** ([066](episodes/066.md)); **values veto, they don't discount** ([044](episodes/044.md)).\n11. **Market gauges** ([247](episodes/247.md), [248](episodes/248.md)): Wilshire/GDP and CAPE explain why few names pass; they aren't timers.\n12. **A split changes the share count, not the value** ([287](episodes/287.md), [309](episodes/309.md)): prefer whole-company figures; use a log scale.\n13. **Investor versus speculator** ([341](episodes/341.md)): the investor values the business and cares when debt falls due.",
+   "lesson": "1. **Price is what you pay, value is what you get** ([006](episodes/006.md)). Value is cash reaching the owner ([177](episodes/177.md)); compare cash with earnings ([069](episodes/069.md), [095](episodes/095.md)).\n2. **Owner earnings** ([177](episodes/177.md), [181](episodes/181.md)-[183](episodes/183.md)): net income + D&A + working capital + tax, less *maintenance* capex. **Refinement** ([278](episodes/278.md)): operating cash flow − maintenance capex + tax provision. Use a multi-year typical figure.\n3. **Maintenance capex is the art** ([184](episodes/184.md), [186](episodes/186.md), [278](episodes/278.md)): read the words, use depreciation, or default to 50% of capex.\n4. **Ten cap** ([146](episodes/146.md), [183](episodes/183.md), [279](episodes/279.md)): owner earnings × 10, a pre-tax 10% yield that *prices* a business. **With debt** ([341](episodes/341.md)): subtract net debt (debt less spare cash). Interest is already in owner earnings, so subtract only the principal; the old book skipped this because Rule #1 avoids heavy debt.\n5. **Payback time** ([008](episodes/008.md), [059](episodes/059.md), [279](episodes/279.md)): years of free cash flow to recover the price. Buy at about eight years; six is almost always good.\n6. **Sticker price** ([009](episodes/009.md), [024](episodes/024.md), [054](episodes/054.md), [121](episodes/121.md), [280](episodes/280.md)): grow EPS ten years, apply a future P/E (at most twice growth), discount at 15%, halve. Use the lower of historical and analyst growth ([093](episodes/093.md), [122](episodes/122.md)). The most speculative of the three. **Refined** ([327](episodes/327.md), [328](episodes/328.md)): Phil now runs the 10-cap first and treats the DCF as the optimistic case; a 15% MARR against a market pricing near 6% explains selling Chipotle too early. Use a growth range (the windage).\n7. **Triangulate** ([071](episodes/071.md), [280](episodes/280.md)): all three in one ballpark; a wide gap needs an explanation ([186](episodes/186.md)).\n8. **Velocity matters** ([328](episodes/328.md)): a stock bought at half price that snaps back in a year leaves only about 7 to 9% growth afterwards.\n9. **Read the gap.** Negative owner earnings flagged Sears ([185](episodes/185.md)). Too hard is a fine answer.\n10. **Dividends are not an input** ([066](episodes/066.md)); **values veto, they don't discount** ([044](episodes/044.md)).\n11. **Market gauges** ([247](episodes/247.md), [248](episodes/248.md)): Wilshire/GDP and CAPE explain why few names pass; they aren't timers.\n12. **A split changes the share count, not the value** ([287](episodes/287.md), [309](episodes/309.md)): prefer whole-company figures; use a log scale.\n13. **Investor versus speculator** ([341](episodes/341.md)): the investor values the business and cares when debt falls due.\n14. **Value the whole business** ([356](episodes/356.md)): market cap less net cash gives the effective price; want owner earnings near 10% of it; operating cash flow and runway (cash ÷ burn) come first. A price \"down 90%\" proves nothing. **Market level** ([350](episodes/350.md)): CAPE and Wilshire/GDP are stretched, bonds lose to inflation, and cash lags in a rising market. Phil and Danielle disagree on whether central banks have made high valuations permanent; neither claims to know, and weighing works both ways.",
    "episodes": [
     "006",
     "008",
@@ -180,14 +189,16 @@
     "309",
     "327",
     "328",
-    "341"
+    "341",
+    "350",
+    "356"
    ]
   },
   {
    "id": "m6",
    "title": "Events and buying",
    "goal": "Waiting for a business to go on sale, events, buying in tranches and building a watchlist.",
-   "lesson": "1. **Mr. Market is moody; you may ignore him** and buy when fear puts a good business on sale ([007](episodes/007.md)). Volatility is not risk ([290](episodes/290.md)).\n2. **An event is a *marvelous* business with a *one-time, solvable* problem** ([025](episodes/025.md), [217](episodes/217.md)): recovery in about one to three years. A problem that \"takes a miracle\" ([270](episodes/270.md)) or bankruptcy ([241](episodes/241.md)) is not an event.\n3. **No event, no sale** ([240](episodes/240.md), rerun [324](episodes/324.md)): cheap at a record high is usually a value trap.\n4. **System-wide events** move price, not value ([083](episodes/083.md)).\n5. **RULERS** ([012](episodes/012.md)): Radar, Understand, Love, Event, Reduce basis, Story. Radar sources give names only ([077](episodes/077.md)).\n6. **Buy in tranches** as price falls ([199](episodes/199.md), [266](episodes/266.md)), in dollars not shares. A paper loss is not a loss while value stays far above cost ([272](episodes/272.md)).\n7. **Whole-market gauges** say how hard to hunt, not when ([039](episodes/039.md), [147](episodes/147.md), [196](episodes/196.md), [205](episodes/205.md), [232](episodes/232.md)). Keep a priced **wish list**.\n8. **Cash is okay** ([243](episodes/243.md), [297](episodes/297.md)): judge returns over the whole period, idle years included.\n9. **Sharpen the event** ([249](episodes/249.md), [250](episodes/250.md), [255](episodes/255.md), [261](episodes/261.md)): an event needs *fear*; ask why sellers are selling and why it's temporary.\n10. **Down is not cheap** ([255](episodes/255.md), [260](episodes/260.md)): debt turns a scare into bankruptcy.\n11. **Insider buying is a Radar clue** ([277](episodes/277.md)): large against their holdings; token buying is PR.\n12. **Fear of missing out is the hardest part** ([266](episodes/266.md)).\n13. **Execution costs** ([307](episodes/307.md)): use limit orders; pennies matter in options, little in long-term stocks.\n14. **The six event checks** ([334](episodes/334.md), [335](episodes/335.md)): (1) you know the event; (2) it was easy to find, a six-inch bar; (3) at least a year to resolve, or managers see through it; (4) no more than about three, since four years cuts about 26% to 18% and five to 15%; (5) the fix needs no new debt; (6) three reasons it's the one company you'd own for life. Fear must be present, or price hasn't dropped. Sitting in cash is not timing. The list cuts risk of permanent loss; it doesn't find perfection. Boeing's debt and repeated surprises made its clock unknowable.",
+   "lesson": "1. **Mr. Market is moody; you may ignore him** and buy when fear puts a good business on sale ([007](episodes/007.md)). Volatility is not risk ([290](episodes/290.md)).\n2. **An event is a *marvelous* business with a *one-time, solvable* problem** ([025](episodes/025.md), [217](episodes/217.md)): recovery in about one to three years. A problem that \"takes a miracle\" ([270](episodes/270.md)) or bankruptcy ([241](episodes/241.md)) is not an event.\n3. **No event, no sale** ([240](episodes/240.md), rerun [324](episodes/324.md)): cheap at a record high is usually a value trap.\n4. **System-wide events** move price, not value ([083](episodes/083.md)).\n5. **RULERS** ([012](episodes/012.md)): Radar, Understand, Love, Event, Reduce basis, Story. Radar sources give names only ([077](episodes/077.md)).\n6. **Buy in tranches** as price falls ([199](episodes/199.md), [266](episodes/266.md)), in dollars not shares. A paper loss is not a loss while value stays far above cost ([272](episodes/272.md)).\n7. **Whole-market gauges** say how hard to hunt, not when ([039](episodes/039.md), [147](episodes/147.md), [196](episodes/196.md), [205](episodes/205.md), [232](episodes/232.md)). Keep a priced **wish list**.\n8. **Cash is okay** ([243](episodes/243.md), [297](episodes/297.md)): judge returns over the whole period, idle years included.\n9. **Sharpen the event** ([249](episodes/249.md), [250](episodes/250.md), [255](episodes/255.md), [261](episodes/261.md)): an event needs *fear*; ask why sellers are selling and why it's temporary.\n10. **Down is not cheap** ([255](episodes/255.md), [260](episodes/260.md)): debt turns a scare into bankruptcy.\n11. **Insider buying is a Radar clue** ([277](episodes/277.md)): large against their holdings; token buying is PR.\n12. **Fear of missing out is the hardest part** ([266](episodes/266.md)).\n13. **Execution costs** ([307](episodes/307.md)): use limit orders; pennies matter in options, little in long-term stocks.\n14. **The six event checks** ([334](episodes/334.md), [335](episodes/335.md)): (1) you know the event; (2) it was easy to find, a six-inch bar; (3) at least a year to resolve, or managers see through it; (4) no more than about three, since four years cuts about 26% to 18% and five to 15%; (5) the fix needs no new debt; (6) three reasons it's the one company you'd own for life. Fear must be present, or price hasn't dropped. Sitting in cash is not timing. The list cuts risk of permanent loss; it doesn't find perfection. Boeing's debt and repeated surprises made its clock unknowable.\n15. **Rules in advance** ([352](episodes/352.md)): set tranche triggers and how close counts as close enough before the price moves; thinking without finishing cost about $4M on Activision when a takeover bid arrived. A fall after buying is not a mistake if value is unchanged, so keep money for more. Selling puts at a price you'd gladly pay lowers adjusted basis but needs full cash. **Fear is the sale** ([361](episodes/361.md)): institutions judged every 90 days must sell in panics, so the same Four Ms apply; review your \"no\" pile yearly and price in country and legislative risk.",
    "episodes": [
     "007",
     "012",
@@ -219,14 +230,16 @@
     "307",
     "324",
     "334",
-    "335"
+    "335",
+    "352",
+    "361"
    ]
   },
   {
    "id": "m7",
    "title": "Psychology and practice",
    "goal": "Fear, greed, patience, the tension signal, inversion and avoiding noise.",
-   "lesson": "1. **Know what you don't know** ([047](episodes/047.md), [087](episodes/087.md), [231](episodes/231.md), [299](episodes/299.md), [342](episodes/342.md)): simple is not easy. Invest only as fast as your knowledge allows; the feeling of certainty is not evidence, so find out whether you rush or freeze, and make mistakes with small money.\n2. **Fear drives mass diversification** ([057](episodes/057.md), [206](episodes/206.md)). The middle path is about 10 companies.\n3. **Volatility is not risk** ([048](episodes/048.md), [104](episodes/104.md), [114](episodes/114.md)): a falling price is not a loss until business value falls ([272](episodes/272.md), [285](episodes/285.md)). Buy in tranches and keep dry powder ([314](episodes/314.md)).\n4. **Behavioural traps** ([108](episodes/108.md), [115](episodes/115.md)): sunk cost, loss aversion, anchoring, confirmation bias. Antidotes: a checklist and someone who argues the other side ([299](episodes/299.md)).\n5. **Mistakes are the curriculum** ([201](episodes/201.md), [275](episodes/275.md)). Errors of omission hurt most ([298](episodes/298.md), [299](episodes/299.md)), though [301](episodes/301.md) argues selling near value is the better error. A rational pass is not a mistake ([339](episodes/339.md)): judge the decision, not the stock's later run.\n6. **Build a written process** ([213](episodes/213.md), [251](episodes/251.md)); journal every idea ([294](episodes/294.md), [295](episodes/295.md)).\n7. **Judge process, not outcomes** ([294](episodes/294.md), [319](episodes/319.md)).\n8. **Investment hygiene** ([294](episodes/294.md)): health, environment, information, mental habits.\n9. **Love and values** ([289](episodes/289.md), [333](episodes/333.md)): attach your values to your money with three tests: my kids would be proud, the business deserves to exist in 20 years, it matches my real values. Values are what you do, not what you say; ESG scores are formulaic.\n10. **Investing versus speculating** ([228](episodes/228.md), [269](episodes/269.md)).\n11. **Incentives explain the crowd** ([319](episodes/319.md), [321](episodes/321.md), [322](episodes/322.md)): clients make professionals follow the herd. Individuals' edge is patience: write rules (no selling for five years), put your money alongside managers, and keep costs low.\n12. **Survive first** ([321](episodes/321.md)): stay anti-fragile, make mistakes non-fatal, and learn without self-punishment. Know whether you can value businesses; if not, index.\n13. **Macro is opinion** ([288](episodes/288.md), [290](episodes/290.md)).\n14. **Your checklist is personal** ([336](episodes/336.md)): aim it at your blind spots, use it as research prompt too, keep it short.\n15. **Story and inversion** ([337](episodes/337.md)-[339](episodes/339.md)): invert each key reason, know the bear case better than the shorts, rebut each, and confirm the shorts are wrong. Phil and Danielle differ on whether to treat the list as gospel or adapt it, and on how reachable certainty is. [338](episodes/338.md) resolves it: anchor on the moat, then price, with free cash flow, no debt and a big margin of safety for unknowables.\n16. **Practise before money** ([014](episodes/014.md), [209](episodes/209.md), [218](episodes/218.md)); calm the mind first ([291](episodes/291.md)).",
+   "lesson": "1. **Know what you don't know** ([047](episodes/047.md), [087](episodes/087.md), [231](episodes/231.md), [299](episodes/299.md), [342](episodes/342.md)): simple is not easy. Invest only as fast as your knowledge allows; the feeling of certainty is not evidence, so find out whether you rush or freeze, and make mistakes with small money.\n2. **Fear drives mass diversification** ([057](episodes/057.md), [206](episodes/206.md)). The middle path is about 10 companies.\n3. **Volatility is not risk** ([048](episodes/048.md), [104](episodes/104.md), [114](episodes/114.md)): a falling price is not a loss until business value falls ([272](episodes/272.md), [285](episodes/285.md)). Buy in tranches and keep dry powder ([314](episodes/314.md)).\n4. **Behavioural traps** ([108](episodes/108.md), [115](episodes/115.md)): sunk cost, loss aversion, anchoring, confirmation bias. Antidotes: a checklist and someone who argues the other side ([299](episodes/299.md)).\n5. **Mistakes are the curriculum** ([201](episodes/201.md), [275](episodes/275.md)). Errors of omission hurt most ([298](episodes/298.md), [299](episodes/299.md)), though [301](episodes/301.md) argues selling near value is the better error. A rational pass is not a mistake ([339](episodes/339.md)): judge the decision, not the stock's later run.\n6. **Build a written process** ([213](episodes/213.md), [251](episodes/251.md)); journal every idea ([294](episodes/294.md), [295](episodes/295.md)).\n7. **Judge process, not outcomes** ([294](episodes/294.md), [319](episodes/319.md)).\n8. **Investment hygiene** ([294](episodes/294.md)): health, environment, information, mental habits.\n9. **Love and values** ([289](episodes/289.md), [333](episodes/333.md)): attach your values to your money with three tests: my kids would be proud, the business deserves to exist in 20 years, it matches my real values. Values are what you do, not what you say; ESG scores are formulaic.\n10. **Investing versus speculating** ([228](episodes/228.md), [269](episodes/269.md)).\n11. **Incentives explain the crowd** ([319](episodes/319.md), [321](episodes/321.md), [322](episodes/322.md)): clients make professionals follow the herd. Individuals' edge is patience: write rules (no selling for five years), put your money alongside managers, and keep costs low.\n12. **Survive first** ([321](episodes/321.md)): stay anti-fragile, make mistakes non-fatal, and learn without self-punishment. Know whether you can value businesses; if not, index.\n13. **Macro is opinion** ([288](episodes/288.md), [290](episodes/290.md)).\n14. **Your checklist is personal** ([336](episodes/336.md)): aim it at your blind spots, use it as research prompt too, keep it short.\n15. **Story and inversion** ([337](episodes/337.md)-[339](episodes/339.md)): invert each key reason, know the bear case better than the shorts, rebut each, and confirm the shorts are wrong. Phil and Danielle differ on whether to treat the list as gospel or adapt it, and on how reachable certainty is. [338](episodes/338.md) resolves it: anchor on the moat, then price, with free cash flow, no debt and a big margin of safety for unknowables.\n16. **Practise before money** ([014](episodes/014.md), [209](episodes/209.md), [218](episodes/218.md)); calm the mind first ([291](episodes/291.md)).\n17. **Emotional safety is the biggest benefit** ([351](episodes/351.md)): knowing why you own a business makes a 50% drop a chance to buy, not a reason to sell at the bottom. Cash drag is the price. Even \"$150 a month for 50 years\" fails on discipline, not maths. A quiet-mind practice helps ([349](episodes/349.md)).",
    "episodes": [
     "014",
     "027",
@@ -286,7 +299,8 @@
     "337",
     "338",
     "339",
-    "342"
+    "342",
+    "351"
    ]
   },
   {
@@ -338,7 +352,7 @@
    "id": "m9",
    "title": "The masters",
    "goal": "Buffett, Munger, Graham, Pabrai, Spier and others: their ideas and their records.",
-   "lesson": "1. **Dhandho** ([013](episodes/013.md), [098](episodes/098.md), [099](episodes/099.md)): small loss if wrong, large gain if right.\n2. **Graham to Munger** ([063](episodes/063.md), [141](episodes/141.md), [164](episodes/164.md), [212](episodes/212.md), [306](episodes/306.md), [313](episodes/313.md)): old Buffett bought cigar butts and net-nets; Munger pushed him to wonderful companies at fair prices.\n3. **Patience and fees shape behaviour** ([101](episodes/101.md), [120](episodes/120.md), [172](episodes/172.md), [214](episodes/214.md)). Buffett closed his partnership in 1969 ([174](episodes/174.md)).\n4. **Work alone, from facts** ([174](episodes/174.md), [175](episodes/175.md), [202](episodes/202.md)). Temperament beats IQ.\n5. **Berkshire picks people** ([214](episodes/214.md)).\n6. **Build a checklist from others' errors** ([175](episodes/175.md), [274](episodes/274.md)): Pabrai's ~150 questions, Ackman's eight ([326](episodes/326.md)): simple and predictable, free cash flow, dominant position, barriers to entry, high ROIC, low extrinsic risk, strong balance sheet, excellent management. Phil adds a ninth, price, and checks ROIC first, then debt (under about three years of free cash flow).\n7. **Model, don't copy** ([173](episodes/173.md), [086](episodes/086.md), [138](episodes/138.md), [143](episodes/143.md), [145](episodes/145.md)): read a 13F at the source ([325](episodes/325.md)): options show the underlying's value, cash is missing, percentages are your job, and size matters against the fund's size. Burry's \"Tesla\" was puts; options are gambling with a brain.\n8. **Index funds are for those who won't do the work** ([189](episodes/189.md), [315](episodes/315.md)); otherwise the too-hard box ([216](episodes/216.md)).\n9. **Mistakes are the method** ([200](episodes/200.md)); Berkshire's early businesses failed to disruption ([316](episodes/316.md), [323](episodes/323.md)).\n10. **Buffett the teacher** ([229](episodes/229.md), [230](episodes/230.md)); **Mecham's trio** ([285](episodes/285.md)).\n11. **Berkshire's meetings and letters** ([264](episodes/264.md), [306](episodes/306.md), [315](episodes/315.md), [316](episodes/316.md)): record cash, rates as gravity, buybacks only below value.\n12. **Munger's quotes** ([317](episodes/317.md), [319](episodes/319.md), [320](episodes/320.md), [323](episodes/323.md)): the big money is in the waiting; know what you don't know. Phil's costliest mistake was trusting managers on technology he couldn't judge; he now hires independent experts.\n13. **Li Lu** ([300](episodes/300.md), [304](episodes/304.md)): seek truth, act as a fiduciary.\n14. **Bonds mirror stocks** ([312](episodes/312.md)).",
+   "lesson": "1. **Dhandho** ([013](episodes/013.md), [098](episodes/098.md), [099](episodes/099.md)): small loss if wrong, large gain if right.\n2. **Graham to Munger** ([063](episodes/063.md), [141](episodes/141.md), [164](episodes/164.md), [212](episodes/212.md), [306](episodes/306.md), [313](episodes/313.md)): old Buffett bought cigar butts and net-nets; Munger pushed him to wonderful companies at fair prices.\n3. **Patience and fees shape behaviour** ([101](episodes/101.md), [120](episodes/120.md), [172](episodes/172.md), [214](episodes/214.md)). Buffett closed his partnership in 1969 ([174](episodes/174.md)).\n4. **Work alone, from facts** ([174](episodes/174.md), [175](episodes/175.md), [202](episodes/202.md)). Temperament beats IQ.\n5. **Berkshire picks people** ([214](episodes/214.md)).\n6. **Build a checklist from others' errors** ([175](episodes/175.md), [274](episodes/274.md)): Pabrai's ~150 questions, Ackman's eight ([326](episodes/326.md)): simple and predictable, free cash flow, dominant position, barriers to entry, high ROIC, low extrinsic risk, strong balance sheet, excellent management. Phil adds a ninth, price, and checks ROIC first, then debt (under about three years of free cash flow).\n7. **Model, don't copy** ([173](episodes/173.md), [086](episodes/086.md), [138](episodes/138.md), [143](episodes/143.md), [145](episodes/145.md)): read a 13F at the source ([325](episodes/325.md)): options show the underlying's value, cash is missing, percentages are your job, and size matters against the fund's size. Burry's \"Tesla\" was puts; options are gambling with a brain.\n8. **Index funds are for those who won't do the work** ([189](episodes/189.md), [315](episodes/315.md)); otherwise the too-hard box ([216](episodes/216.md)).\n9. **Mistakes are the method** ([200](episodes/200.md)); Berkshire's early businesses failed to disruption ([316](episodes/316.md), [323](episodes/323.md)).\n10. **Buffett the teacher** ([229](episodes/229.md), [230](episodes/230.md)); **Mecham's trio** ([285](episodes/285.md)).\n11. **Berkshire's meetings and letters** ([264](episodes/264.md), [306](episodes/306.md), [315](episodes/315.md), [316](episodes/316.md)): record cash, rates as gravity, buybacks only below value.\n12. **Munger's quotes** ([317](episodes/317.md), [319](episodes/319.md), [320](episodes/320.md), [323](episodes/323.md)): the big money is in the waiting; know what you don't know. Phil's costliest mistake was trusting managers on technology he couldn't judge; he now hires independent experts.\n13. **Li Lu** ([300](episodes/300.md), [304](episodes/304.md)): seek truth, act as a fiduciary.\n14. **Bonds mirror stocks** ([312](episodes/312.md)).\n15. **The 2022 meetings** ([357](episodes/357.md), [358](episodes/358.md), [367](episodes/367.md), [368](episodes/368.md)): an investment is a productive asset bought for less than its value; speculation is the rest. Decide your values line yourself (Munger invests in China, Danielle doesn't). Passive funds hold votes without knowledge; a board that never disagrees is a warning. Berkshire's cash is discipline, not timing: \"never a decision based on the economy\". Read their purchases (Chevron, Occidental) as inference. **Range of strategies** ([347](episodes/347.md), [348](episodes/348.md)): net-nets (about 80% of net current assets) and options bracket Rule #1; Buffett took until about 1970 to leave cigar butts, the bottom is unknowable, and selling options is the casino's side of the bet.",
    "episodes": [
     "013",
     "042",
@@ -383,14 +397,20 @@
     "320",
     "323",
     "325",
-    "326"
+    "326",
+    "347",
+    "348",
+    "357",
+    "358",
+    "367",
+    "368"
    ]
   },
   {
    "id": "m10",
    "title": "Case studies and interviews",
    "goal": "Companies analysed on the show, and guests' stories and lessons.",
-   "lesson": "1. **Real assets obey Rule #1** ([033](episodes/033.md), [286](episodes/286.md)): understand, find a durable edge, buy after a bust.\n2. **Run the filters on a name** ([103](episodes/103.md), [105](episodes/105.md), [154](episodes/154.md)). **Debt kills** ([075](episodes/075.md), [187](episodes/187.md)).\n3. **Love is not price** ([179](episodes/179.md)): Amazon was wonderful, not defensible at ~$1T.\n4. **A news-driven price move is not a change in value** ([180](episodes/180.md)); GameStop ([302](episodes/302.md)) was a crowded-short trade, not an investment.\n5. **Shorting** ([305](episodes/305.md), refining [302](episodes/302.md)): borrowed shares re-lent can exceed shares outstanding. The hosts treat shorts as wolves that cull frauds; never short more shares than exist. Opinions, not legal advice.\n6. **Whole Foods, start to finish** ([116](episodes/116.md), [118](episodes/118.md), [119](episodes/119.md), [125](episodes/125.md), [191](episodes/191.md)-[193](episodes/193.md)): judge the *story*, not the price.\n7. **Disruptors fail the tools** ([128](episodes/128.md), [219](episodes/219.md), [221](episodes/221.md), [222](episodes/222.md)). **Crypto is speculation** ([133](episodes/133.md), [134](episodes/134.md), [136](episodes/136.md)).\n8. **Peloton** ([267](episodes/267.md), [268](episodes/268.md)): no profit, no cushion; at most a small \"risky business\" slice.\n9. **Formula 1 and Liberty Media** ([340](episodes/340.md)): loving a business and being sure it will grow doesn't tell you what you own. Check share classes, control and net debt; a loan covenant on race counts nearly bit in 2020. Danielle gets off at the debt.\n10. **Teach and defend one stock** ([170](episodes/170.md)); money is a vote ([056](episodes/056.md)); wealth is more than money ([142](episodes/142.md), [194](episodes/194.md)).\n11. **Who you are is part of the method** ([197](episodes/197.md), [211](episodes/211.md), [234](episodes/234.md)-[236](episodes/236.md)).\n12. **Amazon valued three ways** ([263](episodes/263.md)): a wide gap means \"priced for perfection\".\n13. **Judge management in a crisis** ([265](episodes/265.md)). **Integrity first** ([313](episodes/313.md)): Madoff shows why you check character.",
+   "lesson": "1. **Real assets obey Rule #1** ([033](episodes/033.md), [286](episodes/286.md)): understand, find a durable edge, buy after a bust.\n2. **Run the filters on a name** ([103](episodes/103.md), [105](episodes/105.md), [154](episodes/154.md)). **Debt kills** ([075](episodes/075.md), [187](episodes/187.md)).\n3. **Love is not price** ([179](episodes/179.md)): Amazon was wonderful, not defensible at ~$1T.\n4. **A news-driven price move is not a change in value** ([180](episodes/180.md)); GameStop ([302](episodes/302.md)) was a crowded-short trade, not an investment.\n5. **Shorting** ([305](episodes/305.md), refining [302](episodes/302.md)): borrowed shares re-lent can exceed shares outstanding. The hosts treat shorts as wolves that cull frauds; never short more shares than exist. Opinions, not legal advice.\n6. **Whole Foods, start to finish** ([116](episodes/116.md), [118](episodes/118.md), [119](episodes/119.md), [125](episodes/125.md), [191](episodes/191.md)-[193](episodes/193.md)): judge the *story*, not the price.\n7. **Disruptors fail the tools** ([128](episodes/128.md), [219](episodes/219.md), [221](episodes/221.md), [222](episodes/222.md)). **Crypto is speculation** ([133](episodes/133.md), [134](episodes/134.md), [136](episodes/136.md)).\n8. **Peloton** ([267](episodes/267.md), [268](episodes/268.md)): no profit, no cushion; at most a small \"risky business\" slice.\n9. **Formula 1 and Liberty Media** ([340](episodes/340.md)): loving a business and being sure it will grow doesn't tell you what you own. Check share classes, control and net debt; a loan covenant on race counts nearly bit in 2020. Danielle gets off at the debt.\n10. **Teach and defend one stock** ([170](episodes/170.md)); money is a vote ([056](episodes/056.md)); wealth is more than money ([142](episodes/142.md), [194](episodes/194.md)).\n11. **Who you are is part of the method** ([197](episodes/197.md), [211](episodes/211.md), [234](episodes/234.md)-[236](episodes/236.md)).\n12. **Amazon valued three ways** ([263](episodes/263.md)): a wide gap means \"priced for perfection\".\n13. **Judge management in a crisis** ([265](episodes/265.md)). **Integrity first** ([313](episodes/313.md)): Madoff shows why you check character.\n14. **Netflix as an event** ([366](episodes/366.md)): a 20% drop on first subscriber loss tests the moat (scale, flywheel, churn), and managers' one-year horizon creates the discount; a few points of growth swing the sticker price. **Inflation mechanics** ([353](episodes/353.md), [354](episodes/354.md)): use FRED, know which series is meant, and treat the M1 jump and ShadowStats as contested. Macro is context, not signal. [349](episodes/349.md) is a personal year-end episode.",
    "episodes": [
     "033",
     "056",
@@ -433,7 +453,11 @@
     "302",
     "305",
     "313",
-    "340"
+    "340",
+    "349",
+    "353",
+    "354",
+    "366"
    ]
   }
  ],
@@ -478,7 +502,9 @@
     "273",
     "274",
     "283",
-    "326"
+    "326",
+    "356",
+    "361"
    ]
   },
   {
@@ -514,7 +540,8 @@
     "245",
     "253",
     "281",
-    "282"
+    "282",
+    "345"
    ]
   },
   {
@@ -547,7 +574,10 @@
     "290",
     "324",
     "334",
-    "335"
+    "335",
+    "352",
+    "361",
+    "366"
    ]
   },
   {
@@ -583,7 +613,9 @@
     "268",
     "279",
     "327",
-    "338"
+    "338",
+    "352",
+    "365"
    ]
   },
   {
@@ -642,7 +674,9 @@
     "224",
     "240",
     "323",
-    "343"
+    "343",
+    "345",
+    "361"
    ]
   },
   {
@@ -673,7 +707,10 @@
     "287",
     "298",
     "310",
-    "338"
+    "338",
+    "355",
+    "362",
+    "366"
    ]
   },
   {
@@ -779,7 +816,8 @@
     "184",
     "263",
     "279",
-    "327"
+    "327",
+    "356"
    ]
   },
   {
@@ -825,7 +863,9 @@
     "104",
     "249",
     "304",
-    "314"
+    "314",
+    "350",
+    "351"
    ]
   },
   {
@@ -977,7 +1017,11 @@
     "269",
     "298",
     "318",
-    "332"
+    "332",
+    "362",
+    "363",
+    "364",
+    "365"
    ]
   },
   {
@@ -1025,7 +1069,8 @@
     "055",
     "067",
     "092",
-    "178"
+    "178",
+    "365"
    ]
   },
   {
@@ -1048,7 +1093,8 @@
     "100",
     "229",
     "306",
-    "313"
+    "313",
+    "347"
    ]
   },
   {
@@ -1087,14 +1133,18 @@
     "247",
     "319",
     "322",
-    "334"
+    "334",
+    "361",
+    "363",
+    "366"
    ]
   },
   {
    "term": "Adjusted basis",
    "definition": "Purchase price minus cash already returned (dividends); shows the risk still outstanding.",
    "episodes": [
-    "066"
+    "066",
+    "352"
    ]
   },
   {
@@ -1111,7 +1161,8 @@
    "episodes": [
     "062",
     "144",
-    "260"
+    "260",
+    "351"
    ]
   },
   {
@@ -1176,7 +1227,10 @@
     "301",
     "314",
     "321",
-    "332"
+    "332",
+    "347",
+    "361",
+    "363"
    ]
   },
   {
@@ -1282,7 +1336,8 @@
     "247",
     "260",
     "263",
-    "310"
+    "310",
+    "350"
    ]
   },
   {
@@ -1349,7 +1404,8 @@
     "206",
     "215",
     "232",
-    "233"
+    "233",
+    "368"
    ]
   },
   {
@@ -1395,7 +1451,10 @@
     "316",
     "317",
     "320",
-    "341"
+    "341",
+    "348",
+    "357",
+    "367"
    ]
   },
   {
@@ -1494,7 +1553,8 @@
     "186",
     "192",
     "254",
-    "278"
+    "278",
+    "356"
    ]
   },
   {
@@ -1511,7 +1571,8 @@
     "148",
     "224",
     "273",
-    "276"
+    "276",
+    "358"
    ]
   },
   {
@@ -1552,7 +1613,8 @@
    "definition": "How long cash and borrowing can fund a company's losses.",
    "episodes": [
     "154",
-    "261"
+    "261",
+    "356"
    ]
   },
   {
@@ -1564,7 +1626,8 @@
     "247",
     "260",
     "263",
-    "299"
+    "299",
+    "350"
    ]
   },
   {
@@ -1581,7 +1644,8 @@
     "252",
     "260",
     "299",
-    "311"
+    "311",
+    "350"
    ]
   },
   {
@@ -1607,7 +1671,8 @@
     "227",
     "238",
     "280",
-    "298"
+    "298",
+    "367"
    ]
   },
   {
@@ -1639,7 +1704,8 @@
    "episodes": [
     "164",
     "311",
-    "344"
+    "344",
+    "347"
    ]
   },
   {
@@ -1655,7 +1721,8 @@
     "227",
     "248",
     "264",
-    "316"
+    "316",
+    "368"
    ]
   },
   {
@@ -1708,7 +1775,9 @@
     "266",
     "308",
     "314",
-    "325"
+    "325",
+    "348",
+    "352"
    ]
   },
   {
@@ -1716,7 +1785,8 @@
    "definition": "Right to buy at a set price by a set date.",
    "episodes": [
     "168",
-    "325"
+    "325",
+    "348"
    ]
   },
   {
@@ -1771,7 +1841,9 @@
     "323",
     "337",
     "339",
-    "342"
+    "342",
+    "345",
+    "361"
    ]
   },
   {
@@ -2137,14 +2209,17 @@
    "episodes": [
     "266",
     "272",
-    "314"
+    "314",
+    "345",
+    "352"
    ]
   },
   {
    "term": "Network effect",
    "definition": "A product becomes more valuable to each user as more people use it; Phil treats it as a subset of the switching moat.",
    "episodes": [
-    "267"
+    "267",
+    "355"
    ]
   },
   {
@@ -2160,7 +2235,8 @@
    "episodes": [
     "268",
     "283",
-    "309"
+    "309",
+    "365"
    ]
   },
   {
@@ -2516,14 +2592,208 @@
    "term": "Checklist pyramid",
    "definition": "Munger's 4, then Ackman's 8, then the full Rule #1 checklist, each layer used only if the one above passes.",
    "episodes": [
-    "343"
+    "343",
+    "345"
    ]
   },
   {
    "term": "Watch list",
    "definition": "Great companies researched in advance and waiting to be bought at the right price.",
    "episodes": [
-    "344"
+    "344",
+    "345"
+   ]
+  },
+  {
+   "term": "Workout",
+   "definition": "An investment tied to a corporate event such as a merger, whose result depends less on the market.",
+   "episodes": [
+    "351"
+   ]
+  },
+  {
+   "term": "Cash drag",
+   "definition": "The lower overall return when part of a portfolio sits uninvested.",
+   "episodes": [
+    "351"
+   ]
+  },
+  {
+   "term": "Control investing",
+   "definition": "Owning enough of a business to direct its capital and management; Berkshire began as an accidental control.",
+   "episodes": [
+    "351"
+   ]
+  },
+  {
+   "term": "Ratio put",
+   "definition": "Selling two or three puts per 100 shares owned at a price you would gladly pay, collecting premium to cut adjusted basis at once; needs cash set aside.",
+   "episodes": [
+    "352"
+   ]
+  },
+  {
+   "term": "White knight",
+   "definition": "A friendly buyer that rescues a struggling or tired founder-led company.",
+   "episodes": [
+    "352"
+   ]
+  },
+  {
+   "term": "Rules story",
+   "definition": "Phil's finished checklist document for one company, 20-30 pages, with sources kept in separate notes.",
+   "episodes": [
+    "346"
+   ]
+  },
+  {
+   "term": "Due diligence",
+   "definition": "A systematic check of facts before committing money; the checklist asks what you may be missing.",
+   "episodes": [
+    "346"
+   ]
+  },
+  {
+   "term": "Premium",
+   "definition": "The price paid for an option; the seller keeps it whatever happens.",
+   "episodes": [
+    "348"
+   ]
+  },
+  {
+   "term": "Meme stock",
+   "definition": "A stock driven by online-crowd enthusiasm rather than business value (GameStop, AMC).",
+   "episodes": [
+    "348"
+   ]
+  },
+  {
+   "term": "Net cash",
+   "definition": "Cash minus debt; subtract it from market cap to get the effective price of the operating business.",
+   "episodes": [
+    "356"
+   ]
+  },
+  {
+   "term": "Real return",
+   "definition": "Return after subtracting inflation.",
+   "episodes": [
+    "350"
+   ]
+  },
+  {
+   "term": "Rubber-stamp board",
+   "definition": "Directors picked by the CEO who approve whatever management proposes; a dissenter leaving is a warning.",
+   "episodes": [
+    "358"
+   ]
+  },
+  {
+   "term": "Country risk",
+   "definition": "The chance that a government action or conflict wipes out a holding, whatever the company does.",
+   "episodes": [
+    "357",
+    "361"
+   ]
+  },
+  {
+   "term": "Legislative risk",
+   "definition": "A government action, such as sanctions, that destroys an investment overnight.",
+   "episodes": [
+    "361"
+   ]
+  },
+  {
+   "term": "M1",
+   "definition": "The narrow measure of money; its definition was widened in 2020, so a chart jump partly reflects that.",
+   "episodes": [
+    "353"
+   ]
+  },
+  {
+   "term": "FRED",
+   "definition": "The St. Louis Fed's free economic-data site, used to check money supply and inflation yourself.",
+   "episodes": [
+    "353",
+    "354"
+   ]
+  },
+  {
+   "term": "CPI substitution",
+   "definition": "Counting less inflation when consumers switch to cheaper goods as prices rise; a point of dispute in measuring inflation.",
+   "episodes": [
+    "354"
+   ]
+  },
+  {
+   "term": "Flywheel",
+   "definition": "A loop where each strength feeds the next, such as subscribers, content, then more subscribers.",
+   "episodes": [
+    "366"
+   ]
+  },
+  {
+   "term": "Churn",
+   "definition": "The share of customers who leave in a period; compare it across rivals.",
+   "episodes": [
+    "366"
+   ]
+  },
+  {
+   "term": "Inner scorecard",
+   "definition": "Judging yourself by your own process and results, not by others' (Buffett).",
+   "episodes": [
+    "364"
+   ]
+  },
+  {
+   "term": "Tracking stock",
+   "definition": "A share class tied to one division rather than the whole company (Liberty Media).",
+   "episodes": [
+    "364"
+   ]
+  },
+  {
+   "term": "Stagflation",
+   "definition": "Inflation with weak growth; 1965-1982 gave index holders flat nominal and falling real returns.",
+   "episodes": [
+    "363",
+    "365"
+   ]
+  },
+  {
+   "term": "Brand moat",
+   "definition": "A name customers trust over rivals.",
+   "episodes": [
+    "362"
+   ]
+  },
+  {
+   "term": "Secrets moat",
+   "definition": "A hard-to-copy process or know-how, such as serving fresh food safely at scale.",
+   "episodes": [
+    "362"
+   ]
+  },
+  {
+   "term": "Productive asset",
+   "definition": "Something that makes goods or services people need (farmland, apartments, businesses); Buffett contrasts it with Bitcoin or gold.",
+   "episodes": [
+    "367"
+   ]
+  },
+  {
+   "term": "Market timing",
+   "definition": "Being in or out of the market on a forecast; Berkshire holds cash by refusing to overpay, not by forecasting.",
+   "episodes": [
+    "368"
+   ]
+  },
+  {
+   "term": "Least bad option",
+   "definition": "Munger: real decisions seldom offer a perfect choice, so pick the best of imperfect ones.",
+   "episodes": [
+    "359"
    ]
   }
  ]
