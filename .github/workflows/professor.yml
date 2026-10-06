@@ -93,6 +93,7 @@ jobs:
           anthropic_api_key: ${{ env.CLEAN_KEY }}
           claude_code_oauth_token: ${{ env.CLEAN_OAUTH }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          allowed_bots: "github-actions,github-actions[bot]"   # chained runs are dispatched by this workflow's own token
           prompt: >-
             Follow agents/professor/PROMPT.md, steps 1 to 3 only (write the episode notes).
             Do NOT edit knowledge/invested/course.json; a later curate step updates the course for the whole run.
@@ -174,6 +175,7 @@ jobs:
           anthropic_api_key: ${{ env.CLEAN_KEY }}
           claude_code_oauth_token: ${{ env.CLEAN_OAUTH }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          allowed_bots: "github-actions,github-actions[bot]"   # chained runs are dispatched by this workflow's own token
           prompt: "Follow the instructions in agents/professor/CURATE.md exactly."
           show_full_output: true   # no transcripts in this job, only public notes, so the log is safe to show
           claude_args: |
