@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "PreCompact": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node \"$CLAUDE_PROJECT_DIR/tools/session_log.mjs\" --hook || true", "timeout": 60 }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          { "type": "command", "command": "cat \"$CLAUDE_PROJECT_DIR/tools/after_compact.md\"" }
+        ]
+      }
+    ]
+  }
+}
