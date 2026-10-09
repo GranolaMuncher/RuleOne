@@ -20,9 +20,18 @@ on:
       deploy: false
     secrets: inherit
 
-  deploy:
+  editor:
     needs: [screen, rulers]
-    # Runs even when the RULERS analyst is skipped or fails, as long as the screen succeeded.
+    # Last word: reconciles screen, Radar and dossiers into the weekly brief, even if RULERS failed.
+    if: always() && needs.screen.result == 'success' && needs.screen.outputs.has_claude == 'true' && github.event.inputs.tickers == ''
+    uses: ./.github/workflows/editor.yml
+    with:
+      deploy: false
+    secrets: inherit
+
+  deploy:
+    needs: [screen, rulers, editor]
+    # Runs even when the agents are skipped or fail, as long as the screen succeeded.
     if: always() && needs.screen.result == 'success'
     uses: ./.github/workflows/deploy-site.yml
     secrets: inherit

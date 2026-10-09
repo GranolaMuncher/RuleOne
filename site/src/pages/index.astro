@@ -1,11 +1,15 @@
 ---
 import Base from "../layouts/Base.astro";
 import ScreenView from "../components/ScreenView.astro";
-import { loadRun, loadReports } from "../lib/data";
+import { loadRun, loadReports, loadDecisions } from "../lib/data";
 
 const { lists, meta } = loadRun();
 const reports = loadReports().filter((r) => r.kind !== "model");
-const weekly = reports.find((r) => r.kind === "weekly");
+const weeklies = reports.filter((r) => r.kind === "weekly");
+const weekly = weeklies.find((r) => r.slug.endsWith("_brief")) ?? weeklies[0];
+const memo = weeklies.find((r) => r.slug.endsWith("_rulers") && r.date === weekly?.date);
+const weeklyLabel = (slug: string) => slug.endsWith("_brief") ? "Weekly brief" : slug.endsWith("_rulers") ? "RULERS memo" : "Weekly scout";
+const dec = loadDecisions();
 const dives = reports.filter((r) => r.kind === "deep-dive").slice(0, 4);
 ---
 <Base title="RuleOne">
@@ -17,13 +21,37 @@ const dives = reports.filter((r) => r.kind === "deep-dive").slice(0, 4);
     The <a href="/reports/">research</a> pages apply judgement.
   </p>
 
+  {dec && (dec.actions.length > 0 || dec.decisions.length > 0) && (
+    <section class="panel brief">
+      <h2>This week <span class="muted">{dec.date}</span></h2>
+      <p>{dec.summary}</p>
+      {dec.actions.length > 0 && (
+        <ul>{dec.actions.map((a) => <li><a href={`/stock/${a.ticker}/`}><strong>{a.ticker}</strong></a> · <span class="chip">{a.action}</span> {a.reason}</li>)}</ul>
+      )}
+      {dec.decisions.length > 0 && (
+        <>
+          <h3>Decisions for you</h3>
+          <ul>{dec.decisions.map((d) => <li><strong>{d.ticker}</strong>: {d.question} <span class="muted">{d.why}</span>{d.link && <> <a href={d.link}>→</a></>}</li>)}</ul>
+        </>
+      )}
+      {weekly && <p><a href={`/reports/${weekly.slug}/`}>Read the full brief →</a></p>}
+    </section>
+  )}
+
   {(weekly || dives.length > 0) && (
     <div class="research">
       {weekly && (
         <a class="panel card" href={`/reports/${weekly.slug}/`}>
-          <span class="chip ONDECK">Weekly scout</span>
+          <span class="chip ONDECK">{weeklyLabel(weekly.slug)}</span>
           <strong>{weekly.title}</strong>
           <span class="muted">{weekly.date}</span>
+        </a>
+      )}
+      {memo && (
+        <a class="panel card" href={`/reports/${memo.slug}/`}>
+          <span class="chip ONDECK">RULERS memo</span>
+          <strong>{memo.title}</strong>
+          <span class="muted">{memo.date}</span>
         </a>
       )}
       {dives.map((r) => (
@@ -47,6 +75,11 @@ const dives = reports.filter((r) => r.kind === "deep-dive").slice(0, 4);
 
 <style>
   .lead { max-width: 860px; }
+  .brief { margin-top: 14px; }
+  .brief h2 { margin-top: 0; }
+  .brief h3 { font-size: 15px; margin: 12px 0 4px; }
+  .brief ul { margin: 6px 0; padding-left: 20px; }
+  .brief li { margin: 4px 0; }
   .research { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; margin-top: 16px; }
   .card { display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: var(--ink); }
   .card:hover { border-color: var(--accent); }

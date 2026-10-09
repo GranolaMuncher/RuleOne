@@ -239,6 +239,11 @@ export function rewriteLinks(html: string, slug: string): string {
     }
     const joined = parts.join("/");
     if (joined.startsWith("../lists") || joined.startsWith("lists")) return `href="/"`;
+    const dossier = joined.match(/(?:^|\/)research\/rulers\/([A-Z0-9.-]+)$/);
+    if (dossier) return `href="/rulers/${dossier[1]}/${hash}"`;
+    const radar = joined.match(/(?:^|\/)research\/radar\/(\d{4}-\d{2}-\d{2})$/);
+    if (radar) return `href="/radar/${radar[1]}/${hash}"`;
+    if (/(?:^|\/)knowledge\/rule1\/(METHOD|CHECKLIST)$/.test(joined)) return `href="/rule1/${hash}"`;
     return `href="/reports/${joined}/${hash}"`;
   });
 }
@@ -495,4 +500,15 @@ export function loadDossiers(): Dossier[] {
       summary: s("summary"), body: body.replace(/^#\s+.*\n/, ""),
     };
   }).sort((a, b) => (order.indexOf(a.verdict) + 1 || 9) - (order.indexOf(b.verdict) + 1 || 9) || a.ticker.localeCompare(b.ticker));
+}
+
+// ---------------------------------------------------------------- editor
+export interface Decisions {
+  date: string; summary: string;
+  decisions: { ticker: string; question: string; why: string; link?: string }[];
+  actions: { ticker: string; action: string; reason: string }[];
+}
+export function loadDecisions(): Decisions | null {
+  const f = path.join(ROOT, "research", "editor", "decisions.json");
+  return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : null;
 }

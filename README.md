@@ -75,11 +75,12 @@ python -m pytest -q tests
 
 ### Weekly pipeline and website
 
-[`.github/workflows/weekly.yml`](.github/workflows/weekly.yml) runs every **Saturday at 11:17 UTC**, after Friday's close. You can also start it from **Actions → Weekly Rule One run → Run workflow**. Each run does three things:
+[`.github/workflows/weekly.yml`](.github/workflows/weekly.yml) runs every **Saturday at 11:17 UTC**, after Friday's close. You can also start it from **Actions → Weekly Rule One run → Run workflow**. Each run does four things:
 
 1. **Screen:** runs the whole-market screen and commits `lists/`.
 2. **RULERS analyst** (optional): Claude Code, through [`anthropics/claude-code-action`](https://github.com/anthropics/claude-code-action), follows [`agents/rulers/PROMPT.md`](agents/rulers/PROMPT.md) ([`rulers.yml`](.github/workflows/rulers.yml)). It keeps a living dossier per stock in `research/rulers/` (Radar, Understand, Love, Event, Reduce basis as a tranche ladder, Story, Numbers, Verdict) for the buy-range leaders, fresh Radar events, `research/watchlist.txt` and stale dossiers, and writes `reports/weekly/<date>_rulers.md`. Run it by hand for any ticker from **Actions → RULERS analyst**.
-3. **Deploy:** builds the Astro site in [`site/`](site/) and publishes it to **Cloudflare Pages** through [`deploy-site.yml`](.github/workflows/deploy-site.yml). The same workflow also runs whenever `lists/`, `reports/` or `site/` change.
+3. **Editor** (optional): follows [`agents/editor/PROMPT.md`](agents/editor/PROMPT.md). It reconciles the screen, Radar and the dossiers (flagging conflicts such as a BUY verdict that Radar now marks as a PROBLEM) and writes `reports/weekly/<date>_brief.md` plus a short list of decisions shown on the home page.
+4. **Deploy:** builds the Astro site in [`site/`](site/) and publishes it to **Cloudflare Pages** through [`deploy-site.yml`](.github/workflows/deploy-site.yml). The same workflow also runs whenever `lists/`, `reports/` or `site/` change.
 
 **Professor** ([`professor.yml`](.github/workflows/professor.yml), four times a day) works through the InvestED podcast in episode order. It transcribes each episode on the runner with faster-whisper, then Claude writes study notes and updates a structured course in [`knowledge/invested/`](knowledge/invested/), which the site shows under **Learn**. Transcripts are never committed. It uses the same Claude secret as the scout. The agent roadmap is in [`docs/AGENT_PLAN.md`](docs/AGENT_PLAN.md), and the options for *The Intelligent Investor* are in [`docs/LIBRARY.md`](docs/LIBRARY.md).
 

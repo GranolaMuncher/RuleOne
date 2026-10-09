@@ -180,6 +180,12 @@ Revisit this only if you later want agents to *choose* work dynamically, for exa
   - Claude writes `research/rulers/<T>.md` (front matter: verdict, confidence, entry ladder, trim) and the weekly memo. `record` indexes them.
   - The site shows them at `/rulers/`, on stock pages and on Holdings.
 
+- **Editor (built):** [`editor.yml`](../.github/workflows/editor.yml) runs last on Saturday, after RULERS (it still runs if RULERS fails).
+  - `ruleone.editor prepare` compares this week with the previous run and the last brief.
+  - It detects conflicts between agents: a dossier BUY against a Radar PROBLEM, against the screen status, or against serious flags; a WATCH at tranche 1; a price above the trim level; a stale dossier; a Radar EVENT with no dossier.
+  - Claude resolves each conflict and writes `reports/weekly/<date>_brief.md` plus `research/editor/decisions.json` (shown on the home page). It can queue tickers for RULERS in `research/watchlist.txt`.
+  - GitHub issues are opt-in (variable `EDITOR_ISSUES=true`) because they trigger email.
+
 ## Decisions (2026-10-04)
 
 - **InvestED:** the agent transcribes every episode itself, in order, and teaches it as a structured course (see Professor above). Built.

@@ -1,0 +1,90 @@
+name: Editor (weekly brief)
+
+# Last step of the Saturday run: reconcile the screen, Radar and RULERS dossiers into
+# reports/weekly/<date>_brief.md and research/editor/decisions.json. Works on outputs only.
+on:
+  workflow_call:
+    inputs:
+      deploy:
+        type: boolean
+        default: false
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: "Redeploy the site afterwards"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  deployments: write
+  issues: write   # only used when the EDITOR_ISSUES variable is "true"
+
+concurrency:
+  group: editor
+  cancel-in-progress: false
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}   # includes the screen and dossiers committed earlier in the run
+      - id: secrets
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          for name in KEY OAUTH; do
+            clean=$(printf '%s' "${!name}" | tr -d '[:space:]')
+            if [ -n "$clean" ]; then
+              echo "::add-mask::$clean"
+              echo "CLEAN_$name=$clean" >> "$GITHUB_ENV"
+              echo "has_claude=true" >> "$GITHUB_OUTPUT"
+            fi
+          done
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Gather the week and detect conflicts
+        run: python -m ruleone.editor prepare
+      - uses: anthropics/claude-code-action@v1
+        if: steps.secrets.outputs.has_claude == 'true'
+        continue-on-error: true
+        with:
+          anthropic_api_key: ${{ env.CLEAN_KEY }}
+          claude_code_oauth_token: ${{ env.CLEAN_OAUTH }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          allowed_bots: "github-actions,github-actions[bot]"
+          prompt: "Follow the instructions in agents/editor/PROMPT.md exactly."
+          claude_args: |
+            --model claude-sonnet-5-5
+            --max-turns 80
+            --allowedTools Read,Write,Edit,Glob,Grep,Bash(python3:*)
+      - id: commit
+        name: Record and commit the brief
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EDITOR_ISSUES: ${{ vars.EDITOR_ISSUES }}
+        run: |
+          python -m ruleone.editor record
+          python -m ruleone.editor issues || true
+          git config user.name "rule-one-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/weekly research/editor research/watchlist.txt 2>/dev/null || git add reports/weekly research/editor
+          if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          git commit -m "Weekly brief $(date -u +%F)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    needs: brief
+    if: inputs.deploy && needs.brief.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy-site.yml
+    secrets: inherit
