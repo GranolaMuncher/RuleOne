@@ -13,3 +13,4 @@ These are lessons learned from applying the method, written by the Professor's w
 
 ## From the pipeline
 _(The Professor appends dated lessons here from the weekly review.)_
+- **2026-10-09: Show the marker line, don't assume it.** The ADBE, KNSL and LULU dossiers have no per-marker line. LULU's FCF margin is about 8% (fails `fcf_margin`) and its OCF growth lags sales (`growth_coherent`), and neither is mentioned. For KNSL nobody says the OCF markers are set aside for an insurer. Write ✔/✘/? for each marker, with a confirmation or override, before the price work. (METHOD 2–5, MARKERS)

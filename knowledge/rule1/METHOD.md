@@ -129,3 +129,4 @@ Not investment advice. These are study notes on a published method, and automate
 
 ## Proposed app changes
 The Professor adds rule refinements here (from new episodes, the book or the weekly review), and the Engineer implements each one on a branch and marks it "(implemented on branch …)". Implemented so far: refined owner earnings and Ten Cap, methods agree, the four screen flags, and the ten markers in [MARKERS.md](MARKERS.md).
+- (2026-10-09) Flag a dossier in `ruleone/rulers.py` or the Editor step when it has no per-marker line. Also write `markers` (pass/fail/unknown) to the universe CSV, so the Professor can check failing markers without recomputing. Not yet implemented.

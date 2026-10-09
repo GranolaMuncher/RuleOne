@@ -1,0 +1,6 @@
+{"date": "2026-10-09", "reviews": [
+ {"ticker": "ADBE", "severity": "minor", "issues": ["No per-marker line (MARKERS) in the dossier", "Growth 10% is above the lower of history/analyst (~9%); Sticker ~$230 slightly generous", "Sell trigger 'permanent CEO/CFO problem' is not measurable", "InvestED 414, 275, 429 not cited"], "invested_episodes": ["414", "275", "429"]},
+ {"ticker": "KNSL", "severity": "minor", "issues": ["No per-marker line; say which OCF-based markers are set aside for an insurer", "Payback computed on EPS; METHOD 6 says FCF, explain why", "10-K not re-read; reserve claims from general knowledge"], "invested_episodes": []},
+ {"ticker": "LULU", "severity": "minor", "issues": ["No per-marker line; fcf_margin (~8%) and growth_coherent fail unexplained", "Sticker $46 vs Payback $89 vs Ten Cap $108-131: why tranche 1 follows Payback is not stated", "InvestED 105, 432, 210 not cited; 210 (CEO/founder flux = pass) matches today's situation"], "invested_episodes": ["105", "432", "210"]}
+ ],
+ "lessons_added": ["Every dossier must carry the per-marker line, with failing markers confirmed or overridden (MARKERS, 2026-10-09)."]}
