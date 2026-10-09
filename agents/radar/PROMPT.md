@@ -51,4 +51,6 @@ For every name with `signals`, plus any name whose headlines describe something 
     "guru_moves": [{"guru": "...", "ticker": "...", "change": "new|added|cut|sold", "weight": 0.05, "report": "YYYY-MM-DD"}]}
    ```
 
+If today's digest or `latest.json` already exists (an earlier run today), don't stop. Re-judge using today's full inputs, keep verdicts that still hold, add new items and rewrite both files.
+
 Don't edit anything else. Finish with a three-line summary of the most important verdicts.
