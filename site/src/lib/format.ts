@@ -28,3 +28,12 @@ export const STATUS_LABEL: Record<string, string> = {
 
 /** Flags that question the numbers are warnings; basis notes (currency, ADR, EPS source) are info. */
 export const flagClass = (f: string) => (/check|micro-cap|less meaningful/i.test(f) ? "warn" : "info");
+
+/** Chip class for a Radar verdict. */
+export const VERDICT_CLASS: Record<string, string> = { EVENT: "BUY", PROBLEM: "warn", WATCH: "ONDECK", NOISE: "info" };
+
+/** Link InvestED episode citations like [002], [001, 011] or [337–339] to the Learn pages. */
+export function linkEpisodes(html: string): string {
+  return html.replace(/\[((?:\d{3}(?:[–-]\d{3})?)(?:,\s*\d{3}(?:[–-]\d{3})?)*)\]/g, (_m, inner: string) =>
+    "[" + inner.replace(/\d{3}/g, (n) => `<a href="/learn/${n}/">${n}</a>`) + "]");
+}

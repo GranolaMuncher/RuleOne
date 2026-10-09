@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main, claude/dazzling-knuth-dmucvz]
-    paths: ["lists/**", "reports/**", "knowledge/**", "site/**", "README.md", ".github/workflows/deploy-site.yml"]
+    paths: ["lists/**", "reports/**", "research/**", "knowledge/**", "site/**", "README.md", ".github/workflows/deploy-site.yml"]
 
 permissions:
   contents: read

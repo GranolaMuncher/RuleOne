@@ -161,6 +161,19 @@ Revisit this only if you later want agents to *choose* work dynamically, for exa
 5. **Engineer.** On-failure trigger first, then the health check, then the monthly dependency check.
 6. ~~Portfolio and alerts~~ → the Holdings page (built, browser-only).
 
+## Status (2026-10-09)
+
+- **Professor:** all 498 InvestED episodes have notes. They were synthesised into [`knowledge/rule1/METHOD.md`](../knowledge/rule1/METHOD.md) and [`CHECKLIST.md`](../knowledge/rule1/CHECKLIST.md) (site: `/rule1/`), and the curate step keeps both current as new episodes arrive.
+- **App revised from the synthesis:**
+  - The Ten Cap uses refined owner earnings (OCF − maintenance capex + tax, less net debt).
+  - New "methods agree" count (0–3).
+  - New flags: cash not real (owner earnings < 75% of net income), debt > 3 years of FCF, ROIC falling, and cheap without an event.
+  - A share-scale sanity check (Nova).
+- **Radar (built):** [`radar.yml`](../.github/workflows/radar.yml) runs on weekdays at 22:22 UTC.
+  - `ruleone.radar prepare` gathers filings, Yahoo headlines, price moves and 13F changes for 8 value investors (OpenFIGI maps CUSIPs to tickers) across ~150 watch-list names.
+  - Claude (Sonnet) judges each item EVENT / PROBLEM / WATCH / NOISE per [`agents/radar/PROMPT.md`](../agents/radar/PROMPT.md).
+  - Output lands in `research/radar/`, the site shows it at `/radar/`, on stock pages and on Holdings.
+
 ## Decisions (2026-10-04)
 
 - **InvestED:** the agent transcribes every episode itself, in order, and teaches it as a structured course (see Professor above). Built.

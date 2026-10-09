@@ -1,0 +1,80 @@
+---
+import Base from "../../layouts/Base.astro";
+import { loadRadar, loadGurus, loadUniverse } from "../../lib/data";
+import { VERDICT_CLASS, pct } from "../../lib/format";
+
+const { latest, digests } = loadRadar();
+const gurus = loadGurus();
+const known = new Set(loadUniverse().map((u) => u.ticker));
+const order = ["PROBLEM", "EVENT", "WATCH", "NOISE"];
+const items = [...(latest?.items ?? [])].sort((a, b) => order.indexOf(a.verdict) - order.indexOf(b.verdict));
+---
+<Base title="Radar" description="Daily news, filings and guru 13F moves for the watch list, judged against the Rule #1 event rules.">
+  <h1>Radar</h1>
+  <p class="muted lede">
+    Every weekday after the close, Radar gathers SEC filings, headlines, price moves and value investors' 13F changes
+    for about 150 names: the buy range and on-deck names first, then wonderful (tier A) companies. It judges each item
+    with the event rules in the <a href="/rule1/">Rule #1 method</a>. It supplies names and facts, never decisions.
+  </p>
+  {latest ? (
+    <>
+      <section class="panel">
+        <h2>{latest.date}</h2>
+        <p>{latest.summary}</p>
+        <p class="legend">
+          <span class="chip warn">PROBLEM</span> the story may have changed ·
+          <span class="chip BUY">EVENT</span> temporary, solvable bad news ·
+          <span class="chip ONDECK">WATCH</span> material but unclear ·
+          <span class="chip info">NOISE</span> price, not value
+        </p>
+        <ul class="items">
+          {items.map((it) => (
+            <li>
+              <span class={`chip ${VERDICT_CLASS[it.verdict] ?? ""}`}>{it.verdict}</span>
+              {known.has(it.ticker) ? <a href={`/stock/${it.ticker}/`}><strong>{it.ticker}</strong></a> : <strong>{it.ticker}</strong>} · {it.headline}
+              <div class="muted why">{it.why} {it.sources?.map((s, i) => <a href={s} rel="noopener">[{i + 1}]</a>)}</div>
+            </li>
+          ))}
+        </ul>
+        <p><a href={`/radar/${latest.date}/`}>Full digest →</a></p>
+      </section>
+    </>
+  ) : <p class="panel">No Radar run yet.</p>}
+
+  <h2>Guru moves</h2>
+  <p class="muted">Latest 13F filings from {Object.keys(gurus.as_of).length} value investors. These are long US positions only, filed up to 45 days after the quarter. Treat them as names to research, not buy signals.</p>
+  <div class="tablewrap">
+    <table class="moves">
+      <thead><tr><th>Investor</th><th>Ticker</th><th>Change</th><th class="num">% of 13F</th><th>Quarter</th></tr></thead>
+      <tbody>
+        {gurus.moves.slice(0, 30).map((m) => (
+          <tr><td>{m.guru}</td><td>{m.ticker && known.has(m.ticker) ? <a href={`/stock/${m.ticker}/`}><strong>{m.ticker}</strong></a> : m.ticker ? <strong>{m.ticker}</strong> : <span class="muted">{m.issuer}</span>}</td>
+            <td class={m.change === "sold" ? "neg" : m.change === "new" ? "pos" : ""}>{m.change}</td>
+            <td class="num">{m.change === "sold" ? "–" : pct(m.weight, 1)}</td><td>{m.report}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  {digests.length > 0 && (
+    <>
+      <h2>Archive</h2>
+      <ul class="arch">{digests.map((d) => <li><a href={`/radar/${d.date}/`}>{d.date}</a></li>)}</ul>
+    </>
+  )}
+</Base>
+
+<style>
+  .lede { max-width: 860px; }
+  .legend { font-size: 13px; }
+  .items { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .items li { border-top: 1px solid var(--line); padding-top: 8px; }
+  .items .chip { margin-right: 6px; }
+  .why { font-size: 13.5px; margin-top: 2px; }
+  .why a { margin-left: 3px; }
+  .tablewrap { overflow-x: auto; }
+  .moves { border-collapse: collapse; font-size: 14px; min-width: 520px; }
+  .moves th, .moves td { padding: 5px 10px 5px 0; border-bottom: 1px solid var(--line); text-align: left; }
+  .moves .num { text-align: right; }
+  .arch { columns: 4 140px; }
+</style>

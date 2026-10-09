@@ -1,8 +1,8 @@
 ---
 import Base from "../../layouts/Base.astro";
 import PriceChart from "../../components/PriceChart.astro";
-import { loadRun, loadUniverse, loadSnapshots, loadReports, loadMonthly, type PriceSeries, type Stock, type UniverseRow } from "../../lib/data";
-import { usd, pct, big, mult, upside, flagClass, STATUS_LABEL } from "../../lib/format";
+import { loadRun, loadUniverse, loadSnapshots, loadReports, loadMonthly, loadRadar, loadGurus, type PriceSeries, type Stock, type UniverseRow, type RadarItem, type GuruPos } from "../../lib/data";
+import { usd, pct, big, mult, upside, flagClass, STATUS_LABEL, VERDICT_CLASS } from "../../lib/format";
 
 export function getStaticPaths() {
   const { lists } = loadRun();
@@ -11,11 +11,15 @@ export function getStaticPaths() {
   const reports = loadReports();
   const universe = loadUniverse();
   const monthlyAll = loadMonthly();
+  const radar = loadRadar().history;
+  const gurus = loadGurus().by_ticker;
   return universe.map((u) => ({
     params: { ticker: u.ticker },
     props: {
       u,
       monthly: monthlyAll.get(u.ticker),
+      radar: radar[u.ticker] ?? [],
+      gurus: gurus[u.ticker] ?? [],
       detail: detailed.get(u.ticker),
       snaps: snaps.get(u.ticker) ?? [],
       reports: reports.filter((r) => r.kind !== "model" && r.body.includes(u.ticker) &&
@@ -24,15 +28,15 @@ export function getStaticPaths() {
     },
   }));
 }
-const { u, monthly, detail, snaps, reports, model } = Astro.props as {
-  u: UniverseRow; monthly?: PriceSeries; detail?: Stock;
+const { u, monthly, detail, snaps, reports, model, radar, gurus } = Astro.props as {
+  u: UniverseRow; monthly?: PriceSeries; detail?: Stock; radar: RadarItem[]; gurus: GuruPos[];
   snaps: { date: string; price: number | null; sticker: number | null; mos: number | null; status: string }[];
   reports: { slug: string; title: string; date: string }[]; model?: { slug: string };
 };
 
 const levels = [
   ["Buy (MOS)", u.mos, "50% of Sticker"],
-  ["Ten Cap", u.tenCap, "10× owner earnings"],
+  ["Ten Cap", u.tenCap, "10× owner earnings − net debt"],
   ["Payback Time", u.payback, "8-year FCF payback"],
   ["Sticker", u.sticker, "Rule #1 intrinsic value"],
 ] as const;
@@ -96,6 +100,8 @@ const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
           <tr><th>{label} <span class="muted">{note}</span></th><td class="num">{usd(v)}</td>
             <td class={`num ${(upside(u.price, v) ?? 0) >= 0 ? "pos" : "neg"}`}>{pct(upside(u.price, v))}</td></tr>
         ))}
+        <tr><th>Methods agree <span class="muted">price under how many of Ten Cap, Payback, MOS</span></th>
+          <td class="num"><b class={u.methodsAgree >= 2 ? "pos" : ""}>{u.methodsAgree} of 3</b></td><td></td></tr>
         <tr><th>Windage growth g</th><td class="num">{pct(u.growth, 1)}</td><td></td></tr>
         {detail?.futurePe != null && <tr><th>Future P/E (min 2g, 10y median)</th><td class="num">{mult(detail.futurePe)}</td><td></td></tr>}
         <tr><th>P/E · 10y median</th><td class="num">{mult(u.pe)}</td><td class="num">{mult(u.histPe)}</td></tr>
@@ -131,6 +137,24 @@ const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
     </p>
   </section>
 
+  {(radar.length > 0 || gurus.length > 0) && (
+    <section class="panel">
+      <h2>Radar <span class="muted">news and filings, judged against the <a href="/rule1/#method">event rules</a></span></h2>
+      {radar.length > 0 && (
+        <ul class="radar">
+          {radar.map((it) => (
+            <li><span class={`chip ${VERDICT_CLASS[it.verdict] ?? ""}`}>{it.verdict}</span> <span class="muted">{it.date}</span> · {it.headline}
+              <div class="muted small">{it.why} {it.sources?.map((s, i) => <a href={s} rel="noopener">[{i + 1}]</a>)}</div></li>
+          ))}
+        </ul>
+      )}
+      {gurus.length > 0 && (
+        <p class="small">Held by: {gurus.map((g, i) => <>{i ? " · " : ""}<b>{g.guru}</b> {pct(g.weight, 1)} of 13F{g.change !== "held" ? ` (${g.change})` : ""}</>)}
+          <span class="muted"> as of {gurus[0].report}. 13Fs lag up to 45 days and show names, not decisions.</span></p>
+      )}
+    </section>
+  )}
+
   {snaps.length > 1 && (
     <section class="panel">
       <h2>Across screen runs</h2>
@@ -162,6 +186,7 @@ const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
   section.panel { margin-top: 14px; }
   section.panel h2 { margin-top: 0; font-size: 16px; }
   .small { font-size: 12.5px; }
+  .radar { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 8px; }
   .changes { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; margin-bottom: 10px; }
   .changes div { display: flex; flex-direction: column; font-size: 12.5px; }
   .changes b { font-size: 16px; font-variant-numeric: tabular-nums; }

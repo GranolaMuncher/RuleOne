@@ -272,6 +272,7 @@ export interface UniverseRow {
   priceToSticker: number | null;
   payback: number | null;
   tenCap: number | null;
+  methodsAgree: number;
   fcfYield: number | null;
   divTtm: number | null;
   divYield: number | null;
@@ -293,7 +294,12 @@ export interface UniverseRow {
 
 export function toUniverseRow(r: Row): UniverseRow {
   const g = (k: string) => [num(r[`${k}_g10`]), num(r[`${k}_g5`]), num(r[`${k}_g1`])];
+  const px = num(r.price);
+  // How many of the three Rule #1 prices the stock is under (computed here too for older runs).
+  const agree = num(r.methods_agree) ?? (px == null ? 0 :
+    [num(r.mos_price), num(r.payback_price), num(r.ten_cap_price)].filter((v) => v != null && px <= v).length);
   return {
+    methodsAgree: agree,
     ticker: r.ticker, name: r.name, exchange: r.exchange, sector: r.sector, industry: r.industry ?? "", detail: r.detail,
     status: r.status, tier: r.tier, qualityPass: r.quality_pass === "yes",
     price: num(r.price), priceDate: r.price_date, marketCap: num(r.market_cap),
@@ -437,3 +443,33 @@ export function loadBook(): BookChapter[] {
 /** Glossary/source ids: "001" is a podcast episode, "ii-ch08" a book chapter. */
 export const learnHref = (id: string) => (id.startsWith("ii-") ? `/learn/graham/${id.slice(3)}/` : `/learn/${id}/`);
 export const chapterLabel = (k: string) => (k === "intro" ? "Introduction" : k === "postscript" ? "Postscript" : `Chapter ${Number(k.slice(2))}`);
+
+// ---------------------------------------------------------------- radar + gurus
+const RADAR = path.join(ROOT, "research", "radar");
+export interface RadarItem { ticker: string; verdict: string; headline: string; why: string; sources: string[]; date?: string }
+export interface GuruPos { guru: string; ticker: string; issuer: string; weight: number; change: string; report: string; filed?: string }
+export interface RadarData {
+  latest: { date: string; summary: string; items: RadarItem[]; guru_moves: GuruPos[] } | null;
+  history: Record<string, RadarItem[]>;
+  digests: { date: string; body: string }[];
+}
+
+export function loadRadar(): RadarData {
+  const read = (f: string) => (fs.existsSync(path.join(RADAR, f)) ? JSON.parse(fs.readFileSync(path.join(RADAR, f), "utf8")) : null);
+  const digests = fs.existsSync(RADAR)
+    ? fs.readdirSync(RADAR).filter((f) => /^\d{4}-\d{2}-\d{2}\.md$/.test(f)).sort().reverse()
+        .map((f) => ({ date: f.slice(0, 10), body: fs.readFileSync(path.join(RADAR, f), "utf8") }))
+    : [];
+  return { latest: read("latest.json"), history: read("history.json") ?? {}, digests };
+}
+
+export function loadGurus(): { as_of: Record<string, string>; by_ticker: Record<string, GuruPos[]>; moves: GuruPos[] } {
+  const f = path.join(LISTS, "latest", "gurus.json");
+  return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : { as_of: {}, by_ticker: {}, moves: [] };
+}
+
+export function loadMethodDocs(): { method: string; checklist: string } {
+  const d = path.join(ROOT, "knowledge", "rule1");
+  const r = (f: string) => (fs.existsSync(path.join(d, f)) ? fs.readFileSync(path.join(d, f), "utf8") : "");
+  return { method: r("METHOD.md"), checklist: r("CHECKLIST.md") };
+}

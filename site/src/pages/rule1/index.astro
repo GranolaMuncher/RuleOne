@@ -1,0 +1,33 @@
+---
+import { marked } from "marked";
+import Base from "../../layouts/Base.astro";
+import { loadMethodDocs } from "../../lib/data";
+import { linkEpisodes } from "../../lib/format";
+
+const { method, checklist } = loadMethodDocs();
+const fix = (h: string) => linkEpisodes(h.replace(/href="METHOD\.md"/g, 'href="#method"'));
+const methodHtml = fix(await marked.parse(method.replace(/^#\s+.*\n/, ""), { gfm: true }));
+const checkHtml = fix(await marked.parse(checklist.replace(/^#\s+.*\n/, ""), { gfm: true }));
+---
+<Base title="Rule #1 method" description="The Rule #1 method as refined over 498 InvestED episodes, with the checklist RuleOne applies.">
+  <h1>The Rule #1 method</h1>
+  <p class="muted lede">
+    The Professor synthesised this from all 498 <a href="/learn/">InvestED</a> episodes. Bracketed numbers link to
+    the episode notes. Where Phil and Danielle refined a rule later in the show, the later version wins. The screen,
+    Radar and Holdings apply it; the <strong>App</strong> lines show where.
+  </p>
+  <nav class="toc"><a href="#checklist">Checklist</a> · <a href="#method">Full method</a></nav>
+  <section class="panel" id="checklist">
+    <h2>Checklist</h2>
+    <article class="prose" set:html={checkHtml} />
+  </section>
+  <section id="method">
+    <article class="prose" set:html={methodHtml} />
+  </section>
+</Base>
+<style>
+  .lede { max-width: 860px; }
+  .toc { margin: 8px 0 14px; display: block; }
+  #checklist :global(ul) { list-style: none; padding-left: 4px; }
+  #checklist :global(li input) { margin-right: 6px; }
+</style>
