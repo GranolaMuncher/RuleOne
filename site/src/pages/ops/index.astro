@@ -1,0 +1,30 @@
+---
+import { marked } from "marked";
+import Base from "../../layouts/Base.astro";
+import { loadOps } from "../../lib/data";
+
+const { health, incidents } = loadOps();
+const healthHtml = health ? await marked.parse(health.body.replace(/^#\s+.*\n/, ""), { gfm: true }) : "";
+const rendered = await Promise.all(incidents.slice(0, 20).map(async (i) => ({ ...i, html: await marked.parse(i.body, { gfm: true }) })));
+---
+<Base title="Ops" description="Engineer agent: weekly health checks and incident notes.">
+  <h1>Ops</h1>
+  <p class="muted">
+    The Engineer agent checks the pipeline every Sunday and whenever a workflow fails. Code fixes go on
+    <code>engineer/*</code> branches for you to review; only these notes land on the main branch.
+  </p>
+  {health ? (
+    <section class="panel"><h2>Health check · {health.date}</h2><article class="prose" set:html={healthHtml} /></section>
+  ) : <p class="panel">No health check yet. The first one runs on Sunday.</p>}
+  <h2>Incidents</h2>
+  {rendered.length === 0 ? <p class="muted">None recorded.</p> : rendered.map((i) => (
+    <details class="panel inc">
+      <summary><span class={`chip ${i.status === "fixed-on-branch" ? "BUY" : i.status === "needs-owner" ? "warn" : "info"}`}>{i.status || "note"}</span> {i.date} · {i.title}</summary>
+      <article class="prose" set:html={i.html} />
+    </details>
+  ))}
+</Base>
+<style>
+  .inc { margin: 8px 0; }
+  .inc summary { cursor: pointer; font-weight: 600; }
+</style>

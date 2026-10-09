@@ -100,4 +100,6 @@ The site has a **Holdings** page, where you enter tickers and buy prices per tra
 
 Also set **Settings → Actions → General → Workflow permissions** to **Read and write**. Without the Cloudflare secrets, the site still builds but the deploy step is skipped with a warning. Without a Claude secret, the scout step is skipped.
 
+**Engineer** ([`engineer.yml`](.github/workflows/engineer.yml)) diagnoses any failed workflow, runs a Sunday health check (`ops/health/`, shown at `/ops/`) and a monthly dependency update. It pushes code fixes to `engineer/*` branches for you to review, and never to the main branch. Set the repository variables `ENGINEER_PRS=true` or `EDITOR_ISSUES=true` if you want pull requests or issues (and their emails).
+
 The site is **public** by default. To restrict it to you, add a Cloudflare Access policy (Zero Trust → Access → Applications) for the Pages domain.

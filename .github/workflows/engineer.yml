@@ -1,0 +1,159 @@
+name: Engineer (upkeep)
+
+# Keeps the pipeline healthy. Three triggers:
+#   - a watched workflow fails      -> diagnose the log; code fixes go on an engineer/* branch
+#   - Sundays (after the weekly run) -> health check (ops/health/), fixes for real problems
+#   - first Sunday of the month      -> dependency and Actions version updates on a branch
+# Code never lands on the default branch from here: only incident notes and health reports do.
+on:
+  workflow_run:
+    workflows:
+      - "Weekly Rule One run"
+      - "Radar (daily news and filings)"
+      - "RULERS analyst"
+      - "Editor (weekly brief)"
+      - "Professor (InvestED notes)"
+      - "Professor (The Intelligent Investor)"
+      - "Deploy site"
+    types: [completed]
+  schedule:
+    - cron: "7 14 * * 0"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "health or monthly"
+        type: choice
+        options: [health, monthly]
+        default: health
+
+permissions:
+  contents: write
+  actions: read
+  pull-requests: write   # only used when the ENGINEER_PRS variable is "true"
+
+concurrency:
+  group: engineer
+  cancel-in-progress: false
+
+jobs:
+  engineer:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SITE_URL: ${{ vars.SITE_URL || 'https://ruleone.pages.dev' }}
+      ENGINEER_PRS: ${{ vars.ENGINEER_PRS || 'false' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - id: secrets
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          for name in KEY OAUTH; do
+            clean=$(printf '%s' "${!name}" | tr -d '[:space:]')
+            if [ -n "$clean" ]; then
+              echo "::add-mask::$clean"
+              echo "CLEAN_$name=$clean" >> "$GITHUB_ENV"
+              echo "has_claude=true" >> "$GITHUB_OUTPUT"
+            fi
+          done
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Tools
+        run: |
+          pip install -r requirements.txt
+          mkdir -p .work/engineer
+          curl -sL https://github.com/rhysd/actionlint/releases/download/v1.7.7/actionlint_1.7.7_linux_amd64.tar.gz | tar xz -C .work/engineer actionlint
+      - id: task
+        name: Gather evidence
+        env:
+          EVENT: ${{ github.event_name }}
+          MODE_IN: ${{ github.event.inputs.mode }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          RUN_NAME: ${{ github.event.workflow_run.name }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+          DEFAULT: ${{ github.event.repository.default_branch }}
+        run: |
+          T=.work/engineer/task.md
+          if [ "$EVENT" = "workflow_run" ]; then
+            MODE=failure
+          elif [ "$EVENT" = "workflow_dispatch" ]; then
+            MODE="$MODE_IN"
+          elif [ "$(date -u +%d)" -le 7 ]; then
+            MODE=monthly
+          else
+            MODE=health
+          fi
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          {
+            echo "# Engineer task"; echo
+            echo "- mode: **$MODE**"; echo "- repository: $GITHUB_REPOSITORY (default branch \`$DEFAULT\`)"
+            echo "- ENGINEER_PRS: $ENGINEER_PRS"; echo "- date: $(date -u +%F)"; echo
+          } > $T
+          ./.work/engineer/actionlint -shellcheck= .github/workflows/*.yml > .work/engineer/actionlint.txt 2>&1 || true
+          if [ "$MODE" = "failure" ]; then
+            { echo "## Failed run"; echo "- workflow: $RUN_NAME"; echo "- run: $RUN_URL"; echo
+              echo '## Failed job log (last 400 lines)'; echo '```'
+              gh run view "$RUN_ID" --repo "$GITHUB_REPOSITORY" --log-failed 2>&1 | tail -n 400
+              echo '```'; } >> $T
+          else
+            ( cd site && npm ci --silent && s=$(date +%s) && npm run build >/dev/null 2>&1; echo $(( $(date +%s) - s )) > ../.work/engineer/build_seconds ) || echo "site build failed" >> $T
+            python -m ruleone.health --dist site/dist --build-seconds "$(cat .work/engineer/build_seconds 2>/dev/null || echo 0)" --site "$SITE_URL" | tee -a $T
+            { echo; echo "Health report: ops/health/latest.json and ops/health/$(date -u +%F).md"; } >> $T
+            if [ "$MODE" = "monthly" ]; then
+              { echo; echo "## Outdated npm packages (site)"; echo '```'; (cd site && npm outdated --json || true); echo '```'
+                echo "## Actions versions in use"; echo '```'; grep -ho 'uses: [^ ]*' .github/workflows/*.yml | sort | uniq -c; echo '```'
+                echo "## requirements.txt"; echo '```'; cat requirements.txt; echo '```'; } >> $T
+            fi
+          fi
+          { echo; echo "## actionlint"; echo '```'; cat .work/engineer/actionlint.txt; echo '```'; } >> $T
+          # Call Claude only when there is something to do.
+          need=false
+          [ "$MODE" != "health" ] && need=true
+          grep -Eq "^health [0-9-]+: [1-9][0-9]* problem" $T && need=true
+          [ -s .work/engineer/actionlint.txt ] && need=true
+          echo "need_claude=$need" >> "$GITHUB_OUTPUT"
+          git config user.name "rule-one-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - uses: anthropics/claude-code-action@v1
+        if: steps.secrets.outputs.has_claude == 'true' && steps.task.outputs.need_claude == 'true'
+        continue-on-error: true
+        with:
+          anthropic_api_key: ${{ env.CLEAN_KEY }}
+          claude_code_oauth_token: ${{ env.CLEAN_OAUTH }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          allowed_bots: "github-actions,github-actions[bot]"
+          prompt: "Follow the instructions in agents/engineer/PROMPT.md exactly. Your task file is .work/engineer/task.md."
+          claude_args: |
+            --model claude-sonnet-5-5
+            --max-turns 150
+            --allowedTools Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(git:*),Bash(gh:*),Bash(python3:*),Bash(python:*),Bash(pip:*),Bash(npm:*),Bash(cd:*),Bash(ls:*),Bash(cat:*),Bash(grep:*),Bash(curl:*),Bash(.work/engineer/actionlint:*)
+      - name: Guard the default branch and commit notes
+        env:
+          DEFAULT: ${{ github.event.repository.default_branch }}
+        run: |
+          git checkout "$DEFAULT" 2>/dev/null || true
+          # Code may only change on engineer/* branches: discard anything else left here.
+          stray=$(git status --porcelain -- . ':!ops' ':!.work' || true)
+          if [ -n "$stray" ]; then
+            echo "::warning::Discarding code changes left on $DEFAULT (they belong on an engineer/* branch):"
+            echo "$stray"
+            git checkout -- . ':!ops' 2>/dev/null || true
+            git clean -fdq -- . ':!ops' ':!.work' || true
+          fi
+          git add ops
+          if git diff --cached --quiet; then echo "nothing to record"; exit 0; fi
+          git commit -m "Engineer: ${{ steps.task.outputs.mode }} $(date -u +%F)"
+          git pull --rebase origin "$DEFAULT"
+          git push origin "HEAD:$DEFAULT"

@@ -1,0 +1,28 @@
+name: CI
+
+# Fast checks on every code change: unit tests and workflow lint (catches broken workflow files
+# before a scheduled run trips over them).
+on:
+  push:
+    paths: ["ruleone/**", "tests/**", ".github/workflows/**", "requirements.txt"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Unit tests
+        run: python -m pytest -q tests
+      - name: Lint workflows
+        run: |
+          curl -sL https://github.com/rhysd/actionlint/releases/download/v1.7.7/actionlint_1.7.7_linux_amd64.tar.gz | tar xz actionlint
+          ./actionlint -shellcheck= .github/workflows/*.yml

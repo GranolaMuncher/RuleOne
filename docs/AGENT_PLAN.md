@@ -186,6 +186,14 @@ Revisit this only if you later want agents to *choose* work dynamically, for exa
   - Claude resolves each conflict and writes `reports/weekly/<date>_brief.md` plus `research/editor/decisions.json` (shown on the home page). It can queue tickers for RULERS in `research/watchlist.txt`.
   - GitHub issues are opt-in (variable `EDITOR_ISSUES=true`) because they trigger email.
 
+- **Engineer (built):** [`engineer.yml`](../.github/workflows/engineer.yml) has three triggers:
+  - **Failure:** any watched workflow fails. It reads the failed log and classifies it as outside, code or data.
+  - **Health (Sundays):** `ruleone.health` covers coverage, anomaly patterns (share-scale, Ten Cap > 20× price, P/E < 4, yield > 25%, Sticker jumps), site file count against Cloudflare's 20k limit, live pages, workflow status and actionlint.
+  - **Monthly (first Sunday):** Actions, npm and pip updates.
+
+  Fixes are pushed to `engineer/*` branches after tests, actionlint and a site build pass. A guard step discards any code left on the default branch. Notes go to `ops/` (site: `/ops/`). PRs are opt-in (`ENGINEER_PRS=true`) because they email.
+- **CI:** [`ci.yml`](../.github/workflows/ci.yml) runs pytest and actionlint on every code push. It was added after a broken `weekly.yml` slipped through.
+
 ## Decisions (2026-10-04)
 
 - **InvestED:** the agent transcribes every episode itself, in order, and teaches it as a structured course (see Professor above). Built.

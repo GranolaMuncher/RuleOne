@@ -512,3 +512,17 @@ export function loadDecisions(): Decisions | null {
   const f = path.join(ROOT, "research", "editor", "decisions.json");
   return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : null;
 }
+
+// ---------------------------------------------------------------- ops (Engineer)
+export function loadOps(): { health: { date: string; body: string } | null; incidents: { slug: string; date: string; status: string; title: string; body: string }[] } {
+  const hdir = path.join(ROOT, "ops", "health");
+  const reports = fs.existsSync(hdir) ? fs.readdirSync(hdir).filter((f) => /^\d{4}-\d{2}-\d{2}\.md$/.test(f)).sort() : [];
+  const last = reports.at(-1);
+  const idir = path.join(ROOT, "ops", "incidents");
+  const incidents = fs.existsSync(idir) ? fs.readdirSync(idir).filter((f) => f.endsWith(".md")).sort().reverse().map((f) => {
+    const [meta, body] = frontMatter(fs.readFileSync(path.join(idir, f), "utf8"));
+    return { slug: f.replace(/\.md$/, ""), date: String(meta.date ?? ""), status: String(meta.status ?? ""),
+      title: body.match(/^#\s+(.+)$/m)?.[1] ?? f, body: body.replace(/^#\s+.*\n/, "") };
+  }) : [];
+  return { health: last ? { date: last.slice(0, 10), body: fs.readFileSync(path.join(hdir, last), "utf8") } : null, incidents };
+}
