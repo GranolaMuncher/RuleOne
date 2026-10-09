@@ -28,7 +28,8 @@
     "SIVR",
     "FOUR"
    ],
-   "new": [
+   "new": [],
+   "recurring": [
     "AGMH",
     "AIRT",
     "AISP",
@@ -147,7 +148,6 @@
     "WU",
     "XNET"
    ],
-   "recurring": [],
    "all": [
     "GLD",
     "IAU",
@@ -284,7 +284,8 @@
     "PNNT",
     "SITC"
    ],
-   "new": [
+   "new": [],
+   "recurring": [
     "ABR",
     "AD",
     "AIV",
@@ -320,7 +321,6 @@
     "VISN",
     "YARW"
    ],
-   "recurring": [],
    "all": [
     "IEP",
     "AD",
@@ -395,7 +395,8 @@
     "UPC",
     "HUBG"
    ],
-   "new": [
+   "new": [],
+   "recurring": [
     "ACH",
     "AHT",
     "ATHS",
@@ -416,7 +417,6 @@
     "UPC",
     "VTEX"
    ],
-   "recurring": [],
    "all": [
     "ACH",
     "PIII",
@@ -455,7 +455,8 @@
     "TOPS",
     "HUBG"
    ],
-   "new": [
+   "new": [],
+   "recurring": [
     "ATHS",
     "CABO",
     "CHR",
@@ -477,7 +478,6 @@
     "VTEX",
     "WHLR"
    ],
-   "recurring": [],
    "all": [
     "HTZ",
     "CABO",
@@ -503,66 +503,66 @@
   }
  },
  "site": {
-  "files": 6341,
-  "bytes": 118857758,
-  "pages": 6317,
+  "files": 6343,
+  "bytes": 119055194,
+  "pages": 6319,
   "cf_file_limit": 20000,
-  "build_seconds": null,
+  "build_seconds": 14.0,
   "checks": [
    {
     "path": "/",
     "status": 200,
-    "ms": 694
+    "ms": 132
    },
    {
     "path": "/stocks/",
     "status": 200,
-    "ms": 461
+    "ms": 60
    },
    {
     "path": "/radar/",
     "status": 200,
-    "ms": 422
+    "ms": 55
    },
    {
     "path": "/rulers/",
     "status": 200,
-    "ms": 495
+    "ms": 59
    },
    {
     "path": "/learn/",
     "status": 200,
-    "ms": 565
+    "ms": 102
    },
    {
     "path": "/rule1/",
     "status": 200,
-    "ms": 538
+    "ms": 59
    },
    {
     "path": "/holdings/",
     "status": 200,
-    "ms": 497
+    "ms": 57
    },
    {
     "path": "/data/universe.json",
     "status": 200,
-    "ms": 713
+    "ms": 215
    },
    {
     "path": "/stock/NVDA/",
     "status": 200,
-    "ms": 467
+    "ms": 70
    },
    {
     "path": "/stock/AAPL/",
     "status": 200,
-    "ms": 416
+    "ms": 87
    },
    {
     "path": "/stock/GOOGL/",
     "status": 200,
-    "ms": 530
+    "ms": 62
    }
   ]
  },
@@ -611,11 +611,13 @@
   }
  ],
  "repo": {
-  "git_bytes": 19252390,
+  "git_bytes": 6427994,
   "lists_archive_bytes": 893302,
   "archive_runs": 2
  },
  "problems": [
-  "weekly.yml last run failed"
+  "weekly.yml last run failed",
+  "recurring anomaly share_scale_suspect: ACH, AHT, ATHS, CHR, CRMT, DDS",
+  "recurring anomaly ten_cap_over_20x_price: ATHS, CABO, CHR, CISS, CRMT, DDS"
  ]
 }
