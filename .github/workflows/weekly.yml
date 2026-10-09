@@ -1,6 +1,6 @@
 name: Weekly Rule One run
 
-# Screen every NYSE + Nasdaq stock, have the RULERS analyst update its dossiers and weekly memo,
+# Screen every NYSE + Nasdaq stock, have the RULERS analyst update its dossiers and the Editor write the brief,
 # commit the results, then rebuild and deploy the site to Cloudflare Pages.
 on:
   schedule:
@@ -11,7 +11,69 @@ on:
         description: "Optional comma list to analyze instead of the whole market"
         required: false
         default: ""
-      rulers:
+      scout:
+        description: "Run the RULERS analyst and Editor (dossiers, memo, brief)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  deployments: write
+  issues: write   # Editor, only if the EDITOR_ISSUES variable is "true"
+
+concurrency:
+  group: rule-one-weekly
+  cancel-in-progress: false
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    outputs:
+      has_claude: ${{ steps.secrets.outputs.has_claude }}
+    env:
+      # Settings → Secrets and variables → Actions → Variables: SEC_USER_AGENT="Your Name you@domain.com"
+      SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: secrets
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: echo "has_claude=$([ -n "$KEY$OAUTH" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - uses: actions/cache@v4
+        with:
+          path: .cache
+          key: sec-cache-${{ github.run_id }}
+          restore-keys: sec-cache-
+      - name: Unit tests
+        run: python -m pytest -q tests
+      - name: Run screen
+        env:
+          TICKERS: ${{ github.event.inputs.tickers }}
+        run: |
+          if [ -n "$TICKERS" ]; then
+            python -m ruleone.screener --tickers "$TICKERS"
+          else
+            python -m ruleone.screener
+          fi
+      - name: Job summary
+        run: head -c 60000 lists/latest/README.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit lists
+        run: |
+          git config user.name "rule-one-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lists
+          if git diff --cached --quiet; then echo "no changes"; exit 0; fi
+          git commit -m "Screen $(date -u +%F): $(($(wc -l < lists/latest/buy_range.csv) - 1)) in buy range"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+  rulers:
     needs: screen
     # The RULERS analyst replaces the old scout memo: living dossiers + reports/weekly/<date>_rulers.md
     if: needs.screen.outputs.has_claude == 'true' && github.event.inputs.tickers == '' && github.event.inputs.scout != 'false'
