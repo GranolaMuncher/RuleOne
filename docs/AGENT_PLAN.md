@@ -174,6 +174,12 @@ Revisit this only if you later want agents to *choose* work dynamically, for exa
   - Claude (Sonnet) judges each item EVENT / PROBLEM / WATCH / NOISE per [`agents/radar/PROMPT.md`](../agents/radar/PROMPT.md).
   - Output lands in `research/radar/`, the site shows it at `/radar/`, on stock pages and on Holdings.
 
+- **RULERS analyst (built):** [`rulers.yml`](../.github/workflows/rulers.yml) runs after Saturday's screen in place of the scout, or by hand with tickers.
+  - `ruleone.rulers prepare` picks ≤12 names (requested, `research/watchlist.txt`, top-10 buy range, Radar EVENT/PROBLEM in the last 7 days, then the stalest dossiers).
+  - It builds fact packs: fresh screen numbers, 10-year history, guru and Radar context, and a default tranche ladder that flags when the three methods disagree.
+  - Claude writes `research/rulers/<T>.md` (front matter: verdict, confidence, entry ladder, trim) and the weekly memo. `record` indexes them.
+  - The site shows them at `/rulers/`, on stock pages and on Holdings.
+
 ## Decisions (2026-10-04)
 
 - **InvestED:** the agent transcribes every episode itself, in order, and teaches it as a structured course (see Professor above). Built.

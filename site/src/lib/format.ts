@@ -37,3 +37,6 @@ export function linkEpisodes(html: string): string {
   return html.replace(/\[((?:\d{3}(?:[–-]\d{3})?)(?:,\s*\d{3}(?:[–-]\d{3})?)*)\]/g, (_m, inner: string) =>
     "[" + inner.replace(/\d{3}/g, (n) => `<a href="/learn/${n}/">${n}</a>`) + "]");
 }
+
+/** Chip class for a RULERS verdict. */
+export const RULERS_CLASS: Record<string, string> = { BUY: "BUY", ACCUMULATE: "BUYstar", WATCH: "ONDECK", AVOID: "warn", "TOO HARD": "info" };

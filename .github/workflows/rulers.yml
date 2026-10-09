@@ -1,0 +1,108 @@
+name: RULERS analyst
+
+# Weekly living dossiers (Radar, Understand, Love, Event, Reduce basis, Story) for the buy-range
+# leaders, fresh Radar events, research/watchlist.txt and stale dossiers. Called by the weekly run
+# after the screen; can also be run by hand for specific tickers.
+on:
+  workflow_call:
+    inputs:
+      tickers:
+        type: string
+        default: ""
+      deploy:
+        type: boolean
+        default: false
+      limit:
+        type: string
+        default: "12"
+  workflow_dispatch:
+    inputs:
+      tickers:
+        description: "Optional comma list to analyse first (e.g. ADBE,PGR)"
+        default: ""
+      limit:
+        description: "Maximum dossiers this run"
+        default: "12"
+      deploy:
+        description: "Redeploy the site afterwards"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  deployments: write
+
+concurrency:
+  group: rulers
+  cancel-in-progress: false
+
+jobs:
+  dossiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    env:
+      SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}   # includes lists committed earlier in the same run
+      - id: secrets
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          for name in KEY OAUTH; do
+            clean=$(printf '%s' "${!name}" | tr -d '[:space:]')
+            if [ -n "$clean" ]; then
+              echo "::add-mask::$clean"
+              echo "CLEAN_$name=$clean" >> "$GITHUB_ENV"
+              echo "has_claude=true" >> "$GITHUB_OUTPUT"
+            fi
+          done
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - uses: actions/cache/restore@v4
+        with:
+          path: .cache
+          key: sec-cache-${{ github.run_id }}
+          restore-keys: sec-cache-
+      - name: Pick names and build fact packs
+        env:
+          TICKERS: ${{ inputs.tickers }}
+          LIMIT: ${{ inputs.limit || '12' }}
+        run: python -m ruleone.rulers prepare --tickers "$TICKERS" --limit "$LIMIT"
+      - uses: anthropics/claude-code-action@v1
+        if: steps.secrets.outputs.has_claude == 'true'
+        continue-on-error: true   # dossiers already written are still committed
+        with:
+          anthropic_api_key: ${{ env.CLEAN_KEY }}
+          claude_code_oauth_token: ${{ env.CLEAN_OAUTH }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          allowed_bots: "github-actions,github-actions[bot]"
+          prompt: "Follow the instructions in agents/rulers/PROMPT.md exactly."
+          claude_args: |
+            --model claude-sonnet-5-5
+            --max-turns 300
+            --allowedTools Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(python3:*)
+      - id: commit
+        name: Index and commit dossiers
+        run: |
+          python -m ruleone.rulers record
+          git config user.name "rule-one-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/rulers reports
+          if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          git commit -m "RULERS dossiers $(date -u +%F)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    needs: dossiers
+    if: inputs.deploy && needs.dossiers.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy-site.yml
+    secrets: inherit

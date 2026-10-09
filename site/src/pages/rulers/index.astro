@@ -1,0 +1,51 @@
+---
+import Base from "../../layouts/Base.astro";
+import { loadDossiers, loadUniverse } from "../../lib/data";
+import { RULERS_CLASS, usd, pct } from "../../lib/format";
+
+const dossiers = loadDossiers();
+const uni = new Map(loadUniverse().map((u) => [u.ticker, u]));
+---
+<Base title="RULERS dossiers" description="Living Rule #1 research dossiers: Radar, Understand, Love, Event, Reduce basis, Story.">
+  <h1>RULERS dossiers</h1>
+  <p class="muted lede">
+    Each week the RULERS analyst updates a living dossier for the buy-range leaders, names with fresh Radar events,
+    and anything on <code>research/watchlist.txt</code>. Each dossier covers <strong>R</strong>adar, <strong>U</strong>nderstand,
+    <strong>L</strong>ove (moat and management), <strong>E</strong>vent, <strong>R</strong>educe basis (a tranche ladder; no options)
+    and <strong>S</strong>tory, judged against the <a href="/rule1/">Rule #1 method</a>. This is research, not advice.
+  </p>
+  {dossiers.length === 0 ? <p class="panel">No dossiers yet. The analyst runs after Saturday's screen.</p> : (
+    <div class="tablewrap">
+      <table class="dt">
+        <thead><tr><th>Ticker</th><th>Verdict</th><th class="num">Conf.</th><th class="num">Price now</th><th class="num">Tranche 1</th><th class="num">vs T1</th><th class="num">Trim</th><th>Bottom line</th><th>Updated</th></tr></thead>
+        <tbody>
+          {dossiers.map((d) => {
+            const px = uni.get(d.ticker)?.price ?? d.priceAtUpdate;
+            const t1 = d.entry[0];
+            return (
+              <tr>
+                <td><a href={`/rulers/${d.ticker}/`}><strong>{d.ticker}</strong></a><div class="muted small">{d.name}</div></td>
+                <td><span class={`chip ${RULERS_CLASS[d.verdict] ?? ""}`}>{d.verdict || "–"}</span></td>
+                <td class="num">{d.confidence ?? "–"}/5</td>
+                <td class="num">{usd(px)}</td>
+                <td class="num">{usd(t1)}</td>
+                <td class={`num ${px != null && t1 ? (px <= t1 ? "pos" : "neg") : ""}`}>{px != null && t1 ? pct(px / t1 - 1) : "–"}</td>
+                <td class="num">{usd(d.trim)}</td>
+                <td class="small">{d.summary}</td>
+                <td class="small">{d.updated}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  )}
+</Base>
+<style>
+  .lede { max-width: 880px; }
+  .tablewrap { overflow-x: auto; }
+  .dt { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 860px; }
+  .dt th, .dt td { padding: 7px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .dt .num { text-align: right; white-space: nowrap; }
+  .small { font-size: 12.5px; }
+</style>

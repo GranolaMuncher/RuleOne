@@ -106,6 +106,15 @@ import Base from "../layouts/Base.astro";
     const notes = flags.filter((f) => !serious.test(f));
     const rv = radar.radar?.[u.ticker];
     if (rv) (rv.verdict === "PROBLEM" ? d : i).push(`Radar ${esc(rv.date)} · <b>${esc(rv.verdict)}</b>: ${esc(rv.headline)}. ${esc(rv.why)}`);
+    const dz = radar.rulers?.[u.ticker];
+    if (dz) {
+      const ladder = (dz.entry || []).map(money).join(" / ");
+      const line = `RULERS dossier (${esc(dz.updated)}) · <b>${esc(dz.v)}</b>, confidence ${dz.c ?? "–"}/5: ${esc(dz.summary)}`
+        + (ladder ? ` Tranche ladder ${ladder}${dz.trim ? `, trim above ${money(dz.trim)}` : ""}.` : "")
+        + ` <a href="/rulers/${encodeURIComponent(u.ticker)}/">Dossier →</a>`;
+      (dz.v === "AVOID" ? d : i).push(line);
+      if (dz.trim && p != null && p > dz.trim) d.push(`Price is above the dossier's trim level of ${money(dz.trim)}.`);
+    }
     const held = radar.gurus?.[u.ticker];
     if (held?.length) i.push("Also held by " + held.map((g) => `${esc(g.g)} (${pct(g.w, false)} of 13F${g.c !== "held" ? ", " + esc(g.c) : ""})`).join(", ") + ". That's a name, not a decision.");
     if (notes.length) i.push("Data note: " + esc(notes.join("; ")));

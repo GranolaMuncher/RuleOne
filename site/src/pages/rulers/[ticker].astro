@@ -1,0 +1,32 @@
+---
+import { marked } from "marked";
+import Base from "../../layouts/Base.astro";
+import { loadDossiers, loadUniverse } from "../../lib/data";
+import { RULERS_CLASS, linkEpisodes, usd } from "../../lib/format";
+
+export function getStaticPaths() {
+  return loadDossiers().map((d) => ({ params: { ticker: d.ticker }, props: { d } }));
+}
+const { d } = Astro.props;
+const known = new Set(loadUniverse().map((u) => u.ticker));
+const html = linkEpisodes((await marked.parse(d.body, { gfm: true }))
+  .replace(/href="\.\.\/\.\.\/knowledge\/rule1\/METHOD\.md"/g, 'href="/rule1/#method"'));
+---
+<Base title={`${d.ticker} RULERS dossier`} description={d.summary}>
+  <p><a href="/rulers/">← RULERS dossiers</a>{known.has(d.ticker) && <> · <a href={`/stock/${d.ticker}/`}>{d.ticker} stock page</a></>}</p>
+  <h1>{d.ticker} <span class="muted name">{d.name}</span></h1>
+  <p class="meta">
+    <span class={`chip ${RULERS_CLASS[d.verdict] ?? ""}`}>{d.verdict}</span>
+    <span class="chip">confidence {d.confidence ?? "–"}/5</span>
+    {d.entry.length > 0 && <span class="chip">tranches {d.entry.map((e) => usd(e)).join(" / ")}</span>}
+    {d.trim && <span class="chip">trim above {usd(d.trim)}</span>}
+    <span class="muted">updated {d.updated}</span>
+  </p>
+  <article class="prose" set:html={html} />
+  <p class="muted small">AI-written research dossier from filings and news, checked against the Rule #1 method. Verify before acting. Not investment advice.</p>
+</Base>
+<style>
+  .name { font-weight: 500; font-size: 18px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .small { font-size: 13px; }
+</style>

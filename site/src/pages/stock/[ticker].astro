@@ -1,8 +1,8 @@
 ---
 import Base from "../../layouts/Base.astro";
 import PriceChart from "../../components/PriceChart.astro";
-import { loadRun, loadUniverse, loadSnapshots, loadReports, loadMonthly, loadRadar, loadGurus, type PriceSeries, type Stock, type UniverseRow, type RadarItem, type GuruPos } from "../../lib/data";
-import { usd, pct, big, mult, upside, flagClass, STATUS_LABEL, VERDICT_CLASS } from "../../lib/format";
+import { loadRun, loadUniverse, loadSnapshots, loadReports, loadMonthly, loadRadar, loadGurus, loadDossiers, type PriceSeries, type Stock, type UniverseRow, type RadarItem, type GuruPos } from "../../lib/data";
+import { usd, pct, big, mult, upside, flagClass, STATUS_LABEL, VERDICT_CLASS, RULERS_CLASS } from "../../lib/format";
 
 export function getStaticPaths() {
   const { lists } = loadRun();
@@ -13,6 +13,7 @@ export function getStaticPaths() {
   const monthlyAll = loadMonthly();
   const radar = loadRadar().history;
   const gurus = loadGurus().by_ticker;
+  const dossiers = new Map(loadDossiers().map((d) => [d.ticker, d]));
   return universe.map((u) => ({
     params: { ticker: u.ticker },
     props: {
@@ -20,6 +21,7 @@ export function getStaticPaths() {
       monthly: monthlyAll.get(u.ticker),
       radar: radar[u.ticker] ?? [],
       gurus: gurus[u.ticker] ?? [],
+      dossier: dossiers.get(u.ticker),
       detail: detailed.get(u.ticker),
       snaps: snaps.get(u.ticker) ?? [],
       reports: reports.filter((r) => r.kind !== "model" && r.body.includes(u.ticker) &&
@@ -28,8 +30,9 @@ export function getStaticPaths() {
     },
   }));
 }
-const { u, monthly, detail, snaps, reports, model, radar, gurus } = Astro.props as {
+const { u, monthly, detail, snaps, reports, model, radar, gurus, dossier } = Astro.props as {
   u: UniverseRow; monthly?: PriceSeries; detail?: Stock; radar: RadarItem[]; gurus: GuruPos[];
+  dossier?: { verdict: string; confidence: number | null; entry: number[]; trim: number | null; updated: string; summary: string };
   snaps: { date: string; price: number | null; sticker: number | null; mos: number | null; status: string }[];
   reports: { slug: string; title: string; date: string }[]; model?: { slug: string };
 };
@@ -66,6 +69,13 @@ const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
       </span>
     </div>
   </div>
+  {dossier && (
+    <section class="panel dossier">
+      <span class={`chip ${RULERS_CLASS[dossier.verdict] ?? ""}`}>RULERS: {dossier.verdict}</span>
+      <span class="muted small"> confidence {dossier.confidence ?? "–"}/5 · tranches {dossier.entry.map((e) => usd(e)).join(" / ") || "–"} · trim {usd(dossier.trim)} · {dossier.updated}</span>
+      <p>{dossier.summary} <a href={`/rulers/${u.ticker}/`}>Read the dossier →</a></p>
+    </section>
+  )}
   {u.flags && <p>{u.flags.split(";").filter(Boolean).map((f) => <span class={`chip ${flagClass(f)}`}>{f}</span>)}</p>}
 
   <section class="panel">
@@ -186,6 +196,7 @@ const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
   section.panel { margin-top: 14px; }
   section.panel h2 { margin-top: 0; font-size: 16px; }
   .small { font-size: 12.5px; }
+  .dossier p { margin: 6px 0 0; }
   .radar { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 8px; }
   .changes { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; margin-bottom: 10px; }
   .changes div { display: flex; flex-direction: column; font-size: 12.5px; }

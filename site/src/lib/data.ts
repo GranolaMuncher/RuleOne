@@ -473,3 +473,26 @@ export function loadMethodDocs(): { method: string; checklist: string } {
   const r = (f: string) => (fs.existsSync(path.join(d, f)) ? fs.readFileSync(path.join(d, f), "utf8") : "");
   return { method: r("METHOD.md"), checklist: r("CHECKLIST.md") };
 }
+
+// ---------------------------------------------------------------- RULERS dossiers
+const RULERS_DIR = path.join(ROOT, "research", "rulers");
+export interface Dossier {
+  ticker: string; name: string; verdict: string; confidence: number | null; entry: number[];
+  trim: number | null; updated: string; priceAtUpdate: number | null; summary: string; body: string;
+}
+
+export function loadDossiers(): Dossier[] {
+  if (!fs.existsSync(RULERS_DIR)) return [];
+  const order = ["BUY", "ACCUMULATE", "WATCH", "AVOID", "TOO HARD"];
+  return fs.readdirSync(RULERS_DIR).filter((f) => f.endsWith(".md")).map((f) => {
+    const [meta, body] = frontMatter(fs.readFileSync(path.join(RULERS_DIR, f), "utf8"));
+    const s = (k: string) => (typeof meta[k] === "string" ? (meta[k] as string) : "");
+    const n = (k: string) => (s(k) && !Number.isNaN(Number(s(k))) ? Number(s(k)) : null);
+    return {
+      ticker: s("ticker") || f.replace(/\.md$/, ""), name: s("name"), verdict: s("verdict").toUpperCase(),
+      confidence: n("confidence"), trim: n("trim"), updated: s("updated"), priceAtUpdate: n("price_at_update"),
+      entry: (Array.isArray(meta.entry) ? meta.entry : []).map(Number).filter((x) => !Number.isNaN(x)),
+      summary: s("summary"), body: body.replace(/^#\s+.*\n/, ""),
+    };
+  }).sort((a, b) => (order.indexOf(a.verdict) + 1 || 9) - (order.indexOf(b.verdict) + 1 || 9) || a.ticker.localeCompare(b.ticker));
+}
