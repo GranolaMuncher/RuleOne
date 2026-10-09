@@ -1,7 +1,7 @@
 name: Radar (daily news and filings)
 
 # Weekdays after the US close: gather filings, headlines, price moves and guru 13F changes for the
-# watch list (python), have Claude judge each item EVENT / PROBLEM / WATCH / NOISE against
+# watch list plus the analyst consensus (python), have Claude judge each item EVENT / PROBLEM / WATCH / NOISE against
 # knowledge/rule1/METHOD.md, commit research/radar/, then redeploy the site.
 on:
   schedule:
@@ -48,6 +48,8 @@ jobs:
           path: .cache
           key: sec-cache-${{ github.run_id }}
           restore-keys: sec-cache-
+      - name: Refresh analyst consensus (targets, ratings, up/downgrades)
+        run: python -m ruleone.analysts refresh || echo "analyst refresh failed; keeping the last file"
       - name: Gather filings, news, prices and 13F moves
         run: python -m ruleone.radar prepare
       - uses: anthropics/claude-code-action@v1
@@ -69,7 +71,7 @@ jobs:
           python -m ruleone.radar record
           git config user.name "rule-one-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/radar lists/latest/gurus.json lists/reference/cusip.csv
+          git add research/radar research/analysts lists/latest/gurus.json lists/latest/analysts.csv lists/reference/cusip.csv
           if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
           git commit -m "Radar $(date -u +%F)"
           git pull --rebase origin "${GITHUB_REF_NAME}"

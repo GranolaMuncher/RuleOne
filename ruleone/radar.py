@@ -22,6 +22,7 @@ from pathlib import Path
 
 import requests
 
+from .analysts import load as load_analysts
 from .events import ITEM_NAMES, NEGATIVE_ITEMS, SUBMISSIONS_URL, _form4_purchases, _recent
 from .http import Fetcher
 from .marketwide import load_spark
@@ -269,6 +270,29 @@ KEEP = ["ticker", "name", "sector", "industry", "status", "tier", "price", "stic
         "roic5", "flags", "events"]
 
 
+STREET_KEYS = ("target_low", "target_mean", "target_high", "n_analysts", "rec_mean", "rec_key", "upside_mean",
+               "revision_30d", "street_signal", "recent_actions", "as_of")
+
+
+def street_brief(row: dict | None) -> dict | None:
+    return {k: row.get(k) for k in STREET_KEYS} if row else None
+
+
+def street_signals(row: dict | None, since: date) -> list[str]:
+    """Downgrades and target cuts are fear, which is how an event makes a price (InvestED 249).
+    Upgrades are not signals: they stay visible as context in `street`."""
+    if not row:
+        return []
+    out = []
+    for a in (row.get("recent_actions") or "").split("; "):
+        if " downgraded " in a and a[:10] >= since.isoformat():
+            out.append(f"analyst {a}")
+    rev = _f(row.get("revision_30d"))
+    if rev is not None and rev <= -0.10:
+        out.append(f"mean analyst target cut {-rev:.0%} in 30 days")
+    return out
+
+
 def prepare(fetcher: Fetcher, today: date, log=print) -> dict:
     with (LISTS / "latest" / "universe.csv").open() as fh:
         universe = list(csv.DictReader(fh))
@@ -282,6 +306,7 @@ def prepare(fetcher: Fetcher, today: date, log=print) -> dict:
     mentions = json.loads((ROOT / "knowledge" / "index" / "companies.json").read_text()) \
         if (ROOT / "knowledge" / "index" / "companies.json").exists() else {}
     daily = load_spark(fetcher, [r["ticker"] for r in watch], "1mo", "1d", log=lambda *_: None)
+    street = load_analysts()
     entries = []
     for i, r in enumerate(watch):
         t = r["ticker"]
@@ -289,6 +314,7 @@ def prepare(fetcher: Fetcher, today: date, log=print) -> dict:
         e = {k: r.get(k) for k in KEEP}
         e.update({"dossier": dossier_story(t) if t in dossiers else None,
                   "invested_episodes": [x["id"] for x in (mentions.get(t) or {}).get("episodes", [])[:5]],
+                  "street": street_brief(street.get(t)),
                   "chg_1d": _chg(series, 1), "chg_5d": _chg(series, 5),
                   "filings": filings_since(fetcher, int(r["cik"]), since) if r.get("cik") else [],
                   "news": news_since(t, since),
@@ -310,6 +336,7 @@ def prepare(fetcher: Fetcher, today: date, log=print) -> dict:
                 sig.append(f"insider bought ${f['insider_buy_usd']:,} {f['date']}")
             elif f["form"].startswith(("SC 13D", "SCHEDULE 13D")):
                 sig.append(f"13D filed {f['date']}")
+        sig += street_signals(street.get(t), since)
         for g in e["gurus"]:
             # A 13F is news only when it is filed; afterwards it stays visible as context in "gurus".
             if g["change"] in ("new", "added") and g["weight"] >= 0.01 and g["filed"] >= since.isoformat():

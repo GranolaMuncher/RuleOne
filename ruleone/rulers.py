@@ -16,6 +16,7 @@ import re
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
+from .analysts import load as load_analysts
 from .companyfacts import load_company
 from .http import Fetcher
 from .knowledge import lookup as invested_mentions
@@ -123,6 +124,20 @@ def _round(v):
     return v
 
 
+def street_pack(ticker: str) -> dict | None:
+    """Analyst consensus from lists/latest/analysts.csv plus the target's path from research/analysts/history.json."""
+    row = load_analysts().get(ticker)
+    if not row:
+        return None
+    hp = ROOT / "research" / "analysts" / "history.json"
+    hist = json.loads(hp.read_text()).get(ticker, []) if hp.exists() else []
+    keep = ("as_of", "target_low", "target_mean", "target_median", "target_high", "n_analysts", "rec_mean", "rec_key",
+            "strong_buy", "buy", "hold", "sell", "strong_sell", "eps_growth_cy", "eps_growth_ny", "upside_mean",
+            "mean_vs_sticker", "revision_30d", "street_signal", "recent_actions")
+    return {**{k: (_f(row[k]) if k not in ("as_of", "rec_key", "street_signal", "recent_actions") else row[k]) for k in keep},
+            "target_history": hist[-8:]}
+
+
 def fact_pack(fetcher: Fetcher, listing, today: date, radar_hist: dict, gurus: dict, snaps: list[dict]) -> dict | None:
     rec = analyze(fetcher, listing, None, today, with_events=True)
     if not rec:
@@ -149,6 +164,7 @@ def fact_pack(fetcher: Fetcher, listing, today: date, radar_hist: dict, gurus: d
         "tranche_plan": tranche_plan(rec["price"], rec.get("mos_price"), rec.get("payback_price"),
                                      rec.get("ten_cap_price"), rec.get("sticker")),
         "markers": {k: {**v, "label": MARKER_LABELS[k]} for k, v in markers.items()},
+        "street": street_pack(t),                          # sell-side consensus: a lead and a ceiling, never value
         "invested_episodes": invested_mentions(t, 8),      # what Phil and Danielle said about this company
         "last_review": next((r for r in review.get("reviews", []) if r.get("ticker") == t), None),
         "radar": radar_hist.get(t, [])[:6],

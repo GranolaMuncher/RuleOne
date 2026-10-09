@@ -19,6 +19,8 @@ from pathlib import Path
 
 import requests
 
+from .analysts import load as load_analysts
+
 ROOT = Path(__file__).resolve().parent.parent
 LISTS = ROOT / "lists"
 RADAR = ROOT / "research" / "radar"
@@ -63,7 +65,8 @@ def screen_changes(cur: list[dict], prev: list[dict]) -> dict:
     return {"entered": entered, "left": left, "moved": moved}
 
 
-def conflicts(dossiers: list[dict], radar_hist: dict, screen: dict, today: date) -> list[dict]:
+def conflicts(dossiers: list[dict], radar_hist: dict, screen: dict, today: date,
+              street: dict | None = None) -> list[dict]:
     """Disagreements between agents that the Editor must resolve or hand to the owner."""
     out = []
     cut14 = (today - timedelta(days=14)).isoformat()
@@ -93,6 +96,12 @@ def conflicts(dossiers: list[dict], radar_hist: dict, screen: dict, today: date)
                    if any(k in f for k in ("cash not real", "debt > 3 years", "ROIC falling"))]
         if v in ("BUY", "ACCUMULATE") and serious:
             out.append({"ticker": t, "kind": "verdict vs screen flags", "detail": f"RULERS says {v} but the screen flags: {'; '.join(serious)}"})
+        a = (street or {}).get(t) or {}
+        mean, rec = _f(a.get("target_mean")), _f(a.get("rec_mean"))
+        if v in ("BUY", "ACCUMULATE") and ((mean and px and mean < px) or (rec and rec >= 3.0)):
+            out.append({"ticker": t, "kind": "verdict vs street",
+                        "detail": f"RULERS says {v} but the street is cautious (mean target ${mean or 0:,.2f}, "
+                                  f"rating {rec or 0:.1f}/5, {a.get('n_analysts') or '?'} analysts): name what they fear"})
         if (d.get("updated") or "") < cut21:
             out.append({"ticker": t, "kind": "stale dossier", "detail": f"Dossier last updated {d.get('updated') or 'never'}"})
     for t, items in radar_hist.items():
@@ -149,7 +158,9 @@ def prepare(today: date) -> dict:
         "radar_week": sorted(radar_week, key=lambda x: (x["verdict"] != "PROBLEM", x["verdict"] != "EVENT", x["ticker"])),
         "guru_moves": _json(LISTS / "latest" / "gurus.json", {}).get("moves", [])[:15],
         "upcoming_reports": upcoming_reports(cands, names, today),
-        "conflicts": conflicts(dossiers, radar_hist, screen, today) + review_conflicts(),
+        "conflicts": conflicts(dossiers, radar_hist, screen, today, load_analysts()) + review_conflicts(),
+        "street": {k: v for k, v in _json(ROOT / "research" / "analysts" / "latest.json", {}).items()
+                   if k in ("date", "signals", "signal_text", "focus")},
         "review": _json(ROOT / "research" / "reviews" / "latest.json", {}),
         "scorecard": {k: v for k, v in _json(ROOT / "research" / "scorecard" / "latest.json", {}).items()
                       if k in ("date", "calls", "graded", "by_verdict", "review_candidates")},

@@ -63,13 +63,16 @@ jobs:
           fi
       - name: Refresh the InvestED knowledge index
         run: python -m ruleone.knowledge build
+      - name: Refresh analyst consensus (broad)
+        # Price targets and ratings for the quality names and every listing above $2B. Never fails the run.
+        run: python -m ruleone.analysts refresh --scope broad || echo "analyst refresh failed; keeping the last file"
       - name: Job summary
         run: head -c 60000 lists/latest/README.md >> "$GITHUB_STEP_SUMMARY"
       - name: Commit lists
         run: |
           git config user.name "rule-one-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add lists knowledge/index
+          git add lists knowledge/index research/analysts
           if git diff --cached --quiet; then echo "no changes"; exit 0; fi
           git commit -m "Screen $(date -u +%F): $(($(wc -l < lists/latest/buy_range.csv) - 1)) in buy range"
           git pull --rebase origin "${GITHUB_REF_NAME}"

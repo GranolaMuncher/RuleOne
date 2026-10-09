@@ -3,6 +3,7 @@
 The agents never call each other. They share knowledge through files with fixed formats. This page lists who writes what, who reads it, and how InvestED's Rule #1 method reaches every decision. Every agent reads this map.
 
 ```
+Analyst consensus (Yahoo) ──► Radar / RULERS / Editor  (a lead and a ceiling, never value)
 InvestED podcast (498 eps) ──► Professor ──► knowledge/invested/episodes + course.json
 The Intelligent Investor ───►  (notes)   ──► knowledge/intelligent_investor/chapters
                                    │
@@ -33,6 +34,7 @@ The Intelligent Investor ───►  (notes)   ──► knowledge/intelligent
 | `knowledge/rule1/CHECKLIST.md` | Professor | RULERS, site | The checklist applied per stock |
 | `knowledge/index/companies.json` | `ruleone.knowledge` (weekly, and after new episodes) | RULERS, Radar, Professor review, stock pages | Which episodes discuss which company |
 | `lists/latest/*` | Screener (Saturday) | Radar, RULERS, Editor, Engineer, site | Prices, Rule #1 prices, Big Five, markers, flags |
+| `lists/latest/analysts.csv`, `research/analysts/*` | `ruleone.analysts` (weekdays with Radar; a broad pass on Saturday) | Radar (downgrades and target cuts), RULERS (the Street line, growth ceiling), Editor (street vs Rule #1), stock pages, `/street/` | Sell-side consensus: low/mean/high targets, ratings, revisions, and agree / contrarian / crowded against the Rule #1 prices |
 | `research/radar/history.json` | Radar (weekdays) | RULERS (scope and Event), Editor, scorecard, Holdings | EVENT / PROBLEM / WATCH / NOISE per ticker |
 | `research/rulers/<T>.md`, `index.json` | RULERS (Saturday) | Radar (triggers), Professor review, Editor, scorecard, Holdings | Living dossiers: verdict, ladder, story, sell triggers |
 | `research/reviews/latest.json` | Professor review (Saturday) | RULERS (fix majors), Editor (conflicts) | Marks each dossier against the method |

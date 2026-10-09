@@ -17,7 +17,9 @@ Not investment advice. These are study notes on a published method, and automate
   - 13D/G filings (owners of more than 5%) arrive within days.
   - Fewer than ~20 holdings signals a Rule #1-style investor. Treat a guru position of ≥4% as meaningful.
 - **Insider buying** counts when it is large against the insider's holding. Token buys are PR [277].
+- **Analysts' price targets are leads, not valuations** [077]. A target is a 12-month price opinion. Analysts lean optimistic because their banks want the business, so treat their growth rate as a **ceiling** [093, 122]. Their downgrades produce the fear that makes a price [249], and thin coverage leaves room for mispricing [440]. What the crowd focuses on tells you where good news is already priced in.
 - Radar's gate: the business is in two of your three circles, a guru holds it at 4%+, and you know the industry [253].
+- **App:** the analyst consensus (`ruleone.analysts`, refreshed on weekdays): low/mean/high targets, ratings and up/downgrades, read against the Rule #1 prices as *agree / contrarian / crowded*. Radar treats downgrades and target cuts as fear signals; RULERS uses analyst growth as a ceiling.
 - **App:** the screen's event columns (drawdown, Form 4 open-market buys, 13D, negative 8-Ks), and the **Radar agent** (daily news, filings and guru 13F moves for the watch list).
 
 ## 2. Understand (Meaning)

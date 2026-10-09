@@ -553,3 +553,50 @@ export function loadOps(): { health: { date: string; body: string } | null; inci
   }) : [];
   return { health: last ? { date: last.slice(0, 10), body: fs.readFileSync(path.join(hdir, last), "utf8") } : null, incidents };
 }
+
+// ---------------------------------------------------------------- analyst consensus (the street)
+export interface StreetRow {
+  ticker: string; asOf: string; price: number | null; low: number | null; mean: number | null; median: number | null; high: number | null;
+  n: number | null; rec: number | null; recKey: string; counts: { label: string; n: number }[];
+  epsGrowthCy: number | null; epsGrowthNy: number | null; upside: number | null; revision: number | null;
+  signal: string; actions: string[];
+}
+export interface StreetBrief {
+  ticker: string; name: string | null; tier: string | null; status: string | null; price: number | null; mos_price: number | null;
+  sticker: number | null; target_low: number | null; target_mean: number | null; target_high: number | null;
+  n_analysts: number | null; rec_mean: number | null; upside_mean: number | null; revision_30d: number | null; signal: string; recent_actions: string;
+}
+export interface StreetFocus {
+  date: string; covered: number; signals: Record<string, number>; signal_text: Record<string, string>;
+  focus: Record<"agree" | "contrarian" | "crowded" | "revisions" | "most_watched" | "dossiers", StreetBrief[]>;
+}
+
+let _street: Map<string, StreetRow> | null = null;
+export function loadStreet(): Map<string, StreetRow> {
+  if (_street) return _street;
+  _street = new Map();
+  for (const r of readCsv(path.join(LISTS, "latest", "analysts.csv"))) {
+    _street.set(r.ticker, {
+      ticker: r.ticker, asOf: r.as_of, price: num(r.price), low: num(r.target_low), mean: num(r.target_mean), median: num(r.target_median),
+      high: num(r.target_high), n: num(r.n_analysts), rec: num(r.rec_mean), recKey: r.rec_key ?? "",
+      counts: [["Strong buy", r.strong_buy], ["Buy", r.buy], ["Hold", r.hold], ["Sell", r.sell], ["Strong sell", r.strong_sell]]
+        .map(([label, v]) => ({ label: label as string, n: num(v as string) ?? 0 })),
+      epsGrowthCy: num(r.eps_growth_cy), epsGrowthNy: num(r.eps_growth_ny), upside: num(r.upside_mean), revision: num(r.revision_30d),
+      signal: r.street_signal ?? "", actions: (r.recent_actions ?? "").split("; ").filter(Boolean),
+    });
+  }
+  return _street;
+}
+
+export function loadStreetFocus(): StreetFocus | null {
+  const f = path.join(ROOT, "research", "analysts", "latest.json");
+  return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : null;
+}
+
+export const STREET_LABEL: Record<string, string> = {
+  agree: "Street agrees", contrarian: "Contrarian", crowded: "Crowded", "both cautious": "Both cautious",
+  "thin coverage": "Thin coverage", mixed: "Mixed",
+};
+export const STREET_CLASS: Record<string, string> = {
+  agree: "BUY", contrarian: "ONDECK", crowded: "warn", "both cautious": "info", "thin coverage": "info", mixed: "",
+};

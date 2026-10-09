@@ -115,6 +115,15 @@ import Base from "../layouts/Base.astro";
       (dz.v === "AVOID" ? d : i).push(line);
       if (dz.trim && p != null && p > dz.trim) d.push(`Price is above the dossier's trim level of ${money(dz.trim)}.`);
     }
+    const st = radar.street?.[u.ticker];
+    if (st && st.m != null) {
+      const line = `Analysts (${st.n ?? "?"}, as of ${esc(st.d)}): targets ${money(st.l)} / <b>${money(st.m)}</b> / ${money(st.h)} (low / mean / high), rating ${st.r != null ? st.r.toFixed(1) : "–"} of 5.`
+        + (st.v != null && st.v <= -0.1 ? ` Mean target cut ${pct(-st.v, false)} in 30 days.` : "")
+        + (st.s === "crowded" ? " The street loves it but the price is above Sticker: good news is priced in." : "")
+        + (st.s === "contrarian" ? " Analysts are cautious while the price is near a Rule #1 buy price: find out what they fear." : "")
+        + " A target is a price opinion, not a value.";
+      (st.v != null && st.v <= -0.1 ? d : i).push(line);
+    }
     const held = radar.gurus?.[u.ticker];
     if (held?.length) i.push("Also held by " + held.map((g) => `${esc(g.g)} (${pct(g.w, false)} of 13F${g.c !== "held" ? ", " + esc(g.c) : ""})`).join(", ") + ". That's a name, not a decision.");
     if (notes.length) i.push("Data note: " + esc(notes.join("; ")));

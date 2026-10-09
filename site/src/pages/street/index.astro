@@ -1,0 +1,74 @@
+---
+import Base from "../../layouts/Base.astro";
+import { loadStreetFocus, STREET_CLASS, STREET_LABEL, type StreetBrief } from "../../lib/data";
+import { usd, pct } from "../../lib/format";
+
+const data = loadStreetFocus();
+const groups: [keyof NonNullable<typeof data>["focus"], string, string][] = [
+  ["contrarian", "Contrarian: Rule #1 cheap, street cautious",
+    "At or near a Rule #1 buy price while analysts are cautious (average rating 2.8+ or the mean target at or below the price). Find out what they fear. A one-time, solvable worry is an event; a broken story is a trap. Start your research here."],
+  ["agree", "Rule #1 and the street agree",
+    "At or near a Rule #1 buy price, with bullish analysts (rating 2.2 or better, 10%+ to the mean target). Fewer surprises, but less fear, so the bargain may not last."],
+  ["crowded", "Crowded: the street loves it, the price is above Sticker",
+    "The names everyone is talking about. Rule #1 says good news is already in the price: wait for an event."],
+  ["revisions", "Big target moves in 30 days",
+    "The mean analyst target moved 10% or more. Cuts are fear and can create an event price; raises are never a reason to buy."],
+  ["most_watched", "Most-covered quality names", "Where most analysts are looking: the largest, most crowded names in the quality list."],
+  ["dossiers", "RULERS dossier names", "The consensus for every name with a dossier."],
+];
+const up = (b: StreetBrief) => b.upside_mean;
+---
+<Base title="The street vs Rule #1" description="Analysts' price targets (low, mean, high) and ratings read against the Rule #1 prices.">
+  <h1>The street vs Rule #1</h1>
+  <p class="muted lede">
+    Analysts' consensus price targets (low, mean and high) and ratings, refreshed every weekday, set beside the Rule #1 buy (MOS)
+    price and Sticker for the quality names. A target is a <strong>12-month price opinion, not a value</strong>. Rule #1 uses the
+    street as a lead and its growth estimate as a ceiling, and looks hardest where the method says cheap but analysts are afraid
+    (<a href="/learn/077/">077</a>, <a href="/learn/093/">093</a>, <a href="/learn/249/">249</a>). This is research, not advice.
+  </p>
+  {!data ? <p class="panel">No analyst data yet. It refreshes with Radar on weekdays.</p> : (
+    <>
+      <p class="small muted">As of {data.date} · {data.covered} names covered ·
+        {Object.entries(data.signals).map(([k, n]) => <span class={`chip ${STREET_CLASS[k] ?? ""}`}>{STREET_LABEL[k] ?? k} {n}</span>)}
+      </p>
+      {groups.map(([key, title, blurb]) => data.focus[key]?.length > 0 && (
+        <section class="panel">
+          <h2 id={key}>{title} <span class="muted">{data.focus[key].length}</span></h2>
+          <p class="muted small">{blurb}</p>
+          <div class="tablewrap">
+            <table class="dt">
+              <thead><tr><th>Ticker</th><th class="num">Price</th><th class="num">MOS</th><th class="num">Sticker</th>
+                <th class="num">Target low</th><th class="num">Mean</th><th class="num">High</th><th class="num">To mean</th>
+                <th class="num">Analysts</th><th class="num">Rating</th><th class="num">30d rev.</th><th>Signal</th></tr></thead>
+              <tbody>
+                {data.focus[key].map((b) => (
+                  <tr>
+                    <td><a href={`/stock/${b.ticker}/`}><strong>{b.ticker}</strong></a><div class="muted small">{b.name}{b.tier ? ` · tier ${b.tier}` : ""}</div></td>
+                    <td class="num">{usd(b.price)}</td>
+                    <td class={`num ${b.price != null && b.mos_price != null && b.price <= b.mos_price ? "pos" : ""}`}>{usd(b.mos_price)}</td>
+                    <td class="num">{usd(b.sticker)}</td>
+                    <td class="num">{usd(b.target_low)}</td>
+                    <td class="num"><b>{usd(b.target_mean)}</b></td>
+                    <td class="num">{usd(b.target_high)}</td>
+                    <td class={`num ${(up(b) ?? 0) >= 0 ? "pos" : "neg"}`}>{pct(up(b))}</td>
+                    <td class="num">{b.n_analysts ?? "–"}</td>
+                    <td class="num">{b.rec_mean != null ? b.rec_mean.toFixed(1) : "–"}</td>
+                    <td class={`num ${(b.revision_30d ?? 0) < 0 ? "neg" : ""}`}>{pct(b.revision_30d)}</td>
+                    <td><span class={`chip ${STREET_CLASS[b.signal] ?? ""}`}>{STREET_LABEL[b.signal] ?? b.signal}</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ))}
+      <p class="muted small">Rating: 1 = strong buy … 5 = sell. Source: Yahoo Finance consensus, the same sell-side analysts that TipRanks and MarketBeat summarise.</p>
+    </>
+  )}
+</Base>
+<style>
+  .lede { max-width: 880px; }
+  .tablewrap { overflow-x: auto; }
+  section.panel { margin-top: 16px; }
+  section.panel h2 { margin-top: 0; }
+</style>

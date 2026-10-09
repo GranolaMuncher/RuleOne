@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import PriceChart from "../../components/PriceChart.astro";
-import { loadRun, loadUniverse, loadSnapshots, loadReports, loadMonthly, loadRadar, loadGurus, loadDossiers, loadInvestedIndex, MARKER_LABELS, type PriceSeries, type Stock, type UniverseRow, type RadarItem, type GuruPos } from "../../lib/data";
+import { loadRun, loadUniverse, loadSnapshots, loadReports, loadMonthly, loadRadar, loadGurus, loadDossiers, loadInvestedIndex, loadStreet, MARKER_LABELS, STREET_LABEL, STREET_CLASS, type StreetRow, type PriceSeries, type Stock, type UniverseRow, type RadarItem, type GuruPos } from "../../lib/data";
 import { usd, pct, big, mult, upside, flagClass, STATUS_LABEL, VERDICT_CLASS, RULERS_CLASS } from "../../lib/format";
 
 export function getStaticPaths() {
@@ -15,6 +15,7 @@ export function getStaticPaths() {
   const gurus = loadGurus().by_ticker;
   const dossiers = new Map(loadDossiers().map((d) => [d.ticker, d]));
   const invested = loadInvestedIndex();
+  const street = loadStreet();
   return universe.map((u) => ({
     params: { ticker: u.ticker },
     props: {
@@ -23,6 +24,7 @@ export function getStaticPaths() {
       radar: radar[u.ticker] ?? [],
       gurus: gurus[u.ticker] ?? [],
       dossier: dossiers.get(u.ticker),
+      street: street.get(u.ticker),
       episodes: (invested[u.ticker]?.episodes ?? []).slice(0, 8),
       detail: detailed.get(u.ticker),
       snaps: snaps.get(u.ticker) ?? [],
@@ -32,7 +34,8 @@ export function getStaticPaths() {
     },
   }));
 }
-const { u, monthly, detail, snaps, reports, model, radar, gurus, dossier, episodes } = Astro.props as {
+const { u, monthly, detail, snaps, reports, model, radar, gurus, dossier, episodes, street } = Astro.props as {
+  street?: StreetRow;
   episodes: { id: string; title: string; mentions: number; sentence: string }[];
   u: UniverseRow; monthly?: PriceSeries; detail?: Stock; radar: RadarItem[]; gurus: GuruPos[];
   dossier?: { verdict: string; confidence: number | null; entry: number[]; trim: number | null; updated: string; summary: string };
@@ -53,6 +56,21 @@ const lo = pts.length ? Math.min(...pts) * 0.9 : 0, hi = pts.length ? Math.max(.
 const x = (v: number) => ((v - lo) / (hi - lo || 1)) * 100;
 
 
+
+// Analyst consensus on its own scale: the street's low–high band against the price and the Rule #1 levels.
+const sPts = street ? [street.low, street.high, street.mean, u.price, u.mos, u.sticker].filter((v): v is number => v != null && v > 0) : [];
+const sLo = sPts.length ? Math.min(...sPts) * 0.92 : 0, sHi = sPts.length ? Math.max(...sPts) * 1.04 : 1;
+const sx = (v: number) => ((v - sLo) / (sHi - sLo || 1)) * 100;
+const sMarks = ([["Buy (MOS)", u.mos], ["Sticker", u.sticker]] as [string, number | null][]).filter(([, v]) => v != null && v > 0);
+const sTotal = street ? street.counts.reduce((a, c) => a + c.n, 0) : 0;
+const STREET_TEXT: Record<string, string> = {
+  agree: "Rule #1 price and the street both say cheap.",
+  contrarian: "Rule #1 price says cheap but analysts are cautious. Find out what they fear: it may be the event, or a story change.",
+  crowded: "Analysts love it but the price is above Sticker. Good news is already priced in.",
+  "both cautious": "Above Sticker, and the street is cautious too.",
+  "thin coverage": "Fewer than 3 analysts cover it: more room for mispricing, less help checking the numbers.",
+  mixed: "",
+};
 
 const changes = [["1 week", u.chg.w1], ["1 month", u.chg.m1], ["3 months", u.chg.m3], ["6 months", u.chg.m6], ["YTD", u.chg.ytd], ["1 year", u.chg.y1]] as const;
 const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
@@ -102,6 +120,46 @@ const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
         ))}
         {u.price && <div class="price" style={`left:${x(u.price)}%`}><span class="lbl">Price<br /><b>{usd(u.price, 0)}</b></span></div>}
       </div>
+    </section>
+  )}
+
+  {street && street.mean != null && (
+    <section class="panel">
+      <h2>Analyst consensus <span class="muted">{street.n ?? "?"} analysts · as of {street.asOf} · <a href="/street/">the street vs Rule #1</a></span></h2>
+      <p>
+        {street.signal && STREET_LABEL[street.signal] && <span class={`chip ${STREET_CLASS[street.signal] ?? ""}`}>{STREET_LABEL[street.signal]}</span>}{" "}
+        Targets <b>{usd(street.low, 0)}</b> low · <b>{usd(street.mean, 0)}</b> mean · <b>{usd(street.high, 0)}</b> high
+        {street.upside != null && <> (<span class={street.upside >= 0 ? "pos" : "neg"}>{street.upside >= 0 ? "+" : ""}{pct(street.upside)}</span> to the mean)</>}
+        {street.revision != null && <> · mean target {street.revision >= 0 ? "up" : "down"} {pct(Math.abs(street.revision))} in 30 days</>}
+      </p>
+      {STREET_TEXT[street.signal] && <p class="muted small">{STREET_TEXT[street.signal]}</p>}
+      {sPts.length > 1 && street.low != null && street.high != null && (
+        <div class="ladder street" aria-label="Analyst target range versus price and Rule #1 levels">
+          <div class="track">
+            <div class="band" style={`left:${sx(street.low)}%;width:${sx(street.high) - sx(street.low)}%`}></div>
+            <div class="mark" style={`left:${sx(street.low)}%`}><span class="tick"></span><span class="lbl">Low<br /><b>{usd(street.low, 0)}</b></span></div>
+            {street.mean != null && <div class="mark mean" style={`left:${sx(street.mean)}%`}><span class="tick"></span><span class="lbl">Mean<br /><b>{usd(street.mean, 0)}</b></span></div>}
+            <div class="mark" style={`left:${sx(street.high)}%`}><span class="tick"></span><span class="lbl">High<br /><b>{usd(street.high, 0)}</b></span></div>
+            {sMarks.map(([label, v]) => (
+              <div class="mark low r1" style={`left:${sx(v!)}%`}><span class="tick"></span><span class="lbl">{label}<br /><b>{usd(v, 0)}</b></span></div>
+            ))}
+            {u.price && <div class="price" style={`left:${sx(u.price)}%`}><span class="lbl">Price<br /><b>{usd(u.price, 0)}</b></span></div>}
+          </div>
+        </div>
+      )}
+      {sTotal > 0 && (
+        <div class="ratings" aria-label="Analyst ratings">
+          {street.counts.filter((c) => c.n > 0).map((c, i) => (
+            <span class={`r r${street.counts.indexOf(c)}`} style={`flex:${c.n}`} title={`${c.label}: ${c.n}`}>{c.label} {c.n}</span>
+          ))}
+        </div>
+      )}
+      <p class="muted small">
+        Average rating {street.rec != null ? `${street.rec.toFixed(1)} of 5` : "–"} (1 = strong buy, 5 = sell){street.recKey && ` · ${street.recKey.replace("_", " ")}`}
+        {street.epsGrowthNy != null && <> · EPS growth next year {pct(street.epsGrowthNy)} vs windage {pct(u.growth, 1)}</>}
+      </p>
+      {street.actions.length > 0 && <ul class="eps small">{street.actions.map((a) => <li>{a}</li>)}</ul>}
+      <p class="muted small">A price target is a 12-month price opinion, not a valuation. Rule #1 treats analysts as a lead and their growth as a ceiling (<a href="/learn/077/">077</a>, <a href="/learn/093/">093</a>). Source: Yahoo Finance consensus.</p>
     </section>
   )}
 
@@ -252,4 +310,11 @@ const statusClass = u.status.replace("*", "star").replace(/\s/g, "");
   .mark.low .lbl { top: 40px; }
   .price::before { content: ""; display: block; width: 14px; height: 14px; margin-top: -5px; border-radius: 50%; background: var(--accent); }
   .price .lbl { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); font-size: 12px; text-align: center; white-space: nowrap; color: var(--accent); }
+  .ladder.street { padding: 48px 8px 80px; }
+  .band { position: absolute; top: -4px; height: 12px; background: color-mix(in srgb, var(--accent) 22%, transparent); border-radius: 6px; }
+  .mark.mean .tick { background: var(--ink); height: 18px; margin-top: -7px; }
+  .mark.r1 .tick { background: var(--buy); }
+  .ratings { display: flex; gap: 2px; margin: 8px 0; font-size: 11.5px; border-radius: 6px; overflow: hidden; }
+  .ratings .r { padding: 4px 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; min-width: 0; }
+  .r0 { background: #1f7a4a; } .r1 { background: #4c9a6a; } .r2 { background: #8a8f98; } .r3 { background: #c0703a; } .r4 { background: #a8322d; }
 </style>
