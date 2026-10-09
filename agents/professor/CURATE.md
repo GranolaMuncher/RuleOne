@@ -10,6 +10,7 @@
    - Add glossary terms (at most 3 per episode) and append episode ids to existing terms.
    - Set `updated` to today's date (`date -u +%F`).
    - Keep `course.json` valid JSON. Check it with `python3 -m json.tool knowledge/invested/course.json > /dev/null` after editing.
-4. Don't edit `progress.json` or any transcript.
+4. **Keep the method current.** If a new episode adds or refines a rule (a new test, a changed threshold, a later version of an earlier rule), update `knowledge/rule1/METHOD.md` and `knowledge/rule1/CHECKLIST.md`: edit the rule in place, cite the episode, and say "refined in [NNN]". Never paste transcript text. If the change affects what the screener computes, add a line under `## Proposed app changes` at the end of METHOD.md, so the Engineer (or the owner) can implement it.
+5. Don't edit `progress.json` or any transcript.
 
 Finish with a short summary: the episodes added, the modules revised and the single most useful new idea.

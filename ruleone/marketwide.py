@@ -19,9 +19,9 @@ from pathlib import Path
 from urllib.parse import quote
 
 from .http import Fetcher
-from .metrics import big_five, fcf, normalize_splits, post_filing_split, windage_growth
+from .metrics import big_five, fcf, normalize_splits, owner_earnings, post_filing_split, sane_shares, windage_growth
 from .prices import price_near
-from .valuation import historical_pe, payback_price, sticker_price, ten_cap_price
+from .valuation import historical_pe, methods_agree, payback_price, sticker_price, ten_cap_price
 
 SPARK_URL = "https://query1.finance.yahoo.com/v7/finance/spark?symbols={syms}&range={rng}&interval={iv}"
 DEI_URL = "https://data.sec.gov/api/xbrl/frames/dei/EntityCommonStockSharesOutstanding/shares/{period}.json"
@@ -204,6 +204,7 @@ def fy_valuation(years: dict, b5: dict, price: float | None, monthly: list, cur_
         eps = row["net_income"] / fy_shares
     eps = eps / factor if eps is not None else None
     shares = cur_shares or (fy_shares * factor if fy_shares else None)
+    shares = sane_shares(shares, row.get("net_income"), eps)
     out["eps"] = eps
     if price and shares:
         out["market_cap"] = price * shares
@@ -219,7 +220,8 @@ def fy_valuation(years: dict, b5: dict, price: float | None, monthly: list, cur_
         out["sticker"], out["mos_price"] = st["sticker"], st["mos_price"]
     f = fcf(row)
     if f is not None and shares:
-        out["ten_cap_price"] = ten_cap_price(f, shares)
+        # Stage-1 frames carry long-term debt but not cash, so the FY Ten Cap subtracts gross LTD.
+        out["ten_cap_price"] = ten_cap_price(owner_earnings(row), shares, row.get("lt_debt") or 0.0)
         out["payback_price"] = payback_price(f, shares, g) if g is not None else None
         if price:
             out["fcf_yield"] = f / (price * shares)
@@ -262,7 +264,7 @@ UNIVERSE_COLUMNS = [
     "price", "price_date", "market_cap", "chg_1w", "chg_1m", "chg_3m", "chg_6m", "chg_ytd", "chg_1y",
     "off_high", "above_low", "high52", "low52",
     "eps", "eps_basis", "pe", "hist_pe_median", "windage_growth", "sticker", "mos_price", "price_to_sticker",
-    "payback_price", "ten_cap_price", "fcf_yield",
+    "payback_price", "ten_cap_price", "methods_agree", "fcf_yield",
     "div_ttm", "div_yield", "div_growth_5y", "tr_5y", "tr_10y",
     "big5_score", "big5_tests", "roic10", "roic5", "roic1",
     "sales_g10", "sales_g5", "sales_g1", "eps_g10", "eps_g5", "eps_g1",
@@ -331,6 +333,7 @@ def build_universe(universe: dict, frames: dict, detailed: list[dict], weekly: d
             # Rule #1 buys only wonderful businesses: below-value stocks that fail the
             # quality screen get a valuation label, not a buy signal.
             row["status"] = valuation_label(row["price"], row["mos_price"], row["sticker"])
+        row["methods_agree"] = methods_agree(row["price"], row["mos_price"], row["payback_price"], row["ten_cap_price"])
         d = detail_by_ticker.get(t)
         if d:   # detailed TTM / ADR-normalised analysis wins
             for k in ("status", "tier", "market_cap", "sticker", "mos_price", "payback_price",
@@ -338,7 +341,7 @@ def build_universe(universe: dict, frames: dict, detailed: list[dict], weekly: d
                       "big5_score", "big5_tests", "events", "flags",
                       "roic10", "roic5", "roic1", "sales_g10", "sales_g5", "sales_g1", "eps_g10", "eps_g5",
                       "eps_g1", "bvps_g10", "bvps_g5", "bvps_g1", "ocf_g10", "ocf_g5", "ocf_g1",
-                      "debt_payoff_years"):
+                      "debt_payoff_years", "methods_agree"):
                 row[k] = d.get(k)
             row["eps"], row["pe"] = d.get("eps_ttm"), d.get("pe_ttm")
             row["eps_basis"] = f"TTM {d.get('ttm_end') or ''}".strip()

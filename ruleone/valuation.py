@@ -34,11 +34,22 @@ def payback_price(fcf: float, shares: float, growth: float, years: int = 8) -> f
     return sum(fcf * (1 + g) ** t for t in range(1, years + 1)) / shares
 
 
-def ten_cap_price(owner_earnings: float, shares: float) -> float | None:
-    """Buy at 10x owner earnings (a 10% pre-tax owner yield)."""
+def ten_cap_price(owner_earnings: float, shares: float, net_debt: float = 0.0) -> float | None:
+    """Buy at 10x owner earnings (a 10% pre-tax owner yield), less net debt (InvestED 341, 467):
+    interest is already inside owner earnings but the principal is not, so a buyer of the whole
+    business pays it on top. Net cash is not added back (conservative)."""
     if not owner_earnings or owner_earnings <= 0 or not shares:
         return None
-    return owner_earnings * 10 / shares
+    value = owner_earnings * 10 - max(net_debt or 0.0, 0.0)
+    return value / shares if value > 0 else None
+
+
+def methods_agree(price: float | None, mos: float | None, payback: float | None, ten_cap: float | None) -> int:
+    """How many of the three Rule #1 prices the current price is at or below (InvestED 071, 280:
+    triangulate; all three in one ballpark is the strongest signal)."""
+    if not price:
+        return 0
+    return sum(1 for v in (mos, payback, ten_cap) if v and price <= v)
 
 
 def historical_pe(eps_by_end: dict[str, float], price_at) -> dict:

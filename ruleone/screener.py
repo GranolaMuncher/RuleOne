@@ -24,12 +24,12 @@ from .frames import load_frames
 from .http import Fetcher
 from .marketwide import (build_universe, dividend_stats, sector_fields, load_current_shares, load_spark, load_total_return,
                          write_price_history, write_universe)
-from .metrics import big_five, fcf, windage_growth
+from .metrics import big_five, fcf, windage_growth, owner_earnings
 from .sectors import load_reference, refresh_reference
 from .normalize import normalize
 from .prices import load_prices, price_near
 from .universe import load_universe
-from .valuation import historical_pe, payback_price, sticker_price, ten_cap_price
+from .valuation import historical_pe, methods_agree, payback_price, sticker_price, ten_cap_price
 
 
 def log(*a):
@@ -80,8 +80,10 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
     g = windage_growth(b)
     st = sticker_price(eps, g, hpe["median"]) if g else None
     fcf_ttm = fcf(ttm)
+    oe_ttm = owner_earnings(ttm)
+    net_debt = (nz["debt"] or 0) - (nz["cash"] or 0)
     pb = payback_price(fcf_ttm, shares, g) if g is not None else None
-    tc = ten_cap_price(fcf_ttm, shares)
+    tc = ten_cap_price(oe_ttm, shares, net_debt)
     sticker = st["sticker"] if st else None
     mos = st["mos_price"] if st else None
     buy_signals = [n for n, v in (("MOS", mos), ("PaybackTime", pb), ("TenCap", tc)) if v and price <= v]
@@ -98,6 +100,16 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
     ev = load_events(fetcher, listing.cik, px, today) if with_events else {}
     rec_pe = price / eps if eps and eps > 0 else None
     debt = nz["debt"]
+    ni = ttm.get("net_income")
+    # Cash must be real (ep. 271/273): owner earnings after tax, i.e. OCF less maintenance capex,
+    # should be at least ~75% of net income. Growth capex is not held against the business.
+    oe_after_tax = oe_ttm - max(ttm.get("tax") or 0.0, 0.0) if oe_ttm is not None else None
+    cash_conv = oe_after_tax / ni if oe_after_tax is not None and ni and ni > 0 else None
+    debt_years = debt / fcf_ttm if fcf_ttm and fcf_ttm > 0 else (0.0 if not debt else None)
+    r10, r5, r1 = b.get("roic10"), b.get("roic5"), b.get("roic1")
+    roic_falling = r1 is not None and r5 is not None and r5 > 0 and r1 < 0.75 * r5 and (r10 is None or r5 <= r10)
+    dd = ev.get("drawdown_52w")
+    no_event = status in ("BUY", "BUY*") and dd is not None and dd > -0.10
     rec = {
         "ticker": listing.ticker, "name": cf["name"] or listing.name, "exchange": listing.exchange,
         "cik": listing.cik, "sector": ev.get("sic"), "status": status, "tier": quality_tier(b),
@@ -109,7 +121,9 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
         "hist_pe_median": hpe["median"], "pe_ttm": price / eps if eps and eps > 0 else None,
         "eps_ttm": eps, "fcf_ttm": fcf_ttm, "ttm_end": ttm.get("_end"),
         "fcf_yield": fcf_ttm / mcap if fcf_ttm and mcap else None,
-        "debt": debt, "debt_payoff_years": b.get("debt_payoff_years"),
+        "owner_earnings_ttm": oe_ttm, "net_debt": net_debt,
+        "methods_agree": methods_agree(price, mos, pb, tc), "cash_conversion": cash_conv,
+        "debt": debt, "debt_payoff_years": b.get("debt_payoff_years"), "debt_years_total": debt_years,
         "big5_score": b["big5_score"], "big5_tests": f"{b['tests_passed']}/{b['tests_total']}",
         **{k: b.get(k) for k in ("roic10", "roic5", "roic1", "sales_g10", "sales_g5", "sales_g1",
                                  "eps_g10", "eps_g5", "eps_g1", "bvps_g10", "bvps_g5", "bvps_g1",
@@ -120,21 +134,27 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
                                                                   ("Bank", "Insurance", "Savings", "Credit", "Finance",
                                                                    "Brokers", "Security"))),
             ("; ".join(nz["notes"]), bool(nz["notes"])),
-            ("micro-cap", mcap is not None and mcap < 1e9)) if c),
+            ("micro-cap", mcap is not None and mcap < 1e9),
+            # Checks from the InvestED synthesis (knowledge/rule1/METHOD.md)
+            ("cash not real: owner earnings < 75% of net income", cash_conv is not None and cash_conv < 0.75),
+            ("debt > 3 years of FCF", debt_years is None or debt_years > 3),
+            ("ROIC falling: check capital allocation", roic_falling),
+            ("cheap without an event (near 52w high): value-trap check", no_event)) if c),
         "drawdown_52w": ev.get("drawdown_52w"), "event_score": event_score(ev) if ev else 0.0,
         "events": event_summary(ev) if ev else "", "next_report_est": ev.get("next_earnings_est"),
     }
     disc = 1 - rec["price_to_sticker"] if rec["price_to_sticker"] else -1
     rec["rank_score"] = round(2 * b["big5_score"] + max(min(disc, 1.0), -1.0) * 2
-                              + {"A": 1.0, "B": 0.5, "C": 0}[rec["tier"]] + 0.25 * rec["event_score"], 3)
+                              + {"A": 1.0, "B": 0.5, "C": 0}[rec["tier"]] + 0.25 * rec["event_score"]
+                              + 0.25 * rec["methods_agree"], 3)
     return rec
 
 
 # ---------------------------------------------------------------- output
 COLUMNS = ["ticker", "name", "exchange", "sector", "industry", "status", "tier", "price", "price_date", "market_cap",
-           "sticker", "mos_price", "payback_price", "ten_cap_price", "price_to_sticker", "buy_signals",
+           "sticker", "mos_price", "payback_price", "ten_cap_price", "price_to_sticker", "buy_signals", "methods_agree",
            "windage_growth", "future_pe", "hist_pe_median", "pe_ttm", "eps_ttm", "fcf_ttm", "fcf_yield",
-           "ttm_end", "div_ttm", "div_yield", "div_growth_5y", "tr_5y", "tr_10y", "debt", "debt_payoff_years", "big5_score", "big5_tests", "roic10", "roic5", "roic1",
+           "ttm_end", "div_ttm", "div_yield", "div_growth_5y", "tr_5y", "tr_10y", "debt", "debt_payoff_years", "debt_years_total", "owner_earnings_ttm", "net_debt", "cash_conversion", "big5_score", "big5_tests", "roic10", "roic5", "roic1",
            "sales_g10", "sales_g5", "sales_g1", "eps_g10", "eps_g5", "eps_g1", "bvps_g10", "bvps_g5",
            "bvps_g1", "ocf_g10", "ocf_g5", "ocf_g1", "chg_1w", "chg_1m", "chg_3m", "drawdown_52w", "event_score", "events",
            "next_report_est", "flags", "rank_score", "cik"]

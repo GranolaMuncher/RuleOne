@@ -10,7 +10,7 @@ from __future__ import annotations
 from datetime import date
 
 from .http import Fetcher
-from .metrics import normalize_splits, post_filing_split
+from .metrics import normalize_splits, post_filing_split, sane_shares
 from .prices import load_fx, load_share_fallback, price_near
 
 NOT_MONEY = {"shares", "diluted_shares", "shares_outstanding", "split_factor"}
@@ -46,6 +46,7 @@ def normalize(fetcher: Fetcher, listing, cf: dict, today: date) -> dict | None:
     fx_at = (lambda d: price_near(fxd["series"], d) or fx) if cur != "USD" else (lambda d: 1.0)
 
     shares = _fresh(cf["latest"], "diluted_shares", today) or _fresh(cf["latest"], "shares_outstanding", today)
+    shares = sane_shares(shares, cf["ttm"].get("net_income"), cf["ttm"].get("eps"))
     yf = load_share_fallback(fetcher, listing.ticker)
     # >1: split after the latest filing; <1: ADR (1 ADS = 1/factor ordinary shares)
     factor = post_filing_split(shares, yf.get("quarterlyDilutedAverageShares"))

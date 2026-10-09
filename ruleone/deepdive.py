@@ -16,7 +16,7 @@ from statistics import mean, median
 
 from .companyfacts import load_company
 from .http import Fetcher
-from .metrics import big_five, fcf, windage_growth
+from .metrics import big_five, fcf, windage_growth, owner_earnings
 from .normalize import normalize
 from .prices import beta, load_prices, price_near
 from .universe import load_universe
@@ -47,6 +47,7 @@ def snapshot(fetcher: Fetcher, listing, today: date) -> dict:
     return {"ticker": listing.ticker, "name": cf["name"], "cf": cf, "nz": nz, "px": px, "price": price,
             "shares": shares, "eps_ttm": eps, "mcap": mcap, "debt": debt, "cash": cash,
             "ev": mcap + debt - cash, "ebitda": ebitda, "revenue": t.get("revenue"), "fcf": f,
+            "owner_earnings": owner_earnings(t),
             "pe_ttm": price / eps if eps and eps > 0 else None,
             "ev_ebitda": (mcap + debt - cash) / ebitda if ebitda > 0 else None,
             "ps": mcap / t["revenue"] if t.get("revenue") else None,
@@ -164,7 +165,7 @@ def run(cfg: dict, fetcher: Fetcher, today: date | None = None) -> tuple[str, di
     g_r1 = cfg.get("rule1_growth", g_hist)
     st = sticker_price(tgt["eps_ttm"], g_r1, hpe["median"])
     pb = payback_price(tgt["fcf"], tgt["shares"], g_r1)
-    tc = ten_cap_price(tgt["fcf"], tgt["shares"])
+    tc = ten_cap_price(tgt["owner_earnings"], tgt["shares"], tgt["debt"] - tgt["cash"])
 
     out = {"ticker": tgt["ticker"], "price": tgt["price"], "price_date": tgt["px"]["as_of"],
            "wacc": wacc, "ke": w.cost_of_equity, "beta_raw": b_raw, "beta": b_adj, "rf": rf, "erp": erp,

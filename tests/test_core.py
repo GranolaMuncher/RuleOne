@@ -167,3 +167,26 @@ def test_dividend_stats():
     assert abs(out["div_growth_5y"] - ((2.0 / 1.0) ** 0.2 - 1)) < 1e-9
     assert out["tr_10y"] is not None and out["tr_5y"] is not None
     assert dividend_stats(None, 10)["div_yield"] is None
+
+
+def test_owner_earnings_and_ten_cap_follow_the_refined_method():
+    from ruleone.metrics import owner_earnings
+    from ruleone.valuation import methods_agree
+    # OCF 100, capex 40, D&A 25 -> maintenance capex 25; tax 15 added back -> 90
+    assert math.isclose(owner_earnings({"ocf": 100, "capex": -40, "da": 25, "tax": 15}), 90)
+    # no D&A: maintenance defaults to half of capex; a tax benefit is not added
+    assert math.isclose(owner_earnings({"ocf": 100, "capex": 40, "tax": -5}), 80)
+    assert owner_earnings({"capex": 10}) is None
+    # Ten Cap subtracts net debt but never adds net cash
+    assert math.isclose(ten_cap_price(50, 100, net_debt=100), 4.0)
+    assert math.isclose(ten_cap_price(50, 100, net_debt=-300), 5.0)
+    assert ten_cap_price(10, 100, net_debt=500) is None
+    assert methods_agree(10, 12, 9, 11) == 2
+    assert methods_agree(None, 12, 9, 11) == 0
+
+
+def test_sane_shares_fixes_scale_errors_only():
+    from ruleone.metrics import sane_shares
+    assert math.isclose(sane_shares(32_800, 259_223_000, 7.96), 259_223_000 / 7.96)
+    assert sane_shares(30_000_000, 259_223_000, 7.96) == 30_000_000      # within range: untouched
+    assert sane_shares(32_800, -5, 7.96) == 32_800                     # losses can't be used

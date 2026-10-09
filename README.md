@@ -48,7 +48,9 @@ A company moves to stage 2 if it passes at least 60% of the tests it has data fo
 * **Sticker Price** = TTM EPS × (1+g)^10 × future P/E ÷ 1.15^10. Future P/E is the lower of 2 × g (as a percentage) and the 10-year **median** P/E, capped at 50. The median keeps one-off years, such as a near-zero-EPS year, from inflating it.
 * **Buy (MOS) price** = 50% of Sticker.
 * **Payback Time price** is the price at which 8 years of FCF, growing at g, adds up to the purchase price.
-* **Ten Cap price** = 10 × TTM owner earnings per share. Owner earnings are approximated as OCF − total capex, which treats all capex as maintenance and is conservative.
+* **Ten Cap price** = (10 × TTM owner earnings − net debt) ÷ shares. Owner earnings = OCF − *maintenance* capex + tax provision, where maintenance capex is depreciation (capped at capex) or, without D&A, half of capex. This follows Town's refinements in InvestED 278, 341 and 467.
+* **Methods agree** counts how many of the three prices (Ten Cap, Payback, MOS) the stock trades under. The method says to triangulate, so 2–3 of 3 is the strongest signal.
+* **Synthesis flags:** cash not real (after-tax owner earnings < 75% of net income), debt > 3 years of FCF, ROIC falling, and cheap without an event (a buy signal within 10% of the 52-week high, so check for a value trap).
 
 **Events** mean the temporary bad news Rule #1 investors wait for: a drawdown from the 52-week high, open-market Form 4 purchases ("P" codes, last 120 days), SC 13D filings (180 days), and 8-K items such as restructuring, impairment, officer departures, restatements and cyber incidents (60 days). The next report date is estimated from the last 10-Q or 10-K.
 
@@ -80,6 +82,8 @@ python -m pytest -q tests
 3. **Deploy:** builds the Astro site in [`site/`](site/) and publishes it to **Cloudflare Pages** through [`deploy-site.yml`](.github/workflows/deploy-site.yml). The same workflow also runs whenever `lists/`, `reports/` or `site/` change.
 
 **Professor** ([`professor.yml`](.github/workflows/professor.yml), four times a day) works through the InvestED podcast in episode order. It transcribes each episode on the runner with faster-whisper, then Claude writes study notes and updates a structured course in [`knowledge/invested/`](knowledge/invested/), which the site shows under **Learn**. Transcripts are never committed. It uses the same Claude secret as the scout. The agent roadmap is in [`docs/AGENT_PLAN.md`](docs/AGENT_PLAN.md), and the options for *The Intelligent Investor* are in [`docs/LIBRARY.md`](docs/LIBRARY.md).
+
+**Radar** ([`radar.yml`](.github/workflows/radar.yml), weekdays after the close) sweeps filings, headlines, price moves and value investors' 13F changes for ~150 watch-list names. Claude judges each item EVENT / PROBLEM / WATCH / NOISE against the Rule #1 method synthesised from the podcast ([`knowledge/rule1/METHOD.md`](knowledge/rule1/METHOD.md), shown on the site at `/rule1/`).
 
 The site has a **Holdings** page, where you enter tickers and buy prices per tranche, stored only in your browser, and get dangers and insights against the latest screen. It also has a sortable, filterable screen with CSV downloads, an **All stocks** page (every listing, with filters for sector, industry, drawdown, 1-month move, Big Five, P/E, Price/Sticker and market cap, quick presets, and a CSV export of the filtered view), a page per stock with its price against the Rule #1 levels, the Big Five and its run history, plus the research reports, the archive of every run and the methodology. Preview it locally with `cd site && npm install && npm run dev`.
 

@@ -51,6 +51,21 @@ def bvps(row):
     return eq / sh
 
 
+def owner_earnings(row):
+    """Town's refined owner earnings (InvestED 278, 341): operating cash flow, less *maintenance*
+    capex, plus the tax provision (the Ten Cap is a pre-tax yield).
+
+    Maintenance capex is "the art" (ep. 184/186): use depreciation as the proxy, capped at total
+    capex; without D&A fall back to Town's default of half of capex."""
+    ocf = row.get("ocf")
+    if ocf is None:
+        return None
+    capex = abs(row.get("capex") or 0.0)
+    da = row.get("da")
+    maint = min(capex, abs(da)) if da else 0.5 * capex
+    return ocf - maint + max(row.get("tax") or 0.0, 0.0)
+
+
 def fcf(row):
     if row.get("ocf") is None:
         return None
@@ -104,6 +119,15 @@ def normalize_splits(years: dict[int, dict]) -> dict[int, dict]:
             row["split_factor"] = f
         out[y] = row
     return out
+
+
+def sane_shares(shares, net_income, eps):
+    """Fix share counts tagged in the wrong scale (e.g. Nova's 2025 20-F: 32,800 "shares" meaning
+    32.8 million). If the count is off from net income / EPS by 100x or more, use the implied count."""
+    if not shares or not net_income or not eps or net_income <= 0 or eps <= 0:
+        return shares
+    implied = net_income / eps
+    return implied if not 0.01 < implied / shares < 100 else shares
 
 
 def post_filing_split(xbrl_shares, market_shares) -> float:
