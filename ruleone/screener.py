@@ -24,7 +24,7 @@ from .frames import load_frames
 from .http import Fetcher
 from .marketwide import (build_universe, dividend_stats, sector_fields, load_current_shares, load_spark, load_total_return,
                          write_price_history, write_universe)
-from .metrics import big_five, fcf, windage_growth, owner_earnings
+from .metrics import big_five, fcf, marker_summary, owner_earnings, windage_growth, wonderful_markers
 from .sectors import load_reference, refresh_reference
 from .normalize import normalize
 from .prices import load_prices, price_near
@@ -108,6 +108,8 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
     debt_years = debt / fcf_ttm if fcf_ttm and fcf_ttm > 0 else (0.0 if not debt else None)
     r10, r5, r1 = b.get("roic10"), b.get("roic5"), b.get("roic1")
     roic_falling = r1 is not None and r5 is not None and r5 > 0 and r1 < 0.75 * r5 and (r10 is None or r5 <= r10)
+    markers = wonderful_markers(cf["annual"], ttm, debt, cf.get("latest"))
+    marker_score, marker_str = marker_summary(markers)
     dd = ev.get("drawdown_52w")
     no_event = status in ("BUY", "BUY*") and dd is not None and dd > -0.10
     rec = {
@@ -123,6 +125,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
         "fcf_yield": fcf_ttm / mcap if fcf_ttm and mcap else None,
         "owner_earnings_ttm": oe_ttm, "net_debt": net_debt,
         "methods_agree": methods_agree(price, mos, pb, tc), "cash_conversion": cash_conv,
+        "marker_score": marker_score, "markers": marker_str,
         "debt": debt, "debt_payoff_years": b.get("debt_payoff_years"), "debt_years_total": debt_years,
         "big5_score": b["big5_score"], "big5_tests": f"{b['tests_passed']}/{b['tests_total']}",
         **{k: b.get(k) for k in ("roic10", "roic5", "roic1", "sales_g10", "sales_g5", "sales_g1",
@@ -146,13 +149,13 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
     disc = 1 - rec["price_to_sticker"] if rec["price_to_sticker"] else -1
     rec["rank_score"] = round(2 * b["big5_score"] + max(min(disc, 1.0), -1.0) * 2
                               + {"A": 1.0, "B": 0.5, "C": 0}[rec["tier"]] + 0.25 * rec["event_score"]
-                              + 0.25 * rec["methods_agree"], 3)
+                              + 0.25 * rec["methods_agree"] + (marker_score or 0), 3)
     return rec
 
 
 # ---------------------------------------------------------------- output
 COLUMNS = ["ticker", "name", "exchange", "sector", "industry", "status", "tier", "price", "price_date", "market_cap",
-           "sticker", "mos_price", "payback_price", "ten_cap_price", "price_to_sticker", "buy_signals", "methods_agree",
+           "sticker", "mos_price", "payback_price", "ten_cap_price", "price_to_sticker", "buy_signals", "methods_agree", "marker_score", "markers",
            "windage_growth", "future_pe", "hist_pe_median", "pe_ttm", "eps_ttm", "fcf_ttm", "fcf_yield",
            "ttm_end", "div_ttm", "div_yield", "div_growth_5y", "tr_5y", "tr_10y", "debt", "debt_payoff_years", "debt_years_total", "owner_earnings_ttm", "net_debt", "cash_conversion", "big5_score", "big5_tests", "roic10", "roic5", "roic1",
            "sales_g10", "sales_g5", "sales_g1", "eps_g10", "eps_g5", "eps_g1", "bvps_g10", "bvps_g5",

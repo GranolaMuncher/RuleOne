@@ -1,10 +1,11 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { loadDossiers, loadUniverse } from "../../lib/data";
+import { loadDossiers, loadScorecard, loadUniverse } from "../../lib/data";
 import { RULERS_CLASS, usd, pct } from "../../lib/format";
 
 const dossiers = loadDossiers();
 const uni = new Map(loadUniverse().map((u) => [u.ticker, u]));
+const score = loadScorecard();
 ---
 <Base title="RULERS dossiers" description="Living Rule #1 research dossiers: Radar, Understand, Love, Event, Reduce basis, Story.">
   <h1>RULERS dossiers</h1>
@@ -40,8 +41,21 @@ const uni = new Map(loadUniverse().map((u) => [u.ticker, u]));
       </table>
     </div>
   )}
+  {score && (
+    <section class="panel track">
+      <h2>Track record <span class="muted">{score.calls} calls logged · graded after 4 weeks against the S&P 500</span></h2>
+      <p class="muted small">Every RULERS verdict and Radar EVENT/PROBLEM is logged with its price. The Professor reviews the outliers for
+        <a href="/rule1/#lessons">process lessons</a>. Judge the process, not the outcome.</p>
+      {Object.keys(score.by_verdict).length === 0 ? <p class="small">Nothing old enough to grade yet.</p> : (
+        <table class="dt"><thead><tr><th>Verdict</th><th class="num">Graded calls</th><th class="num">Avg vs S&P</th><th class="num">Beat S&P</th></tr></thead>
+          <tbody>{Object.entries(score.by_verdict).map(([v, x]) => <tr><td>{v}</td><td class="num">{x.calls}</td><td class={`num ${x.avg_excess >= 0 ? "pos" : "neg"}`}>{pct(x.avg_excess)}</td><td class="num">{pct(x.beat_spy, 0)}</td></tr>)}</tbody>
+        </table>
+      )}
+    </section>
+  )}
 </Base>
 <style>
+  .track { margin-top: 18px; }
   .lede { max-width: 880px; }
   .tablewrap { overflow-x: auto; }
   .dt { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 860px; }

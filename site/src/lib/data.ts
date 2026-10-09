@@ -278,6 +278,8 @@ export interface UniverseRow {
   payback: number | null;
   tenCap: number | null;
   methodsAgree: number;
+  markerScore: number | null;
+  markers: { key: string; pass: boolean | null }[];
   fcfYield: number | null;
   divTtm: number | null;
   divYield: number | null;
@@ -305,6 +307,11 @@ export function toUniverseRow(r: Row): UniverseRow {
     [num(r.mos_price), num(r.payback_price), num(r.ten_cap_price)].filter((v) => v != null && px <= v).length);
   return {
     methodsAgree: agree,
+    markerScore: num(r.marker_score),
+    markers: (r.markers || "").split("|").filter(Boolean).map((kv) => {
+      const [key, v] = kv.split("=");
+      return { key, pass: v === "1" ? true : v === "0" ? false : null };
+    }),
     ticker: r.ticker, name: r.name, exchange: r.exchange, sector: r.sector, industry: r.industry ?? "", detail: r.detail,
     status: r.status, tier: r.tier, qualityPass: r.quality_pass === "yes",
     price: num(r.price), priceDate: r.price_date, marketCap: num(r.market_cap),
@@ -473,10 +480,30 @@ export function loadGurus(): { as_of: Record<string, string>; by_ticker: Record<
   return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : { as_of: {}, by_ticker: {}, moves: [] };
 }
 
-export function loadMethodDocs(): { method: string; checklist: string } {
+export function loadMethodDocs(): { method: string; checklist: string; markers: string; lessons: string; map: string } {
   const d = path.join(ROOT, "knowledge", "rule1");
   const r = (f: string) => (fs.existsSync(path.join(d, f)) ? fs.readFileSync(path.join(d, f), "utf8") : "");
-  return { method: r("METHOD.md"), checklist: r("CHECKLIST.md") };
+  const mapF = path.join(ROOT, "knowledge", "MAP.md");
+  return { method: r("METHOD.md"), checklist: r("CHECKLIST.md"), markers: r("MARKERS.md"), lessons: r("LESSONS.md"),
+    map: fs.existsSync(mapF) ? fs.readFileSync(mapF, "utf8") : "" };
+}
+
+export const MARKER_LABELS: Record<string, string> = {
+  roic_consistent: "ROIC ≥10% in 8 of 10 years", roic_not_falling: "ROIC not falling",
+  growth_coherent: "Sales, profit and cash flow growing together", margin_stable: "Stable margins (pricing power)",
+  fcf_margin: "FCF ≥10% of revenue", cash_real: "Cash is real (owner earnings ≥75% of profit)",
+  low_debt: "Debt ≤2 years of FCF", no_dilution: "No share dilution", predictable: "Revenue up in 8 of 10 years",
+  recession_tested: "Held up in 2020",
+};
+
+export function loadInvestedIndex(): Record<string, { name: string; total_mentions: number; episodes: { id: string; title: string; mentions: number; sentence: string }[] }> {
+  const f = path.join(ROOT, "knowledge", "index", "companies.json");
+  return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : {};
+}
+
+export function loadScorecard(): { date: string; calls: number; graded: number; by_verdict: Record<string, { calls: number; avg_excess: number; beat_spy: number }>; recent: { date: string; agent: string; ticker: string; verdict: string; price: string; return: number; excess: number | null; age_days: number }[] } | null {
+  const f = path.join(ROOT, "research", "scorecard", "latest.json");
+  return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : null;
 }
 
 // ---------------------------------------------------------------- RULERS dossiers

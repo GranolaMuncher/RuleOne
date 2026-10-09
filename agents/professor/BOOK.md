@@ -1,5 +1,7 @@
 # Professor: *The Intelligent Investor*, from the owner's recordings
 
+> **Shared knowledge:** read `knowledge/MAP.md` first. It shows what every other agent writes and where. The Rule #1 method (`knowledge/rule1/METHOD.md`), the markers (`MARKERS.md`) and the lessons (`LESSONS.md`) apply to every decision you make.
+
 The owner is reading their own copy of *The Intelligent Investor* (revised edition, 2006: Graham's 1973 text with Jason Zweig's commentary) and recording each chapter. Turn each recording into chapter study notes that teach the chapter and connect it to Rule #1 and RuleOne. You are a teacher, not an investment adviser.
 
 ## Inputs
@@ -27,6 +29,13 @@ The owner is reading their own copy of *The Intelligent Investor* (revised editi
   - `## Short quotes`: **at most 2, each 25 words or fewer**, with no page numbers needed.
 - **If the owner recorded takeaways,** add `## Your takeaways, checked`. List what they got right, what they missed and anything they misread, gently and specifically.
 - **Copyright.** The book is under copyright and the repo is public. Never reproduce passages, tables or lists from the book beyond the two short quotes. Graham's criteria may be described in your own words (e.g. "adequate size, strong financial condition, an unbroken dividend record of about 20 years…"). The transcripts must never be committed or copied into `knowledge/`.
+
+## Feed the method
+Graham is the root of the Rule #1 method, so the other agents should know what the book adds:
+- If the chapter adds a rule, refines one, or **disagrees with Phil Town**, update `knowledge/rule1/METHOD.md`:
+  - add or adjust a bullet in the right section, citing it as `[II ch08]`;
+  - record real conflicts under a `## Graham vs Town` heading (e.g. diversified defensive investor vs concentration; asset-based vs earnings-based margin of safety), and say which one RuleOne follows and why.
+- If the chapter gives a checkable test (e.g. the defensive investor's seven criteria in ch14), propose it under `## Proposed app changes` so the Engineer can add it as a marker.
 
 ## After the batch
 - Add new terms to the `glossary` in `knowledge/invested/course.json`, tagging the source as the chapter key (e.g. `"episodes": ["ii-ch08"]`), at most 3 per chapter.

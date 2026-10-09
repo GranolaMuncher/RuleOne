@@ -73,10 +73,12 @@ jobs:
           EDITOR_ISSUES: ${{ vars.EDITOR_ISSUES }}
         run: |
           python -m ruleone.editor record
+          python -m ruleone.scorecard record || true
           python -m ruleone.editor issues || true
           git config user.name "rule-one-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/weekly research/editor research/watchlist.txt 2>/dev/null || git add reports/weekly research/editor
+          git add reports/weekly research/editor research/scorecard
+          [ -f research/watchlist.txt ] && git add research/watchlist.txt
           if git diff --cached --quiet; then echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0; fi
           git commit -m "Weekly brief $(date -u +%F)"
           git pull --rebase origin "${GITHUB_REF_NAME}"

@@ -264,7 +264,7 @@ UNIVERSE_COLUMNS = [
     "price", "price_date", "market_cap", "chg_1w", "chg_1m", "chg_3m", "chg_6m", "chg_ytd", "chg_1y",
     "off_high", "above_low", "high52", "low52",
     "eps", "eps_basis", "pe", "hist_pe_median", "windage_growth", "sticker", "mos_price", "price_to_sticker",
-    "payback_price", "ten_cap_price", "methods_agree", "fcf_yield",
+    "payback_price", "ten_cap_price", "methods_agree", "marker_score", "markers", "fcf_yield",
     "div_ttm", "div_yield", "div_growth_5y", "tr_5y", "tr_10y",
     "big5_score", "big5_tests", "roic10", "roic5", "roic1",
     "sales_g10", "sales_g5", "sales_g1", "eps_g10", "eps_g5", "eps_g1",
@@ -341,7 +341,7 @@ def build_universe(universe: dict, frames: dict, detailed: list[dict], weekly: d
                       "big5_score", "big5_tests", "events", "flags",
                       "roic10", "roic5", "roic1", "sales_g10", "sales_g5", "sales_g1", "eps_g10", "eps_g5",
                       "eps_g1", "bvps_g10", "bvps_g5", "bvps_g1", "ocf_g10", "ocf_g5", "ocf_g1",
-                      "debt_payoff_years", "methods_agree"):
+                      "debt_payoff_years", "methods_agree", "marker_score", "markers"):
                 row[k] = d.get(k)
             row["eps"], row["pe"] = d.get("eps_ttm"), d.get("pe_ttm")
             row["eps_basis"] = f"TTM {d.get('ttm_end') or ''}".strip()

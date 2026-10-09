@@ -61,13 +61,15 @@ jobs:
           else
             python -m ruleone.screener
           fi
+      - name: Refresh the InvestED knowledge index
+        run: python -m ruleone.knowledge build
       - name: Job summary
         run: head -c 60000 lists/latest/README.md >> "$GITHUB_STEP_SUMMARY"
       - name: Commit lists
         run: |
           git config user.name "rule-one-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add lists
+          git add lists knowledge/index
           if git diff --cached --quiet; then echo "no changes"; exit 0; fi
           git commit -m "Screen $(date -u +%F): $(($(wc -l < lists/latest/buy_range.csv) - 1)) in buy range"
           git pull --rebase origin "${GITHUB_REF_NAME}"
@@ -82,8 +84,15 @@ jobs:
       deploy: false
     secrets: inherit
 
-  editor:
+  review:
     needs: [screen, rulers]
+    # The Professor marks this week's dossiers against the method and turns the scorecard into lessons.
+    if: always() && needs.screen.result == 'success' && needs.screen.outputs.has_claude == 'true' && github.event.inputs.tickers == ''
+    uses: ./.github/workflows/review.yml
+    secrets: inherit
+
+  editor:
+    needs: [screen, rulers, review]
     # Last word: reconciles screen, Radar and dossiers into the weekly brief, even if RULERS failed.
     if: always() && needs.screen.result == 'success' && needs.screen.outputs.has_claude == 'true' && github.event.inputs.tickers == ''
     uses: ./.github/workflows/editor.yml
@@ -92,7 +101,7 @@ jobs:
     secrets: inherit
 
   deploy:
-    needs: [screen, rulers, editor]
+    needs: [screen, rulers, review, editor]
     # Runs even when the agents are skipped or fail, as long as the screen succeeded.
     if: always() && needs.screen.result == 'success'
     uses: ./.github/workflows/deploy-site.yml

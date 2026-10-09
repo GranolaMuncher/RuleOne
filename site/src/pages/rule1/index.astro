@@ -4,10 +4,13 @@ import Base from "../../layouts/Base.astro";
 import { loadMethodDocs } from "../../lib/data";
 import { linkEpisodes } from "../../lib/format";
 
-const { method, checklist } = loadMethodDocs();
+const { method, checklist, markers, lessons, map } = loadMethodDocs();
 const fix = (h: string) => linkEpisodes(h.replace(/href="METHOD\.md"/g, 'href="#method"'));
 const methodHtml = fix(await marked.parse(method.replace(/^#\s+.*\n/, ""), { gfm: true }));
 const checkHtml = fix(await marked.parse(checklist.replace(/^#\s+.*\n/, ""), { gfm: true }));
+const markersHtml = fix(await marked.parse(markers.replace(/^#\s+.*\n/, ""), { gfm: true }));
+const lessonsHtml = fix(await marked.parse(lessons.replace(/^#\s+.*\n/, ""), { gfm: true }));
+const mapHtml = await marked.parse(map.replace(/^#\s+.*\n/, ""), { gfm: true });
 ---
 <Base title="Rule #1 method" description="The Rule #1 method as refined over 498 InvestED episodes, with the checklist RuleOne applies.">
   <h1>The Rule #1 method</h1>
@@ -16,18 +19,23 @@ const checkHtml = fix(await marked.parse(checklist.replace(/^#\s+.*\n/, ""), { g
     the episode notes. Where Phil and Danielle refined a rule later in the show, the later version wins. The screen,
     Radar and Holdings apply it; the <strong>App</strong> lines show where.
   </p>
-  <nav class="toc"><a href="#checklist">Checklist</a> · <a href="#method">Full method</a></nav>
+  <nav class="toc"><a href="#checklist">Checklist</a> · <a href="#markers">Markers</a> · <a href="#lessons">Lessons</a> · <a href="#method">Full method</a> · <a href="#map">How the agents share it</a></nav>
   <section class="panel" id="checklist">
     <h2>Checklist</h2>
     <article class="prose" set:html={checkHtml} />
   </section>
+  {markers && <section class="panel" id="markers"><h2>Markers of a wonderful business</h2><article class="prose" set:html={markersHtml} /></section>}
+  {lessons && <section class="panel" id="lessons"><h2>Lessons</h2><article class="prose" set:html={lessonsHtml} /></section>}
   <section id="method">
     <article class="prose" set:html={methodHtml} />
   </section>
+  {map && <section class="panel" id="map"><h2>How the agents share knowledge</h2><article class="prose" set:html={mapHtml} /></section>}
 </Base>
 <style>
   .lede { max-width: 860px; }
   .toc { margin: 8px 0 14px; display: block; }
   #checklist :global(ul) { list-style: none; padding-left: 4px; }
   #checklist :global(li input) { margin-right: 6px; }
+  section.panel { margin-top: 14px; }
+  #map :global(pre) { overflow-x: auto; font-size: 12px; }
 </style>

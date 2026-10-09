@@ -104,6 +104,13 @@ def conflicts(dossiers: list[dict], radar_hist: dict, screen: dict, today: date)
     return out
 
 
+def review_conflicts() -> list[dict]:
+    """The Professor's 'major' findings: a dossier whose verdict or levels break a Rule #1 rule."""
+    rv = _json(ROOT / "research" / "reviews" / "latest.json", {})
+    return [{"ticker": r["ticker"], "kind": "Professor review: major",
+             "detail": "; ".join(r.get("issues", []))[:400]} for r in rv.get("reviews", []) if r.get("severity") == "major"]
+
+
 def upcoming_reports(rows: list[dict], names: set[str], today: date, days: int = 21) -> list[dict]:
     out = []
     for r in rows:
@@ -142,7 +149,10 @@ def prepare(today: date) -> dict:
         "radar_week": sorted(radar_week, key=lambda x: (x["verdict"] != "PROBLEM", x["verdict"] != "EVENT", x["ticker"])),
         "guru_moves": _json(LISTS / "latest" / "gurus.json", {}).get("moves", [])[:15],
         "upcoming_reports": upcoming_reports(cands, names, today),
-        "conflicts": conflicts(dossiers, radar_hist, screen, today),
+        "conflicts": conflicts(dossiers, radar_hist, screen, today) + review_conflicts(),
+        "review": _json(ROOT / "research" / "reviews" / "latest.json", {}),
+        "scorecard": {k: v for k, v in _json(ROOT / "research" / "scorecard" / "latest.json", {}).items()
+                      if k in ("date", "calls", "graded", "by_verdict", "review_candidates")},
         "last_brief": last.get("brief"),
     }
     WORK.mkdir(parents=True, exist_ok=True)

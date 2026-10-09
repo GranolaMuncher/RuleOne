@@ -123,6 +123,12 @@ jobs:
           [ "$MODE" != "health" ] && need=true
           grep -Eq "^health [0-9-]+: [1-9][0-9]* problem" $T && need=true
           [ -s .work/engineer/actionlint.txt ] && need=true
+          # Method proposals from the Professor that the screen doesn't implement yet.
+          pending=$(sed -n '/^## Proposed app changes/,$p' knowledge/rule1/METHOD.md | grep -E '^- ' | grep -vc 'implemented' || true)
+          if [ "$MODE" != "failure" ] && [ "${pending:-0}" -gt 0 ]; then
+            need=true
+            { echo; echo "## Method proposals pending: $pending (see knowledge/rule1/METHOD.md)"; } >> $T
+          fi
           echo "need_claude=$need" >> "$GITHUB_OUTPUT"
           git config user.name "rule-one-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

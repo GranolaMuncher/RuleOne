@@ -195,6 +195,7 @@ jobs:
           echo "progressed=$([ "$out" != "recorded: none" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
           git config user.name "rule-one-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python -m ruleone.knowledge build || true   # new episodes may discuss new companies
           git add knowledge
           if git diff --cached --quiet; then echo "no notes"; exit 0; fi
           git commit -m "Professor: InvestED ${out#recorded: }"

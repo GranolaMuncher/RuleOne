@@ -1,0 +1,19 @@
+{
+ "Google": "GOOGL", "Alphabet": "GOOGL", "Facebook": "META", "Meta Platforms": "META", "Berkshire": "BRK-B",
+ "Berkshire Hathaway": "BRK-B", "Coca-Cola": "KO", "Coke": "KO", "Amazon": "AMZN", "Apple": "AAPL",
+ "Netflix": "NFLX", "Chipotle": "CMG", "Starbucks": "SBUX", "Costco": "COST", "Walmart": "WMT",
+ "Microsoft": "MSFT", "Tesla": "TSLA", "Disney": "DIS", "McDonald's": "MCD", "Nike": "NKE",
+ "Lululemon": "LULU", "Ulta": "ULTA", "Boeing": "BA", "Home Depot": "HD", "GameStop": "GME",
+ "Peloton": "PTON", "Mastercard": "MA", "American Express": "AXP", "Moody's": "MCO", "Bank OZK": "OZK",
+ "Formula One": "FWONK", "Formula 1": "FWONK", "Liberty Media": "FWONK", "Alibaba": "BABA", "Intel": "INTC",
+ "Nvidia": "NVDA", "NVIDIA": "NVDA", "IBM": "IBM", "Wells Fargo": "WFC", "Domino's": "DPZ", "Hershey": "HSY",
+ "Exxon": "XOM", "Chevron": "CVX", "Occidental": "OXY", "JPMorgan": "JPM", "Goldman Sachs": "GS",
+ "Bank of America": "BAC", "Kraft Heinz": "KHC", "Procter & Gamble": "PG", "Johnson & Johnson": "JNJ",
+ "General Motors": "GM", "General Electric": "GE", "Ford Motor": "F", "Target Corporation": "TGT",
+ "Robinhood": "HOOD", "Zillow": "Z", "Uber": "UBER", "Airbnb": "ABNB", "Spotify": "SPOT", "Shopify": "SHOP",
+ "Salesforce": "CRM", "Adobe": "ADBE", "Oracle": "ORCL", "Cisco": "CSCO", "Qualcomm": "QCOM",
+ "Kinsale": "KNSL", "Progressive": "PGR", "Pfizer": "PFE", "Moderna": "MRNA", "Carnival": "CCL",
+ "Royal Caribbean": "RCL", "Norwegian Cruise": "NCLH", "Delta Air Lines": "DAL", "Southwest Airlines": "LUV",
+ "Hormel": "HRL", "Smucker": "SJM", "Clorox": "CLX", "Deckers": "DECK", "Crocs": "CROX", "Etsy": "ETSY",
+ "eBay": "EBAY", "PayPal": "PYPL", "Visa Inc": "V"
+}

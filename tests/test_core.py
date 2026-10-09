@@ -190,3 +190,22 @@ def test_sane_shares_fixes_scale_errors_only():
     assert math.isclose(sane_shares(32_800, 259_223_000, 7.96), 259_223_000 / 7.96)
     assert sane_shares(30_000_000, 259_223_000, 7.96) == 30_000_000      # within range: untouched
     assert sane_shares(32_800, -5, 7.96) == 32_800                     # losses can't be used
+
+
+def test_wonderful_markers_separate_steady_compounders_from_weak_businesses():
+    from ruleone.metrics import marker_summary, wonderful_markers
+    def year(y, k):  # steady compounder: 12%/yr growth, 25% ROIC, stable margins, no debt, shrinking shares
+        g = 1.12 ** k
+        return {"end": f"{y}-12-31", "revenue": 1000 * g, "gross_profit": 600 * g, "op_income": 250 * g,
+                "pretax": 250 * g, "tax": 50 * g, "net_income": 200 * g, "eps": 2 * g * 1.01 ** k,
+                "shares": 100 / 1.01 ** k, "ocf": 230 * g, "capex": -30 * g, "da": 20 * g,
+                "equity": 800 * g, "lt_debt": 0.0}
+    good = {2015 + k: year(2015 + k, k) for k in range(11)}
+    m = wonderful_markers(good, good[2025])
+    score, s = marker_summary(m)
+    assert score == 1.0 and "growth_coherent=1" in s and "recession_tested=1" in s
+    bad = {y: {**r, "net_income": -50.0, "op_income": -40.0, "ocf": -10.0, "shares": r["shares"] * (1.1 ** (y - 2015) * 1.02 ** (y - 2015)),
+               "lt_debt": 5000.0} for y, r in good.items()}
+    mb = wonderful_markers(bad, bad[2025])
+    assert mb["roic_consistent"]["pass"] is False and mb["no_dilution"]["pass"] is False
+    assert marker_summary(mb)[0] < 0.5

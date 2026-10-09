@@ -1,0 +1,68 @@
+name: Professor review (dossiers and scorecard)
+
+# After the RULERS analyst: the Professor marks this week's dossiers against METHOD.md, MARKERS.md,
+# LESSONS.md and the InvestED episodes about each company, grades the scorecard, and writes lessons
+# every other agent reads. Called by the weekly run; can also be run by hand.
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: review
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - id: secrets
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OAUTH: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          for name in KEY OAUTH; do
+            clean=$(printf '%s' "${!name}" | tr -d '[:space:]')
+            if [ -n "$clean" ]; then
+              echo "::add-mask::$clean"
+              echo "CLEAN_$name=$clean" >> "$GITHUB_ENV"
+              echo "has_claude=true" >> "$GITHUB_OUTPUT"
+            fi
+          done
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Refresh the knowledge index and scorecard
+        run: |
+          python -m ruleone.knowledge build
+          python -m ruleone.scorecard record
+          python -m ruleone.scorecard evaluate
+      - uses: anthropics/claude-code-action@v1
+        if: steps.secrets.outputs.has_claude == 'true'
+        continue-on-error: true
+        with:
+          anthropic_api_key: ${{ env.CLEAN_KEY }}
+          claude_code_oauth_token: ${{ env.CLEAN_OAUTH }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          allowed_bots: "github-actions,github-actions[bot]"
+          prompt: "Follow the instructions in agents/professor/REVIEW.md exactly."
+          claude_args: |
+            --model claude-sonnet-5-5
+            --max-turns 120
+            --allowedTools Read,Write,Edit,Glob,Grep,Bash(python3:*),Bash(date:*)
+      - name: Commit
+        run: |
+          git config user.name "rule-one-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/reviews research/scorecard knowledge/rule1 knowledge/index
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "Professor review $(date -u +%F)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

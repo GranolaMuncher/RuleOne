@@ -1,0 +1,15 @@
+# Lessons
+
+These are lessons learned from applying the method, written by the Professor's weekly review from the scorecard and dossier reviews. Every agent reads this file before judging. Lessons are about **process** ("we ignored a falling-ROIC flag"), not outcomes ("the stock fell") [294, 319, 339]. Newest first. Each lesson cites its evidence and the METHOD rule it sharpens.
+
+## Seeded from the show's own mistakes
+- **Selling compounders too early is Phil's most repeated error.** Don't trim a rare ~20% compounder just because it doubled. Trim only above Sticker *and* when the cash has a better home [467, 492, 493]. (METHOD 9)
+- **Thinking without finishing costs money.** Activision went unbought for want of rules set in advance (about $4M by Phil's account). Write the tranche prices before the price moves [352]. (METHOD 8)
+- **Trusting managers on technology you can't judge** was Phil's costliest mistake. Get independent expert help, or put it in too-hard [320, 323]. (METHOD 2)
+- **A bigger margin of safety doesn't fix a terminal flaw.** That is cigar-butt thinking [377]. (METHOD 6)
+- **Cheap at a record high is usually a value trap.** No event means no sale [240, 324]. (METHOD 7)
+- **Debt turns a scare into bankruptcy.** Horsehead, Boeing, cruise lines [075, 335, 365, 496]. (METHOD 4)
+- **When the story changes, sell, even at a loss.** Alibaba (political risk), Bank OZK (lending against what management said) [385, 478, 493]. (METHOD 9)
+
+## From the pipeline
+_(The Professor appends dated lessons here from the weekly review.)_

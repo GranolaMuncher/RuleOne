@@ -18,7 +18,8 @@ from pathlib import Path
 
 from .companyfacts import load_company
 from .http import Fetcher
-from .metrics import bvps, fcf, normalize_splits, owner_earnings, roic
+from .knowledge import lookup as invested_mentions
+from .metrics import MARKER_LABELS, bvps, fcf, normalize_splits, owner_earnings, roic, wonderful_markers
 from .normalize import normalize
 from .screener import analyze
 from .universe import load_universe
@@ -129,6 +130,9 @@ def fact_pack(fetcher: Fetcher, listing, today: date, radar_hist: dict, gurus: d
     cf = load_company(fetcher, listing.cik)
     nz = normalize(fetcher, listing, cf, today) if cf else None
     t = listing.ticker
+    markers = wonderful_markers(cf["annual"], cf["ttm"], nz["debt"] if nz else None, cf.get("latest")) if cf else {}
+    review = json.loads((ROOT / "research" / "reviews" / "latest.json").read_text()) \
+        if (ROOT / "research" / "reviews" / "latest.json").exists() else {}
     dossier = OUT / f"{t}.md"
     cfg = ROOT / "reports" / "config" / f"{t}.json"
     model = ROOT / "reports" / "model" / f"{t}.md"
@@ -140,10 +144,13 @@ def fact_pack(fetcher: Fetcher, listing, today: date, radar_hist: dict, gurus: d
             "hist_pe_median", "pe_ttm", "eps_ttm", "fcf_ttm", "owner_earnings_ttm", "net_debt", "cash_conversion",
             "debt", "debt_years_total", "big5_score", "big5_tests", "roic10", "roic5", "roic1", "sales_g10", "sales_g5",
             "eps_g10", "eps_g5", "bvps_g10", "bvps_g5", "ocf_g10", "ocf_g5", "drawdown_52w", "events",
-            "next_report_est", "flags", "rank_score")},
+            "next_report_est", "flags", "rank_score", "marker_score")},
         "history_usd": history(nz["annual_usd"]) if nz else [],
         "tranche_plan": tranche_plan(rec["price"], rec.get("mos_price"), rec.get("payback_price"),
                                      rec.get("ten_cap_price"), rec.get("sticker")),
+        "markers": {k: {**v, "label": MARKER_LABELS[k]} for k, v in markers.items()},
+        "invested_episodes": invested_mentions(t, 8),      # what Phil and Danielle said about this company
+        "last_review": next((r for r in review.get("reviews", []) if r.get("ticker") == t), None),
         "radar": radar_hist.get(t, [])[:6],
         "gurus": gurus.get("by_ticker", {}).get(t, []),
         "screen_history": snaps,

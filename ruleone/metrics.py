@@ -211,3 +211,96 @@ def windage_growth(b5: dict, cap: float = 0.15):
     if not cands:
         return None
     return min(min(cands), cap)
+
+
+# ---------------------------------------------------------------- wonderful-company markers
+# Machine-checkable markers distilled from InvestED (see knowledge/rule1/MARKERS.md for the
+# rationale and episode citations). Each returns pass True/False, or None when data is missing.
+MARKER_LABELS = {
+    "roic_consistent": "ROIC ≥10% in at least 8 of the last 10 years",
+    "roic_not_falling": "ROIC not falling (latest 3-yr avg ≥ 75% of the 10-yr avg)",
+    "growth_coherent": "Sales, net income and operating cash flow growing together (within 10 points)",
+    "margin_stable": "Gross (or operating) margin stable over 10 years: pricing power",
+    "fcf_margin": "Free cash flow ≥ 10% of revenue",
+    "cash_real": "Owner earnings ≥ 75% of net income",
+    "low_debt": "Total debt ≤ 2 years of free cash flow",
+    "no_dilution": "Share count flat or falling over 5 years",
+    "predictable": "Revenue grew in at least 8 of the last 10 years",
+    "recession_tested": "Profitable with ROIC ≥10% through 2020",
+}
+
+
+def _ratio(a, b):
+    return a / b if a is not None and b not in (None, 0) else None
+
+
+def wonderful_markers(annual: dict, ttm: dict | None = None, debt: float | None = None,
+                      balance: dict | None = None) -> dict:
+    """{marker: {"pass": bool|None, "value": float|None}} from up to 11 fiscal years of filings."""
+    from statistics import mean, pstdev
+    years = normalize_splits(annual) if annual else {}
+    ys = sorted(y for y in years if years[y].get("revenue"))[-11:]
+    rows = [years[y] for y in ys]
+    out: dict[str, dict] = {}
+
+    def put(k, ok, val):
+        out[k] = {"pass": None if ok is None else bool(ok), "value": None if val is None else round(val, 4)}
+
+    rs = [roic(r) for r in rows[-10:]]
+    rs_ok = [r for r in rs if r is not None]
+    put("roic_consistent", (sum(r >= 0.10 for r in rs_ok) >= 8) if len(rs_ok) >= 8 else None,
+        sum(r >= 0.10 for r in rs_ok) / len(rs_ok) if rs_ok else None)
+    if len(rs_ok) >= 6 and mean(rs_ok) > 0:
+        recent = mean(rs_ok[-3:])
+        put("roic_not_falling", recent >= 0.75 * mean(rs_ok), recent / mean(rs_ok))
+    else:
+        put("roic_not_falling", None, None)
+
+    first, last = (rows[0], rows[-1]) if len(rows) >= 6 else (None, None)
+    n = (ys[-1] - ys[0]) if first else 0
+    def cagr(fn):
+        a, b = (fn(first), fn(last)) if first else (None, None)
+        return growth(a, b, n) if a is not None and b is not None and n else None
+    # Whole-company figures, so splits and buybacks can't tangle the lines (InvestED 019, 020).
+    gs = [g for g in (cagr(lambda r: r.get("revenue")), cagr(lambda r: r.get("net_income")),
+                      cagr(lambda r: r.get("ocf"))) if g is not None]
+    spread = max(gs) - min(gs) if len(gs) == 3 else None
+    put("growth_coherent", (spread <= 0.10 and min(gs) > 0) if spread is not None else None, spread)
+
+    margins = [_ratio(r.get("gross_profit"), r.get("revenue")) for r in rows[-10:]]
+    if sum(m is not None for m in margins) < 6:
+        margins = [_ratio(r.get("op_income"), r.get("revenue")) for r in rows[-10:]]
+    ms = [m for m in margins if m is not None]
+    put("margin_stable", (pstdev(ms) <= 0.03 and ms[-1] >= sorted(ms)[len(ms) // 2] - 0.02) if len(ms) >= 6 else None,
+        pstdev(ms) if len(ms) >= 6 else None)
+
+    src = ttm or (rows[-1] if rows else {})
+    f, rev = fcf(src) if src else None, src.get("revenue") if src else None
+    fm = _ratio(f, rev)
+    put("fcf_margin", fm >= 0.10 if fm is not None else None, fm)
+    oe, ni = owner_earnings(src) if src else None, src.get("net_income") if src else None
+    conv = _ratio(oe - max(src.get("tax") or 0, 0), ni) if oe is not None and ni and ni > 0 else None
+    put("cash_real", conv >= 0.75 if conv is not None else None, conv)
+    bal = balance or (rows[-1] if rows else {})
+    d = debt if debt is not None else ((bal.get("lt_debt") or 0) + (bal.get("debt_current") or 0)
+                                        if bal and ("lt_debt" in bal or "debt_current" in bal) else None)
+    dy = (d / f if f and f > 0 else (0.0 if not d else None)) if d is not None else None
+    put("low_debt", (dy is not None and dy <= 2) if d is not None else None, dy)
+
+    sh = [r.get("shares") for r in rows[-6:] if r.get("shares")]
+    sg = growth(sh[0], sh[-1], len(sh) - 1) if len(sh) >= 4 else None
+    put("no_dilution", sg <= 0.005 if sg is not None else None, sg)
+    revs = [r.get("revenue") for r in rows[-11:]]
+    ups = [b > a for a, b in zip(revs, revs[1:]) if a and b]
+    put("predictable", sum(ups) >= 8 if len(ups) >= 9 else None, sum(ups) / len(ups) if ups else None)
+    y2020 = years.get(2020)
+    r20 = roic(y2020) if y2020 else None
+    put("recession_tested", (r20 >= 0.10 and (y2020.get("net_income") or 0) > 0) if r20 is not None else None, r20)
+    return out
+
+
+def marker_summary(markers: dict) -> tuple[float | None, str]:
+    """(share of known markers passed, compact 'name=1|name=0|name=?' string for CSV)."""
+    known = [m["pass"] for m in markers.values() if m["pass"] is not None]
+    score = sum(known) / len(known) if len(known) >= 5 else None
+    return score, "|".join(f"{k}={'?' if m['pass'] is None else int(m['pass'])}" for k, m in markers.items())

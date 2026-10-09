@@ -126,3 +126,6 @@ Not investment advice. These are study notes on a published method, and automate
 - **Volatility is not risk. Permanent loss is** [048, 104, 290, 426].
 - Biases (sunk cost, anchoring, confirmation): use a written checklist, a journal and a partner who argues the other side [108, 115, 213, 294, 299].
 - **AI is a research assistant, not a source.** Verify every figure against the filings [414, 415, 420–422].
+
+## Proposed app changes
+The Professor adds rule refinements here (from new episodes, the book or the weekly review), and the Engineer implements each one on a branch and marks it "(implemented on branch …)". Implemented so far: refined owner earnings and Ten Cap, methods agree, the four screen flags, and the ten markers in [MARKERS.md](MARKERS.md).

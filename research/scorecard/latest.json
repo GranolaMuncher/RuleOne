@@ -1,0 +1,48 @@
+{
+ "date": "2026-10-09",
+ "calls": 3,
+ "graded": 3,
+ "by_verdict": {},
+ "review_candidates": [],
+ "recent": [
+  {
+   "date": "2026-10-09",
+   "agent": "rulers",
+   "ticker": "ADBE",
+   "verdict": "WATCH",
+   "price": "241.05",
+   "spy": "773.93",
+   "tranche1": "225.0",
+   "note": "A high-ROIC software franchise at ~10x non-GAAP earnings, but generative-AI disruption, a CEO handover (1 Dec) and an interim CFO leave the story unproven; the ",
+   "age_days": 0,
+   "return": -0.0139,
+   "excess": -0.0139
+  },
+  {
+   "date": "2026-10-09",
+   "agent": "rulers",
+   "ticker": "KNSL",
+   "verdict": "WATCH",
+   "price": "339.65",
+   "spy": "773.93",
+   "tranche1": "280.0",
+   "note": "An exceptional specialty insurer (combined ratio ~76%, ROIC 23%), but on normalised earnings it is above all three corrected prices because E&S property pricing",
+   "age_days": 0,
+   "return": -0.0292,
+   "excess": -0.0292
+  },
+  {
+   "date": "2026-10-09",
+   "agent": "rulers",
+   "ticker": "LULU",
+   "verdict": "WATCH",
+   "price": "92.68",
+   "spy": "773.93",
+   "tranche1": "90.0",
+   "note": "A high-ROIC brand with net cash and a new CEO, but US sales are shrinking, earnings are falling and TTM EPS is flattered; wait for a lower price or proof the pr",
+   "age_days": 0,
+   "return": 0.0192,
+   "excess": 0.0192
+  }
+ ]
+}

@@ -176,9 +176,28 @@ def _f(v):
         return None
 
 
-def watch_list(universe: list[dict], gurus: dict) -> list[dict]:
-    """Actionable names first: buy range / on deck, then tier A, then guru-held quality names."""
+def dossier_story(ticker: str) -> dict | None:
+    """The RULERS dossier's verdict, ladder and story checks, so Radar can tell when news trips a trigger."""
+    p = ROOT / "research" / "rulers" / f"{ticker}.md"
+    if not p.exists():
+        return None
+    text = p.read_text()
+    meta = dict(re.findall(r"^(verdict|confidence|trim|updated):\s*(.+)$", text.split("\n---", 1)[0], re.M))
+    entry = re.search(r"^entry:\s*\[(.*?)\]", text, re.M)
+    def grab(label):
+        m = re.search(rf"\*\*{label}[^*]*\*\*(.*?)(?=\n- \*\*|\n## |\Z)", text, re.S)
+        return re.sub(r"\s+", " ", m.group(1)).strip(" :.-")[:600] if m else ""
+    return {"verdict": meta.get("verdict", "").strip(), "updated": meta.get("updated", "").strip(),
+            "entry": entry.group(1) if entry else "", "trim": meta.get("trim", "").strip(),
+            "must_stay_true": grab("Three things that must stay true"), "sell_triggers": grab("Sell triggers")}
+
+
+def watch_list(universe: list[dict], gurus: dict, dossiers: set[str] | None = None) -> list[dict]:
+    """Dossier names first (Radar guards their stories), then buy range / on deck, tier A, guru-held quality."""
+    dossiers = dossiers or set()
     def prio(r):
+        if r["ticker"] in dossiers:
+            return -1
         if r["quality_pass"] == "yes" and r["status"] in ("BUY", "BUY*"):
             return 0
         if r["quality_pass"] == "yes" and r["status"] == "ON DECK":
@@ -246,7 +265,8 @@ def _chg(series: list, days: int) -> float | None:
 
 
 KEEP = ["ticker", "name", "sector", "industry", "status", "tier", "price", "sticker", "mos_price", "payback_price",
-        "ten_cap_price", "methods_agree", "price_to_sticker", "pe", "off_high", "big5_score", "roic5", "flags", "events"]
+        "ten_cap_price", "methods_agree", "marker_score", "markers", "price_to_sticker", "pe", "off_high", "big5_score",
+        "roic5", "flags", "events"]
 
 
 def prepare(fetcher: Fetcher, today: date, log=print) -> dict:
@@ -257,14 +277,19 @@ def prepare(fetcher: Fetcher, today: date, log=print) -> dict:
     state_file = OUT / "state.json"
     last = json.loads(state_file.read_text()).get("last_run") if state_file.exists() else None
     since = max(date.fromisoformat(last) - timedelta(days=1), today - timedelta(days=7)) if last else today - timedelta(days=3)
-    watch = watch_list(universe, gurus)
+    dossiers = {p.stem for p in (ROOT / "research" / "rulers").glob("*.md")}
+    watch = watch_list(universe, gurus, dossiers)
+    mentions = json.loads((ROOT / "knowledge" / "index" / "companies.json").read_text()) \
+        if (ROOT / "knowledge" / "index" / "companies.json").exists() else {}
     daily = load_spark(fetcher, [r["ticker"] for r in watch], "1mo", "1d", log=lambda *_: None)
     entries = []
     for i, r in enumerate(watch):
         t = r["ticker"]
         series = (daily.get(t) or {}).get("series") or []
         e = {k: r.get(k) for k in KEEP}
-        e.update({"chg_1d": _chg(series, 1), "chg_5d": _chg(series, 5),
+        e.update({"dossier": dossier_story(t) if t in dossiers else None,
+                  "invested_episodes": [x["id"] for x in (mentions.get(t) or {}).get("episodes", [])[:5]],
+                  "chg_1d": _chg(series, 1), "chg_5d": _chg(series, 5),
                   "filings": filings_since(fetcher, int(r["cik"]), since) if r.get("cik") else [],
                   "news": news_since(t, since),
                   "gurus": [{k: p[k] for k in ("guru", "weight", "change", "report", "filed")}
