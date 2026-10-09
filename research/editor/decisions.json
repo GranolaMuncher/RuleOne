@@ -1,0 +1,13 @@
+{"date": "2026-10-09",
+ "summary": "The screen shows 13 BUY, 68 BUY* and 38 ON DECK names, but the three dossiers written this week (ADBE, KNSL, LULU) all say WATCH after correcting 15% growth and flattered earnings. Nothing is at tranche 1 today. The week is about price levels to wait for and KNSL's Q3 report on 22 Oct.",
+ "decisions": [
+  {"ticker": "LULU", "question": "Start tranche 1 at $90 if price reaches it, or wait for proof the US fix works?", "why": "Price $92.68 is 3% above tranche 1; new CEO reshuffled the team; underlying EPS ~$8.74, not $12.15.", "link": "/rulers/LULU/"},
+  {"ticker": "KNSL", "question": "Keep buying stopped above $280 until Q3 results on 22 Oct?", "why": "Price $339.65; normalised Sticker ~$282 as E&S property pricing softens.", "link": "/rulers/KNSL/"},
+  {"ticker": "ADBE", "question": "Accept $225 as the stop-buy given the CEO handover and AI risk?", "why": "Price $241.05; corrected Sticker ~$230; CEO changes 1 Dec, interim CFO.", "link": "/rulers/ADBE/"}
+ ],
+ "actions": [
+  {"ticker": "LULU", "action": "review story", "reason": "3% above tranche 1 ($90); C-suite overhaul needs judging on candour."},
+  {"ticker": "KNSL", "action": "hold", "reason": "Above all corrected prices; review after Q3 on 22 Oct."},
+  {"ticker": "ADBE", "action": "hold", "reason": "Above tranche 1 ($225); story risk unresolved."},
+  {"ticker": "BKNG", "action": "review story", "reason": "Reported FTC action over affiliate hotel ads; unconfirmed, no dossier."}
+ ]}
