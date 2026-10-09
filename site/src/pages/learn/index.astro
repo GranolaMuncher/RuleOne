@@ -34,7 +34,7 @@ const RULERS: [string, string][] = [
       <div class="k">Professor's progress</div>
       <div class="v">{progress.done.length} <span class="muted">of {total} episodes</span></div>
       <div class="pbar" role="progressbar" aria-valuenow={pct} aria-valuemin="0" aria-valuemax="100"><span style={`width:${Math.max(pct, 1)}%`}></span></div>
-      <div class="muted small">Updated {progress.updated || "n/a"} · about 190 new episodes a day until caught up</div>
+      <div class="muted small">Updated {progress.updated || "n/a"} · checks daily for new episodes</div>
     </div>
     <div class="panel stat">
       <div class="k">Your progress</div>

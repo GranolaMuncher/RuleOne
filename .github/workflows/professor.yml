@@ -8,7 +8,7 @@ name: Professor (InvestED notes)
 # Transcripts never leave the runners and are never committed.
 on:
   schedule:
-    - cron: "41 */3 * * *"   # every 3 hours until the back catalogue is done, then picks up new episodes
+    - cron: "41 9 * * *"   # daily: picks up new episodes (back catalogue is done)
   workflow_dispatch:
     inputs:
       count:
