@@ -1,0 +1,47 @@
+[
+ {
+  "ticker": "ADBE",
+  "name": "Adobe Inc.",
+  "verdict": "WATCH",
+  "confidence": 3.0,
+  "entry": [
+   225.0,
+   180.0,
+   140.0
+  ],
+  "trim": 330.0,
+  "updated": "2026-10-09",
+  "price_at_update": 241.05,
+  "summary": "A high-ROIC software franchise at ~10x non-GAAP earnings, but generative-AI disruption, a CEO handover (1 Dec) and an interim CFO leave the story unproven; the corrected Sticker is only ~$230."
+ },
+ {
+  "ticker": "KNSL",
+  "name": "Kinsale Capital Group, Inc.",
+  "verdict": "WATCH",
+  "confidence": 4.0,
+  "entry": [
+   280.0,
+   220.0,
+   150.0
+  ],
+  "trim": 400.0,
+  "updated": "2026-10-09",
+  "price_at_update": 339.65,
+  "summary": "An exceptional specialty insurer (combined ratio ~76%, ROIC 23%), but on normalised earnings it is above all three corrected prices because E&S property pricing is softening; wait for a lower price or Q3 proof."
+ },
+ {
+  "ticker": "LULU",
+  "name": "lululemon athletica inc.",
+  "verdict": "WATCH",
+  "confidence": 3.0,
+  "entry": [
+   90.0,
+   70.0,
+   50.0
+  ],
+  "trim": 125.0,
+  "updated": "2026-10-09",
+  "price_at_update": 92.68,
+  "summary": "A high-ROIC brand with net cash and a new CEO, but US sales are shrinking, earnings are falling and TTM EPS is flattered; wait for a lower price or proof the product fix works."
+ }
+]
