@@ -1,95 +1,90 @@
 {
- "date": "2026-10-09",
- "summary": "Booking Holdings (FTC action reported over hotel ads) and Lululemon (new president and product chief) are the buy-range names with business news. The 8 October AI-hardware sell-off (NVMI, MPWR, CLS, EME) was market-wide: it moved price, not value. 13Fs show Buffett adding Alphabet, Li Lu adding PDD and Klarman adding Amazon.",
+ "date": "2026-10-10",
+ "summary": "No sell trigger or must-stay-true item was tripped today. The signals were price moves with little news: Cirrus Logic, Super Micro and Nova fell, and Leidos rose 7% despite a JPMorgan downgrade. Web searches found no confirming coverage of these moves, so each is marked unconfirmed. Carried over: Booking's FTC risk, Adobe's green-card headlines and Lululemon's leadership overhaul. Trade Desk sits at its MOS price after a 68% fall, which is the value-trap question rather than an event.",
  "items": [
   {
-   "ticker": "BKNG",
+   "ticker": "LDOS",
    "verdict": "WATCH",
-   "headline": "FTC reportedly preparing action over Priceline-affiliate hotel ads ($500M+ at stake)",
-   "why": "A fine of that size is small against FCF, but a fee case touches the business model. Check that the moat doesn't rest on misleading ads (METHOD 3) and that no debt is needed (event check 5). Unconfirmed by the FTC.",
-   "sources": [
-    "https://www.devdiscourse.com/article/international/3988483-exclusive-priceline-owner-to-face-ftc-action-over-affiliates-hotel-ads-sources-say"
-   ]
-  },
-  {
-   "ticker": "LULU",
-   "verdict": "WATCH",
-   "headline": "New CEO overhauls the C-suite: Athleta's CEO becomes President and Chief Product Officer",
-   "why": "Fixing product missteps and recalls: an event if one-time and solvable in 1-3 years (event checks 3-4). A new team must be judged on capital allocation and candour (METHOD 4).",
-   "sources": [
-    "https://www.sec.gov/Archives/edgar/data/0001397187/000139718726000131/lulu-20260930.htm",
-    "https://retaildive.com/news/lululemon-ceo-heidi-oneill-overhauls-c-suite-first-move/832434"
-   ]
-  },
-  {
-   "ticker": "ADBE",
-   "verdict": "WATCH",
-   "headline": "Unconfirmed reports of a DOL green-card (PERM) suspension",
-   "why": "Only Cloudera's suspension is confirmed; a tracker shows Adobe's PERM cases on hold. A hiring and regulatory issue, not a moat breach.",
-   "sources": [
-    "https://www.gulte.com/overseas/433691/us-adobes-100-employees-green-card-cases-put-on-hold"
-   ]
+   "headline": "JPMorgan cuts to Neutral, target $160 to $142; shares +7% in a day",
+   "why": "A downgrade is fear, not business news, yet the stock rose, so the reason is unconfirmed. Check JPMorgan's stated reason (backlog or margins) before calling it EVENT or PROBLEM. Price is far above MOS $37 (METHOD 6).",
+   "sources": []
   },
   {
    "ticker": "NVMI",
    "verdict": "NOISE",
-   "headline": "Fell 10% in the semiconductor sell-off; no company news",
-   "why": "A market-wide move: price, not value (METHOD 7). The screen's buy-range label came from a share-count scale error (fixed); NVMI is above Sticker.",
-   "sources": [
-    "https://www.quiverquant.com/news/Nova+slides+as+semiconductor+selloff+outweighs+recent+company+momentum"
-   ]
-  },
-  {
-   "ticker": "QFIN",
-   "verdict": "NOISE",
-   "headline": "Down 9% over 5 days with US-listed Chinese ADRs",
-   "why": "A market-wide move. Country and VIE risk is a standing checklist item for China ADRs (METHOD 2), not news.",
+   "headline": "Down 7% on Citi downgrade to Neutral (target $550 to $415) in the chip sell-off",
+   "why": "Analyst move plus a market-wide semis drop: price, not value (METHOD 7). Price $396 is far above MOS $119 and Sticker $239; the BUY* label is not an entry. Reason for the Citi cut unconfirmed.",
    "sources": []
   },
   {
-   "ticker": "TBBK",
+   "ticker": "CRUS",
    "verdict": "WATCH",
-   "headline": "8-K/A amends a director or officer change",
-   "why": "Read who changed and why; banks magnify management risk (METHOD 4).",
+   "headline": "Fell 5% in a day and 11% in 5 days; no company news found",
+   "why": "No filing or headline explains it; web search found nothing, so unconfirmed. Price $121 is above MOS $60 and at Sticker $120. Check for a customer-concentration report before calling it an event (event check 1).",
    "sources": []
   },
   {
    "ticker": "SMCI",
    "verdict": "WATCH",
-   "headline": "New director or officer change (8-K item 5.02)",
-   "why": "Given its accounting history, read the 8-K for finance or audit roles (METHOD 4: cash must be real, candour).",
+   "headline": "Fell 7% in a day; only a new board member and an 8-K item 5.02 found",
+   "why": "No story found. Past accounting and auditor problems make any 5.02 worth reading (METHOD 4). Price $43.7 is above MOS $32.4; street mean target $42.",
    "sources": []
   },
   {
-   "ticker": "SMID",
+   "ticker": "ADBE",
    "verdict": "WATCH",
-   "headline": "13D/A amendment filed",
-   "why": "A large holder changed its position. Read the amendment for who and how much (METHOD 1: Radar).",
+   "headline": "Green-card (PERM) freeze headlines continue; stock +4%",
+   "why": "Hiring and regulatory friction, not a moat breach; no dossier sell trigger (ARR growth, ROIC, net debt) is touched. Still unconfirmed for Adobe. Price $237.7 is above the first tranche at $225.",
+   "sources": [
+    "https://www.axios.com/2026/10/08/trumps-foreign-worker-crackdown-comes-for-microsoft-adobe-it-firms"
+   ]
+  },
+  {
+   "ticker": "BKNG",
+   "verdict": "WATCH",
+   "headline": "FTC action over hotel ads still unconfirmed by the agency",
+   "why": "Price $159 is above MOS $138. A $500M+ fine is small against FCF, but check it leaves the fee model intact (METHOD 3) and needs no debt (event check 5). No new facts since 9 Oct.",
    "sources": []
   },
   {
-   "ticker": "MPWR",
-   "verdict": "NOISE",
-   "headline": "Fell 7% in the AI-hardware sell-off",
-   "why": "Market-wide; already above Sticker (METHOD 7).",
+   "ticker": "LULU",
+   "verdict": "WATCH",
+   "headline": "Leadership overhaul draws mixed views (Jefferies: right direction, work remains)",
+   "why": "No dossier trigger hit, but 'further CEO turnover' is on the list, so watch for another exit. The product fix is an event only if solvable in 1-3 years (event checks 3-4).",
+   "sources": [
+    "https://retaildive.com/news/lululemon-ceo-heidi-oneill-overhauls-c-suite-first-move/832434"
+   ]
+  },
+  {
+   "ticker": "PARR",
+   "verdict": "WATCH",
+   "headline": "Down 5% in a day and in 5 days; leadership shift at Par Pacific",
+   "why": "Refiner margins are cyclical, so read the leadership 8-K for the reason (METHOD 4). Price $84 is above MOS $72. Cause unconfirmed.",
    "sources": []
   },
   {
-   "ticker": "CLS",
+   "ticker": "LRN",
    "verdict": "NOISE",
-   "headline": "Fell 8% in the AI-hardware sell-off",
-   "why": "Market-wide (METHOD 7).",
+   "headline": "Up 7.5% on board changes and a new capital allocation committee",
+   "why": "Board news filed with a material agreement (8-K 1.01). Read the agreement; no business damage found. Price $78.9 is above MOS $44.",
    "sources": []
   },
   {
-   "ticker": "EME",
-   "verdict": "NOISE",
-   "headline": "Fell 6% in the AI-hardware sell-off",
-   "why": "Market-wide; above Sticker (METHOD 7).",
+   "ticker": "TTD",
+   "verdict": "WATCH",
+   "headline": "Down 68% this year; one writer exited on 'structural revenue deceleration'",
+   "why": "Price $11.95 is just under MOS $12.6. This is the value-trap question (LESSONS): moat breach or solvable event? Check ad-spend share loss before any buying (event check 6). Headlines only, unconfirmed.",
    "sources": []
   }
  ],
  "guru_moves": [
+  {
+   "guru": "Berkshire Hathaway (Buffett)",
+   "ticker": "GOOGL",
+   "change": "added",
+   "weight": 0.0941,
+   "report": "2026-06-30"
+  },
   {
    "guru": "Himalaya Capital (Li Lu)",
    "ticker": "PDD",
@@ -112,31 +107,31 @@
    "report": "2026-03-31"
   },
   {
-   "guru": "Himalaya Capital (Li Lu)",
-   "ticker": "BRK-B",
-   "change": "added",
-   "weight": 0.1498,
-   "report": "2026-06-30"
-  },
-  {
-   "guru": "Berkshire Hathaway (Buffett)",
-   "ticker": "GOOGL",
-   "change": "added",
-   "weight": 0.0941,
-   "report": "2026-06-30"
-  },
-  {
-   "guru": "Baupost (Seth Klarman)",
-   "ticker": "GPC",
-   "change": "added",
-   "weight": 0.0613,
-   "report": "2026-06-30"
-  },
-  {
    "guru": "Baupost (Seth Klarman)",
    "ticker": "CME",
    "change": "new",
    "weight": 0.0252,
+   "report": "2026-06-30"
+  },
+  {
+   "guru": "Himalaya Capital (Li Lu)",
+   "ticker": "HRB",
+   "change": "sold",
+   "weight": 0,
+   "report": "2026-06-30"
+  },
+  {
+   "guru": "Himalaya Capital (Li Lu)",
+   "ticker": "MCO",
+   "change": "sold",
+   "weight": 0,
+   "report": "2026-06-30"
+  },
+  {
+   "guru": "Himalaya Capital (Li Lu)",
+   "ticker": "MSCI",
+   "change": "sold",
+   "weight": 0,
    "report": "2026-06-30"
   }
  ]

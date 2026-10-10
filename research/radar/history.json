@@ -1,6 +1,15 @@
 {
  "ADBE": [
   {
+   "date": "2026-10-10",
+   "verdict": "WATCH",
+   "headline": "Green-card (PERM) freeze headlines continue; stock +4%",
+   "why": "Hiring and regulatory friction, not a moat breach; no dossier sell trigger (ARR growth, ROIC, net debt) is touched. Still unconfirmed for Adobe. Price $237.7 is above the first tranche at $225.",
+   "sources": [
+    "https://www.axios.com/2026/10/08/trumps-foreign-worker-crackdown-comes-for-microsoft-adobe-it-firms"
+   ]
+  },
+  {
    "date": "2026-10-09",
    "verdict": "WATCH",
    "headline": "Unconfirmed reports of a DOL green-card (PERM) suspension",
@@ -11,6 +20,13 @@
   }
  ],
  "BKNG": [
+  {
+   "date": "2026-10-10",
+   "verdict": "WATCH",
+   "headline": "FTC action over hotel ads still unconfirmed by the agency",
+   "why": "Price $159 is above MOS $138. A $500M+ fine is small against FCF, but check it leaves the fee model intact (METHOD 3) and needs no debt (event check 5). No new facts since 9 Oct.",
+   "sources": []
+  },
   {
    "date": "2026-10-09",
    "verdict": "WATCH",
@@ -30,6 +46,15 @@
    "sources": []
   }
  ],
+ "CRUS": [
+  {
+   "date": "2026-10-10",
+   "verdict": "WATCH",
+   "headline": "Fell 5% in a day and 11% in 5 days; no company news found",
+   "why": "No filing or headline explains it; web search found nothing, so unconfirmed. Price $121 is above MOS $60 and at Sticker $120. Check for a customer-concentration report before calling it an event (event check 1).",
+   "sources": []
+  }
+ ],
  "EME": [
   {
    "date": "2026-10-09",
@@ -39,7 +64,34 @@
    "sources": []
   }
  ],
+ "LDOS": [
+  {
+   "date": "2026-10-10",
+   "verdict": "WATCH",
+   "headline": "JPMorgan cuts to Neutral, target $160 to $142; shares +7% in a day",
+   "why": "A downgrade is fear, not business news, yet the stock rose, so the reason is unconfirmed. Check JPMorgan's stated reason (backlog or margins) before calling it EVENT or PROBLEM. Price is far above MOS $37 (METHOD 6).",
+   "sources": []
+  }
+ ],
+ "LRN": [
+  {
+   "date": "2026-10-10",
+   "verdict": "NOISE",
+   "headline": "Up 7.5% on board changes and a new capital allocation committee",
+   "why": "Board news filed with a material agreement (8-K 1.01). Read the agreement; no business damage found. Price $78.9 is above MOS $44.",
+   "sources": []
+  }
+ ],
  "LULU": [
+  {
+   "date": "2026-10-10",
+   "verdict": "WATCH",
+   "headline": "Leadership overhaul draws mixed views (Jefferies: right direction, work remains)",
+   "why": "No dossier trigger hit, but 'further CEO turnover' is on the list, so watch for another exit. The product fix is an event only if solvable in 1-3 years (event checks 3-4).",
+   "sources": [
+    "https://retaildive.com/news/lululemon-ceo-heidi-oneill-overhauls-c-suite-first-move/832434"
+   ]
+  },
   {
    "date": "2026-10-09",
    "verdict": "WATCH",
@@ -62,6 +114,13 @@
  ],
  "NVMI": [
   {
+   "date": "2026-10-10",
+   "verdict": "NOISE",
+   "headline": "Down 7% on Citi downgrade to Neutral (target $550 to $415) in the chip sell-off",
+   "why": "Analyst move plus a market-wide semis drop: price, not value (METHOD 7). Price $396 is far above MOS $119 and Sticker $239; the BUY* label is not an entry. Reason for the Citi cut unconfirmed.",
+   "sources": []
+  },
+  {
    "date": "2026-10-09",
    "verdict": "NOISE",
    "headline": "Fell 10% in the semiconductor sell-off; no company news",
@@ -69,6 +128,15 @@
    "sources": [
     "https://www.quiverquant.com/news/Nova+slides+as+semiconductor+selloff+outweighs+recent+company+momentum"
    ]
+  }
+ ],
+ "PARR": [
+  {
+   "date": "2026-10-10",
+   "verdict": "WATCH",
+   "headline": "Down 5% in a day and in 5 days; leadership shift at Par Pacific",
+   "why": "Refiner margins are cyclical, so read the leadership 8-K for the reason (METHOD 4). Price $84 is above MOS $72. Cause unconfirmed.",
+   "sources": []
   }
  ],
  "QFIN": [
@@ -81,6 +149,13 @@
   }
  ],
  "SMCI": [
+  {
+   "date": "2026-10-10",
+   "verdict": "WATCH",
+   "headline": "Fell 7% in a day; only a new board member and an 8-K item 5.02 found",
+   "why": "No story found. Past accounting and auditor problems make any 5.02 worth reading (METHOD 4). Price $43.7 is above MOS $32.4; street mean target $42.",
+   "sources": []
+  },
   {
    "date": "2026-10-09",
    "verdict": "WATCH",
@@ -104,6 +179,15 @@
    "verdict": "WATCH",
    "headline": "8-K/A amends a director or officer change",
    "why": "Read who changed and why; banks magnify management risk (METHOD 4).",
+   "sources": []
+  }
+ ],
+ "TTD": [
+  {
+   "date": "2026-10-10",
+   "verdict": "WATCH",
+   "headline": "Down 68% this year; one writer exited on 'structural revenue deceleration'",
+   "why": "Price $11.95 is just under MOS $12.6. This is the value-trap question (LESSONS): moat breach or solvable event? Check ad-spend share loss before any buying (event check 6). Headlines only, unconfirmed.",
    "sources": []
   }
  ]
