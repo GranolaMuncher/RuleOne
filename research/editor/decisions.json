@@ -1,13 +1,15 @@
-{"date": "2026-10-09",
- "summary": "The screen shows 13 BUY, 68 BUY* and 38 ON DECK names, but the three dossiers written this week (ADBE, KNSL, LULU) all say WATCH after correcting 15% growth and flattered earnings. Nothing is at tranche 1 today. The week is about price levels to wait for and KNSL's Q3 report on 22 Oct.",
+{"date": "2026-10-10",
+ "summary": "The screen shows 12 BUY names, but all six dossiers say WATCH or TOO HARD because the screen's prices rest on stale growth, trailing earnings or lender cash flow. Nothing is at tranche 1; LULU is closest at $94.50 vs $90, and KNSL reports on 22 Oct. The Professor found no major issues and added two lessons on lenders and guidance cuts.",
  "decisions": [
-  {"ticker": "LULU", "question": "Start tranche 1 at $90 if price reaches it, or wait for proof the US fix works?", "why": "Price $92.68 is 3% above tranche 1; new CEO reshuffled the team; underlying EPS ~$8.74, not $12.15.", "link": "/rulers/LULU/"},
-  {"ticker": "KNSL", "question": "Keep buying stopped above $280 until Q3 results on 22 Oct?", "why": "Price $339.65; normalised Sticker ~$282 as E&S property pricing softens.", "link": "/rulers/KNSL/"},
-  {"ticker": "ADBE", "question": "Accept $225 as the stop-buy given the CEO handover and AI risk?", "why": "Price $241.05; corrected Sticker ~$230; CEO changes 1 Dec, interim CFO.", "link": "/rulers/ADBE/"}
+  {"ticker": "OPFI", "question": "Stop ranking lenders and insurers (OPFI, QFIN, FUTU) at the top until valued on book or earnings?", "why": "Their OCF-based Payback and Ten Cap are not owner earnings, yet they top the screen.", "link": "/rulers/OPFI/"},
+  {"ticker": "QFIN", "question": "Are you willing to own a China-based ADR at all?", "why": "Dossier is TOO HARD on a changed story and political risk; your answer decides whether to close it.", "link": "/rulers/QFIN/"},
+  {"ticker": "TTD", "question": "Ask the analyst for a TTD dossier on the 68% fall?", "why": "Price is under MOS but a writer cites structural revenue deceleration: event or value trap?", "link": "/radar/"},
+  {"ticker": "LULU", "question": "If LULU reaches $90, start tranche 1, or wait for $70?", "why": "Price $94.50 is 5% above tranche 1; the new-CEO story is unproven.", "link": "/rulers/LULU/"}
  ],
  "actions": [
-  {"ticker": "LULU", "action": "review story", "reason": "3% above tranche 1 ($90); C-suite overhaul needs judging on candour."},
-  {"ticker": "KNSL", "action": "hold", "reason": "Above all corrected prices; review after Q3 on 22 Oct."},
-  {"ticker": "ADBE", "action": "hold", "reason": "Above tranche 1 ($225); story risk unresolved."},
-  {"ticker": "BKNG", "action": "review story", "reason": "Reported FTC action over affiliate hotel ads; unconfirmed, no dossier."}
+  {"ticker": "LULU", "action": "review story", "reason": "$94.50 vs tranche 1 $90; new CEO overhauling the C-suite."},
+  {"ticker": "KNSL", "action": "hold", "reason": "$336.98 vs tranche 1 $280; review after Q3 on 22 Oct."},
+  {"ticker": "ADBE", "action": "hold", "reason": "$242.27 vs tranche 1 $225; CEO handover 1 Dec, PERM headlines unconfirmed."},
+  {"ticker": "BRBR", "action": "hold", "reason": "$8.55 vs tranche 1 $7; net debt ~3.8x EBITDA, wait for Q4 call."},
+  {"ticker": "OPFI", "action": "pass", "reason": "TOO HARD: screen prices are not owner earnings for a lender."}
  ]}

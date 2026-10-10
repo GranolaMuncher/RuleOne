@@ -1,9 +1,12 @@
 {
- "date": "2026-10-09",
+ "date": "2026-10-10",
  "verdicts": {
   "ADBE": "WATCH",
+  "BRBR": "WATCH",
   "KNSL": "WATCH",
-  "LULU": "WATCH"
+  "LULU": "WATCH",
+  "OPFI": "TOO HARD",
+  "QFIN": "TOO HARD"
  },
- "brief": "reports/weekly/2026-10-09_brief.md"
+ "brief": "reports/weekly/2026-10-10_brief.md"
 }
