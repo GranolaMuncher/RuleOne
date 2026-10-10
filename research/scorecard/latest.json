@@ -1,10 +1,49 @@
 {
- "date": "2026-10-09",
- "calls": 3,
- "graded": 3,
+ "date": "2026-10-10",
+ "calls": 6,
+ "graded": 6,
  "by_verdict": {},
  "review_candidates": [],
  "recent": [
+  {
+   "date": "2026-10-10",
+   "agent": "rulers",
+   "ticker": "BRBR",
+   "verdict": "WATCH",
+   "price": "8.55",
+   "spy": "778.57",
+   "tranche1": "7.0",
+   "note": "A branded protein-shake business with ROIC above 40% that has fallen 76% as margins collapsed and net debt reached ~3.8x guided EBITDA; the screen's prices use ",
+   "age_days": 0,
+   "return": 0.0,
+   "excess": 0.0
+  },
+  {
+   "date": "2026-10-10",
+   "agent": "rulers",
+   "ticker": "OPFI",
+   "verdict": "TOO HARD",
+   "price": "5.93",
+   "spy": "778.57",
+   "tranche1": "5.0",
+   "note": "A high-yield consumer lender whose screen numbers (FCF, Payback, Ten Cap) are not real owner earnings; guidance was cut, originations fell and credit is tighten",
+   "age_days": 0,
+   "return": 0.0,
+   "excess": 0.0
+  },
+  {
+   "date": "2026-10-10",
+   "agent": "rulers",
+   "ticker": "QFIN",
+   "verdict": "TOO HARD",
+   "price": "6.2",
+   "spy": "778.57",
+   "tranche1": "5.0",
+   "note": "A China loan-facilitation platform at ~3x annualised earnings, but volume, revenue and profit are collapsing under regulation and a liquidity shock; the story h",
+   "age_days": 0,
+   "return": 0.0,
+   "excess": 0.0
+  },
   {
    "date": "2026-10-09",
    "agent": "rulers",
@@ -14,9 +53,9 @@
    "spy": "773.93",
    "tranche1": "225.0",
    "note": "A high-ROIC software franchise at ~10x non-GAAP earnings, but generative-AI disruption, a CEO handover (1 Dec) and an interim CFO leave the story unproven; the ",
-   "age_days": 0,
-   "return": -0.0139,
-   "excess": -0.0139
+   "age_days": 1,
+   "return": 0.0051,
+   "excess": -0.0009
   },
   {
    "date": "2026-10-09",
@@ -27,9 +66,9 @@
    "spy": "773.93",
    "tranche1": "280.0",
    "note": "An exceptional specialty insurer (combined ratio ~76%, ROIC 23%), but on normalised earnings it is above all three corrected prices because E&S property pricing",
-   "age_days": 0,
-   "return": -0.0292,
-   "excess": -0.0292
+   "age_days": 1,
+   "return": -0.0079,
+   "excess": -0.0139
   },
   {
    "date": "2026-10-09",
@@ -40,9 +79,9 @@
    "spy": "773.93",
    "tranche1": "90.0",
    "note": "A high-ROIC brand with net cash and a new CEO, but US sales are shrinking, earnings are falling and TTM EPS is flattered; wait for a lower price or proof the pr",
-   "age_days": 0,
-   "return": 0.0192,
-   "excess": 0.0192
+   "age_days": 1,
+   "return": 0.0196,
+   "excess": 0.0136
   }
  ]
 }
