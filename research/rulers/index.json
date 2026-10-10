@@ -15,6 +15,21 @@
   "summary": "A high-ROIC software franchise at ~10x non-GAAP earnings, but generative-AI disruption, a CEO handover (1 Dec) and an interim CFO leave the story unproven; the corrected Sticker is only ~$230."
  },
  {
+  "ticker": "BRBR",
+  "name": "BellRing Brands, Inc.",
+  "verdict": "WATCH",
+  "confidence": 3.0,
+  "entry": [
+   7.0,
+   5.0,
+   3.5
+  ],
+  "trim": 20.0,
+  "updated": "2026-10-10",
+  "price_at_update": 8.55,
+  "summary": "A branded protein-shake business with ROIC above 40% that has fallen 76% as margins collapsed and net debt reached ~3.8x guided EBITDA; the screen's prices use pre-squeeze cash flow, so wait for Q4 and the new CEO's FY27 plan."
+ },
+ {
   "ticker": "KNSL",
   "name": "Kinsale Capital Group, Inc.",
   "verdict": "WATCH",
@@ -43,5 +58,35 @@
   "updated": "2026-10-09",
   "price_at_update": 92.68,
   "summary": "A high-ROIC brand with net cash and a new CEO, but US sales are shrinking, earnings are falling and TTM EPS is flattered; wait for a lower price or proof the product fix works."
+ },
+ {
+  "ticker": "OPFI",
+  "name": "OppFi Inc.",
+  "verdict": "TOO HARD",
+  "confidence": 2.0,
+  "entry": [
+   5.0,
+   4.0,
+   3.0
+  ],
+  "trim": 12.0,
+  "updated": "2026-10-10",
+  "price_at_update": 5.93,
+  "summary": "A high-yield consumer lender whose screen numbers (FCF, Payback, Ten Cap) are not real owner earnings; guidance was cut, originations fell and credit is tightening, so the screen's $29 Sticker cannot be trusted."
+ },
+ {
+  "ticker": "QFIN",
+  "name": "Qfin Holdings, Inc.",
+  "verdict": "TOO HARD",
+  "confidence": 2.0,
+  "entry": [
+   5.0,
+   4.0,
+   3.0
+  ],
+  "trim": 12.0,
+  "updated": "2026-10-10",
+  "price_at_update": 6.2,
+  "summary": "A China loan-facilitation platform at ~3x annualised earnings, but volume, revenue and profit are collapsing under regulation and a liquidity shock; the story has changed and China political risk is a checklist item."
  }
 ]
