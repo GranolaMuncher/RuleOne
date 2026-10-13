@@ -8,7 +8,7 @@ from ruleone.events import _form4_purchases, event_score, event_summary, load_ev
 from ruleone.marketwide import fy_valuation
 from ruleone.metrics import big_five, bvps, fcf
 from ruleone.prices import beta, price_near
-from ruleone.screener import quality_tier, stage1_pass
+from ruleone.screener import quality_tier, rank_score, stage1_pass
 from ruleone.valuation import (DCFInputs, dcf, dcf_sensitivity, gordon, historical_pe, payback_price,
                                sticker_price, h_model)
 
@@ -60,6 +60,18 @@ def test_quality_tiers():
     assert quality_tier(_b5(roic1=0.09, big5_score=0.95)) == "C"  # any ROIC window under 10% drops to C
     assert quality_tier(_b5(big5_score=0.79)) == "B"
     assert quality_tier(_b5(big5_score=0.67)) == "B" and quality_tier(_b5(big5_score=0.66)) == "C"
+
+
+
+def test_rank_score():
+    # 2 x 0.8 quality + 2 x 50% discount + 1.0 for tier A
+    assert rank_score(0.8, 0.5, "A", 0.0, 0, None) == 3.6
+    # no Sticker counts as the worst discount (-100%), and a price far above Sticker is clamped to it
+    assert rank_score(0.8, None, "C", 0.0, 0, None) == -0.4
+    assert rank_score(0.8, 3.0, "C", 0.0, 0, None) == rank_score(0.8, None, "C", 0.0, 0, None)
+    # at Sticker: 2 + 0 + 0.5 (B) + 0.25 x 2 events + 0.25 x 3 methods + 0.5 markers
+    assert rank_score(1.0, 1.0, "B", 2.0, 3, 0.5) == 4.25
+    assert rank_score(0.8, 0.6, "B", 0.0, 1, None) > rank_score(0.8, 0.9, "B", 0.0, 1, None)   # cheaper ranks higher
 
 
 # ---------------------------------------------------------------- valuation

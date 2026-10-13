@@ -49,6 +49,16 @@ def stage1_pass(b: dict, min_score: float, min_revenue: float, today: date) -> b
     return b["big5_score"] >= min_score
 
 
+def rank_score(big5_score: float, price_to_sticker: float | None, tier: str, event_score: float,
+               methods_agree: int, marker_score: float | None) -> float:
+    """Order for the lists: quality, discount to Sticker (clamped to +/-100%; no Sticker counts
+    as -100%), tier bonus, events, how many buy prices agree, and the wonderful-company markers."""
+    disc = 1 - price_to_sticker if price_to_sticker else -1
+    return round(2 * big5_score + max(min(disc, 1.0), -1.0) * 2
+                 + {"A": 1.0, "B": 0.5, "C": 0}[tier] + 0.25 * event_score
+                 + 0.25 * methods_agree + (marker_score or 0), 3)
+
+
 def quality_tier(b: dict) -> str:
     roic_ok = all((b.get(f"roic{w}") or 0) >= 0.10 for w in (10, 5, 1) if b.get(f"roic{w}") is not None)
     debt_ok = b.get("debt_payoff_years") is not None and b["debt_payoff_years"] <= 3
@@ -146,10 +156,8 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
         "drawdown_52w": ev.get("drawdown_52w"), "event_score": event_score(ev) if ev else 0.0,
         "events": event_summary(ev) if ev else "", "next_report_est": ev.get("next_earnings_est"),
     }
-    disc = 1 - rec["price_to_sticker"] if rec["price_to_sticker"] else -1
-    rec["rank_score"] = round(2 * b["big5_score"] + max(min(disc, 1.0), -1.0) * 2
-                              + {"A": 1.0, "B": 0.5, "C": 0}[rec["tier"]] + 0.25 * rec["event_score"]
-                              + 0.25 * rec["methods_agree"] + (marker_score or 0), 3)
+    rec["rank_score"] = rank_score(b["big5_score"], rec["price_to_sticker"], rec["tier"], rec["event_score"],
+                                   rec["methods_agree"], marker_score)
     return rec
 
 
