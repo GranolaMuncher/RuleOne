@@ -1,80 +1,88 @@
 {
- "date": "2026-10-10",
- "summary": "No sell trigger or must-stay-true item was tripped today. The signals were price moves with little news: Cirrus Logic, Super Micro and Nova fell, and Leidos rose 7% despite a JPMorgan downgrade. Web searches found no confirming coverage of these moves, so each is marked unconfirmed. Carried over: Booking's FTC risk, Adobe's green-card headlines and Lululemon's leadership overhaul. Trade Desk sits at its MOS price after a 68% fall, which is the value-trap question rather than an event.",
+ "date": "2026-10-13",
+ "summary": "No dossier sell trigger was tripped. Adobe took a Wells Fargo downgrade to Underweight with growth worries; this touches must-stay-true item 1 but is still a WATCH. Chips fell broadly on AI-funding and China competition worries (market-wide, METHOD 7). Super Micro stays an integrity question after a contractor's guilty plea. Trade Desk sits at its MOS price: value trap or event is still open. Searches could not confirm several moves, so they are marked unconfirmed.",
  "items": [
   {
-   "ticker": "LDOS",
+   "ticker": "ADBE",
    "verdict": "WATCH",
-   "headline": "JPMorgan cuts to Neutral, target $160 to $142; shares +7% in a day",
-   "why": "A downgrade is fear, not business news, yet the stock rose, so the reason is unconfirmed. Check JPMorgan's stated reason (backlog or margins) before calling it EVENT or PROBLEM. Price is far above MOS $37 (METHOD 6).",
-   "sources": []
+   "headline": "Wells Fargo cuts to Underweight, target $270 to $225; stock -4% (Oct 12)",
+   "why": "Downgrade is fear, not business news, but the press quotes 'meaningful cracks' and new recurring revenue needing to nearly double. That touches must-stay-true 1 (ARR growth 8-10%); no sell trigger yet (needs <6% two years). Reason unconfirmed by my search. Price $242 is below MOS $269, above tranche 1 $225.",
+   "sources": [
+    "https://stocktwits.com/news-articles/markets/equity/adbe-stock-tumbles-after-double-downgrade-must-double-new-recurring-revenue-to-hit-targets/cZxIXZbRB8B"
+   ]
   },
   {
-   "ticker": "NVMI",
-   "verdict": "NOISE",
-   "headline": "Down 7% on Citi downgrade to Neutral (target $550 to $415) in the chip sell-off",
-   "why": "Analyst move plus a market-wide semis drop: price, not value (METHOD 7). Price $396 is far above MOS $119 and Sticker $239; the BUY* label is not an entry. Reason for the Citi cut unconfirmed.",
-   "sources": []
+   "ticker": "TTD",
+   "verdict": "WATCH",
+   "headline": "At MOS $12.6 after a 68% fall; Q3 revenue floor of $650M in focus",
+   "why": "Value-trap question (LESSONS): moat breach or solvable event? Check ad-spend share loss before buying (event check 6). Headlines only, unconfirmed.",
+   "sources": [
+    "https://www.tikr.com/blog/the-trade-desk-stock-is-down-68-in-2026-after-missing-its-own-guidance-heres-what-the-650-million-q3-floor-means-for-investors"
+   ]
+  },
+  {
+   "ticker": "LULU",
+   "verdict": "WATCH",
+   "headline": "Product-line cuts and turnaround coverage; price $94.5 vs MOS $182",
+   "why": "No dossier sell trigger hit; 'further CEO turnover' is still the one to watch. Product fix is an event only if solvable in 1-3 years (event checks 3-4).",
+   "sources": [
+    "https://qz.com/lululemon-under-armour-retailers-cutting-product-lines-profits-101226"
+   ]
+  },
+  {
+   "ticker": "HRMY",
+   "verdict": "WATCH",
+   "headline": "CEO plans to exit; shares -3.5% in a day",
+   "why": "Planned transition per the headline; my search could not confirm details. Read the 8-K for timing and successor (METHOD 4). Price $40.3 vs MOS $23.9, so not near buy price.",
+   "sources": [
+    "https://finance.yahoo.com/healthcare/articles/harmony-biosciences-announces-planned-ceo-110000859.html"
+   ]
   },
   {
    "ticker": "CRUS",
    "verdict": "WATCH",
-   "headline": "Fell 5% in a day and 11% in 5 days; no company news found",
-   "why": "No filing or headline explains it; web search found nothing, so unconfirmed. Price $121 is above MOS $60 and at Sticker $120. Check for a customer-concentration report before calling it an event (event check 1).",
+   "headline": "Down 6% in a day, 12% in 5 days; no company news",
+   "why": "Unconfirmed. Falls with the chip sell-off. Price $107 is above MOS $60 (METHOD 7). Check customer concentration (event check 1).",
    "sources": []
   },
   {
    "ticker": "SMCI",
    "verdict": "WATCH",
-   "headline": "Fell 7% in a day; only a new board member and an 8-K item 5.02 found",
-   "why": "No story found. Past accounting and auditor problems make any 5.02 worth reading (METHOD 4). Price $43.7 is above MOS $32.4; street mean target $42.",
-   "sources": []
-  },
-  {
-   "ticker": "ADBE",
-   "verdict": "WATCH",
-   "headline": "Green-card (PERM) freeze headlines continue; stock +4%",
-   "why": "Hiring and regulatory friction, not a moat breach; no dossier sell trigger (ARR growth, ROIC, net debt) is touched. Still unconfirmed for Adobe. Price $237.7 is above the first tranche at $225.",
+   "headline": "Contractor pleads guilty in $2.5B AI-server export scheme; stock -7%",
+   "why": "Company is not a defendant per reports, but past accounting and export problems make it an integrity question (METHOD 4). Price $41.9 is above MOS $32.4. Link between the plea and the price drop unconfirmed.",
    "sources": [
-    "https://www.axios.com/2026/10/08/trumps-foreign-worker-crackdown-comes-for-microsoft-adobe-it-firms"
+    "https://www.tikr.com/blog/super-micro-contractor-pleads-guilty-in-2-5-billion-ai-server-smuggling-case"
    ]
-  },
-  {
-   "ticker": "BKNG",
-   "verdict": "WATCH",
-   "headline": "FTC action over hotel ads still unconfirmed by the agency",
-   "why": "Price $159 is above MOS $138. A $500M+ fine is small against FCF, but check it leaves the fee model intact (METHOD 3) and needs no debt (event check 5). No new facts since 9 Oct.",
-   "sources": []
-  },
-  {
-   "ticker": "LULU",
-   "verdict": "WATCH",
-   "headline": "Leadership overhaul draws mixed views (Jefferies: right direction, work remains)",
-   "why": "No dossier trigger hit, but 'further CEO turnover' is on the list, so watch for another exit. The product fix is an event only if solvable in 1-3 years (event checks 3-4).",
-   "sources": [
-    "https://retaildive.com/news/lululemon-ceo-heidi-oneill-overhauls-c-suite-first-move/832434"
-   ]
-  },
-  {
-   "ticker": "PARR",
-   "verdict": "WATCH",
-   "headline": "Down 5% in a day and in 5 days; leadership shift at Par Pacific",
-   "why": "Refiner margins are cyclical, so read the leadership 8-K for the reason (METHOD 4). Price $84 is above MOS $72. Cause unconfirmed.",
-   "sources": []
   },
   {
    "ticker": "LRN",
    "verdict": "NOISE",
-   "headline": "Up 7.5% on board changes and a new capital allocation committee",
-   "why": "Board news filed with a material agreement (8-K 1.01). Read the agreement; no business damage found. Price $78.9 is above MOS $44.",
+   "headline": "Board additions and capital allocation committee; 8-K 1.01 filed",
+   "why": "Governance news, no business damage found. Read the agreement. Price $85.6 is above MOS $44.",
    "sources": []
   },
   {
-   "ticker": "TTD",
-   "verdict": "WATCH",
-   "headline": "Down 68% this year; one writer exited on 'structural revenue deceleration'",
-   "why": "Price $11.95 is just under MOS $12.6. This is the value-trap question (LESSONS): moat breach or solvable event? Check ad-spend share loss before any buying (event check 6). Headlines only, unconfirmed.",
+   "ticker": "PARR",
+   "verdict": "NOISE",
+   "headline": "Down 5% in a day; Q3 earnings date set",
+   "why": "Cyclical refiner, no business news. Price $81.9 is above MOS $71.9 (METHOD 7).",
    "sources": []
+  },
+  {
+   "ticker": "REX",
+   "verdict": "NOISE",
+   "headline": "Down 8% in a day; no news found",
+   "why": "Price move with no filing or headline. Price $42.1 is above MOS $19.6.",
+   "sources": []
+  },
+  {
+   "ticker": "LRCX",
+   "verdict": "NOISE",
+   "headline": "Chip equipment names fall on AI-funding worries and China competition",
+   "why": "Market-wide semis drop moves price, not value (METHOD 7). KLAC, MPWR, MU fell too; all far above MOS.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/entegris-intel-kla-corporation-lam-003903942.html"
+   ]
   }
  ],
  "guru_moves": [

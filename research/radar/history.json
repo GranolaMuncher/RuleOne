@@ -1,6 +1,15 @@
 {
  "ADBE": [
   {
+   "date": "2026-10-13",
+   "verdict": "WATCH",
+   "headline": "Wells Fargo cuts to Underweight, target $270 to $225; stock -4% (Oct 12)",
+   "why": "Downgrade is fear, not business news, but the press quotes 'meaningful cracks' and new recurring revenue needing to nearly double. That touches must-stay-true 1 (ARR growth 8-10%); no sell trigger yet (needs <6% two years). Reason unconfirmed by my search. Price $242 is below MOS $269, above tranche 1 $225.",
+   "sources": [
+    "https://stocktwits.com/news-articles/markets/equity/adbe-stock-tumbles-after-double-downgrade-must-double-new-recurring-revenue-to-hit-targets/cZxIXZbRB8B"
+   ]
+  },
+  {
    "date": "2026-10-10",
    "verdict": "WATCH",
    "headline": "Green-card (PERM) freeze headlines continue; stock +4%",
@@ -48,6 +57,13 @@
  ],
  "CRUS": [
   {
+   "date": "2026-10-13",
+   "verdict": "WATCH",
+   "headline": "Down 6% in a day, 12% in 5 days; no company news",
+   "why": "Unconfirmed. Falls with the chip sell-off. Price $107 is above MOS $60 (METHOD 7). Check customer concentration (event check 1).",
+   "sources": []
+  },
+  {
    "date": "2026-10-10",
    "verdict": "WATCH",
    "headline": "Fell 5% in a day and 11% in 5 days; no company news found",
@@ -64,6 +80,17 @@
    "sources": []
   }
  ],
+ "HRMY": [
+  {
+   "date": "2026-10-13",
+   "verdict": "WATCH",
+   "headline": "CEO plans to exit; shares -3.5% in a day",
+   "why": "Planned transition per the headline; my search could not confirm details. Read the 8-K for timing and successor (METHOD 4). Price $40.3 vs MOS $23.9, so not near buy price.",
+   "sources": [
+    "https://finance.yahoo.com/healthcare/articles/harmony-biosciences-announces-planned-ceo-110000859.html"
+   ]
+  }
+ ],
  "LDOS": [
   {
    "date": "2026-10-10",
@@ -73,7 +100,25 @@
    "sources": []
   }
  ],
+ "LRCX": [
+  {
+   "date": "2026-10-13",
+   "verdict": "NOISE",
+   "headline": "Chip equipment names fall on AI-funding worries and China competition",
+   "why": "Market-wide semis drop moves price, not value (METHOD 7). KLAC, MPWR, MU fell too; all far above MOS.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/entegris-intel-kla-corporation-lam-003903942.html"
+   ]
+  }
+ ],
  "LRN": [
+  {
+   "date": "2026-10-13",
+   "verdict": "NOISE",
+   "headline": "Board additions and capital allocation committee; 8-K 1.01 filed",
+   "why": "Governance news, no business damage found. Read the agreement. Price $85.6 is above MOS $44.",
+   "sources": []
+  },
   {
    "date": "2026-10-10",
    "verdict": "NOISE",
@@ -83,6 +128,15 @@
   }
  ],
  "LULU": [
+  {
+   "date": "2026-10-13",
+   "verdict": "WATCH",
+   "headline": "Product-line cuts and turnaround coverage; price $94.5 vs MOS $182",
+   "why": "No dossier sell trigger hit; 'further CEO turnover' is still the one to watch. Product fix is an event only if solvable in 1-3 years (event checks 3-4).",
+   "sources": [
+    "https://qz.com/lululemon-under-armour-retailers-cutting-product-lines-profits-101226"
+   ]
+  },
   {
    "date": "2026-10-10",
    "verdict": "WATCH",
@@ -132,6 +186,13 @@
  ],
  "PARR": [
   {
+   "date": "2026-10-13",
+   "verdict": "NOISE",
+   "headline": "Down 5% in a day; Q3 earnings date set",
+   "why": "Cyclical refiner, no business news. Price $81.9 is above MOS $71.9 (METHOD 7).",
+   "sources": []
+  },
+  {
    "date": "2026-10-10",
    "verdict": "WATCH",
    "headline": "Down 5% in a day and in 5 days; leadership shift at Par Pacific",
@@ -148,7 +209,25 @@
    "sources": []
   }
  ],
+ "REX": [
+  {
+   "date": "2026-10-13",
+   "verdict": "NOISE",
+   "headline": "Down 8% in a day; no news found",
+   "why": "Price move with no filing or headline. Price $42.1 is above MOS $19.6.",
+   "sources": []
+  }
+ ],
  "SMCI": [
+  {
+   "date": "2026-10-13",
+   "verdict": "WATCH",
+   "headline": "Contractor pleads guilty in $2.5B AI-server export scheme; stock -7%",
+   "why": "Company is not a defendant per reports, but past accounting and export problems make it an integrity question (METHOD 4). Price $41.9 is above MOS $32.4. Link between the plea and the price drop unconfirmed.",
+   "sources": [
+    "https://www.tikr.com/blog/super-micro-contractor-pleads-guilty-in-2-5-billion-ai-server-smuggling-case"
+   ]
+  },
   {
    "date": "2026-10-10",
    "verdict": "WATCH",
@@ -183,6 +262,15 @@
   }
  ],
  "TTD": [
+  {
+   "date": "2026-10-13",
+   "verdict": "WATCH",
+   "headline": "At MOS $12.6 after a 68% fall; Q3 revenue floor of $650M in focus",
+   "why": "Value-trap question (LESSONS): moat breach or solvable event? Check ad-spend share loss before buying (event check 6). Headlines only, unconfirmed.",
+   "sources": [
+    "https://www.tikr.com/blog/the-trade-desk-stock-is-down-68-in-2026-after-missing-its-own-guidance-heres-what-the-650-million-q3-floor-means-for-investors"
+   ]
+  },
   {
    "date": "2026-10-10",
    "verdict": "WATCH",
