@@ -1,146 +1,21 @@
-{
- "date": "2026-10-13",
- "summary": "No dossier sell trigger was tripped. Adobe took a Wells Fargo downgrade to Underweight with growth worries; this touches must-stay-true item 1 but is still a WATCH. Chips fell broadly on AI-funding and China competition worries (market-wide, METHOD 7). Super Micro stays an integrity question after a contractor's guilty plea. Trade Desk sits at its MOS price: value trap or event is still open. Searches could not confirm several moves, so they are marked unconfirmed.",
+{"date": "2026-10-14",
+ "summary": "No dossier sell trigger tripped. Adobe took a second downgrade (HSBC Hold) and stays a WATCH on must-stay-true 3. Chip equipment slid market-wide. Harmony's CEO exit and Gold.com insider buying are unconfirmed by search.",
  "items": [
-  {
-   "ticker": "ADBE",
-   "verdict": "WATCH",
-   "headline": "Wells Fargo cuts to Underweight, target $270 to $225; stock -4% (Oct 12)",
-   "why": "Downgrade is fear, not business news, but the press quotes 'meaningful cracks' and new recurring revenue needing to nearly double. That touches must-stay-true 1 (ARR growth 8-10%); no sell trigger yet (needs <6% two years). Reason unconfirmed by my search. Price $242 is below MOS $269, above tranche 1 $225.",
-   "sources": [
-    "https://stocktwits.com/news-articles/markets/equity/adbe-stock-tumbles-after-double-downgrade-must-double-new-recurring-revenue-to-hit-targets/cZxIXZbRB8B"
-   ]
-  },
-  {
-   "ticker": "TTD",
-   "verdict": "WATCH",
-   "headline": "At MOS $12.6 after a 68% fall; Q3 revenue floor of $650M in focus",
-   "why": "Value-trap question (LESSONS): moat breach or solvable event? Check ad-spend share loss before buying (event check 6). Headlines only, unconfirmed.",
-   "sources": [
-    "https://www.tikr.com/blog/the-trade-desk-stock-is-down-68-in-2026-after-missing-its-own-guidance-heres-what-the-650-million-q3-floor-means-for-investors"
-   ]
-  },
-  {
-   "ticker": "LULU",
-   "verdict": "WATCH",
-   "headline": "Product-line cuts and turnaround coverage; price $94.5 vs MOS $182",
-   "why": "No dossier sell trigger hit; 'further CEO turnover' is still the one to watch. Product fix is an event only if solvable in 1-3 years (event checks 3-4).",
-   "sources": [
-    "https://qz.com/lululemon-under-armour-retailers-cutting-product-lines-profits-101226"
-   ]
-  },
-  {
-   "ticker": "HRMY",
-   "verdict": "WATCH",
-   "headline": "CEO plans to exit; shares -3.5% in a day",
-   "why": "Planned transition per the headline; my search could not confirm details. Read the 8-K for timing and successor (METHOD 4). Price $40.3 vs MOS $23.9, so not near buy price.",
-   "sources": [
-    "https://finance.yahoo.com/healthcare/articles/harmony-biosciences-announces-planned-ceo-110000859.html"
-   ]
-  },
-  {
-   "ticker": "CRUS",
-   "verdict": "WATCH",
-   "headline": "Down 6% in a day, 12% in 5 days; no company news",
-   "why": "Unconfirmed. Falls with the chip sell-off. Price $107 is above MOS $60 (METHOD 7). Check customer concentration (event check 1).",
-   "sources": []
-  },
-  {
-   "ticker": "SMCI",
-   "verdict": "WATCH",
-   "headline": "Contractor pleads guilty in $2.5B AI-server export scheme; stock -7%",
-   "why": "Company is not a defendant per reports, but past accounting and export problems make it an integrity question (METHOD 4). Price $41.9 is above MOS $32.4. Link between the plea and the price drop unconfirmed.",
-   "sources": [
-    "https://www.tikr.com/blog/super-micro-contractor-pleads-guilty-in-2-5-billion-ai-server-smuggling-case"
-   ]
-  },
-  {
-   "ticker": "LRN",
-   "verdict": "NOISE",
-   "headline": "Board additions and capital allocation committee; 8-K 1.01 filed",
-   "why": "Governance news, no business damage found. Read the agreement. Price $85.6 is above MOS $44.",
-   "sources": []
-  },
-  {
-   "ticker": "PARR",
-   "verdict": "NOISE",
-   "headline": "Down 5% in a day; Q3 earnings date set",
-   "why": "Cyclical refiner, no business news. Price $81.9 is above MOS $71.9 (METHOD 7).",
-   "sources": []
-  },
-  {
-   "ticker": "REX",
-   "verdict": "NOISE",
-   "headline": "Down 8% in a day; no news found",
-   "why": "Price move with no filing or headline. Price $42.1 is above MOS $19.6.",
-   "sources": []
-  },
-  {
-   "ticker": "LRCX",
-   "verdict": "NOISE",
-   "headline": "Chip equipment names fall on AI-funding worries and China competition",
-   "why": "Market-wide semis drop moves price, not value (METHOD 7). KLAC, MPWR, MU fell too; all far above MOS.",
-   "sources": [
-    "https://finance.yahoo.com/markets/stocks/articles/entegris-intel-kla-corporation-lam-003903942.html"
-   ]
-  }
+  {"ticker": "ADBE", "verdict": "WATCH", "headline": "HSBC cuts to Hold, target $267; second downgrade in two days", "why": "Downgrade is fear; touches must-stay-true 3 (AI monetised). No sell trigger (ARR <6% two years). Price below MOS, above tranche 1. Reason unconfirmed.", "sources": ["https://finance.yahoo.com/markets/stocks/articles/hsbc-cautious-adobe-flags-headline-122745509.html"]},
+  {"ticker": "HRMY", "verdict": "WATCH", "headline": "CEO transition; 8-K item 5.02 filed", "why": "Read 8-K for timing and successor (METHOD 4). Price far above MOS; value-trap flag. Unconfirmed by search.", "sources": ["https://finance.yahoo.com/healthcare/articles/harmony-biosciences-announces-planned-ceo-110000859.html"]},
+  {"ticker": "GOLD", "verdict": "WATCH", "headline": "Insider Form 4 purchase Oct 13", "why": "Insider buying is context only. ROIC falling and special-dividend flags. Buyer unconfirmed.", "sources": ["https://www.sec.gov/Archives/edgar/data/0001591588/000110465926115328/tm2627489-1_4seq1.xml"]},
+  {"ticker": "SMCI", "verdict": "WATCH", "headline": "Down 7%; export-case integrity question persists", "why": "Integrity question (METHOD 4); cash not real and debt flags. Price above MOS. Cause of drop unconfirmed.", "sources": ["https://finance.yahoo.com/markets/stocks/articles/why-super-micro-smci-stock-233503918.html"]},
+  {"ticker": "CRUS", "verdict": "NOISE", "headline": "Down 12% in 5 days with chips; no company news", "why": "Market-wide semis move (METHOD 7). Price above MOS.", "sources": []},
+  {"ticker": "PARR", "verdict": "NOISE", "headline": "Down 5% in a day; only earnings date", "why": "Cyclical refiner, no news. Price above MOS.", "sources": []},
+  {"ticker": "REX", "verdict": "NOISE", "headline": "Down 8% in a day; no news", "why": "Price move with no filing. Price above MOS.", "sources": []},
+  {"ticker": "ACGL", "verdict": "NOISE", "headline": "Morgan Stanley to Equal-Weight, target $100", "why": "Downgrade is fear, no business news.", "sources": []},
+  {"ticker": "QFIN", "verdict": "NOISE", "headline": "Down 8% in 5 days, no news", "why": "Dossier TOO HARD; no named trigger appeared. Watch regulatory flow.", "sources": []},
+  {"ticker": "LRCX", "verdict": "NOISE", "headline": "Chip equipment slide on profit-taking", "why": "Market-wide (METHOD 7); far above MOS.", "sources": ["https://247wallst.com/investing/2026/10/13/semiconductor-equipment-stocks-slide-as-investors-take-profits-on-a-huge-year-applied-materials-sinks-7-lam-research-and-kla-drop-4/"]}
  ],
  "guru_moves": [
-  {
-   "guru": "Berkshire Hathaway (Buffett)",
-   "ticker": "GOOGL",
-   "change": "added",
-   "weight": 0.0941,
-   "report": "2026-06-30"
-  },
-  {
-   "guru": "Himalaya Capital (Li Lu)",
-   "ticker": "PDD",
-   "change": "added",
-   "weight": 0.2217,
-   "report": "2026-06-30"
-  },
-  {
-   "guru": "Baupost (Seth Klarman)",
-   "ticker": "AMZN",
-   "change": "added",
-   "weight": 0.1648,
-   "report": "2026-06-30"
-  },
-  {
-   "guru": "Pershing Square (Bill Ackman)",
-   "ticker": "MSFT",
-   "change": "new",
-   "weight": 0.1526,
-   "report": "2026-03-31"
-  },
-  {
-   "guru": "Baupost (Seth Klarman)",
-   "ticker": "CME",
-   "change": "new",
-   "weight": 0.0252,
-   "report": "2026-06-30"
-  },
-  {
-   "guru": "Himalaya Capital (Li Lu)",
-   "ticker": "HRB",
-   "change": "sold",
-   "weight": 0,
-   "report": "2026-06-30"
-  },
-  {
-   "guru": "Himalaya Capital (Li Lu)",
-   "ticker": "MCO",
-   "change": "sold",
-   "weight": 0,
-   "report": "2026-06-30"
-  },
-  {
-   "guru": "Himalaya Capital (Li Lu)",
-   "ticker": "MSCI",
-   "change": "sold",
-   "weight": 0,
-   "report": "2026-06-30"
-  }
- ]
-}
+  {"guru": "Himalaya Capital (Li Lu)", "ticker": "PDD", "change": "added", "weight": 0.2217, "report": "2026-06-30"},
+  {"guru": "Baupost (Seth Klarman)", "ticker": "AMZN", "change": "added", "weight": 0.1648, "report": "2026-06-30"},
+  {"guru": "Pershing Square (Bill Ackman)", "ticker": "MSFT", "change": "new", "weight": 0.1526, "report": "2026-03-31"},
+  {"guru": "Berkshire Hathaway (Buffett)", "ticker": "GOOGL", "change": "added", "weight": 0.0941, "report": "2026-06-30"},
+  {"guru": "Baupost (Seth Klarman)", "ticker": "GPC", "change": "added", "weight": 0.0613, "report": "2026-06-30"}
+ ]}

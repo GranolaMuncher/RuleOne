@@ -1,5 +1,23 @@
 {
+ "ACGL": [
+  {
+   "date": "2026-10-14",
+   "verdict": "NOISE",
+   "headline": "Morgan Stanley to Equal-Weight, target $100",
+   "why": "Downgrade is fear, no business news.",
+   "sources": []
+  }
+ ],
  "ADBE": [
+  {
+   "date": "2026-10-14",
+   "verdict": "WATCH",
+   "headline": "HSBC cuts to Hold, target $267; second downgrade in two days",
+   "why": "Downgrade is fear; touches must-stay-true 3 (AI monetised). No sell trigger (ARR <6% two years). Price below MOS, above tranche 1. Reason unconfirmed.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/hsbc-cautious-adobe-flags-headline-122745509.html"
+   ]
+  },
   {
    "date": "2026-10-13",
    "verdict": "WATCH",
@@ -57,6 +75,13 @@
  ],
  "CRUS": [
   {
+   "date": "2026-10-14",
+   "verdict": "NOISE",
+   "headline": "Down 12% in 5 days with chips; no company news",
+   "why": "Market-wide semis move (METHOD 7). Price above MOS.",
+   "sources": []
+  },
+  {
    "date": "2026-10-13",
    "verdict": "WATCH",
    "headline": "Down 6% in a day, 12% in 5 days; no company news",
@@ -80,7 +105,27 @@
    "sources": []
   }
  ],
+ "GOLD": [
+  {
+   "date": "2026-10-14",
+   "verdict": "WATCH",
+   "headline": "Insider Form 4 purchase Oct 13",
+   "why": "Insider buying is context only. ROIC falling and special-dividend flags. Buyer unconfirmed.",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0001591588/000110465926115328/tm2627489-1_4seq1.xml"
+   ]
+  }
+ ],
  "HRMY": [
+  {
+   "date": "2026-10-14",
+   "verdict": "WATCH",
+   "headline": "CEO transition; 8-K item 5.02 filed",
+   "why": "Read 8-K for timing and successor (METHOD 4). Price far above MOS; value-trap flag. Unconfirmed by search.",
+   "sources": [
+    "https://finance.yahoo.com/healthcare/articles/harmony-biosciences-announces-planned-ceo-110000859.html"
+   ]
+  },
   {
    "date": "2026-10-13",
    "verdict": "WATCH",
@@ -101,6 +146,15 @@
   }
  ],
  "LRCX": [
+  {
+   "date": "2026-10-14",
+   "verdict": "NOISE",
+   "headline": "Chip equipment slide on profit-taking",
+   "why": "Market-wide (METHOD 7); far above MOS.",
+   "sources": [
+    "https://247wallst.com/investing/2026/10/13/semiconductor-equipment-stocks-slide-as-investors-take-profits-on-a-huge-year-applied-materials-sinks-7-lam-research-and-kla-drop-4/"
+   ]
+  },
   {
    "date": "2026-10-13",
    "verdict": "NOISE",
@@ -186,6 +240,13 @@
  ],
  "PARR": [
   {
+   "date": "2026-10-14",
+   "verdict": "NOISE",
+   "headline": "Down 5% in a day; only earnings date",
+   "why": "Cyclical refiner, no news. Price above MOS.",
+   "sources": []
+  },
+  {
    "date": "2026-10-13",
    "verdict": "NOISE",
    "headline": "Down 5% in a day; Q3 earnings date set",
@@ -202,6 +263,13 @@
  ],
  "QFIN": [
   {
+   "date": "2026-10-14",
+   "verdict": "NOISE",
+   "headline": "Down 8% in 5 days, no news",
+   "why": "Dossier TOO HARD; no named trigger appeared. Watch regulatory flow.",
+   "sources": []
+  },
+  {
    "date": "2026-10-09",
    "verdict": "NOISE",
    "headline": "Down 9% over 5 days with US-listed Chinese ADRs",
@@ -211,6 +279,13 @@
  ],
  "REX": [
   {
+   "date": "2026-10-14",
+   "verdict": "NOISE",
+   "headline": "Down 8% in a day; no news",
+   "why": "Price move with no filing. Price above MOS.",
+   "sources": []
+  },
+  {
    "date": "2026-10-13",
    "verdict": "NOISE",
    "headline": "Down 8% in a day; no news found",
@@ -219,6 +294,15 @@
   }
  ],
  "SMCI": [
+  {
+   "date": "2026-10-14",
+   "verdict": "WATCH",
+   "headline": "Down 7%; export-case integrity question persists",
+   "why": "Integrity question (METHOD 4); cash not real and debt flags. Price above MOS. Cause of drop unconfirmed.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/why-super-micro-smci-stock-233503918.html"
+   ]
+  },
   {
    "date": "2026-10-13",
    "verdict": "WATCH",

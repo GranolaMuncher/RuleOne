@@ -1,12 +1,12 @@
 {
- "date": "2026-10-13",
+ "date": "2026-10-14",
  "source": "Yahoo Finance analyst consensus",
  "covered": 1723,
  "refreshed": 332,
  "no_coverage": 30,
  "signals": {
-  "mixed": 1048,
-  "crowded": 432,
+  "mixed": 1043,
+  "crowded": 437,
   "both cautious": 85,
   "thin coverage": 79,
   "contrarian": 14,
@@ -72,15 +72,15 @@
     "ten_cap_price": 97.6227,
     "sticker": 152.695,
     "target_low": 160.0,
-    "target_mean": 217.0,
+    "target_mean": 215.2143,
     "target_high": 282.0,
     "n_analysts": 14.0,
     "rec_mean": 1.25,
     "rec_key": "strong_buy",
-    "upside_mean": 0.8089363121040347,
+    "upside_mean": 0.7940505168389465,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-13 Citigroup kept Buy, target $205\u2192$180"
    },
    {
     "ticker": "APP",
@@ -92,15 +92,15 @@
     "ten_cap_price": 156.2092,
     "sticker": 390.3,
     "target_low": 325.0,
-    "target_mean": 485.40033,
+    "target_mean": 483.7874,
     "target_high": 790.0,
     "n_analysts": 31.0,
     "rec_mean": 1.57576,
     "rec_key": "buy",
-    "upside_mean": 0.75209475166041,
+    "upside_mean": 0.7462727403984983,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-12 Oppenheimer kept Outperform, target $560\u2192$490; 2026-10-08 Jefferies kept Buy, target $550\u2192$375; 2026-10-06 Needham kept Buy, target $475"
+    "recent_actions": "2026-10-13 Morgan Stanley kept Overweight, target $450\u2192$400; 2026-10-12 Oppenheimer kept Outperform, target $560\u2192$490; 2026-10-08 Jefferies kept Buy, target $550\u2192$375"
    },
    {
     "ticker": "IA",
@@ -132,15 +132,15 @@
     "ten_cap_price": 15.0941,
     "sticker": 42.6,
     "target_low": 9.0,
-    "target_mean": 14.42308,
+    "target_mean": 14.19231,
     "target_high": 20.0,
     "n_analysts": 13.0,
     "rec_mean": 2.06667,
     "rec_key": "buy",
-    "upside_mean": 0.6869099415204678,
+    "upside_mean": 0.6599192982456139,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-13 TD Cowen kept Hold, target $12\u2192$9"
    },
    {
     "ticker": "GRNT",
@@ -263,26 +263,6 @@
     "recent_actions": ""
    },
    {
-    "ticker": "LAD",
-    "name": "Lithia Motors, Inc.",
-    "tier": "C",
-    "status": "ON DECK",
-    "price": 290.24,
-    "mos_price": 145.4654,
-    "ten_cap_price": null,
-    "sticker": 290.9308,
-    "target_low": 310.0,
-    "target_mean": 425.73334,
-    "target_high": 525.0,
-    "n_analysts": 15.0,
-    "rec_mean": 1.8,
-    "rec_key": "buy",
-    "upside_mean": 0.46683207001102534,
-    "revision_30d": null,
-    "signal": "agree",
-    "recent_actions": "2026-10-12 Evercore ISI Group kept Outperform, target $470\u2192$440; 2026-10-07 UBS kept Neutral, target $440\u2192$335; 2026-10-06 JP Morgan kept Neutral, target $340\u2192$320; 2026-10-06 Barclays kept Overweight, target $415\u2192$375"
-   },
-   {
     "ticker": "LMB",
     "name": "Limbach Holdings, Inc.",
     "tier": "C",
@@ -301,6 +281,26 @@
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": "2026-10-08 Stifel kept Buy, target $86\u2192$75"
+   },
+   {
+    "ticker": "LAD",
+    "name": "Lithia Motors, Inc.",
+    "tier": "C",
+    "status": "ON DECK",
+    "price": 290.24,
+    "mos_price": 145.4654,
+    "ten_cap_price": null,
+    "sticker": 290.9308,
+    "target_low": 310.0,
+    "target_mean": 423.73334,
+    "target_high": 525.0,
+    "n_analysts": 15.0,
+    "rec_mean": 1.8,
+    "rec_key": "buy",
+    "upside_mean": 0.4599412210584344,
+    "revision_30d": null,
+    "signal": "agree",
+    "recent_actions": "2026-10-12 Evercore ISI Group kept Outperform, target $470\u2192$440; 2026-10-07 UBS kept Neutral, target $440\u2192$335"
    },
    {
     "ticker": "BKNG",
@@ -394,15 +394,15 @@
     "ten_cap_price": 307.4857,
     "sticker": 537.3,
     "target_low": 195.0,
-    "target_mean": 273.6575,
+    "target_mean": 272.31375,
     "target_high": 373.0,
     "n_analysts": 32.0,
     "rec_mean": 2.87179,
     "rec_key": "hold",
-    "upside_mean": 0.1295558674206465,
+    "upside_mean": 0.12400936971147902,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": "2026-10-12 Wells Fargo downgraded Underweight, target $270\u2192$225"
+    "recent_actions": "2026-10-13 HSBC downgraded Hold, target $310\u2192$267; 2026-10-12 Wells Fargo downgraded Underweight, target $270\u2192$225"
    },
    {
     "ticker": "TTD",
@@ -445,46 +445,6 @@
     "recent_actions": ""
    },
    {
-    "ticker": "KNSL",
-    "name": "Kinsale Capital Group, Inc.",
-    "tier": "A",
-    "status": "BUY",
-    "price": 336.98,
-    "mos_price": 369.6,
-    "ten_cap_price": 511.7052,
-    "sticker": 739.2,
-    "target_low": 264.0,
-    "target_mean": 349.44443,
-    "target_high": 405.0,
-    "n_analysts": 9.0,
-    "rec_mean": 3.16667,
-    "rec_key": "hold",
-    "upside_mean": 0.03698863434031696,
-    "revision_30d": null,
-    "signal": "contrarian",
-    "recent_actions": "2026-10-12 Wells Fargo kept Equal-Weight, target $377\u2192$348; 2026-10-09 JP Morgan kept Neutral, target $390\u2192$375; 2026-10-07 Cantor Fitzgerald kept Neutral, target $259\u2192$264; 2026-10-06 Morgan Stanley kept Equal-Weight, target $390\u2192$350"
-   },
-   {
-    "ticker": "RLI",
-    "name": "RLI Corp.",
-    "tier": "C",
-    "status": "BUY*",
-    "price": 55.71,
-    "mos_price": 36.9876,
-    "ten_cap_price": 65.1109,
-    "sticker": 73.9752,
-    "target_low": 47.0,
-    "target_mean": 57.75,
-    "target_high": 69.0,
-    "n_analysts": 4.0,
-    "rec_mean": 3.375,
-    "rec_key": "hold",
-    "upside_mean": 0.03661820140010774,
-    "revision_30d": null,
-    "signal": "contrarian",
-    "recent_actions": "2026-10-12 Wells Fargo kept Underweight, target $57\u2192$51"
-   },
-   {
     "ticker": "PTC",
     "name": "PTC Inc.",
     "tier": "C",
@@ -502,7 +462,27 @@
     "upside_mean": 0.033684751864232476,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": "2026-10-06 Citigroup kept Neutral, target $141\u2192$205; 2026-10-06 Oppenheimer downgraded Perform; 2026-10-06 Mizuho kept Neutral, target $160\u2192$205; 2026-10-06 BMO Capital downgraded Market Perform, target $164\u2192$205"
+    "recent_actions": ""
+   },
+   {
+    "ticker": "KNSL",
+    "name": "Kinsale Capital Group, Inc.",
+    "tier": "A",
+    "status": "BUY",
+    "price": 336.98,
+    "mos_price": 369.6,
+    "ten_cap_price": 511.7052,
+    "sticker": 739.2,
+    "target_low": 264.0,
+    "target_mean": 346.22223,
+    "target_high": 405.0,
+    "n_analysts": 9.0,
+    "rec_mean": 3.16667,
+    "rec_key": "hold",
+    "upside_mean": 0.02742664253071392,
+    "revision_30d": null,
+    "signal": "contrarian",
+    "recent_actions": "2026-10-12 Wells Fargo kept Equal-Weight, target $377\u2192$348; 2026-10-09 JP Morgan kept Neutral, target $390\u2192$375; 2026-10-07 Cantor Fitzgerald kept Neutral, target $259\u2192$264"
    },
    {
     "ticker": "SMCI",
@@ -525,6 +505,26 @@
     "recent_actions": ""
    },
    {
+    "ticker": "RLI",
+    "name": "RLI Corp.",
+    "tier": "C",
+    "status": "BUY*",
+    "price": 55.71,
+    "mos_price": 36.9876,
+    "ten_cap_price": 65.1109,
+    "sticker": 73.9752,
+    "target_low": 47.0,
+    "target_mean": 56.25,
+    "target_high": 69.0,
+    "n_analysts": 4.0,
+    "rec_mean": 3.375,
+    "rec_key": "hold",
+    "upside_mean": 0.009693053311793154,
+    "revision_30d": null,
+    "signal": "contrarian",
+    "recent_actions": "2026-10-12 Wells Fargo kept Underweight, target $57\u2192$51"
+   },
+   {
     "ticker": "TRV",
     "name": "The Travelers Companies, Inc.",
     "tier": "C",
@@ -534,12 +534,12 @@
     "ten_cap_price": 578.7963,
     "sticker": 248.6628,
     "target_low": 262.0,
-    "target_mean": 361.29166,
+    "target_mean": 360.66666,
     "target_high": 430.0,
     "n_analysts": 24.0,
     "rec_mean": 2.96552,
     "rec_key": "hold",
-    "upside_mean": -0.02022600677966102,
+    "upside_mean": -0.021920922033898393,
     "revision_30d": null,
     "signal": "contrarian",
     "recent_actions": "2026-10-12 Wells Fargo kept Equal-Weight, target $356\u2192$341; 2026-10-09 JP Morgan kept Neutral, target $348\u2192$352; 2026-10-07 Mizuho kept Neutral, target $348\u2192$345; 2026-10-07 Cantor Fitzgerald kept Overweight, target $377\u2192$378"
@@ -582,7 +582,7 @@
     "upside_mean": -0.041476875376797784,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": ""
+    "recent_actions": "2026-10-13 Barclays kept Equal-Weight, target $210\u2192$250"
    },
    {
     "ticker": "EXEL",
@@ -607,24 +607,24 @@
   ],
   "crowded": [
    {
-    "ticker": "NBIX",
-    "name": "Neurocrine Biosciences, Inc.",
+    "ticker": "MAMA",
+    "name": "Mama's Creations, Inc.",
     "tier": "C",
     "status": "ABOVE STICKER",
-    "price": 142.44,
-    "mos_price": 4.9855,
-    "ten_cap_price": 106.4644,
-    "sticker": 9.971,
-    "target_low": 150.0,
-    "target_mean": 206.81139,
-    "target_high": 253.0,
-    "n_analysts": 29.0,
-    "rec_mean": 1.41379,
+    "price": 13.55,
+    "mos_price": 0.0796,
+    "ten_cap_price": 4.4043,
+    "sticker": 0.1592,
+    "target_low": 21.0,
+    "target_mean": 22.28571,
+    "target_high": 25.0,
+    "n_analysts": 7.0,
+    "rec_mean": 1.125,
     "rec_key": "strong_buy",
-    "upside_mean": 0.45191933445661325,
+    "upside_mean": 0.6447018450184503,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-12 BMO Capital kept Market Perform, target $164\u2192$150"
+    "recent_actions": ""
    },
    {
     "ticker": "BWXT",
@@ -636,15 +636,15 @@
     "ten_cap_price": 36.2004,
     "sticker": 31.5345,
     "target_low": 150.0,
-    "target_mean": 215.50688,
+    "target_mean": 209.44438,
     "target_high": 290.0,
     "n_analysts": 16.0,
     "rec_mean": 1.61111,
     "rec_key": "buy",
-    "upside_mean": 0.49834443440172405,
+    "upside_mean": 0.4561939790029894,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-06 Truist Securities kept Hold, target $202\u2192$182"
+    "recent_actions": "2026-10-13 JP Morgan kept Overweight, target $230\u2192$190"
    },
    {
     "ticker": "STX",
@@ -656,12 +656,12 @@
     "ten_cap_price": 162.3537,
     "sticker": 180.597,
     "target_low": 700.0,
-    "target_mean": 1144.3478,
+    "target_mean": 1138.3334,
     "target_high": 1600.0,
-    "n_analysts": 23.0,
-    "rec_mean": 1.4,
+    "n_analysts": 24.0,
+    "rec_mean": 1.38462,
     "rec_key": "strong_buy",
-    "upside_mean": 0.46149144316730517,
+    "upside_mean": 0.4538102171136653,
     "revision_30d": null,
     "signal": "crowded",
     "recent_actions": ""
@@ -705,26 +705,6 @@
     "revision_30d": null,
     "signal": "crowded",
     "recent_actions": ""
-   },
-   {
-    "ticker": "CW",
-    "name": "Curtiss-Wright Corporation",
-    "tier": "C",
-    "status": "ABOVE STICKER",
-    "price": 512.6,
-    "mos_price": 88.2188,
-    "ten_cap_price": 195.8458,
-    "sticker": 176.4375,
-    "target_low": 622.0,
-    "target_mean": 761.125,
-    "target_high": 870.0,
-    "n_analysts": 8.0,
-    "rec_mean": 1.77778,
-    "rec_key": "buy",
-    "upside_mean": 0.48483222785797886,
-    "revision_30d": null,
-    "signal": "crowded",
-    "recent_actions": "2026-10-07 Citigroup kept Neutral, target $793\u2192$622"
    },
    {
     "ticker": "ORCL",
@@ -784,7 +764,27 @@
     "upside_mean": 0.6640504516413306,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-06 Baird initiated Outperform, target $300"
+    "recent_actions": ""
+   },
+   {
+    "ticker": "LWAY",
+    "name": "Lifeway Foods, Inc.",
+    "tier": "C",
+    "status": "ABOVE STICKER",
+    "price": 22.16,
+    "mos_price": 4.5666,
+    "ten_cap_price": 7.5342,
+    "sticker": 9.1331,
+    "target_low": 32.0,
+    "target_mean": 33.0,
+    "target_high": 35.0,
+    "n_analysts": 3.0,
+    "rec_mean": 1.0,
+    "rec_key": "strong_buy",
+    "upside_mean": 0.4891696750902528,
+    "revision_30d": null,
+    "signal": "crowded",
+    "recent_actions": ""
    },
    {
     "ticker": "CIGI",
@@ -796,12 +796,12 @@
     "ten_cap_price": 36.9418,
     "sticker": 36.0956,
     "target_low": 110.0,
-    "target_mean": 139.22221,
+    "target_mean": 137.22221,
     "target_high": 160.0,
     "n_analysts": 9.0,
     "rec_mean": 1.92308,
     "rec_key": "buy",
-    "upside_mean": 0.6076467667436489,
+    "upside_mean": 0.58455207852194,
     "revision_30d": null,
     "signal": "crowded",
     "recent_actions": ""
@@ -847,7 +847,7 @@
     "upside_mean": 0.2620600541096674,
     "revision_30d": null,
     "signal": "mixed",
-    "recent_actions": "2026-10-12 Wells Fargo kept Overweight, target $338\u2192$329; 2026-10-12 Cantor Fitzgerald kept Overweight, target $320\u2192$310; 2026-10-06 Tigress Financial kept Buy, target $315\u2192$385"
+    "recent_actions": "2026-10-12 Wells Fargo kept Overweight, target $338\u2192$329; 2026-10-12 Cantor Fitzgerald kept Overweight, target $320\u2192$310"
    },
    {
     "ticker": "META",
@@ -859,15 +859,15 @@
     "ten_cap_price": 468.5294,
     "sticker": 731.7319,
     "target_low": 580.0,
-    "target_mean": 798.9952,
+    "target_mean": 805.4952,
     "target_high": 1050.0,
     "n_analysts": 58.0,
     "rec_mean": 1.4127,
     "rec_key": "strong_buy",
-    "upside_mean": 0.11176924040240999,
+    "upside_mean": 0.12081372535377843,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-13 Pivotal Research kept Buy, target $790\u2192$930; 2026-10-13 Truist Securities kept Buy, target $763\u2192$1,000; 2026-10-13 Keybanc kept Overweight, target $900; 2026-10-13 Rosenblatt kept Buy, target $886"
    },
    {
     "ticker": "GOOGL",
@@ -887,7 +887,7 @@
     "upside_mean": 0.2239094579992036,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-12 Cantor Fitzgerald kept Overweight, target $420; 2026-10-08 Needham kept Buy, target $450; 2026-10-06 Wells Fargo kept Overweight, target $411\u2192$417"
+    "recent_actions": "2026-10-12 Cantor Fitzgerald kept Overweight, target $420; 2026-10-08 Needham kept Buy, target $450"
    },
    {
     "ticker": "MSFT",
@@ -907,7 +907,7 @@
     "upside_mean": 0.10190455454426517,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-07 Evercore ISI Group kept Outperform, target $528\u2192$635"
+    "recent_actions": "2026-10-13 Barclays kept Overweight, target $512\u2192$600; 2026-10-07 Evercore ISI Group kept Outperform, target $528\u2192$635"
    },
    {
     "ticker": "AMD",
@@ -927,7 +927,7 @@
     "upside_mean": 0.04622266074658765,
     "revision_30d": null,
     "signal": "mixed",
-    "recent_actions": "2026-10-06 Citigroup kept Buy, target $575\u2192$800; 2026-10-06 Mizuho kept Outperform, target $580\u2192$705"
+    "recent_actions": ""
    },
    {
     "ticker": "AVGO",
@@ -967,7 +967,7 @@
     "upside_mean": 0.5165842565597667,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-07 DA Davidson kept Buy, target $2,100\u2192$3,000"
+    "recent_actions": "2026-10-13 Rosenblatt kept Buy, target $1,900; 2026-10-07 DA Davidson kept Buy, target $2,100\u2192$3,000"
    },
    {
     "ticker": "NFLX",
@@ -979,15 +979,15 @@
     "ten_cap_price": 33.1068,
     "sticker": 95.4,
     "target_low": 57.0,
-    "target_mean": 92.54889,
+    "target_mean": 92.06,
     "target_high": 135.0,
     "n_analysts": 45.0,
-    "rec_mean": 1.80392,
+    "rec_mean": 1.78846,
     "rec_key": "buy",
-    "upside_mean": 0.3164849217638692,
+    "upside_mean": 0.3095305832147939,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-08 Morgan Stanley kept Overweight, target $83\u2192$80; 2026-10-07 Barclays kept Equal-Weight, target $80\u2192$70"
+    "recent_actions": "2026-10-13 Keybanc kept Overweight, target $92\u2192$85; 2026-10-08 Morgan Stanley kept Overweight, target $83\u2192$80; 2026-10-07 Barclays kept Equal-Weight, target $80\u2192$70"
    },
    {
     "ticker": "ORCL",
@@ -1019,12 +1019,12 @@
     "ten_cap_price": 217.1486,
     "sticker": 523.1293,
     "target_low": 550.0,
-    "target_mean": 668.0651,
-    "target_high": 740.0,
+    "target_mean": 669.7408,
+    "target_high": 760.0,
     "n_analysts": 37.0,
     "rec_mean": 1.425,
     "rec_key": "strong_buy",
-    "upside_mean": 0.13396662932409953,
+    "upside_mean": 0.13681094476694855,
     "revision_30d": null,
     "signal": "crowded",
     "recent_actions": "2026-10-09 Baird kept Outperform, target $660\u2192$710"
@@ -1039,12 +1039,12 @@
     "ten_cap_price": null,
     "sticker": null,
     "target_low": 330.0,
-    "target_mean": 420.4427,
+    "target_mean": 420.46973,
     "target_high": 466.0,
     "n_analysts": 37.0,
     "rec_mean": 1.45,
     "rec_key": "strong_buy",
-    "upside_mean": 0.0907840186794655,
+    "upside_mean": 0.09085414450642126,
     "revision_30d": null,
     "signal": "mixed",
     "recent_actions": "2026-10-12 Baird kept Outperform, target $420\u2192$430"
@@ -1079,15 +1079,15 @@
     "ten_cap_price": 50.4452,
     "sticker": 84.9,
     "target_low": 104.0,
-    "target_mean": 165.43056,
-    "target_high": 220.0,
+    "target_mean": 165.70833,
+    "target_high": 225.0,
     "n_analysts": 36.0,
     "rec_mean": 2.79545,
     "rec_key": "hold",
-    "upside_mean": -0.15054911424903716,
+    "upside_mean": -0.14912282413350453,
     "revision_30d": null,
     "signal": "both cautious",
-    "recent_actions": "2026-10-12 Barclays kept Equal-Weight, target $190\u2192$210; 2026-10-12 RBC Capital kept Sector Perform, target $185\u2192$205; 2026-10-08 Amerx initiated Overweight, target $240"
+    "recent_actions": "2026-10-13 TD Cowen kept Buy, target $215\u2192$225; 2026-10-12 Barclays kept Equal-Weight, target $190\u2192$210; 2026-10-12 RBC Capital kept Sector Perform, target $185\u2192$205; 2026-10-08 Amerx initiated Overweight, target $240"
    },
    {
     "ticker": "BKNG",
@@ -1121,15 +1121,15 @@
     "ten_cap_price": 307.4857,
     "sticker": 537.3,
     "target_low": 195.0,
-    "target_mean": 273.6575,
+    "target_mean": 272.31375,
     "target_high": 373.0,
     "n_analysts": 32.0,
     "rec_mean": 2.87179,
     "rec_key": "hold",
-    "upside_mean": 0.1295558674206465,
+    "upside_mean": 0.12400936971147902,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": "2026-10-12 Wells Fargo downgraded Underweight, target $270\u2192$225"
+    "recent_actions": "2026-10-13 HSBC downgraded Hold, target $310\u2192$267; 2026-10-12 Wells Fargo downgraded Underweight, target $270\u2192$225"
    },
    {
     "ticker": "BRBR",
@@ -1141,15 +1141,15 @@
     "ten_cap_price": 15.0941,
     "sticker": 42.6,
     "target_low": 9.0,
-    "target_mean": 14.42308,
+    "target_mean": 14.19231,
     "target_high": 20.0,
     "n_analysts": 13.0,
     "rec_mean": 2.06667,
     "rec_key": "buy",
-    "upside_mean": 0.6869099415204678,
+    "upside_mean": 0.6599192982456139,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-13 TD Cowen kept Hold, target $12\u2192$9"
    },
    {
     "ticker": "KNSL",
@@ -1161,15 +1161,15 @@
     "ten_cap_price": 511.7052,
     "sticker": 739.2,
     "target_low": 264.0,
-    "target_mean": 349.44443,
+    "target_mean": 346.22223,
     "target_high": 405.0,
     "n_analysts": 9.0,
     "rec_mean": 3.16667,
     "rec_key": "hold",
-    "upside_mean": 0.03698863434031696,
+    "upside_mean": 0.02742664253071392,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": "2026-10-12 Wells Fargo kept Equal-Weight, target $377\u2192$348; 2026-10-09 JP Morgan kept Neutral, target $390\u2192$375; 2026-10-07 Cantor Fitzgerald kept Neutral, target $259\u2192$264; 2026-10-06 Morgan Stanley kept Equal-Weight, target $390\u2192$350"
+    "recent_actions": "2026-10-12 Wells Fargo kept Equal-Weight, target $377\u2192$348; 2026-10-09 JP Morgan kept Neutral, target $390\u2192$375; 2026-10-07 Cantor Fitzgerald kept Neutral, target $259\u2192$264"
    },
    {
     "ticker": "LULU",
@@ -1220,13 +1220,13 @@
     "mos_price": 7.8842,
     "ten_cap_price": 136.5215,
     "sticker": 15.7685,
-    "target_low": 8.034535,
-    "target_mean": 14.81696,
-    "target_high": 23.01198,
+    "target_low": 8.050047,
+    "target_mean": 14.845566,
+    "target_high": 23.056408,
     "n_analysts": 13.0,
     "rec_mean": 2.23077,
     "rec_key": "buy",
-    "upside_mean": 1.3898322580645162,
+    "upside_mean": 1.394446129032258,
     "revision_30d": null,
     "signal": "mixed",
     "recent_actions": ""
