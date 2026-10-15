@@ -1,16 +1,16 @@
 {
- "date": "2026-10-14",
+ "date": "2026-10-15",
  "source": "Yahoo Finance analyst consensus",
  "covered": 1723,
  "refreshed": 332,
  "no_coverage": 30,
  "signals": {
   "mixed": 1043,
-  "crowded": 437,
+  "crowded": 438,
   "both cautious": 85,
   "thin coverage": 79,
   "contrarian": 14,
-  "agree": 65
+  "agree": 64
  },
  "signal_text": {
   "agree": "Rule #1 price and the street both say cheap",
@@ -92,35 +92,15 @@
     "ten_cap_price": 156.2092,
     "sticker": 390.3,
     "target_low": 325.0,
-    "target_mean": 483.7874,
+    "target_mean": 480.07773,
     "target_high": 790.0,
     "n_analysts": 31.0,
     "rec_mean": 1.57576,
     "rec_key": "buy",
-    "upside_mean": 0.7462727403984983,
+    "upside_mean": 0.7328823635576087,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-13 Morgan Stanley kept Overweight, target $450\u2192$400; 2026-10-12 Oppenheimer kept Outperform, target $560\u2192$490; 2026-10-08 Jefferies kept Buy, target $550\u2192$375"
-   },
-   {
-    "ticker": "IA",
-    "name": "Innovative Aerosystems, Inc.",
-    "tier": "C",
-    "status": "ON DECK",
-    "price": 19.41,
-    "mos_price": 12.3545,
-    "ten_cap_price": 8.5338,
-    "sticker": 24.709,
-    "target_low": 30.0,
-    "target_mean": 33.25,
-    "target_high": 37.0,
-    "n_analysts": 4.0,
-    "rec_mean": 1.0,
-    "rec_key": "strong_buy",
-    "upside_mean": 0.7130345182895415,
-    "revision_30d": null,
-    "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-14 Goldman Sachs kept Neutral, target $465\u2192$400; 2026-10-14 Wedbush kept Outperform, target $610\u2192$560; 2026-10-13 Morgan Stanley kept Overweight, target $450\u2192$400; 2026-10-12 Oppenheimer kept Outperform, target $560\u2192$490"
    },
    {
     "ticker": "BRBR",
@@ -132,12 +112,12 @@
     "ten_cap_price": 15.0941,
     "sticker": 42.6,
     "target_low": 9.0,
-    "target_mean": 14.19231,
+    "target_mean": 14.03846,
     "target_high": 20.0,
     "n_analysts": 13.0,
     "rec_mean": 2.06667,
     "rec_key": "buy",
-    "upside_mean": 0.6599192982456139,
+    "upside_mean": 0.6419251461988305,
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": "2026-10-13 TD Cowen kept Hold, target $12\u2192$9"
@@ -172,12 +152,12 @@
     "ten_cap_price": 36.6638,
     "sticker": 126.9,
     "target_low": 120.0,
-    "target_mean": 196.07692,
+    "target_mean": 195.5,
     "target_high": 265.0,
     "n_analysts": 26.0,
     "rec_mean": 1.53571,
     "rec_key": "buy",
-    "upside_mean": 0.603769998364142,
+    "upside_mean": 0.5990512023556354,
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": ""
@@ -252,15 +232,15 @@
     "ten_cap_price": 71.546,
     "sticker": 71.329,
     "target_low": 50.0,
-    "target_mean": 97.5,
+    "target_mean": 98.2,
     "target_high": 136.0,
     "n_analysts": 10.0,
     "rec_mean": 1.9,
     "rec_key": "buy",
-    "upside_mean": 0.4858274916184089,
+    "upside_mean": 0.49649497104541296,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-14 Jefferies upgraded Buy, target $82\u2192$89"
    },
    {
     "ticker": "LMB",
@@ -300,7 +280,7 @@
     "upside_mean": 0.4599412210584344,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-12 Evercore ISI Group kept Outperform, target $470\u2192$440; 2026-10-07 UBS kept Neutral, target $440\u2192$335"
+    "recent_actions": "2026-10-12 Evercore ISI Group kept Outperform, target $470\u2192$440"
    },
    {
     "ticker": "BKNG",
@@ -320,7 +300,27 @@
     "upside_mean": 0.4583296120743421,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-12 Cantor Fitzgerald kept Neutral, target $220\u2192$170; 2026-10-07 Wells Fargo kept Equal-Weight, target $220\u2192$190"
+    "recent_actions": "2026-10-12 Cantor Fitzgerald kept Neutral, target $220\u2192$170"
+   },
+   {
+    "ticker": "ARCO",
+    "name": "Arcos Dorados Holdings Inc.",
+    "tier": "B",
+    "status": "BUY",
+    "price": 7.77,
+    "mos_price": 9.6405,
+    "ten_cap_price": 7.1865,
+    "sticker": 19.2811,
+    "target_low": 8.55,
+    "target_mean": 11.22778,
+    "target_high": 14.0,
+    "n_analysts": 9.0,
+    "rec_mean": 1.66667,
+    "rec_key": "buy",
+    "upside_mean": 0.445016731016731,
+    "revision_30d": null,
+    "signal": "agree",
+    "recent_actions": ""
    }
   ],
   "contrarian": [
@@ -397,7 +397,7 @@
     "target_mean": 272.31375,
     "target_high": 373.0,
     "n_analysts": 32.0,
-    "rec_mean": 2.87179,
+    "rec_mean": 2.92308,
     "rec_key": "hold",
     "upside_mean": 0.12400936971147902,
     "revision_30d": null,
@@ -414,15 +414,15 @@
     "ten_cap_price": 25.1365,
     "sticker": 25.2,
     "target_low": 9.0,
-    "target_mean": 13.56667,
+    "target_mean": 13.53333,
     "target_high": 20.0,
     "n_analysts": 30.0,
     "rec_mean": 3.11111,
     "rec_key": "hold",
-    "upside_mean": 0.12306870860927144,
+    "upside_mean": 0.12030877483443714,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": ""
+    "recent_actions": "2026-10-14 UBS kept Buy, target $16\u2192$15"
    },
    {
     "ticker": "LULU",
@@ -482,7 +482,7 @@
     "upside_mean": 0.02742664253071392,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": "2026-10-12 Wells Fargo kept Equal-Weight, target $377\u2192$348; 2026-10-09 JP Morgan kept Neutral, target $390\u2192$375; 2026-10-07 Cantor Fitzgerald kept Neutral, target $259\u2192$264"
+    "recent_actions": "2026-10-12 Wells Fargo kept Equal-Weight, target $377\u2192$348; 2026-10-09 JP Morgan kept Neutral, target $390\u2192$375"
    },
    {
     "ticker": "SMCI",
@@ -542,7 +542,7 @@
     "upside_mean": -0.021920922033898393,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": "2026-10-12 Wells Fargo kept Equal-Weight, target $356\u2192$341; 2026-10-09 JP Morgan kept Neutral, target $348\u2192$352; 2026-10-07 Mizuho kept Neutral, target $348\u2192$345; 2026-10-07 Cantor Fitzgerald kept Overweight, target $377\u2192$378"
+    "recent_actions": "2026-10-12 Wells Fargo kept Equal-Weight, target $356\u2192$341; 2026-10-09 JP Morgan kept Neutral, target $348\u2192$352"
    },
    {
     "ticker": "CLMB",
@@ -602,7 +602,7 @@
     "upside_mean": -0.08341680588038758,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": "2026-10-09 RBC Capital kept Sector Perform, target $45\u2192$51; 2026-10-08 RBC Capital kept Sector Perform, target $46\u2192$45; 2026-10-07 Truist Securities kept Hold, target $52\u2192$54"
+    "recent_actions": "2026-10-09 RBC Capital kept Sector Perform, target $45\u2192$51; 2026-10-08 RBC Capital kept Sector Perform, target $46\u2192$45"
    }
   ],
   "crowded": [
@@ -744,7 +744,7 @@
     "upside_mean": 0.6307434697855752,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-08 Stifel kept Buy, target $804\u2192$742"
+    "recent_actions": "2026-10-14 Cantor Fitzgerald kept Overweight, target $742; 2026-10-08 Stifel kept Buy, target $804\u2192$742"
    },
    {
     "ticker": "MOD",
@@ -859,12 +859,12 @@
     "ten_cap_price": 468.5294,
     "sticker": 731.7319,
     "target_low": 580.0,
-    "target_mean": 805.4952,
+    "target_mean": 813.6503,
     "target_high": 1050.0,
     "n_analysts": 58.0,
     "rec_mean": 1.4127,
     "rec_key": "strong_buy",
-    "upside_mean": 0.12081372535377843,
+    "upside_mean": 0.13216121446561013,
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": "2026-10-13 Pivotal Research kept Buy, target $790\u2192$930; 2026-10-13 Truist Securities kept Buy, target $763\u2192$1,000; 2026-10-13 Keybanc kept Overweight, target $900; 2026-10-13 Rosenblatt kept Buy, target $886"
@@ -879,15 +879,15 @@
     "ten_cap_price": 171.9706,
     "sticker": 547.1713,
     "target_low": 340.0,
-    "target_mean": 430.4,
+    "target_mean": 430.41852,
     "target_high": 515.0,
     "n_analysts": 54.0,
     "rec_mean": 1.37097,
     "rec_key": "strong_buy",
-    "upside_mean": 0.2239094579992036,
+    "upside_mean": 0.22396212250469194,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-12 Cantor Fitzgerald kept Overweight, target $420; 2026-10-08 Needham kept Buy, target $450"
+    "recent_actions": "2026-10-14 UBS kept Neutral, target $379\u2192$380; 2026-10-12 Cantor Fitzgerald kept Overweight, target $420; 2026-10-08 Needham kept Buy, target $450"
    },
    {
     "ticker": "MSFT",
@@ -899,15 +899,15 @@
     "ten_cap_price": 240.0162,
     "sticker": 538.5,
     "target_low": 440.0,
-    "target_mean": 589.59607,
+    "target_mean": 590.27527,
     "target_high": 870.0,
     "n_analysts": 53.0,
     "rec_mean": 1.33929,
     "rec_key": "strong_buy",
-    "upside_mean": 0.10190455454426517,
+    "upside_mean": 0.10317392116919266,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-13 Barclays kept Overweight, target $512\u2192$600; 2026-10-07 Evercore ISI Group kept Outperform, target $528\u2192$635"
+    "recent_actions": "2026-10-13 Barclays kept Overweight, target $512\u2192$600"
    },
    {
     "ticker": "AMD",
@@ -939,12 +939,12 @@
     "ten_cap_price": 79.1986,
     "sticker": 235.2,
     "target_low": 215.88,
-    "target_mean": 531.3149,
-    "target_high": 715.0,
+    "target_mean": 527.5915,
+    "target_high": 660.0,
     "n_analysts": 47.0,
     "rec_mean": 1.26,
     "rec_key": "strong_buy",
-    "upside_mean": 0.4695881506887203,
+    "upside_mean": 0.45928942855562305,
     "revision_30d": null,
     "signal": "crowded",
     "recent_actions": ""
@@ -967,7 +967,7 @@
     "upside_mean": 0.5165842565597667,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-13 Rosenblatt kept Buy, target $1,900; 2026-10-07 DA Davidson kept Buy, target $2,100\u2192$3,000"
+    "recent_actions": "2026-10-13 Rosenblatt kept Buy, target $1,900"
    },
    {
     "ticker": "NFLX",
@@ -982,12 +982,12 @@
     "target_mean": 92.06,
     "target_high": 135.0,
     "n_analysts": 45.0,
-    "rec_mean": 1.78846,
+    "rec_mean": 1.86538,
     "rec_key": "buy",
     "upside_mean": 0.3095305832147939,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-13 Keybanc kept Overweight, target $92\u2192$85; 2026-10-08 Morgan Stanley kept Overweight, target $83\u2192$80; 2026-10-07 Barclays kept Equal-Weight, target $80\u2192$70"
+    "recent_actions": "2026-10-13 Keybanc kept Overweight, target $92\u2192$85; 2026-10-08 Morgan Stanley kept Overweight, target $83\u2192$80"
    },
    {
     "ticker": "ORCL",
@@ -1067,7 +1067,7 @@
     "upside_mean": 0.2530487347888686,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": ""
+    "recent_actions": "2026-10-14 RBC Capital kept Outperform, target $600"
    },
    {
     "ticker": "FTNT",
@@ -1107,7 +1107,7 @@
     "upside_mean": 0.4583296120743421,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-12 Cantor Fitzgerald kept Neutral, target $220\u2192$170; 2026-10-07 Wells Fargo kept Equal-Weight, target $220\u2192$190"
+    "recent_actions": "2026-10-12 Cantor Fitzgerald kept Neutral, target $220\u2192$170"
    }
   ],
   "dossiers": [
@@ -1124,7 +1124,7 @@
     "target_mean": 272.31375,
     "target_high": 373.0,
     "n_analysts": 32.0,
-    "rec_mean": 2.87179,
+    "rec_mean": 2.92308,
     "rec_key": "hold",
     "upside_mean": 0.12400936971147902,
     "revision_30d": null,
@@ -1141,12 +1141,12 @@
     "ten_cap_price": 15.0941,
     "sticker": 42.6,
     "target_low": 9.0,
-    "target_mean": 14.19231,
+    "target_mean": 14.03846,
     "target_high": 20.0,
     "n_analysts": 13.0,
     "rec_mean": 2.06667,
     "rec_key": "buy",
-    "upside_mean": 0.6599192982456139,
+    "upside_mean": 0.6419251461988305,
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": "2026-10-13 TD Cowen kept Hold, target $12\u2192$9"
@@ -1169,7 +1169,7 @@
     "upside_mean": 0.02742664253071392,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": "2026-10-12 Wells Fargo kept Equal-Weight, target $377\u2192$348; 2026-10-09 JP Morgan kept Neutral, target $390\u2192$375; 2026-10-07 Cantor Fitzgerald kept Neutral, target $259\u2192$264"
+    "recent_actions": "2026-10-12 Wells Fargo kept Equal-Weight, target $377\u2192$348; 2026-10-09 JP Morgan kept Neutral, target $390\u2192$375"
    },
    {
     "ticker": "LULU",
@@ -1220,13 +1220,13 @@
     "mos_price": 7.8842,
     "ten_cap_price": 136.5215,
     "sticker": 15.7685,
-    "target_low": 8.050047,
-    "target_mean": 14.845566,
-    "target_high": 23.056408,
+    "target_low": 8.042945,
+    "target_mean": 14.832468,
+    "target_high": 23.036066,
     "n_analysts": 13.0,
     "rec_mean": 2.23077,
     "rec_key": "buy",
-    "upside_mean": 1.394446129032258,
+    "upside_mean": 1.3923335483870969,
     "revision_30d": null,
     "signal": "mixed",
     "recent_actions": ""
