@@ -1,9 +1,10 @@
-{"date": "2026-10-10", "reviews": [
- {"ticker": "BRBR", "severity": "minor", "issues": ["Tranche 1 ($7) is judgement, above every corrected price; METHOD 6 wants 2-3 methods agreeing", "Trough FCF uses an unconfirmed $65M interest figure", "Share count 128.5M (filing) vs ~118M (screen) not reconciled", "No BellRing episode in the index; none claimed"], "invested_episodes": []},
- {"ticker": "OPFI", "severity": "minor", "issues": ["Placeholder tranches use adjusted EPS, which excludes costs; GAAP EPS is far lower", "Book value (METHOD: lenders on earnings or book) not computed", "ROIC markers labelled ? but treated as fail; relabel", "10-K, proxy and 21 Sep 8-K (new debt) not read"], "invested_episodes": ["411"]},
- {"ticker": "QFIN", "severity": "minor", "issues": ["Changed-story call should cite China/political-risk episodes", "Net cash $4.9/ADS is a screen figure and access is unconfirmed (stated)", "6-K and 20-F not read in full"], "invested_episodes": ["385", "478", "397", "452"]},
- {"ticker": "ADBE", "severity": "minor", "issues": ["Carried over from 2026-10-09: Sticker growth 10% vs ~9%", "One sell trigger not measurable; no marker line"], "invested_episodes": ["414", "275", "429"]},
- {"ticker": "KNSL", "severity": "minor", "issues": ["Carried over: no marker line; OCF markers not set aside for an insurer", "Reserve statements from general knowledge"], "invested_episodes": []},
- {"ticker": "LULU", "severity": "minor", "issues": ["Carried over: fcf_margin (~8%) and growth_coherent not called out; no marker line", "Tranche 1 follows Payback while Sticker sits at tranche 3, unstated"], "invested_episodes": ["105", "432", "210"]}
+{"date": "2026-10-17", "reviews": [
+ {"ticker": "ADBE", "severity": "minor",
+  "issues": ["Rule's lower growth (EPS 5y 9.1%) gives Sticker ~$189; tranche 1 $225 is anchored to the 10% case (~$230).",
+             "Tranche table says price $241; header says $245.20.",
+             "SBC amount still unconfirmed though it moves the Ten Cap ~$25/share per $1B; 10-K not re-read.",
+             "No InvestED citation: 414 (Adobe on Phil's wish list, not near buy price); 275/429 (board stock ownership).",
+             "Net new ARR already down one quarter; sell trigger should say so."],
+  "invested_episodes": ["414", "275", "429"]}
  ],
- "lessons_added": ["2026-10-10: For lenders and loan platforms, OCF-based Payback, Ten Cap and 'methods agree' are artefacts (OPFI, QFIN)", "2026-10-10: After a guidance cut, rebase on forward earnings before reading a screen BUY (BRBR, OPFI, QFIN)"]}
+ "lessons_added": ["2026-10-17: Anchor tranche 1 to the rule's lower growth rate, or name the reason for a higher one (ADBE)."]}
