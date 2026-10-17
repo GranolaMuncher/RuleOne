@@ -1,15 +1,16 @@
-{"date": "2026-10-10",
- "summary": "The screen shows 12 BUY names, but all six dossiers say WATCH or TOO HARD because the screen's prices rest on stale growth, trailing earnings or lender cash flow. Nothing is at tranche 1; LULU is closest at $94.50 vs $90, and KNSL reports on 22 Oct. The Professor found no major issues and added two lessons on lenders and guidance cuts.",
+{"date": "2026-10-17",
+ "summary": "The screen shows 13 BUY names, but all six dossiers still say WATCH or TOO HARD and nothing is at tranche 1. ADBE took two downgrades and the Professor says its tranche 1 should rest on lower growth; KNSL reports Q3 on 22 Oct. SMCI is new to BUY but lost its CFO with an integrity question open.",
  "decisions": [
-  {"ticker": "OPFI", "question": "Stop ranking lenders and insurers (OPFI, QFIN, FUTU) at the top until valued on book or earnings?", "why": "Their OCF-based Payback and Ten Cap are not owner earnings, yet they top the screen.", "link": "/rulers/OPFI/"},
+  {"ticker": "OPFI", "question": "Hold lenders and insurers (OPFI, QFIN, FUTU, PGR) back from the top until valued on book or earnings?", "why": "Their OCF-based Payback and Ten Cap are not owner earnings, yet they top the screen.", "link": "/rulers/OPFI/"},
   {"ticker": "QFIN", "question": "Are you willing to own a China-based ADR at all?", "why": "Dossier is TOO HARD on a changed story and political risk; your answer decides whether to close it.", "link": "/rulers/QFIN/"},
-  {"ticker": "TTD", "question": "Ask the analyst for a TTD dossier on the 68% fall?", "why": "Price is under MOS but a writer cites structural revenue deceleration: event or value trap?", "link": "/radar/"},
-  {"ticker": "LULU", "question": "If LULU reaches $90, start tranche 1, or wait for $70?", "why": "Price $94.50 is 5% above tranche 1; the new-CEO story is unproven.", "link": "/rulers/LULU/"}
+  {"ticker": "SMCI", "question": "Ask the analyst for an SMCI dossier, or pass on integrity grounds?", "why": "New to BUY at $31.63, but CFO exit, -22% in 5 days and an open export-case question (METHOD 4).", "link": "/radar/"},
+  {"ticker": "ADBE", "question": "Wait for tranche 1 at $225, or lower at ~$190 (the rule's lower growth)?", "why": "Price $245.20; two downgrades; the Professor says $225 rests on 10% growth, the rule gives ~$189.", "link": "/rulers/ADBE/"},
+  {"ticker": "LULU", "question": "If LULU reaches $90, start tranche 1, or wait for $70?", "why": "Price $97.10; the new-CEO story is unproven and the fabric team was just reorganised.", "link": "/rulers/LULU/"}
  ],
  "actions": [
-  {"ticker": "LULU", "action": "review story", "reason": "$94.50 vs tranche 1 $90; new CEO overhauling the C-suite."},
-  {"ticker": "KNSL", "action": "hold", "reason": "$336.98 vs tranche 1 $280; review after Q3 on 22 Oct."},
-  {"ticker": "ADBE", "action": "hold", "reason": "$242.27 vs tranche 1 $225; CEO handover 1 Dec, PERM headlines unconfirmed."},
-  {"ticker": "BRBR", "action": "hold", "reason": "$8.55 vs tranche 1 $7; net debt ~3.8x EBITDA, wait for Q4 call."},
-  {"ticker": "OPFI", "action": "pass", "reason": "TOO HARD: screen prices are not owner earnings for a lender."}
+  {"ticker": "ADBE", "action": "review story", "reason": "$245.20 vs tranche 1 $225; HSBC and Wells Fargo downgrades touch ARR and AI monetisation."},
+  {"ticker": "KNSL", "action": "hold", "reason": "$365.24 vs tranche 1 $280; review after Q3 on 22 Oct."},
+  {"ticker": "LULU", "action": "review story", "reason": "$97.10 vs tranche 1 $90; fabric team reorganised, watch for CEO turnover."},
+  {"ticker": "BRBR", "action": "hold", "reason": "$9.43 vs tranche 1 $7; net debt ~3.8x EBITDA, wait for the 3 Nov call."},
+  {"ticker": "SMCI", "action": "review story", "reason": "New BUY, but CFO out and integrity question open; dossier queued."}
  ]}
