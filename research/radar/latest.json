@@ -1,21 +1,22 @@
-{"date": "2026-10-16",
- "summary": "No dossier sell trigger tripped (ADBE, KNSL, LULU had no new business news). Northrim's Q3 carries an $8.8M impairment on one $20.0M Specialty Finance loan and nonperforming loans doubled: a WATCH. Super Micro named a new CFO and fell 10% (cause unconfirmed) against an open integrity question. The chip and AI-hardware sell-off continued and is market-wide (METHOD 7). Downgrades on ZTO, CRUS and PARR are fear, not business news.",
+{"date": "2026-10-17",
+ "summary": "No dossier sell trigger tripped. Super Micro's CFO left immediately (Mark Long named); reason unconfirmed, integrity question open (METHOD 4). Enova ended its Grasshopper merger for $4M. Insurers beat but sit far above MOS. Chip sell-off is market-wide noise.",
  "items": [
-  {"ticker": "NRIM", "verdict": "WATCH", "headline": "Q3: $8.8M impairment on one $20M Specialty Finance loan; NPLs $40.8M", "why": "One relationship, Community Banking said solid, net income $14.4M. Check for more such loans in Specialty Finance (event check 3: time to resolve). Price $24.2 vs MOS $10.9.", "sources": ["https://www.sec.gov/Archives/edgar/data/0001163370/000116337026000032/exhibit991q32026.htm"]},
-  {"ticker": "SMCI", "verdict": "WATCH", "headline": "New CFO named; stock -10% in a day, -22% in 5", "why": "CFO change on top of an open integrity question (METHOD 4); flags cash not real and debt. Cause of fall unconfirmed. Check the 8-K for the outgoing CFO's reason. Price $41.9 vs MOS $32.4.", "sources": ["https://finance.yahoo.com/markets/stocks/articles/super-micro-applied-digital-benchmark-194007906.html"]},
-  {"ticker": "PGR", "verdict": "WATCH", "headline": "Q3 EPS beat, revenue miss per headlines; stock +5%", "why": "Insurer checks: combined ratio and reserves. Price $217 is above MOS $181 and near the 52-week high (value-trap check). Numbers unconfirmed.", "sources": ["https://finance.yahoo.com/markets/stocks/articles/progressives-q3-earnings-top-estimates-152300635.html"]},
-  {"ticker": "ZTO", "verdict": "NOISE", "headline": "Goldman downgrades to Neutral, target $25 to $22", "why": "Fear, not business news (InvestED 249). Price $20.15 is just under MOS $20.88; check whether a story change is behind it. Reason unconfirmed.", "sources": []},
-  {"ticker": "CRUS", "verdict": "NOISE", "headline": "KeyBanc downgrade to Equal-Weight after Asia trip", "why": "Still sees memory and analog strength; no story change. Price $107 is above MOS $60.", "sources": []},
-  {"ticker": "PARR", "verdict": "NOISE", "headline": "Goldman to Neutral, target raised $90 to $94", "why": "Analyst action only. Flags: cash not real, near 52-week high. Price $81.9 above MOS $71.9.", "sources": []},
-  {"ticker": "IBKR", "verdict": "NOISE", "headline": "Q3 mixed, shares -2% per headline", "why": "Broker; OCF tests unreliable. Price far above MOS. Details unconfirmed.", "sources": []},
-  {"ticker": "QFIN", "verdict": "NOISE", "headline": "Down 11% in 5 days with Asian ADRs, no news", "why": "Dossier TOO HARD; price below MOS $7.88. Keep watching for regulatory news. Market move (METHOD 7).", "sources": []},
-  {"ticker": "GOLD", "verdict": "NOISE", "headline": "Insider bought $2.7M on Oct 15", "why": "Context only (METHOD 4); buyer unconfirmed. ROIC-falling flag stays.", "sources": []},
-  {"ticker": "AMAT", "verdict": "NOISE", "headline": "Chip sell-off continues (-7% day, -17% in 5)", "why": "Market-wide; moves price, not value (METHOD 7). All chip names far above MOS/sticker.", "sources": []}
+  {"ticker": "SMCI", "verdict": "WATCH", "headline": "CFO Weigand out at once; Mark Long named; stock -10% day", "why": "Reason unconfirmed. Open integrity items (control weaknesses, co-founder indictment, investigation): METHOD 4. Reason or auditor language in the 8-K could make it a PROBLEM.", "sources": ["https://www.cfodive.com/news/super-micros-cfo-out-change-accounting-leadership-ai/833213/"]},
+  {"ticker": "ENVA", "verdict": "NOISE", "headline": "Grasshopper Bank merger terminated, $4M paid", "why": "Mutual exit, no other liability; removes acquisition risk. Watch the $200M Jefferies note facility (event check 5).", "sources": ["https://www.sec.gov/Archives/edgar/data/0001529864/000119312526424282/enva-20261016.htm"]},
+  {"ticker": "TRV", "verdict": "WATCH", "headline": "Q3 beat on reserve gains; catastrophe losses mounting", "why": "Insurer check: combined ratio ex-reserve releases. Near 52-week high, far above MOS: value-trap check. Details unconfirmed.", "sources": ["https://finance.yahoo.com/healthcare/articles/travelers-third-quarter-premiums-unexpectedly-150631943.html?.tsrc=rss"]},
+  {"ticker": "NRIM", "verdict": "WATCH", "headline": "Single $20M loan impairment stands; check Specialty Finance", "why": "Event check 3: does it take 1+ year to resolve? One loan, not a changed story yet.", "sources": []},
+  {"ticker": "CPRT", "verdict": "WATCH", "headline": "ACV acquisition completed", "why": "Check funding (event check 5: no new debt) and the balance sheet. Price above MOS.", "sources": ["https://finance.yahoo.com/markets/stocks/articles/copart-completes-acquisition-acv-132600547.html?.tsrc=rss"]},
+  {"ticker": "ZTO", "verdict": "NOISE", "headline": "Goldman downgrade to Neutral, target $22", "why": "Fear, not business news (InvestED 249). Price just under MOS; reason unconfirmed.", "sources": []},
+  {"ticker": "AMAT", "verdict": "NOISE", "headline": "Chip and AI-hardware sell-off continues", "why": "Market-wide, moves price not value (METHOD 7). Far above MOS/sticker; same for LRCX, KLAC, MU, AVGO, NVDA, ANET.", "sources": []}
  ],
  "guru_moves": [
   {"guru": "Himalaya Capital (Li Lu)", "ticker": "PDD", "change": "added", "weight": 0.2217, "report": "2026-06-30"},
   {"guru": "Baupost (Seth Klarman)", "ticker": "AMZN", "change": "added", "weight": 0.1648, "report": "2026-06-30"},
   {"guru": "Pershing Square (Bill Ackman)", "ticker": "MSFT", "change": "new", "weight": 0.1526, "report": "2026-03-31"},
   {"guru": "Himalaya Capital (Li Lu)", "ticker": "BRK-B", "change": "added", "weight": 0.1498, "report": "2026-06-30"},
-  {"guru": "Berkshire Hathaway (Buffett)", "ticker": "GOOGL", "change": "added", "weight": 0.0941, "report": "2026-06-30"}
+  {"guru": "Berkshire Hathaway (Buffett)", "ticker": "GOOGL", "change": "added", "weight": 0.0941, "report": "2026-06-30"},
+  {"guru": "Baupost (Seth Klarman)", "ticker": "GPC", "change": "added", "weight": 0.0613, "report": "2026-06-30"},
+  {"guru": "Baupost (Seth Klarman)", "ticker": "CME", "change": "new", "weight": 0.0252, "report": "2026-06-30"},
+  {"guru": "Berkshire Hathaway (Buffett)", "ticker": "STZ", "change": "sold", "weight": 0, "report": "2026-06-30"},
+  {"guru": "Himalaya Capital (Li Lu)", "ticker": "BAC", "change": "sold", "weight": 0, "report": "2026-06-30"}
  ]}

@@ -66,6 +66,13 @@
  ],
  "AMAT": [
   {
+   "date": "2026-10-17",
+   "verdict": "NOISE",
+   "headline": "Chip and AI-hardware sell-off continues",
+   "why": "Market-wide, moves price not value (METHOD 7). Far above MOS/sticker; same for LRCX, KLAC, MU, AVGO, NVDA, ANET.",
+   "sources": []
+  },
+  {
    "date": "2026-10-16",
    "verdict": "NOISE",
    "headline": "Chip sell-off continues (-7% day, -17% in 5)",
@@ -120,6 +127,17 @@
    "sources": []
   }
  ],
+ "CPRT": [
+  {
+   "date": "2026-10-17",
+   "verdict": "WATCH",
+   "headline": "ACV acquisition completed",
+   "why": "Check funding (event check 5: no new debt) and the balance sheet. Price above MOS.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/copart-completes-acquisition-acv-132600547.html?.tsrc=rss"
+   ]
+  }
+ ],
  "CRUS": [
   {
    "date": "2026-10-16",
@@ -157,6 +175,17 @@
    "headline": "Fell 6% in the AI-hardware sell-off",
    "why": "Market-wide; above Sticker (METHOD 7).",
    "sources": []
+  }
+ ],
+ "ENVA": [
+  {
+   "date": "2026-10-17",
+   "verdict": "NOISE",
+   "headline": "Grasshopper Bank merger terminated, $4M paid",
+   "why": "Mutual exit, no other liability; removes acquisition risk. Watch the $200M Jefferies note facility (event check 5).",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0001529864/000119312526424282/enva-20261016.htm"
+   ]
   }
  ],
  "GOLD": [
@@ -317,6 +346,13 @@
  ],
  "NRIM": [
   {
+   "date": "2026-10-17",
+   "verdict": "WATCH",
+   "headline": "Single $20M loan impairment stands; check Specialty Finance",
+   "why": "Event check 3: does it take 1+ year to resolve? One loan, not a changed story yet.",
+   "sources": []
+  },
+  {
    "date": "2026-10-16",
    "verdict": "WATCH",
    "headline": "Q3: $8.8M impairment on one $20M Specialty Finance loan; NPLs $40.8M",
@@ -444,6 +480,15 @@
  ],
  "SMCI": [
   {
+   "date": "2026-10-17",
+   "verdict": "WATCH",
+   "headline": "CFO Weigand out at once; Mark Long named; stock -10% day",
+   "why": "Reason unconfirmed. Open integrity items (control weaknesses, co-founder indictment, investigation): METHOD 4. Reason or auditor language in the 8-K could make it a PROBLEM.",
+   "sources": [
+    "https://www.cfodive.com/news/super-micros-cfo-out-change-accounting-leadership-ai/833213/"
+   ]
+  },
+  {
    "date": "2026-10-16",
    "verdict": "WATCH",
    "headline": "New CFO named; stock -10% in a day, -22% in 5",
@@ -512,6 +557,17 @@
    "sources": []
   }
  ],
+ "TRV": [
+  {
+   "date": "2026-10-17",
+   "verdict": "WATCH",
+   "headline": "Q3 beat on reserve gains; catastrophe losses mounting",
+   "why": "Insurer check: combined ratio ex-reserve releases. Near 52-week high, far above MOS: value-trap check. Details unconfirmed.",
+   "sources": [
+    "https://finance.yahoo.com/healthcare/articles/travelers-third-quarter-premiums-unexpectedly-150631943.html?.tsrc=rss"
+   ]
+  }
+ ],
  "TTD": [
   {
    "date": "2026-10-13",
@@ -531,6 +587,13 @@
   }
  ],
  "ZTO": [
+  {
+   "date": "2026-10-17",
+   "verdict": "NOISE",
+   "headline": "Goldman downgrade to Neutral, target $22",
+   "why": "Fear, not business news (InvestED 249). Price just under MOS; reason unconfirmed.",
+   "sources": []
+  },
   {
    "date": "2026-10-16",
    "verdict": "NOISE",
