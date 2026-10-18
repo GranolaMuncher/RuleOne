@@ -123,11 +123,13 @@ def normalize_splits(years: dict[int, dict]) -> dict[int, dict]:
 
 def sane_shares(shares, net_income, eps):
     """Fix share counts tagged in the wrong scale (e.g. Nova's 2025 20-F: 32,800 "shares" meaning
-    32.8 million). If the count is off from net income / EPS by 100x or more, use the implied count."""
+    32.8 million). If the count is 100x or more *below* net income / EPS, use the implied count.
+    A count far above the implied one is left alone: some filers tag net income in thousands
+    (Anterix, Aveanna), which would shrink a correct cover-page count a thousandfold."""
     if not shares or not net_income or not eps or net_income <= 0 or eps <= 0:
         return shares
     implied = net_income / eps
-    return implied if not 0.01 < implied / shares < 100 else shares
+    return implied if implied / shares >= 100 else shares
 
 
 def post_filing_split(xbrl_shares, market_shares) -> float:
