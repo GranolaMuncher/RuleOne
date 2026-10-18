@@ -190,6 +190,8 @@ def test_sane_shares_fixes_scale_errors_only():
     assert math.isclose(sane_shares(32_800, 259_223_000, 7.96), 259_223_000 / 7.96)
     assert sane_shares(30_000_000, 259_223_000, 7.96) == 30_000_000      # within range: untouched
     assert sane_shares(32_800, -5, 7.96) == 32_800                     # losses can't be used
+    # Net income tagged in thousands (Anterix 2025: 90,635 vs 19.5 M cover shares, EPS 4.83): keep the cover count
+    assert sane_shares(19_498_473, 90_635, 4.83) == 19_498_473
 
 
 def test_wonderful_markers_separate_steady_compounders_from_weak_businesses():
