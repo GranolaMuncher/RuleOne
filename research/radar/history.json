@@ -89,6 +89,17 @@
    ]
   }
  ],
+ "AMP": [
+  {
+   "date": "2026-10-20",
+   "verdict": "WATCH",
+   "headline": "BofA double-downgrade to Underperform on advisor attrition",
+   "why": "Target $570 to $445. Attrition touches the moat (event check 6, METHOD 6); a downgrade alone is fear. Price far above MOS, so no event. BofA note itself unconfirmed.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/ameriprise-shares-fall-bofa-double-164917657.html"
+   ]
+  }
+ ],
  "BKNG": [
   {
    "date": "2026-10-10",
@@ -179,6 +190,13 @@
  ],
  "ENVA": [
   {
+   "date": "2026-10-20",
+   "verdict": "NOISE",
+   "headline": "Grasshopper merger terminated, $4M paid",
+   "why": "Removes acquisition risk; watch the Jefferies note facility (event check 5).",
+   "sources": []
+  },
+  {
    "date": "2026-10-17",
    "verdict": "NOISE",
    "headline": "Grasshopper Bank merger terminated, $4M paid",
@@ -262,6 +280,13 @@
  ],
  "LRCX": [
   {
+   "date": "2026-10-20",
+   "verdict": "NOISE",
+   "headline": "Chip equipment sell-off (LRCX, AMAT, KLAC, ANET, AVGO)",
+   "why": "-5% to -9% in a day, far above sticker, no company news found. Price moves, not value (METHOD 7). Cause unconfirmed.",
+   "sources": []
+  },
+  {
    "date": "2026-10-14",
    "verdict": "NOISE",
    "headline": "Chip equipment slide on profit-taking",
@@ -344,6 +369,15 @@
    "sources": []
   }
  ],
+ "MU": [
+  {
+   "date": "2026-10-20",
+   "verdict": "NOISE",
+   "headline": "-15% in 5 days with the AI-hardware sell-off",
+   "why": "No business break in headlines; price $879 still above MOS $513. Market-wide move (METHOD 7).",
+   "sources": []
+  }
+ ],
  "NRIM": [
   {
    "date": "2026-10-17",
@@ -381,6 +415,13 @@
   }
  ],
  "PARR": [
+  {
+   "date": "2026-10-20",
+   "verdict": "WATCH",
+   "headline": "-6% in a day with no news; refiner PE<5",
+   "why": "Check one-off gains and cash quality (METHOD 6). Cause of drop unconfirmed.",
+   "sources": []
+  },
   {
    "date": "2026-10-16",
    "verdict": "NOISE",
@@ -480,6 +521,15 @@
  ],
  "SMCI": [
   {
+   "date": "2026-10-20",
+   "verdict": "WATCH",
+   "headline": "-12% day, new CFO Mark Long; price at MOS but markers weak",
+   "why": "CFO change reason unconfirmed; contractor export-control plea 10/8. Cash-not-real and debt flags fail event checks 5 and 6; integrity open (METHOD 4). Check the 8-K and next 10-Q.",
+   "sources": [
+    "https://www.ksl.com/article/51636757/super-micro-names-former-western-digital-executive-mark-long-as-new-cfo"
+   ]
+  },
+  {
    "date": "2026-10-17",
    "verdict": "WATCH",
    "headline": "CFO Weigand out at once; Mark Long named; stock -10% day",
@@ -559,6 +609,15 @@
  ],
  "TRV": [
   {
+   "date": "2026-10-20",
+   "verdict": "WATCH",
+   "headline": "Q3 10-Q out, targets raised; far above MOS near 52w high",
+   "why": "Price $390 vs MOS $127: no fear, no event. Value-trap check (LESSONS); look at combined ratio ex-reserve releases.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/trv-q3-earnings-call-highlights-121000513.html"
+   ]
+  },
+  {
    "date": "2026-10-17",
    "verdict": "WATCH",
    "headline": "Q3 beat on reserve gains; catastrophe losses mounting",
@@ -566,6 +625,15 @@
    "sources": [
     "https://finance.yahoo.com/healthcare/articles/travelers-third-quarter-premiums-unexpectedly-150631943.html?.tsrc=rss"
    ]
+  }
+ ],
+ "TSSI": [
+  {
+   "date": "2026-10-20",
+   "verdict": "WATCH",
+   "headline": "-29% in 5 days, micro-cap, no news found",
+   "why": "Price $7.07 vs MOS $5.10. Cause unconfirmed; check filings before reading anything into it.",
+   "sources": []
   }
  ],
  "TTD": [
