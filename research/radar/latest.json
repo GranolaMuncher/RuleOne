@@ -1,14 +1,15 @@
-{"date": "2026-10-20",
- "summary": "No dossier sell trigger confirmed tripped. A market-wide AI-hardware and semiconductor sell-off (equipment makers -7% to -9% in a day) is price noise (METHOD 7); no company-specific cause was found. Ameriprise took a BofA double downgrade on advisor attrition (possible story change, still far above MOS). Super Micro is the only buy-range name near MOS; its CFO change and integrity questions stay open. TRV and RLI beat but sit far above MOS.",
+{"date": "2026-10-21",
+ "summary": "No dossier sell trigger or must-stay-true item confirmed broken. Super Micro pre-announced Q1 FY27 revenue $18.5-19.5B and gross margin 12.0-12.5%, but its markers stay weak and the price move is unconfirmed; price is at MOS. The AI-hardware sell-off continues and is price noise (METHOD 7). Ameriprise's advisor-attrition story and Netflix's post-earnings drop (reported ad-forecast cut unconfirmed) stay on WATCH; both sit above MOS.",
  "items": [
-  {"ticker": "AMP", "verdict": "WATCH", "headline": "BofA double-downgrade to Underperform on advisor attrition", "why": "Target $570 to $445. Attrition touches the moat (event check 6, METHOD 6); a downgrade alone is fear. Price far above MOS, so no event. BofA note itself unconfirmed.", "sources": ["https://finance.yahoo.com/markets/stocks/articles/ameriprise-shares-fall-bofa-double-164917657.html"]},
-  {"ticker": "SMCI", "verdict": "WATCH", "headline": "-12% day, new CFO Mark Long; price at MOS but markers weak", "why": "CFO change reason unconfirmed; contractor export-control plea 10/8. Cash-not-real and debt flags fail event checks 5 and 6; integrity open (METHOD 4). Check the 8-K and next 10-Q.", "sources": ["https://www.ksl.com/article/51636757/super-micro-names-former-western-digital-executive-mark-long-as-new-cfo"]},
-  {"ticker": "TRV", "verdict": "WATCH", "headline": "Q3 10-Q out, targets raised; far above MOS near 52w high", "why": "Price $390 vs MOS $127: no fear, no event. Value-trap check (LESSONS); look at combined ratio ex-reserve releases.", "sources": ["https://finance.yahoo.com/markets/stocks/articles/trv-q3-earnings-call-highlights-121000513.html"]},
-  {"ticker": "PARR", "verdict": "WATCH", "headline": "-6% in a day with no news; refiner PE<5", "why": "Check one-off gains and cash quality (METHOD 6). Cause of drop unconfirmed.", "sources": []},
-  {"ticker": "TSSI", "verdict": "WATCH", "headline": "-29% in 5 days, micro-cap, no news found", "why": "Price $7.07 vs MOS $5.10. Cause unconfirmed; check filings before reading anything into it.", "sources": []},
-  {"ticker": "ENVA", "verdict": "NOISE", "headline": "Grasshopper merger terminated, $4M paid", "why": "Removes acquisition risk; watch the Jefferies note facility (event check 5).", "sources": []},
-  {"ticker": "MU", "verdict": "NOISE", "headline": "-15% in 5 days with the AI-hardware sell-off", "why": "No business break in headlines; price $879 still above MOS $513. Market-wide move (METHOD 7).", "sources": []},
-  {"ticker": "LRCX", "verdict": "NOISE", "headline": "Chip equipment sell-off (LRCX, AMAT, KLAC, ANET, AVGO)", "why": "-5% to -9% in a day, far above sticker, no company news found. Price moves, not value (METHOD 7). Cause unconfirmed.", "sources": []}
+  {"ticker": "SMCI", "verdict": "WATCH", "headline": "Prelim Q1 FY27 revenue $18.5-19.5B, margin 12-12.5%; markers still weak", "why": "Revenue beat does not fix cash-not-real or debt flags (event checks 5, 6); CFO change and export-control plea keep integrity open (METHOD 4). Price move unconfirmed. Call 11/3.", "sources": ["https://www.sec.gov/Archives/edgar/data/0001375365/000137536526000025/smcifirstquarterfy2027busi.htm"]},
+  {"ticker": "TTD", "verdict": "WATCH", "headline": "-7% day at $12.23 near MOS $12.60; 8-K items 5.02 and 5.07", "why": "Officer/director change unconfirmed, likely annual-meeting housekeeping. Value-trap question open: check ad-spend share loss (event check 6).", "sources": ["https://finance.yahoo.com/markets/stocks/articles/customer-hesitancy-impact-trade-desk-111202121.html"]},
+  {"ticker": "AMP", "verdict": "WATCH", "headline": "BofA double downgrade on advisor attrition, target $570 to $445", "why": "Downgrade is fear, but attrition touches the moat (event check 6). Price $501 vs MOS $142, so no event.", "sources": ["https://finance.yahoo.com/markets/stocks/articles/ameriprise-shares-fall-bofa-double-164917657.html"]},
+  {"ticker": "NFLX", "verdict": "WATCH", "headline": "Q3 growth slowing; reported ad forecast cut of ~$300M (unconfirmed)", "why": "Price $70.53 vs MOS $47.70, no MOS fear yet. Check the 8-K for ad guidance and whether the moat story changed (event check 6).", "sources": ["https://www.sec.gov/Archives/edgar/data/0001065280/000106528026000290/ex991_q326.htm"]},
+  {"ticker": "TSSI", "verdict": "WATCH", "headline": "-25% in 5 days, micro-cap, no news found", "why": "Price $7.07 vs MOS $5.10. Check filings and press releases before reading anything into it; unconfirmed.", "sources": []},
+  {"ticker": "CB", "verdict": "NOISE", "headline": "Q3 beat; near 52-week high, far above MOS", "why": "Price $360 vs MOS $155: no fear, no event; value-trap check.", "sources": ["https://finance.yahoo.com/markets/stocks/articles/chubb-nyse-cb-reports-q3-232556121.html"]},
+  {"ticker": "MU", "verdict": "NOISE", "headline": "-12% in 5 days in memory/AI sell-off", "why": "Above MOS $513; no business break shown (METHOD 7).", "sources": []},
+  {"ticker": "QFIN", "verdict": "NOISE", "headline": "-10% in 5 days with Asian ADRs, no news", "why": "Dossier TOO HARD, no named trigger hit; below MOS $7.88. Watch regulatory news.", "sources": []},
+  {"ticker": "LRCX", "verdict": "NOISE", "headline": "Chip equipment and AI hardware sell-off (AMAT, KLAC, ANET)", "why": "Market-wide move, far above sticker; price not value (METHOD 7). Cause unconfirmed.", "sources": []}
  ],
  "guru_moves": [
   {"guru": "Himalaya Capital (Li Lu)", "ticker": "PDD", "change": "added", "weight": 0.2217, "report": "2026-06-30"},
@@ -16,8 +17,6 @@
   {"guru": "Pershing Square (Bill Ackman)", "ticker": "MSFT", "change": "new", "weight": 0.1526, "report": "2026-03-31"},
   {"guru": "Himalaya Capital (Li Lu)", "ticker": "BRK-B", "change": "added", "weight": 0.1498, "report": "2026-06-30"},
   {"guru": "Berkshire Hathaway (Buffett)", "ticker": "GOOGL", "change": "added", "weight": 0.0941, "report": "2026-06-30"},
-  {"guru": "Baupost (Seth Klarman)", "ticker": "GPC", "change": "added", "weight": 0.0613, "report": "2026-06-30"},
   {"guru": "Baupost (Seth Klarman)", "ticker": "CME", "change": "new", "weight": 0.0252, "report": "2026-06-30"},
-  {"guru": "Himalaya Capital (Li Lu)", "ticker": "SPGI", "change": "sold", "weight": 0.0, "report": "2026-06-30"},
-  {"guru": "Himalaya Capital (Li Lu)", "ticker": "MCO", "change": "sold", "weight": 0.0, "report": "2026-06-30"}
+  {"guru": "Himalaya Capital (Li Lu)", "ticker": "MCO", "change": "sold", "weight": 0, "report": "2026-06-30"}
  ]}
