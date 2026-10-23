@@ -29,3 +29,28 @@ def test_pick_names_orders_scope():
 def test_parse_front():
     meta = parse_front('---\nticker: ADBE\nverdict: WATCH\nentry: [262.9, 230]\nsummary: "A, b"\n---\n# x')
     assert meta == {"ticker": "ADBE", "verdict": "WATCH", "entry": ["262.9", "230"], "summary": "A, b"}
+
+
+def test_split_and_memo(tmp_path, monkeypatch):
+    import json
+    from datetime import date
+    from ruleone import rulers
+    work, out = tmp_path / "work", tmp_path / "rulers"
+    work.mkdir(); out.mkdir()
+    monkeypatch.setattr(rulers, "WORK", work)
+    monkeypatch.setattr(rulers, "OUT", out)
+    monkeypatch.setattr(rulers, "ROOT", tmp_path)
+    names = [{"ticker": t, "screen": {"methods_agree": 2}} for t in ("AAA", "BBB", "CCC", "DDD", "EEE")]
+    (work / "inputs.json").write_text(json.dumps({"date": "2026-10-24", "names": names}))
+    assert rulers.split(3) == ["s00", "s01"]
+    s1 = json.loads((work / "shards" / "s01.json").read_text())
+    assert [n["ticker"] for n in s1["names"]] == ["DDD", "EEE"] and s1["shards"] == 2
+    (out / "index.json").write_text(json.dumps([
+        {"ticker": "AAA", "verdict": "WATCH", "confidence": 3, "entry": [10.0], "updated": "2026-10-24", "price_at_update": 12.0, "summary": "ok"},
+        {"ticker": "BBB", "verdict": "BUY", "confidence": 4, "entry": [5.0], "updated": "2026-10-10", "summary": "old"}]))
+    (work / "memos").mkdir()
+    (work / "memos" / "s00.md").write_text("### AAA · WATCH\n- **For the owner:** fine")
+    text = rulers.memo(date(2026, 10, 24)).read_text()
+    assert "5 names queued, 1 dossiers updated" in text and "BBB, CCC, DDD, EEE" in text
+    assert "| [AAA](../../research/rulers/AAA.md) | WATCH | 3/5 | $12.00 | $10.00 | 2 | ok |" in text
+    assert "### AAA · WATCH" in text

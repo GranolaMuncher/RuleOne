@@ -245,9 +245,62 @@ def record() -> int:
     return len(rows)
 
 
+# ---------------------------------------------------------------- shards and memo
+SHARD_SIZE = 3
+
+
+def split(size: int = SHARD_SIZE) -> list[str]:
+    """Split .work/rulers/inputs.json into shards of `size` names (one Claude job each, run in parallel)."""
+    plan = json.loads((WORK / "inputs.json").read_text())
+    names = plan["names"]
+    chunks = [names[i:i + size] for i in range(0, len(names), size)]
+    out = WORK / "shards"
+    out.mkdir(parents=True, exist_ok=True)
+    for old in out.glob("*.json"):
+        old.unlink()
+    ids = []
+    for i, chunk in enumerate(chunks):
+        sid = f"s{i:02d}"
+        (out / f"{sid}.json").write_text(json.dumps({**plan, "names": chunk, "shard": sid, "shards": len(chunks)},
+                                                    indent=1, default=str))
+        ids.append(sid)
+    return ids
+
+
+def memo(today: date) -> Path:
+    """Assemble reports/weekly/<date>_rulers.md from the index and each shard's notes (.work/rulers/memos/*.md)."""
+    plan = json.loads((WORK / "inputs.json").read_text()) if (WORK / "inputs.json").exists() else {"names": []}
+    idx = {d["ticker"]: d for d in json.loads((OUT / "index.json").read_text())} if (OUT / "index.json").exists() else {}
+    packs = {p["ticker"]: p for p in plan["names"]}
+    done = [t for t in packs if idx.get(t, {}).get("updated") == today.isoformat()]
+    missed = [t for t in packs if t not in done]
+    money = lambda v: f"${v:,.2f}" if isinstance(v, (int, float)) else "–"
+    lines = [f"# RULERS weekly memo · {today.isoformat()}", "",
+             "Research for one investor's own use. **Not investment advice.**", "",
+             f"## Scope this run",
+             f"{len(packs)} names queued, {len(done)} dossiers updated"
+             + (f"; not updated (first in line next run): {', '.join(missed)}." if missed else "."), "",
+             "## Verdicts", "| Ticker | Verdict | Conf. | Price | Tranche 1 | Methods agree | Bottom line |", "|---|---|---|---|---|---|---|"]
+    for t in done:
+        d, sc = idx[t], packs[t].get("screen", {})
+        lines.append(f"| [{t}](../../research/rulers/{t}.md) | {d['verdict']} | {d['confidence'] or '–'}/5 | "
+                     f"{money(d.get('price_at_update'))} | {money((d.get('entry') or [None])[0])} | "
+                     f"{sc.get('methods_agree', '–')} | {d.get('summary', '')} |")
+    notes = sorted((WORK / "memos").glob("*.md")) if (WORK / "memos").exists() else []
+    if notes:
+        lines += ["", "## Notes by name"]
+        for n in notes:
+            lines += ["", n.read_text().strip()]
+    path = ROOT / "reports" / "weekly" / f"{today.isoformat()}_rulers.md"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines) + "\n")
+    return path
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["prepare", "record"])
+    ap.add_argument("cmd", choices=["prepare", "split", "record", "memo"])
+    ap.add_argument("--size", type=int, default=SHARD_SIZE)
     ap.add_argument("--tickers", default="", help="comma list to analyse first")
     ap.add_argument("--limit", type=int, default=MAX_NAMES)
     args = ap.parse_args()
@@ -256,6 +309,10 @@ def main() -> None:
         forced = [t.strip().upper() for t in args.tickers.split(",") if t.strip()]
         p = prepare(Fetcher(ROOT / ".cache"), today, forced, args.limit)
         print(f"prepared {len(p['names'])} dossier(s)")
+    elif args.cmd == "split":
+        print(json.dumps(split(args.size)))
+    elif args.cmd == "memo":
+        print(f"wrote {memo(today).relative_to(ROOT)}")
     else:
         print(f"indexed {record()} dossier(s)")
 

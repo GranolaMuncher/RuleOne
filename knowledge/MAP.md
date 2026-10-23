@@ -43,6 +43,6 @@ The Intelligent Investor ───►  (notes)   ──► knowledge/intelligent
 | `research/editor/decisions.json` | Editor | Home page | This week's actions and your decisions |
 | `ops/health/*`, `ops/incidents/*` | Engineer | Engineer, Ops page | Pipeline health and fixes |
 
-**Weekly order (Saturday):** screen → RULERS → Professor review → Editor → deploy. Radar runs on weekdays, the Professor (podcast) daily, and the Engineer on Sundays and whenever a run fails.
+**Weekly order (Saturday):** screen → RULERS → Professor review → Editor → deploy. Radar runs on weekdays, the Professor (podcast) daily, and the Engineer on Sundays (health), Wednesdays (method proposals) and whenever a run fails.
 
 **How a lesson travels:** a verdict goes into the scorecard. If it goes badly, the Professor review asks whether the method would have warned us. A process lesson then goes into `LESSONS.md`, and if it needs code, a proposal goes into `METHOD.md → Proposed app changes`, which the Engineer implements as a screen change or a new marker. From then on Radar and RULERS apply it.

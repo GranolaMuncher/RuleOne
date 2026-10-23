@@ -25,9 +25,9 @@ Read this first in any new or forked Claude session, then `knowledge/MAP.md`.
 | Professor weekly review: marks dossiers, writes LESSONS, proposes method changes | `ruleone/scorecard.py` | `agents/professor/REVIEW.md` | `review.yml` (in the weekly chain) |
 | Radar: news, filings, 13F guru moves, dossier sell triggers, analyst downgrades | `ruleone/radar.py` | `agents/radar/PROMPT.md` | `radar.yml`, weekdays 22:22 |
 | Analyst consensus: low/mean/high targets, ratings, revisions; agree / contrarian / crowded | `ruleone/analysts.py` | – (feeds Radar, RULERS, Editor) | inside `radar.yml` (daily) and `weekly.yml` (broad pass) |
-| RULERS analyst: living dossiers in `research/rulers/` | `ruleone/rulers.py` | `agents/rulers/PROMPT.md` | `rulers.yml` (in the weekly chain) |
+| RULERS analyst: living dossiers in `research/rulers/` | `ruleone/rulers.py` | `agents/rulers/PROMPT.md` | `rulers.yml` (in the weekly chain): up to 12 names, split into parallel jobs of 3, then one merge job writes the index and memo |
 | Editor: weekly brief, conflicts, decisions | `ruleone/editor.py` | `agents/editor/PROMPT.md` | `editor.yml` (in the weekly chain) |
-| Engineer: failures, health, monthly upgrades, implements METHOD proposals on branches | `ruleone/health.py` | `agents/engineer/PROMPT.md` | `engineer.yml` Sunday 14:07 and on any workflow failure |
+| Engineer: failures, health, monthly upgrades, implements METHOD proposals on branches | `ruleone/health.py` | `agents/engineer/PROMPT.md` | `engineer.yml` Sunday 14:07 (health), Wednesday 14:07 (method proposals) and on any workflow failure |
 | CI | `tests/` (pytest), actionlint | – | `ci.yml` on push |
 
 **Weekly chain (Saturday):** screen → analyst broad refresh → RULERS → Professor review → Editor → deploy.
@@ -38,7 +38,8 @@ Read this first in any new or forked Claude session, then `knowledge/MAP.md`.
 
 ## Open items and known limits
 - The owner is still recording *The Intelligent Investor*. 22 chapter previews are waiting for recordings.
-- The three dossiers (ADBE, KNSL, LULU) predate the Markers section. The first Professor review flagged this, and next Saturday's RULERS run should add it.
+- RULERS finished only 1 of 11 names on 2026-10-17, so it now runs in parallel shards (from 2026-10-23). KNSL and LULU dossiers date from 2026-10-09.
+- Engineer fixes and method changes land on `engineer/*` branches and wait for the owner (or a chat the owner asks) to merge them.
 - Banks and insurers fit the cash-flow markers poorly. IFRS (foreign) filers aren't covered.
 - Analyst data comes from Yahoo Finance; TipRanks and MarketBeat forbid scraping. Yahoo no longer gives a 5-year growth estimate, only this year and next.
 - The scorecard needs months of graded calls before it says much.

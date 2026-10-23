@@ -120,12 +120,14 @@ Numbered markdown links.
 Confidence measures how sure you are of the *business*, not of the stock price.
 
 ## After all names
-1. Write `reports/weekly/<date>_rulers.md` (the weekly memo, which replaces the old scout memo):
-   - a verdict table (ticker, verdict, confidence, price, tranche 1, methods agree, one-line reason) linking each dossier as `../../research/rulers/XXX.md`
-   - what changed since last week
-   - data issues found
-   - a five-line summary for the owner
-
-   State that it is research, not advice.
+You may be one of several analysts working in parallel, each with a few names (`shard` in `inputs.json`). The workflow assembles the weekly memo `reports/weekly/<date>_rulers.md` from the dossiers and your notes.
+1. Write your notes to `.work/rulers/memo.md`, one section per name you processed:
+   ```markdown
+   ### TICKER · VERDICT (was OLD or new)
+   - **What changed:** price, events, downgrades, verdict changes since the last dossier.
+   - **Data issues:** where the screen's numbers were wrong and what you corrected.
+   - **For the owner:** one line.
+   ```
+   Add a section for any name you could not finish, saying why.
 2. If a BUY name is a top-3 idea and has no `deepdive_config`, you may create `reports/config/<TICKER>.json` following the existing configs, then run `python3 -m ruleone.deepdive reports/config/<TICKER>.json`.
 3. Don't edit any other files. Don't commit (the workflow does). If time runs short, finish fewer dossiers well rather than many badly.
