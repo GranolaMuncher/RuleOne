@@ -171,6 +171,13 @@
  ],
  "CRUS": [
   {
+   "date": "2026-10-23",
+   "verdict": "NOISE",
+   "headline": "Barclays downgrade to Underweight, target $130 to $95",
+   "why": "Downgrade is fear; Apple dependence is old news. Price $107.87 vs MOS $59.83.",
+   "sources": []
+  },
+  {
    "date": "2026-10-22",
    "verdict": "NOISE",
    "headline": "Barclays downgrade to Underweight, target $130 to $95",
@@ -206,6 +213,17 @@
    "headline": "Fell 5% in a day and 11% in 5 days; no company news found",
    "why": "No filing or headline explains it; web search found nothing, so unconfirmed. Price $121 is above MOS $60 and at Sticker $120. Check for a customer-concentration report before calling it an event (event check 1).",
    "sources": []
+  }
+ ],
+ "DECK": [
+  {
+   "date": "2026-10-23",
+   "verdict": "WATCH",
+   "headline": "FY27 sales guide cut; Hoka/Ugg growth slows, -8% after hours",
+   "why": "Possible moat/demand issue (event check 6); EPS guide held up by ~$0.52 tariff refunds. Price $85.71 vs MOS $58.98, no event yet.",
+   "sources": [
+    "https://finchannel.com/deckers-cuts-sales-outlook-as-hoka-and-ugg-growth-slows/139155/american-business-trends/2026/10/"
+   ]
   }
  ],
  "EME": [
@@ -320,6 +338,17 @@
    ]
   }
  ],
+ "KNSL": [
+  {
+   "date": "2026-10-23",
+   "verdict": "WATCH",
+   "headline": "Q3 combined 75.4% but GWP -4.8%; CFO transition 8-K",
+   "why": "Dossier items hold (casualty +0.9%, favourable reserves $19.7M). Trigger 'new CEO plus guidance cut' not met. Check the new CFO; transition detail unconfirmed.",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0001669162/000166916226000049/earningsrelease3q2026.htm"
+   ]
+  }
+ ],
  "LDOS": [
   {
    "date": "2026-10-10",
@@ -330,6 +359,13 @@
   }
  ],
  "LRCX": [
+  {
+   "date": "2026-10-23",
+   "verdict": "NOISE",
+   "headline": "Chip-equipment sell-off after Lam supply-constraint outlook",
+   "why": "-13% in 5 days; far above MOS. Market moves change price, not value (METHOD 7).",
+   "sources": []
+  },
   {
    "date": "2026-10-22",
    "verdict": "NOISE",
@@ -372,6 +408,13 @@
  ],
  "LRN": [
   {
+   "date": "2026-10-23",
+   "verdict": "WATCH",
+   "headline": "Q1 margin squeeze and enrollment headwinds, -5.7%",
+   "why": "Price $82.39 vs MOS $44, no event. Check the 10-Q for enrollment (event check 6); detail unconfirmed.",
+   "sources": []
+  },
+  {
    "date": "2026-10-22",
    "verdict": "WATCH",
    "headline": "Q1 FY27: enrollment headwinds, -4.2% to $82.39",
@@ -396,6 +439,13 @@
   }
  ],
  "LULU": [
+  {
+   "date": "2026-10-23",
+   "verdict": "NOISE",
+   "headline": "New board director; 8-K 5.02",
+   "why": "Dossier trigger is further CEO turnover, not met. Price $97 vs MOS $182.",
+   "sources": []
+  },
   {
    "date": "2026-10-15",
    "verdict": "WATCH",
@@ -436,6 +486,15 @@
  ],
  "META": [
   {
+   "date": "2026-10-23",
+   "verdict": "WATCH",
+   "headline": "$25B New Mexico judgment headline unconfirmed",
+   "why": "No ruling found; state sought up to $40B, Meta proposed a $3.45B cap. $82B cash so no new debt needed (check 5). Price $709 vs MOS $366.",
+   "sources": [
+    "https://news.bloomberglaw.com/litigation/new-mexico-going-it-alone-tallies-up-huge-wins-against-meta"
+   ]
+  },
+  {
    "date": "2026-10-22",
    "verdict": "WATCH",
    "headline": "Reported $25B New Mexico judgment (unconfirmed)",
@@ -471,6 +530,13 @@
   }
  ],
  "NFLX": [
+  {
+   "date": "2026-10-23",
+   "verdict": "WATCH",
+   "headline": "-7% day, Wolfe downgrade; CFO still sees double-digit growth",
+   "why": "Downgrade is fear (InvestED 249). Price $70.53 vs MOS $47.70, not cheap yet. Check ad guidance in the 10-Q.",
+   "sources": []
+  },
   {
    "date": "2026-10-22",
    "verdict": "WATCH",
@@ -639,6 +705,13 @@
   }
  ],
  "SMCI": [
+  {
+   "date": "2026-10-23",
+   "verdict": "WATCH",
+   "headline": "-9% in 5 days to $31.63, just under MOS $32.40",
+   "why": "Cash-quality and debt markers unchanged, so event checks 5 and 6 still fail. Check cash flow next report.",
+   "sources": []
+  },
   {
    "date": "2026-10-22",
    "verdict": "WATCH",

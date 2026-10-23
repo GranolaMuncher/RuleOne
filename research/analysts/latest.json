@@ -1,16 +1,16 @@
 {
- "date": "2026-10-22",
+ "date": "2026-10-23",
  "source": "Yahoo Finance analyst consensus",
  "covered": 1696,
  "refreshed": 333,
  "no_coverage": 30,
  "signals": {
-  "mixed": 1001,
-  "crowded": 456,
-  "both cautious": 83,
+  "mixed": 1008,
+  "crowded": 454,
+  "both cautious": 81,
   "thin coverage": 80,
   "contrarian": 12,
-  "agree": 64
+  "agree": 61
  },
  "signal_text": {
   "agree": "Rule #1 price and the street both say cheap",
@@ -60,7 +60,7 @@
     "upside_mean": 0.8510832098572878,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-22 Cantor Fitzgerald kept Overweight, target $284"
    },
    {
     "ticker": "APP",
@@ -100,7 +100,7 @@
     "upside_mean": 0.775710254426289,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-22 Rosenblatt kept Buy, target $1,900; 2026-10-22 Needham kept Buy, target $1,650"
    },
    {
     "ticker": "BOOT",
@@ -112,15 +112,15 @@
     "ten_cap_price": 97.6227,
     "sticker": 152.695,
     "target_low": 150.0,
-    "target_mean": 210.86667,
+    "target_mean": 208.2,
     "target_high": 282.0,
     "n_analysts": 15.0,
     "rec_mean": 1.29412,
     "rec_key": "strong_buy",
-    "upside_mean": 0.7323913079198159,
+    "upside_mean": 0.7104830759119289,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-16 Needham initiated Buy, target $150"
+    "recent_actions": "2026-10-22 UBS kept Buy, target $272\u2192$232; 2026-10-16 Needham initiated Buy, target $150"
    },
    {
     "ticker": "BLBD",
@@ -143,26 +143,6 @@
     "recent_actions": ""
    },
    {
-    "ticker": "LMB",
-    "name": "Limbach Holdings, Inc.",
-    "tier": "C",
-    "status": "BUY*",
-    "price": 48.69,
-    "mos_price": 27.9681,
-    "ten_cap_price": 45.8652,
-    "sticker": 55.9362,
-    "target_low": 50.0,
-    "target_mean": 75.0,
-    "target_high": 95.0,
-    "n_analysts": 5.0,
-    "rec_mean": 1.8,
-    "rec_key": "buy",
-    "upside_mean": 0.5403573629081948,
-    "revision_30d": null,
-    "signal": "agree",
-    "recent_actions": ""
-   },
-   {
     "ticker": "NVDA",
     "name": "NVIDIA Corporation",
     "tier": "A",
@@ -180,27 +160,7 @@
     "upside_mean": 0.5351279596506795,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
-   },
-   {
-    "ticker": "TBBK",
-    "name": "The Bancorp, Inc.",
-    "tier": "B",
-    "status": "BUY*",
-    "price": 49.6,
-    "mos_price": 34.9642,
-    "ten_cap_price": 73.8042,
-    "sticker": 69.9284,
-    "target_low": 65.0,
-    "target_mean": 76.0,
-    "target_high": 88.0,
-    "n_analysts": 3.0,
-    "rec_mean": 1.66667,
-    "rec_key": "buy",
-    "upside_mean": 0.532258064516129,
-    "revision_30d": null,
-    "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-22 Needham kept Buy, target $300"
    },
    {
     "ticker": "FUTU",
@@ -211,13 +171,13 @@
     "mos_price": 97.0438,
     "ten_cap_price": 388.4542,
     "sticker": 194.0876,
-    "target_low": 121.856064,
-    "target_mean": 160.8873,
-    "target_high": 236.63995,
+    "target_low": 121.991325,
+    "target_mean": 161.06589,
+    "target_high": 236.90265,
     "n_analysts": 18.0,
     "rec_mean": 1.38889,
     "rec_key": "strong_buy",
-    "upside_mean": 0.525287258248009,
+    "upside_mean": 0.5269803754266211,
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": ""
@@ -238,6 +198,26 @@
     "rec_mean": 1.8,
     "rec_key": "buy",
     "upside_mean": 0.5045871559633026,
+    "revision_30d": null,
+    "signal": "agree",
+    "recent_actions": ""
+   },
+   {
+    "ticker": "TGLS",
+    "name": "Tecnoglass Holdings Inc.",
+    "tier": "B",
+    "status": "ON DECK",
+    "price": 37.98,
+    "mos_price": 20.4536,
+    "ten_cap_price": 20.6563,
+    "sticker": 40.9071,
+    "target_low": 54.0,
+    "target_mean": 55.75,
+    "target_high": 58.0,
+    "n_analysts": 4.0,
+    "rec_mean": 1.75,
+    "rec_key": "buy",
+    "upside_mean": 0.4678778304370723,
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": ""
@@ -280,7 +260,7 @@
     "upside_mean": 0.4253376567757725,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-22 BTIG kept Buy, target $250"
    },
    {
     "ticker": "NSSC",
@@ -311,13 +291,33 @@
     "mos_price": 101.775,
     "ten_cap_price": 129.7758,
     "sticker": 203.55,
-    "target_low": 85.60738,
-    "target_mean": 115.081375,
-    "target_high": 151.03366,
+    "target_low": 85.62407,
+    "target_mean": 115.103806,
+    "target_high": 151.06308,
     "n_analysts": 34.0,
     "rec_mean": 2.05405,
     "rec_key": "buy",
-    "upside_mean": 0.4212841175744102,
+    "upside_mean": 0.42156114610349515,
+    "revision_30d": null,
+    "signal": "agree",
+    "recent_actions": ""
+   },
+   {
+    "ticker": "ATLC",
+    "name": "Atlanticus Holdings Corporation",
+    "tier": "A",
+    "status": "BUY*",
+    "price": 92.02,
+    "mos_price": 31.9381,
+    "ten_cap_price": 517.0827,
+    "sticker": 63.8763,
+    "target_low": 110.0,
+    "target_mean": 130.6,
+    "target_high": 179.0,
+    "n_analysts": 5.0,
+    "rec_mean": 1.2,
+    "rec_key": "strong_buy",
+    "upside_mean": 0.4192566833297109,
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": ""
@@ -414,15 +414,15 @@
     "ten_cap_price": 178.0053,
     "sticker": 364.5,
     "target_low": 44.0,
-    "target_mean": 104.72593,
+    "target_mean": 103.66429,
     "target_high": 255.0,
-    "n_analysts": 27.0,
-    "rec_mean": 3.2,
+    "n_analysts": 28.0,
+    "rec_mean": 3.25,
     "rec_key": "hold",
-    "upside_mean": 0.0785368692070032,
+    "upside_mean": 0.06760339855818742,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": "2026-10-19 Wells Fargo kept Equal-Weight, target $95\u2192$90"
+    "recent_actions": "2026-10-22 Wolfe Research initiated Underperform, target $75; 2026-10-19 Wells Fargo kept Equal-Weight, target $95\u2192$90"
    },
    {
     "ticker": "CF",
@@ -485,6 +485,26 @@
     "recent_actions": "2026-10-20 BMO Capital kept Market Perform, target $379\u2192$388; 2026-10-20 JP Morgan kept Neutral, target $352\u2192$379; 2026-10-20 Mizuho kept Neutral, target $345\u2192$371; 2026-10-20 Keefe, Bruyette & Woods kept Market Perform, target $372\u2192$382"
    },
    {
+    "ticker": "RLI",
+    "name": "RLI Corp.",
+    "tier": "C",
+    "status": "BUY*",
+    "price": 61.07,
+    "mos_price": 36.9876,
+    "ten_cap_price": 65.1109,
+    "sticker": 73.9752,
+    "target_low": 48.0,
+    "target_mean": 58.25,
+    "target_high": 74.0,
+    "n_analysts": 4.0,
+    "rec_mean": 3.375,
+    "rec_key": "hold",
+    "upside_mean": -0.04617651874897655,
+    "revision_30d": null,
+    "signal": "contrarian",
+    "recent_actions": "2026-10-21 Keefe, Bruyette & Woods kept Outperform, target $69\u2192$74; 2026-10-21 Wells Fargo kept Underweight, target $51\u2192$53"
+   },
+   {
     "ticker": "KNSL",
     "name": "Kinsale Capital Group, Inc.",
     "tier": "A",
@@ -503,26 +523,6 @@
     "revision_30d": null,
     "signal": "contrarian",
     "recent_actions": ""
-   },
-   {
-    "ticker": "RLI",
-    "name": "RLI Corp.",
-    "tier": "C",
-    "status": "BUY*",
-    "price": 61.07,
-    "mos_price": 36.9876,
-    "ten_cap_price": 65.1109,
-    "sticker": 73.9752,
-    "target_low": 47.0,
-    "target_mean": 57.5,
-    "target_high": 74.0,
-    "n_analysts": 4.0,
-    "rec_mean": 3.375,
-    "rec_key": "hold",
-    "upside_mean": -0.05845750777795977,
-    "revision_30d": null,
-    "signal": "contrarian",
-    "recent_actions": "2026-10-21 Keefe, Bruyette & Woods kept Outperform, target $69\u2192$74; 2026-10-21 Wells Fargo kept Underweight, target $51\u2192$53"
    },
    {
     "ticker": "EXEL",
@@ -724,7 +724,7 @@
     "upside_mean": 0.971708690734282,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-15 Keybanc kept Overweight, target $754\u2192$755"
+    "recent_actions": ""
    },
    {
     "ticker": "MOD",
@@ -764,7 +764,7 @@
     "upside_mean": 0.5339570964352904,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-16 Needham kept Buy, target $740\u2192$580; 2026-10-15 Evercore ISI Group kept Outperform, target $700\u2192$590"
+    "recent_actions": "2026-10-16 Needham kept Buy, target $740\u2192$580"
    }
   ],
   "revisions": [],
@@ -787,7 +787,7 @@
     "upside_mean": 0.5351279596506795,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-22 Needham kept Buy, target $300"
    },
    {
     "ticker": "AMZN",
@@ -818,16 +818,16 @@
     "mos_price": 365.8659,
     "ten_cap_price": 468.5294,
     "sticker": 731.7319,
-    "target_low": 580.0,
-    "target_mean": 817.87445,
+    "target_low": 600.0,
+    "target_mean": 833.1331,
     "target_high": 1050.0,
     "n_analysts": 58.0,
-    "rec_mean": 1.39683,
+    "rec_mean": 1.40323,
     "rec_key": "strong_buy",
-    "upside_mean": 0.1530320375004406,
+    "upside_mean": 0.17454354491946567,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-20 Rosenblatt kept Buy, target $886; 2026-10-19 Morgan Stanley kept Overweight, target $775\u2192$820; 2026-10-15 Citigroup kept Buy, target $800\u2192$895; 2026-10-15 JP Morgan kept Overweight, target $920"
+    "recent_actions": "2026-10-22 UBS kept Buy, target $884\u2192$892; 2026-10-22 Citigroup kept Buy, target $895\u2192$905; 2026-10-22 DA Davidson kept Buy, target $700\u2192$800; 2026-10-22 BMO Capital kept Market Perform, target $580\u2192$685"
    },
    {
     "ticker": "GOOGL",
@@ -839,15 +839,15 @@
     "ten_cap_price": 171.9706,
     "sticker": 547.1713,
     "target_low": 340.0,
-    "target_mean": 430.33203,
-    "target_high": 515.0,
+    "target_mean": 429.12833,
+    "target_high": 500.0,
     "n_analysts": 54.0,
     "rec_mean": 1.37705,
     "rec_key": "strong_buy",
-    "upside_mean": 0.26348991456002824,
+    "upside_mean": 0.2599557532517103,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-20 BMO Capital kept Outperform, target $465\u2192$480; 2026-10-19 Keybanc kept Overweight, target $435\u2192$410; 2026-10-15 JP Morgan kept Overweight, target $420\u2192$425"
+    "recent_actions": "2026-10-22 Citizens kept Market Outperform, target $515\u2192$450; 2026-10-20 BMO Capital kept Outperform, target $465\u2192$480; 2026-10-19 Keybanc kept Overweight, target $435\u2192$410"
    },
    {
     "ticker": "MSFT",
@@ -907,7 +907,7 @@
     "upside_mean": 0.6048410646387832,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": ""
+    "recent_actions": "2026-10-22 Tigress Financial initiated Buy, target $600"
    },
    {
     "ticker": "MU",
@@ -927,7 +927,7 @@
     "upside_mean": 0.775710254426289,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-22 Rosenblatt kept Buy, target $1,900; 2026-10-22 Needham kept Buy, target $1,650"
    },
    {
     "ticker": "NFLX",
@@ -939,15 +939,15 @@
     "ten_cap_price": 33.1068,
     "sticker": 95.4,
     "target_low": 57.0,
-    "target_mean": 86.24318,
+    "target_mean": 85.06558,
     "target_high": 126.0,
-    "n_analysts": 44.0,
+    "n_analysts": 43.0,
     "rec_mean": 1.84314,
     "rec_key": "buy",
-    "upside_mean": 0.22278718275910947,
+    "upside_mean": 0.20609074152842766,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-21 UBS kept Buy, target $115\u2192$100; 2026-10-21 Citigroup kept Buy, target $100\u2192$85; 2026-10-21 Oppenheimer kept Outperform, target $85\u2192$80; 2026-10-21 Morgan Stanley kept Overweight, target $80\u2192$77"
+    "recent_actions": "2026-10-22 Wolfe Research downgraded Peer Perform; 2026-10-22 Argus Research kept Buy, target $120\u2192$95; 2026-10-22 Pivotal Research kept Hold, target $70\u2192$65; 2026-10-21 UBS kept Buy, target $115\u2192$100"
    },
    {
     "ticker": "ORCL",
@@ -967,7 +967,7 @@
     "upside_mean": 0.8510832098572878,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-22 Cantor Fitzgerald kept Overweight, target $284"
    },
    {
     "ticker": "COST",
@@ -987,7 +987,7 @@
     "upside_mean": 0.07934870742384548,
     "revision_30d": null,
     "signal": "mixed",
-    "recent_actions": "2026-10-21 CICC initiated Outperform, target $1,050; 2026-10-15 Tigress Financial kept Buy, target $1,065\u2192$1,250"
+    "recent_actions": "2026-10-21 CICC initiated Outperform, target $1,050"
    },
    {
     "ticker": "FTNT",
@@ -1002,12 +1002,12 @@
     "target_mean": 168.71622,
     "target_high": 225.0,
     "n_analysts": 37.0,
-    "rec_mean": 2.77273,
+    "rec_mean": 2.86364,
     "rec_key": "hold",
     "upside_mean": -0.00244652042807314,
     "revision_30d": null,
     "signal": "both cautious",
-    "recent_actions": "2026-10-20 Truist Securities kept Buy, target $183\u2192$200; 2026-10-15 Mizuho kept Underperform, target $138\u2192$160; 2026-10-15 Wells Fargo kept Underweight, target $135\u2192$160"
+    "recent_actions": "2026-10-20 Truist Securities kept Buy, target $183\u2192$200"
    },
    {
     "ticker": "MA",
@@ -1022,7 +1022,7 @@
     "target_mean": 674.93,
     "target_high": 765.0,
     "n_analysts": 37.0,
-    "rec_mean": 1.425,
+    "rec_mean": 1.45,
     "rec_key": "strong_buy",
     "upside_mean": 0.0931456706941789,
     "revision_30d": null,
@@ -1067,7 +1067,7 @@
     "upside_mean": 0.5339570964352904,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-16 Needham kept Buy, target $740\u2192$580; 2026-10-15 Evercore ISI Group kept Outperform, target $700\u2192$590"
+    "recent_actions": "2026-10-16 Needham kept Buy, target $740\u2192$580"
    }
   ],
   "dossiers": [
@@ -1141,15 +1141,15 @@
     "ten_cap_price": 178.0053,
     "sticker": 364.5,
     "target_low": 44.0,
-    "target_mean": 104.72593,
+    "target_mean": 103.66429,
     "target_high": 255.0,
-    "n_analysts": 27.0,
-    "rec_mean": 3.2,
+    "n_analysts": 28.0,
+    "rec_mean": 3.25,
     "rec_key": "hold",
-    "upside_mean": 0.0785368692070032,
+    "upside_mean": 0.06760339855818742,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": "2026-10-19 Wells Fargo kept Equal-Weight, target $95\u2192$90"
+    "recent_actions": "2026-10-22 Wolfe Research initiated Underperform, target $75; 2026-10-19 Wells Fargo kept Equal-Weight, target $95\u2192$90"
    },
    {
     "ticker": "OPFI",
@@ -1180,13 +1180,13 @@
     "mos_price": 7.8805,
     "ten_cap_price": 136.4562,
     "sticker": 15.7609,
-    "target_low": 8.057764,
-    "target_mean": 14.859798,
-    "target_high": 23.078512,
+    "target_low": 8.059335,
+    "target_mean": 14.862694,
+    "target_high": 23.08301,
     "n_analysts": 13.0,
     "rec_mean": 2.23077,
     "rec_key": "buy",
-    "upside_mean": 1.6207756613756614,
+    "upside_mean": 1.6212864197530865,
     "revision_30d": null,
     "signal": "mixed",
     "recent_actions": ""
