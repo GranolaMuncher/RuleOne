@@ -139,7 +139,7 @@ def street_pack(ticker: str) -> dict | None:
 
 
 def fact_pack(fetcher: Fetcher, listing, today: date, radar_hist: dict, gurus: dict, snaps: list[dict]) -> dict | None:
-    rec = analyze(fetcher, listing, None, today, with_events=True)
+    rec = analyze(fetcher, listing, None, today, with_events=True, street=load_analysts())
     if not rec:
         return None
     cf = load_company(fetcher, listing.cik)

@@ -232,3 +232,18 @@ def test_fy_valuation_restates_a_split_after_the_last_10k():
     assert math.isclose(out["fcf_yield"], 15e6 * k / (10.0 * 100e6))
     empty = fy_valuation({}, {}, 10.0, [], None)
     assert empty["sticker"] is None and empty["split_after_fy"] == 1.0
+
+
+def test_negative_street_eps_growth_caps_windage():
+    # METHOD.md proposal 2026-10-10: BRBR 15% windage against Street EPS of -52%, QFIN 14.1% vs -63%, OPFI 13.7% vs -11%
+    from ruleone.screener import _street_eps_growth
+    from ruleone.valuation import street_capped_growth, sticker_price
+    for hist, street in ((0.15, -0.52), (0.141, -0.63), (0.137, -0.11)):
+        g, flag = street_capped_growth(hist, street)
+        assert g == street and "rebase needed" in flag
+        assert sticker_price(5.0, g, 20.0) is None           # no Sticker until rebased
+    assert street_capped_growth(0.12, 0.08) == (0.12, "")      # positive Street growth leaves the history rate alone
+    assert street_capped_growth(0.12, None) == (0.12, "")
+    assert street_capped_growth(None, -0.2) == (None, "")
+    assert _street_eps_growth({"BRBR": {"eps_growth_cy": "-0.52"}}, "BRBR") == -0.52
+    assert _street_eps_growth({"BRBR": {"eps_growth_cy": ""}}, "BRBR") is None and _street_eps_growth(None, "X") is None
