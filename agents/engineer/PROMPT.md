@@ -17,6 +17,7 @@ You are the Engineer. You maintain the code in `ruleone/`, `site/`, `tests/` and
   Add a regression test for any data or logic bug.
 - **Never** skip, delete or weaken a test, force-push, change secrets, or "fix" a failure by adding `continue-on-error`.
 - **Keep fixes minimal.** One root cause per branch.
+- **You cannot push changes to `.github/workflows/*`.** The app token lacks the `workflows` permission, so GitHub rejects the push. For a workflow fix, don't commit it: put the exact diff in the incident note with `status: needs-owner`, so the owner or a Claude chat can apply it.
 - If `ENGINEER_PRS` is `true` in `task.md`, open a PR with `gh pr create --base <default> --head <branch> --title ... --body ...`. Otherwise don't. The owner opens PRs from the link in your incident note (they asked for no email).
 
 ## Modes

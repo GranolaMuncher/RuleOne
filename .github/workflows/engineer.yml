@@ -108,7 +108,7 @@ jobs:
           ./.work/engineer/actionlint -shellcheck= .github/workflows/*.yml > .work/engineer/actionlint.txt 2>&1 || true
           if [ "$MODE" = "method" ]; then
             { echo "## Method proposals (knowledge/rule1/METHOD.md)"
-              sed -n '/^## Proposed app changes/,$p' knowledge/rule1/METHOD.md | grep -E '^- ' | grep -v 'implemented' || true
+              sed -n '/^## Proposed app changes/,$p' knowledge/rule1/METHOD.md | grep -E '^- ' | grep -v 'implemented on branch' || true
               echo; echo "## Open engineer branches (skip proposals already implemented on one)"
               git for-each-ref --format='- %(refname:short): %(contents:subject)' refs/remotes/origin/engineer/ || true
             } >> $T
@@ -134,7 +134,7 @@ jobs:
           grep -Eq "^health [0-9-]+: [1-9][0-9]* problem" $T && need=true
           [ -s .work/engineer/actionlint.txt ] && need=true
           # Method proposals from the Professor that the screen doesn't implement yet.
-          pending=$(sed -n '/^## Proposed app changes/,$p' knowledge/rule1/METHOD.md | grep -E '^- ' | grep -vc 'implemented' || true)
+          pending=$(sed -n '/^## Proposed app changes/,$p' knowledge/rule1/METHOD.md | grep -E '^- ' | grep -vc 'implemented on branch' || true)
           if [ "$MODE" = "method" ] && [ "${pending:-0}" -gt 0 ]; then
             need=true
             { echo; echo "## Method proposals pending: $pending (see knowledge/rule1/METHOD.md)"; } >> $T

@@ -275,6 +275,7 @@ def memo(today: date) -> Path:
     done = [t for t in packs if idx.get(t, {}).get("updated") == today.isoformat()]
     missed = [t for t in packs if t not in done]
     money = lambda v: f"${v:,.2f}" if isinstance(v, (int, float)) else "–"
+    conf = lambda v: f"{v:g}" if isinstance(v, (int, float)) else "–"
     lines = [f"# RULERS weekly memo · {today.isoformat()}", "",
              "Research for one investor's own use. **Not investment advice.**", "",
              f"## Scope this run",
@@ -283,7 +284,7 @@ def memo(today: date) -> Path:
              "## Verdicts", "| Ticker | Verdict | Conf. | Price | Tranche 1 | Methods agree | Bottom line |", "|---|---|---|---|---|---|---|"]
     for t in done:
         d, sc = idx[t], packs[t].get("screen", {})
-        lines.append(f"| [{t}](../../research/rulers/{t}.md) | {d['verdict']} | {d['confidence'] or '–'}/5 | "
+        lines.append(f"| [{t}](../../research/rulers/{t}.md) | {d['verdict']} | {conf(d.get('confidence'))}/5 | "
                      f"{money(d.get('price_at_update'))} | {money((d.get('entry') or [None])[0])} | "
                      f"{sc.get('methods_agree', '–')} | {d.get('summary', '')} |")
     notes = sorted((WORK / "memos").glob("*.md")) if (WORK / "memos").exists() else []

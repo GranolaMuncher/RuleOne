@@ -39,7 +39,7 @@ Read this first in any new or forked Claude session, then `knowledge/MAP.md`.
 ## Open items and known limits
 - The owner is still recording *The Intelligent Investor*. 22 chapter previews are waiting for recordings.
 - RULERS finished only 1 of 11 names on 2026-10-17, so it now runs in parallel shards (from 2026-10-23). KNSL and LULU dossiers date from 2026-10-09.
-- Engineer fixes and method changes land on `engineer/*` branches and wait for the owner (or a chat the owner asks) to merge them.
+- Engineer fixes and method changes land on `engineer/*` branches and wait for the owner (or a chat the owner asks) to merge them. The Engineer cannot push workflow-file changes, so it writes those as a diff in its incident note for a chat to apply.
 - Banks and insurers fit the cash-flow markers poorly. IFRS (foreign) filers aren't covered.
 - Analyst data comes from Yahoo Finance; TipRanks and MarketBeat forbid scraping. Yahoo no longer gives a 5-year growth estimate, only this year and next.
 - The scorecard needs months of graded calls before it says much.
