@@ -29,7 +29,7 @@ from .sectors import load_reference, refresh_reference
 from .normalize import normalize
 from .prices import load_prices, price_near
 from .universe import load_universe
-from .valuation import historical_pe, methods_agree, payback_price, sticker_price, ten_cap_price
+from .valuation import LENDER_FLAG, historical_pe, is_lender, methods_agree, payback_price, sticker_price, ten_cap_price
 
 
 def log(*a):
@@ -92,8 +92,10 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
     fcf_ttm = fcf(ttm)
     oe_ttm = owner_earnings(ttm)
     net_debt = (nz["debt"] or 0) - (nz["cash"] or 0)
-    pb = payback_price(fcf_ttm, shares, g) if g is not None else None
-    tc = ten_cap_price(oe_ttm, shares, net_debt)
+    ev = load_events(fetcher, listing.cik, px, today) if with_events else {}
+    lender = is_lender(listing.ticker, ev.get("sic"))
+    pb = payback_price(fcf_ttm, shares, g) if g is not None and not lender else None
+    tc = ten_cap_price(oe_ttm, shares, net_debt) if not lender else None
     sticker = st["sticker"] if st else None
     mos = st["mos_price"] if st else None
     buy_signals = [n for n, v in (("MOS", mos), ("PaybackTime", pb), ("TenCap", tc)) if v and price <= v]
@@ -107,7 +109,6 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
         status = "ABOVE STICKER"
     else:
         status = "NO STICKER"
-    ev = load_events(fetcher, listing.cik, px, today) if with_events else {}
     rec_pe = price / eps if eps and eps > 0 else None
     debt = nz["debt"]
     ni = ttm.get("net_income")
@@ -146,6 +147,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
             ("financial (bank/insurer/broker): OCF-based tests less meaningful", any(w in (ev.get("sic") or "") for w in
                                                                   ("Bank", "Insurance", "Savings", "Credit", "Finance",
                                                                    "Brokers", "Security"))),
+            (LENDER_FLAG, lender),
             ("; ".join(nz["notes"]), bool(nz["notes"])),
             ("micro-cap", mcap is not None and mcap < 1e9),
             # Checks from the InvestED synthesis (knowledge/rule1/METHOD.md)

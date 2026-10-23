@@ -21,7 +21,7 @@ from urllib.parse import quote
 from .http import Fetcher
 from .metrics import big_five, fcf, normalize_splits, owner_earnings, post_filing_split, sane_shares, windage_growth
 from .prices import price_near
-from .valuation import historical_pe, methods_agree, payback_price, sticker_price, ten_cap_price
+from .valuation import LENDER_FLAG, historical_pe, is_lender, methods_agree, payback_price, sticker_price, ten_cap_price
 
 SPARK_URL = "https://query1.finance.yahoo.com/v7/finance/spark?symbols={syms}&range={rng}&interval={iv}"
 DEI_URL = "https://data.sec.gov/api/xbrl/frames/dei/EntityCommonStockSharesOutstanding/shares/{period}.json"
@@ -326,6 +326,10 @@ def build_universe(universe: dict, frames: dict, detailed: list[dict], weekly: d
         elif row.get("div_special"):
             div_flag = "trailing dividend includes a special dividend"
         row.pop("div_special", None)
+        if is_lender(t, row.get("industry")):
+            row["payback_price"] = row["ten_cap_price"] = None
+            flags.append(LENDER_FLAG)
+            row["flags"] = ";".join(flags)
         if cik in quality_pass:
             row["status"] = status_of(row["price"], row["mos_price"], row["payback_price"],
                                       row["ten_cap_price"], row["sticker"])

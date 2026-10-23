@@ -232,3 +232,20 @@ def test_fy_valuation_restates_a_split_after_the_last_10k():
     assert math.isclose(out["fcf_yield"], 15e6 * k / (10.0 * 100e6))
     empty = fy_valuation({}, {}, 10.0, [], None)
     assert empty["sticker"] is None and empty["split_after_fy"] == 1.0
+
+
+def test_lenders_get_no_payback_or_ten_cap():
+    # METHOD.md proposal 2026-10-10: OPFI (ROIC 2.7%, $66 Payback) and QFIN were BUY on operating cash flow
+    from types import SimpleNamespace
+    from ruleone.marketwide import build_universe
+    from ruleone.valuation import LENDER_FLAG, is_lender, methods_agree
+    assert is_lender("OPFI", "Finance Services") and is_lender("XYZ", "Personal Credit Institutions")
+    assert not is_lender("MSFT", "Services-Prepackaged Software")
+    lend = SimpleNamespace(ticker="OPFI", name="OppFi", exchange="NYSE", cik="1")
+    other = SimpleNamespace(ticker="MSFT", name="Microsoft", exchange="Nasdaq", cik="2")
+    sectors = {"1": {"sic": "6199", "industry": "Finance Services", "sector": "Financials"},
+               "2": {"sic": "7372", "industry": "Software", "sector": "Technology"}}
+    rows = {r["ticker"]: r for r in build_universe({"1": lend, "2": other}, {}, [], {}, {}, {}, set(), lambda b: "C", sectors)}
+    assert rows["OPFI"]["payback_price"] is None and rows["OPFI"]["ten_cap_price"] is None
+    assert LENDER_FLAG in rows["OPFI"]["flags"] and LENDER_FLAG not in rows["MSFT"]["flags"]
+    assert methods_agree(10, 20, None, None) == 1       # n/a prices drop out of "methods agree"
