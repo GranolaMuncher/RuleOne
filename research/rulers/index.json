@@ -35,14 +35,14 @@
   "verdict": "WATCH",
   "confidence": 4.0,
   "entry": [
-   280.0,
-   220.0,
-   150.0
+   230.0,
+   190.0,
+   155.0
   ],
-  "trim": 400.0,
-  "updated": "2026-10-09",
-  "price_at_update": 339.65,
-  "summary": "An exceptional specialty insurer (combined ratio ~76%, ROIC 23%), but on normalised earnings it is above all three corrected prices because E&S property pricing is softening; wait for a lower price or Q3 proof."
+  "trim": 285.0,
+  "updated": "2026-10-23",
+  "price_at_update": 364.49,
+  "summary": "An exceptional specialty insurer (Q3 combined ratio 75.4%, ROIC 23%), but premiums are shrinking and the price is well above every earnings-based value (~$155\u2013$285); wait for a lower price."
  },
  {
   "ticker": "LULU",
@@ -55,9 +55,39 @@
    50.0
   ],
   "trim": 125.0,
-  "updated": "2026-10-09",
-  "price_at_update": 92.68,
-  "summary": "A high-ROIC brand with net cash and a new CEO, but US sales are shrinking, earnings are falling and TTM EPS is flattered; wait for a lower price or proof the product fix works."
+  "updated": "2026-10-23",
+  "price_at_update": 99.01,
+  "summary": "A high-ROIC brand with net cash and a new CEO, but US sales are shrinking, street EPS falls again next year and TTM EPS is flattered by a tariff refund; wait for $90 or proof that the product fix works."
+ },
+ {
+  "ticker": "TTD",
+  "name": "The Trade Desk, Inc.",
+  "verdict": "WATCH",
+  "confidence": 2.0,
+  "entry": [
+   8.5,
+   7.0,
+   5.5
+  ],
+  "trim": 17.0,
+  "updated": "2026-10-23",
+  "price_at_update": 13.0,
+  "summary": "A high-margin ad-buying platform with $1.1B+ net cash, but revenue growth has stalled (Q3 guided down ~12%), stock pay of ~$490M a year erases much of the screen's cash flow, and it is unclear whether the loss of ad spend to Amazon is an event or a changed story; wait for a price near $8.50 or proof that revenue stabilises."
+ },
+ {
+  "ticker": "SMCI",
+  "name": "Super Micro Computer, Inc.",
+  "verdict": "AVOID",
+  "confidence": 2.0,
+  "entry": [
+   32.4,
+   27.54,
+   22.68
+  ],
+  "trim": 64.81,
+  "updated": "2026-10-23",
+  "price_at_update": 32.94,
+  "summary": "AI-server assembler with thin, swinging margins, deeply negative cash flow funded by about $8.7B of debt, and open integrity questions (ineffective controls, CFO exit, co-founder indictment); price is at the screen's MOS but the screen's quality tests fail."
  },
  {
   "ticker": "OPFI",
