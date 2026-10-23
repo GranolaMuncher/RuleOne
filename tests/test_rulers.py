@@ -1,6 +1,7 @@
 from datetime import date
 
-from ruleone.rulers import parse_front, pick_names, tranche_plan
+from ruleone.metrics import MARKER_LABELS
+from ruleone.rulers import marker_gaps, parse_front, pick_names, tranche_plan
 
 
 def test_tranche_plan_three_levels_capped_at_sticker():
@@ -54,3 +55,12 @@ def test_split_and_memo(tmp_path, monkeypatch):
     assert "5 names queued, 1 dossiers updated" in text and "BBB, CCC, DDD, EEE" in text
     assert "| [AAA](../../research/rulers/AAA.md) | WATCH | 3/5 | $12.00 | $10.00 | 2 | ok |" in text
     assert "### AAA · WATCH" in text
+
+
+def test_marker_gaps_flags_dossier_without_per_marker_lines():
+    # METHOD.md proposal 2026-10-09: a dossier needs one line per marker
+    full = "\n".join(f"- ✔ `{k}`: ok" for k in MARKER_LABELS)
+    assert marker_gaps(full) == []
+    partial = full.replace("- ✔ `margin_stable`: ok", "margin_stable is fine")
+    assert marker_gaps(partial) == ["margin_stable"]
+    assert marker_gaps("## Markers\nAll good.") == list(MARKER_LABELS)
