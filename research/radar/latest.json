@@ -1,20 +1,23 @@
-{"date": "2026-10-23",
- "summary": "No dossier sell trigger tripped. Kinsale's Q3 combined ratio was 75.4% but premiums fell 4.8% and a CFO transition was announced (WATCH). Deckers cut its FY27 sales guide on slowing Hoka and Ugg and fell ~8% after hours, still well above MOS. Meta's New Mexico penalty is unconfirmed. The chip-equipment sell-off is price noise (METHOD 7).",
+{"date": "2026-10-24",
+ "summary": "No dossier sell trigger tripped. Kinsale's CFO retires 2027-03-02 with an internal successor (WATCH). Deckers cut its outlook on slowing Hoka/Ugg growth (WATCH, price well above MOS). The chip-equipment sell-off hit names far above sticker and is price noise (METHOD 7). Unconfirmed items are marked.",
  "items": [
-  {"ticker": "KNSL", "verdict": "WATCH", "headline": "Q3 combined 75.4% but GWP -4.8%; CFO transition 8-K", "why": "Dossier items hold (casualty +0.9%, favourable reserves $19.7M). Trigger 'new CEO plus guidance cut' not met. Check the new CFO; transition detail unconfirmed.", "sources": ["https://www.sec.gov/Archives/edgar/data/0001669162/000166916226000049/earningsrelease3q2026.htm"]},
-  {"ticker": "DECK", "verdict": "WATCH", "headline": "FY27 sales guide cut; Hoka/Ugg growth slows, -8% after hours", "why": "Possible moat/demand issue (event check 6); EPS guide held up by ~$0.52 tariff refunds. Price $85.71 vs MOS $58.98, no event yet.", "sources": ["https://finchannel.com/deckers-cuts-sales-outlook-as-hoka-and-ugg-growth-slows/139155/american-business-trends/2026/10/"]},
-  {"ticker": "SMCI", "verdict": "WATCH", "headline": "-9% in 5 days to $31.63, just under MOS $32.40", "why": "Cash-quality and debt markers unchanged, so event checks 5 and 6 still fail. Check cash flow next report.", "sources": []},
-  {"ticker": "LRN", "verdict": "WATCH", "headline": "Q1 margin squeeze and enrollment headwinds, -5.7%", "why": "Price $82.39 vs MOS $44, no event. Check the 10-Q for enrollment (event check 6); detail unconfirmed.", "sources": []},
-  {"ticker": "NFLX", "verdict": "WATCH", "headline": "-7% day, Wolfe downgrade; CFO still sees double-digit growth", "why": "Downgrade is fear (InvestED 249). Price $70.53 vs MOS $47.70, not cheap yet. Check ad guidance in the 10-Q.", "sources": []},
-  {"ticker": "META", "verdict": "WATCH", "headline": "$25B New Mexico judgment headline unconfirmed", "why": "No ruling found; state sought up to $40B, Meta proposed a $3.45B cap. $82B cash so no new debt needed (check 5). Price $709 vs MOS $366.", "sources": ["https://news.bloomberglaw.com/litigation/new-mexico-going-it-alone-tallies-up-huge-wins-against-meta"]},
-  {"ticker": "LULU", "verdict": "NOISE", "headline": "New board director; 8-K 5.02", "why": "Dossier trigger is further CEO turnover, not met. Price $97 vs MOS $182.", "sources": []},
-  {"ticker": "CRUS", "verdict": "NOISE", "headline": "Barclays downgrade to Underweight, target $130 to $95", "why": "Downgrade is fear; Apple dependence is old news. Price $107.87 vs MOS $59.83.", "sources": []},
-  {"ticker": "LRCX", "verdict": "NOISE", "headline": "Chip-equipment sell-off after Lam supply-constraint outlook", "why": "-13% in 5 days; far above MOS. Market moves change price, not value (METHOD 7).", "sources": []}
+  {"ticker": "KNSL", "verdict": "WATCH", "headline": "CFO Petrucelli retires 2027-03-02; CAO Tangard succeeds", "why": "Trigger 'new CEO plus guidance cut' not met. Check next combined ratio against must-stay-true 1.", "sources": ["https://www.sec.gov/Archives/edgar/data/0001669162/000166916226000051/pressreleaseoctober222026.htm"]},
+  {"ticker": "DECK", "verdict": "WATCH", "headline": "Outlook cut as Hoka/Ugg growth slows", "why": "Event check 6 (moat) unclear; price $85.71 vs MOS $58.98, no real fear yet. Details unconfirmed.", "sources": ["https://www.investopedia.com/market-update-deckers-outdoor-shares-sink-as-ugg-hoka-parent-"]},
+  {"ticker": "FUTU", "verdict": "WATCH", "headline": "-6% in a day, -10% in 5 days, near MOS", "why": "Likely China market weakness (unconfirmed). Check regulatory news before calling an event.", "sources": []},
+  {"ticker": "PARR", "verdict": "WATCH", "headline": "-6% in a day; cash-quality and value-trap flags", "why": "Owner earnings under 75% of net income and cheap without an event (LESSONS). Check refining margins.", "sources": []},
+  {"ticker": "META", "verdict": "WATCH", "headline": "-7% on AI spending and cash-burn fears; $709 vs MOS $366", "why": "Event check 5: does the fix need new debt? Check the 10-Q. New Mexico judgment unconfirmed.", "sources": ["https://finance.yahoo.com/markets/stocks/articles/meta-just-burned-cash-first-213007396.ht"]},
+  {"ticker": "NFLX", "verdict": "WATCH", "headline": "Wolfe downgrade, lower FCF guide; $70.53 vs MOS $47.70", "why": "Downgrade is fear (InvestED 249), not yet cheap. Check FCF guidance.", "sources": []},
+  {"ticker": "LULU", "verdict": "NOISE", "headline": "New board director; 8-K 5.02", "why": "Dossier trigger (further CEO turnover) not met. $97.10 vs MOS $182.25.", "sources": []},
+  {"ticker": "BX", "verdict": "NOISE", "headline": "Q3 earnings; $2.7M insider buy", "why": "Context only. $106.61 vs MOS $67.05.", "sources": []},
+  {"ticker": "LRCX", "verdict": "NOISE", "headline": "-13% day in chip-equipment sell-off", "why": "Far above MOS ($263.94 vs $64.07); price moves, not value (METHOD 7). Supply warning unconfirmed.", "sources": []},
+  {"ticker": "SCCO", "verdict": "NOISE", "headline": "-9% with copper", "why": "Above sticker, no business news (METHOD 7).", "sources": []},
+  {"ticker": "NTES", "verdict": "NOISE", "headline": "-5% with China sell-off", "why": "No company news; $126.06 vs MOS $73.97.", "sources": []}
  ],
  "guru_moves": [
   {"guru": "Himalaya Capital (Li Lu)", "ticker": "PDD", "change": "added", "weight": 0.2217, "report": "2026-06-30"},
   {"guru": "Baupost (Seth Klarman)", "ticker": "AMZN", "change": "added", "weight": 0.1648, "report": "2026-06-30"},
   {"guru": "Pershing Square (Bill Ackman)", "ticker": "MSFT", "change": "new", "weight": 0.1526, "report": "2026-03-31"},
   {"guru": "Berkshire Hathaway (Buffett)", "ticker": "GOOGL", "change": "added", "weight": 0.0941, "report": "2026-06-30"},
-  {"guru": "Baupost (Seth Klarman)", "ticker": "CME", "change": "new", "weight": 0.0252, "report": "2026-06-30"}
+  {"guru": "Baupost (Seth Klarman)", "ticker": "CME", "change": "new", "weight": 0.0252, "report": "2026-06-30"},
+  {"guru": "Berkshire Hathaway (Buffett)", "ticker": "STZ", "change": "sold", "weight": 0.0, "report": "2026-06-30"}
  ]}

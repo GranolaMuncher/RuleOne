@@ -129,6 +129,13 @@
  ],
  "BX": [
   {
+   "date": "2026-10-24",
+   "verdict": "NOISE",
+   "headline": "Q3 earnings; $2.7M insider buy",
+   "why": "Context only. $106.61 vs MOS $67.05.",
+   "sources": []
+  },
+  {
    "date": "2026-10-15",
    "verdict": "WATCH",
    "headline": "AirTrunk $1.5B IPO paused; stock down 7%",
@@ -217,6 +224,15 @@
  ],
  "DECK": [
   {
+   "date": "2026-10-24",
+   "verdict": "WATCH",
+   "headline": "Outlook cut as Hoka/Ugg growth slows",
+   "why": "Event check 6 (moat) unclear; price $85.71 vs MOS $58.98, no real fear yet. Details unconfirmed.",
+   "sources": [
+    "https://www.investopedia.com/market-update-deckers-outdoor-shares-sink-as-ugg-hoka-parent-"
+   ]
+  },
+  {
    "date": "2026-10-23",
    "verdict": "WATCH",
    "headline": "FY27 sales guide cut; Hoka/Ugg growth slows, -8% after hours",
@@ -251,6 +267,15 @@
    "sources": [
     "https://www.sec.gov/Archives/edgar/data/0001529864/000119312526424282/enva-20261016.htm"
    ]
+  }
+ ],
+ "FUTU": [
+  {
+   "date": "2026-10-24",
+   "verdict": "WATCH",
+   "headline": "-6% in a day, -10% in 5 days, near MOS",
+   "why": "Likely China market weakness (unconfirmed). Check regulatory news before calling an event.",
+   "sources": []
   }
  ],
  "GOLD": [
@@ -340,6 +365,15 @@
  ],
  "KNSL": [
   {
+   "date": "2026-10-24",
+   "verdict": "WATCH",
+   "headline": "CFO Petrucelli retires 2027-03-02; CAO Tangard succeeds",
+   "why": "Trigger 'new CEO plus guidance cut' not met. Check next combined ratio against must-stay-true 1.",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0001669162/000166916226000051/pressreleaseoctober222026.htm"
+   ]
+  },
+  {
    "date": "2026-10-23",
    "verdict": "WATCH",
    "headline": "Q3 combined 75.4% but GWP -4.8%; CFO transition 8-K",
@@ -359,6 +393,13 @@
   }
  ],
  "LRCX": [
+  {
+   "date": "2026-10-24",
+   "verdict": "NOISE",
+   "headline": "-13% day in chip-equipment sell-off",
+   "why": "Far above MOS ($263.94 vs $64.07); price moves, not value (METHOD 7). Supply warning unconfirmed.",
+   "sources": []
+  },
   {
    "date": "2026-10-23",
    "verdict": "NOISE",
@@ -440,6 +481,13 @@
  ],
  "LULU": [
   {
+   "date": "2026-10-24",
+   "verdict": "NOISE",
+   "headline": "New board director; 8-K 5.02",
+   "why": "Dossier trigger (further CEO turnover) not met. $97.10 vs MOS $182.25.",
+   "sources": []
+  },
+  {
    "date": "2026-10-23",
    "verdict": "NOISE",
    "headline": "New board director; 8-K 5.02",
@@ -486,6 +534,15 @@
  ],
  "META": [
   {
+   "date": "2026-10-24",
+   "verdict": "WATCH",
+   "headline": "-7% on AI spending and cash-burn fears; $709 vs MOS $366",
+   "why": "Event check 5: does the fix need new debt? Check the 10-Q. New Mexico judgment unconfirmed.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/meta-just-burned-cash-first-213007396.ht"
+   ]
+  },
+  {
    "date": "2026-10-23",
    "verdict": "WATCH",
    "headline": "$25B New Mexico judgment headline unconfirmed",
@@ -531,6 +588,13 @@
  ],
  "NFLX": [
   {
+   "date": "2026-10-24",
+   "verdict": "WATCH",
+   "headline": "Wolfe downgrade, lower FCF guide; $70.53 vs MOS $47.70",
+   "why": "Downgrade is fear (InvestED 249), not yet cheap. Check FCF guidance.",
+   "sources": []
+  },
+  {
    "date": "2026-10-23",
    "verdict": "WATCH",
    "headline": "-7% day, Wolfe downgrade; CFO still sees double-digit growth",
@@ -574,6 +638,15 @@
    ]
   }
  ],
+ "NTES": [
+  {
+   "date": "2026-10-24",
+   "verdict": "NOISE",
+   "headline": "-5% with China sell-off",
+   "why": "No company news; $126.06 vs MOS $73.97.",
+   "sources": []
+  }
+ ],
  "NVMI": [
   {
    "date": "2026-10-10",
@@ -593,6 +666,13 @@
   }
  ],
  "PARR": [
+  {
+   "date": "2026-10-24",
+   "verdict": "WATCH",
+   "headline": "-6% in a day; cash-quality and value-trap flags",
+   "why": "Owner earnings under 75% of net income and cheap without an event (LESSONS). Check refining margins.",
+   "sources": []
+  },
   {
    "date": "2026-10-20",
    "verdict": "WATCH",
@@ -701,6 +781,15 @@
    "verdict": "NOISE",
    "headline": "Down 8% in a day; no news found",
    "why": "Price move with no filing or headline. Price $42.1 is above MOS $19.6.",
+   "sources": []
+  }
+ ],
+ "SCCO": [
+  {
+   "date": "2026-10-24",
+   "verdict": "NOISE",
+   "headline": "-9% with copper",
+   "why": "Above sticker, no business news (METHOD 7).",
    "sources": []
   }
  ],
