@@ -5,7 +5,7 @@ verdict: WATCH
 confidence: 4
 entry: [230, 190, 155]
 trim: 285
-updated: 2026-10-23
+updated: 2026-10-24
 price_at_update: 364.49
 summary: "An exceptional specialty insurer (Q3 combined ratio 75.4%, ROIC 23%), but premiums are shrinking and the price is well above every earnings-based value (~$155–$285); wait for a lower price."
 ---
@@ -109,5 +109,6 @@ Deep dive model (`reports/model/KNSL.md`): 10-year DCF at 9.6% WACC gives **$402
 5. [Kinsale 10-K filings on SEC EDGAR](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1669162&type=10-K) (not re-read this run)
 
 ## Changelog
+- 2026-10-24: rechecked, no change. Price ($364.49 on 2026-10-23), Street (mean target $349, 9 analysts, no new actions) and the Q3 release and CFO 8-K were re-read against this dossier and match. Verdict stays WATCH; tranches $230 / $190 / $155 unchanged. The screen status moved to BUY* because its Sticker fell to $688.50; that still rests on 15% growth and float-inflated cash flow. The 10-K was still not re-read.
 - 2026-10-23: updated for Q3 and a lower-growth anchor. Verdict stays WATCH. Windage cut from 10% to 7% (earned premium +3.0%, street EPS +1.3% next year): Sticker ~$155 (10% case ~$282), Payback ~$234, Ten Cap ~$229. Tranches lowered from $280 / $220 / $150 to $230 / $190 / $155, trim from $400 to $285 (LESSONS 2026-10-17). Added the per-marker line (LESSONS 2026-10-09). CFO retirement (2 March 2027, internal successor) is orderly. Q3 reserve development still favourable ($19.7M). Next check: Q4 results ~2027-01-21.
 - 2026-10-09: created. Verdict WATCH: the screen's three-method agreement relies on OCF and 15% growth; on normalised earnings and 10% growth price is above Sticker, Payback and Ten Cap. Check Q3 on ~2026-10-22.

@@ -5,7 +5,7 @@ verdict: WATCH
 confidence: 2
 entry: [8.5, 7.0, 5.5]
 trim: 17
-updated: 2026-10-23
+updated: 2026-10-24
 price_at_update: 13.00
 summary: "A high-margin ad-buying platform with $1.1B+ net cash, but revenue growth has stalled (Q3 guided down ~12%), stock pay of ~$490M a year erases much of the screen's cash flow, and it is unclear whether the loss of ad spend to Amazon is an event or a changed story; wait for a price near $8.50 or proof that revenue stabilises."
 ---
@@ -108,4 +108,5 @@ Big Five (screen): ROIC 10y 14.4%, 5y 9.0%, 1y 16.0%; sales growth 5y 28.2%; EPS
 7. [Tikr: TTD rallies as Skydance deal expands CTV reach](https://www.tikr.com/blog/the-trade-desk-rallies-off-lows-as-skydance-deal-expands-its-ctv-reach) (headline only)
 
 ## Changelog
+- 2026-10-24: refreshed. Price $13.00 unchanged since the last dossier; screen BUY* with 2 methods agreeing; street unchanged (30 analysts, mean $13.53, EPS −34%/−13%). A search found no new company news or Q3 preview since 10-23. Verdict stays WATCH (confidence 2). Next test: Q3 results ~2026-11-05 (revenue vs the $650M floor, take rate, retention).
 - 2026-10-23: created. Verdict WATCH (confidence 2). The screen's BUY* counts stock pay as cash and uses 15% growth against negative street EPS. After stock pay, Payback is ~$8.70 and Ten Cap ~$17. Next check: Q3 results ~2026-11-05 (revenue against the $650M floor, take rate, retention).

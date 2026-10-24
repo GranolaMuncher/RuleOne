@@ -5,19 +5,19 @@ verdict: TOO HARD
 confidence: 2
 entry: [5.0, 4.0, 3.0]
 trim: 12.0
-updated: 2026-10-10
-price_at_update: 6.2
+updated: 2026-10-24
+price_at_update: 5.26
 summary: "A China loan-facilitation platform at ~3x annualised earnings, but volume, revenue and profit are collapsing under regulation and a liquidity shock; the story has changed and China political risk is a checklist item."
 ---
 # QFIN · Qfin Holdings, Inc.
 
-> **Verdict: TOO HARD** (confidence 2/5) · price $6.20 per ADS on 2026-10-09 · tranches $5 / $4 / $3 (placeholders if the owner overrides) · trim above $12
-> The screen's 1.4x TTM P/E and $15.77 Sticker use earnings from before the fall. Q2 2026 net income fell ~77% and the company guides Q3 down by a similar amount; buybacks are suspended. ROIC has been 18–37% for years and there is almost no debt, but this is a Chinese lender under regulatory pressure, where the story, not the price, is the problem. Research, not advice.
+> **Verdict: TOO HARD** (confidence 2/5) · price $5.26 per ADS on 2026-10-23 (−15% since the last update, no company news) · tranches $5 / $4 / $3 (placeholders if the owner overrides) · trim above $12
+> The screen's 1.4x TTM P/E and $15.77 Sticker use earnings from before the fall. Q2 2026 net income fell ~77% and the company guides Q3 down by a similar amount; buybacks are suspended. ROIC has been 18–37% for years and there is almost no debt, but this is a Chinese lender under regulatory pressure, where the story, not the price, is the problem. The price is now 5% above tranche 1 and the market cap ($716M) is barely above net cash ($667M), but that is the price of the doubt, not a margin of safety I can check. Research, not advice. Unchanged verdict.
 
 ## R · Radar
 - Screen: BUY, tier A, rank 5.98, 3 methods agree but `methods_disagree` is true, 78% below the 52-week high, marker score 0.88. Flags: PE<5 (check one-offs), financial, CNY converted at 6.683, 1 ADS = 2 shares, micro-cap. No gurus, no insider data.
-- Radar 2026-10-09: NOISE (US-listed China ADRs down 9% in 5 days). The company's own Q2 report is the bigger news [1][2].
-- **Street:** 13 analysts, rating 2.23/5 (3 strong buy, 5 buy, 3 hold, 1 sell, 1 strong sell), targets $8.05 / $14.85 / $23.09 (as of 2026-10-10). Street EPS: −63% this year, +11% next. The street is betting on a trough; I can't confirm one. Signal: mixed. Targets are not value to me.
+- Radar, four more NOISE calls since the last update (14, 15, 16 and 21 October: down 7–11% in days with Asian ADRs, no company news) after the 9 October one. The price fell from $6.20 to $5.26 and MarketBeat reports a new 52-week low on 19 October [4]. The company's own Q2 report is still the main news [1][2]. Next report: the screen estimates ~2027-01-04; unconfirmed, and Qfin usually reports Q3 earlier.
+- **Street:** 13 analysts, rating 2.23/5 (3 strong buy, 5 buy, 3 hold, 1 sell, 1 strong sell), targets $8.06 / $14.87 / $23.10 (as of 2026-10-24; unchanged in two weeks, no revisions). Street EPS: −63% this year, +11% next. The street is betting on a trough; I can't confirm one. Signal: mixed. Targets are not value to me.
 
 ## U · Understand
 - **The business in one sentence:** Qfin ("360 Finance") matches Chinese consumers with banks and other funders that lend to them, and earns fees for matching and servicing.
@@ -29,7 +29,7 @@ summary: "A China loan-facilitation platform at ~3x annualised earnings, but vol
 - **Moat:** funder relationships and borrower data; no clear switching costs. Replication: other platforms do the same. ROIC (fact pack): 22–37% in 2017–21, 18–24% in 2022–25. Revenue peaked in 2021 ($2.62B), fell to $2.30B in 2023, and recovered to $2.76B in 2025: results track policy, not pricing power.
 - **Management:** shares fell from 328M (2023) to 272M (2025) through buybacks, now suspended (late June) [2]. Debt ~$37M. A first-half dividend of $0.46 per ADS was approved [2]. Proxy and incentives: foreign private issuer, not read. A law-firm "investigation" notice exists; that is solicitation, not a finding [2].
 - **Values:** consumer lending in China. The owner decides.
-- Would I buy the whole company at this price? **Not knowingly.** Market cap ~$844M against ~$666M net cash (screen) prices the operations at ~$180M, which is why it looks cheap; I can't judge whether the cash is accessible or what the loan book needs.
+- Would I buy the whole company at this price? **Not knowingly.** Market cap ~$716M against ~$667M net cash (screen) now prices the operations at ~$49M, which is why it looks cheap; I can't judge whether the cash is accessible or what the loan book needs.
 
 ## E · Event
 - What happened: Q2 2026 report (August): net income RMB 401M (~$59M) vs RMB 1.73B a year earlier, helped down by a ~RMB 500M tax expense; Q3 guide non-GAAP net income RMB 400–500M, 67–73% lower; volume to fall further [1][2]. Sources conflict on the share-price reaction (12% vs 19%), so I leave it out.
@@ -45,11 +45,11 @@ summary: "A China loan-facilitation platform at ~3x annualised earnings, but vol
 ## R · Reduce basis (tranches only, no options)
 | Tranche | Price | Basis | Status |
 |---|---|---|---|
-| 1 | $5.00 | ~2.5x run-rate earnings of ~$1.9 per ADS (derived: Q3 guide midpoint RMB 450M × 4 ÷ 6.683 ÷ 136M ADS) | Not triggered (price $6.20) |
+| 1 | $5.00 | ~2.5x run-rate earnings of ~$1.9 per ADS (derived: Q3 guide midpoint RMB 450M × 4 ÷ 6.67 ÷ 136M ADS) | Not triggered (price $5.26, 5% away) |
 | 2 | $4.00 | ~2x run-rate | Not triggered |
 | 3 | $3.00 | below net cash per ADS (~$4.9, screen), a haircut for trapped-cash risk | Not triggered |
 
-The screen's plan ($15.77 / $7.88 / $6.70) uses TTM EPS from before the fall; I don't use it. Placeholders only (verdict TOO HARD). Equal dollar tranches; keep dry powder. **Stop buying above $5. Trim above $12.**
+The screen's plan ($15.80 / $7.90 / $6.71) uses TTM EPS from before the fall; I don't use it. Placeholders only (verdict TOO HARD): a fill here would be a speculation on the China regulator, not a Rule #1 purchase, and I would not add before the Q3 report shows whether volume has stopped falling (LESSONS 2026-10-10: rebase on forward earnings; Payback and Ten Cap are n/a for a lender). Equal dollar tranches; keep dry powder. **Stop buying above $5. Trim above $12.**
 
 ## S · Story
 - **Thesis:** the platform keeps its funders and borrowers, the regulatory reset ends within two years, earnings recover from ~RMB 1.8B a year toward the past RMB 4B+, and the cash is returned.
@@ -71,7 +71,7 @@ The screen's plan ($15.77 / $7.88 / $6.70) uses TTM EPS from before the fall; I 
 ## Numbers
 | Item | Screen | My view |
 |---|---|---|
-| Sticker / MOS | $15.77 / $7.88 | Stale: EPS TTM $4.38 predates the fall |
+| Sticker / MOS | $15.80 / $7.90 | Stale: EPS TTM $4.38 predates the fall |
 | Payback / Ten Cap | $180 / $137 | Not usable: CNY FCF from before the shock |
 | Windage growth | 14.1% | Cut to zero: Street EPS −63% this year |
 | P/E vs median | 1.4x vs 3.9x | Pricing a collapse |
@@ -92,8 +92,10 @@ No deep-dive model exists.
 1. [Qfin Form 6-K, Q2 2026 results (SEC)](https://www.sec.gov/Archives/edgar/data/0001741530/000110465926100792/tm2623873d1_ex99-1.htm)
 2. [Qfin: net income falls 77% as loan volume drops 25% (Pulse 2.0)](https://pulse2.com/qfin-net-income-falls-77-as-loan-volume-drops-25-amid-industry-liquidity-shock/)
 3. [Qfin Q2 2026 earnings summary (Quartr)](https://quartr.com/events/qfin-holdings-inc-qfin-q2-2026_3YqGQX3F)
+4. [QFIN sets new 52-week low (MarketBeat, 19 Oct 2026; page text not readable, headline only)](https://www.marketbeat.com/instant-alerts/price-qfin-nasdaq-qfin-sets-new-52-week-low-heres-why-2026-10-19/)
 
 Figures came from search summaries; the 6-K and 20-F were not read in full.
 
 ## Changelog
+- 2026-10-24: price fell to $5.26 (−15%) on Asian-ADR selling with no company news; Street and screen inputs unchanged; verdict stays TOO HARD, tranches kept (price is 5% above tranche 1). Market cap now ~1.07x net cash. Payback and Ten Cap treated as n/a for a lender.
 - 2026-10-10: created. TOO HARD: changed story, China risk, screen values stale.

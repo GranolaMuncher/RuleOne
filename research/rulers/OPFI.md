@@ -5,13 +5,13 @@ verdict: TOO HARD
 confidence: 2
 entry: [5.0, 4.0, 3.0]
 trim: 12.0
-updated: 2026-10-10
-price_at_update: 5.93
+updated: 2026-10-24
+price_at_update: 5.42
 summary: "A high-yield consumer lender whose screen numbers (FCF, Payback, Ten Cap) are not real owner earnings; guidance was cut, originations fell and credit is tightening, so the screen's $29 Sticker cannot be trusted."
 ---
 # OPFI · OppFi Inc.
 
-> **Verdict: TOO HARD** (confidence 2/5) · price $5.93 on 2026-10-09 · tranches $5.00 / $4.00 / $3.00 (placeholders, only if the owner overrides) · trim above $12
+> **Verdict: TOO HARD** (confidence 2/5) · price $5.42 on 2026-10-23 · tranches $5.00 / $4.00 / $3.00 (placeholders, only if the owner overrides) · trim above $12
 > OppFi makes short-term, high-rate loans to subprime borrowers through bank partners. The screen shows a 5x P/E, a $66 Payback and a $29 Sticker, but for a lender, operating cash flow leaves out the cash lent out, so FCF and owner earnings are overstated. ROIC (2.7%) says the business is not a Rule #1 compounder on the numbers. Q2 2026 missed, guidance was cut, and I have not read the 10-K. Research, not advice.
 
 ## R · Radar
@@ -28,6 +28,7 @@ summary: "A high-yield consumer lender whose screen numbers (FCF, Payback, Ten C
 ## L · Love (moat and management)
 - **Moat:** an underwriting and data edge, unproven. Replication test: other online lenders can do the same. Disappears test: borrowers would switch. ROIC (`history_usd`): 15.5% in 2020, then 1–4% in 2021–25. A lender with returns that low has no demonstrated pricing power.
 - **Management:** founder-led. Shares rose from ~16.9M (2021) to ~26.5M (2025) per the fact pack (dual-class structure may distort this). Debt is $50M on the screen but a lender's funding debt sits elsewhere (not checked); the September 8-K shows new debt. Proxy and incentives: not found. Candour: unconfirmed.
+- **Update 2026-10-24 (Q2 10-Q, read in part, no MD&A) [4]:** the screen's debt is wrong. Senior funding debt was **$276.5M** at 30 June (down from $321.4M; SOFR + 6.0–7.3%, maturing 2029; $450M capacity), against the screen's $50M. Cash $64M (plus $27M restricted). Equity $414M on 85.3M Class A shares, so book value is about $4.85 a share and the price is about 1.1× book. (The fact pack's 26.5M share count is wrong; market cap matches 85M.) Finance receivables at fair value $496M; 90+ day past dues $17.3M. Six-month cash flow: operating +$183M, but investing −$78M, with $555M of receivables bought against $487M repaid, so cash after lending is about $114M, not the screen's $183M. Even that is unreliable, because charge-offs of $122M run through fair value. Debt is about 1.5 years of that figure and about 2.4× annualised after-lending cash, which passes the 3-year rule only on a number I can't trust. A California DFPI proceeding and AB 539 (rate cap) are cited in the filing; outcome not found. Buybacks $11.2M in six months. BNCCORP deal: $19.375 cash plus 1.90 OppFi shares per BNCC share, about $130M, expected to close Q4 2026, funding of the cash part not stated; BNC had ~$1.1B of assets [5]. The 10-Q mentions a term loan agreement dated 10 August 2026, which may be the September debt item (terms not read).
 - **Values:** high-cost credit for subprime borrowers. The owner decides.
 - Would I buy the whole company at this price? **Unknown**: ~$0.5B for earnings that depend on loss rates I can't assess.
 
@@ -79,7 +80,8 @@ The screen's plan ($29 / $14.5 / $12.4, all triggered) is **not used**: it rests
 | Windage growth | 13.7% | Street EPS is −11% this year, so cut to zero until losses stabilise |
 | P/E vs 10-yr median | 5.0 vs 28.2 | Median not meaningful (GAAP EPS near zero most years) |
 | Owner earnings | $421.6M | Overstated |
-| Net debt | −$14M | Excludes funding debt |
+| Net debt | −$14M | Wrong: senior debt $276.5M less cash $64M ≈ $212M net debt (30 June, [4]) |
+| Book value | n/a | $414M equity, ~$4.85 per share, price 1.1× book [4] |
 | Cash conversion | 3.9 | Not meaningful |
 
 Guided 2026 adjusted EPS of $1.34–1.51 is 3.9–4.4x at $5.93, but adjusted EPS excludes costs; Q2 GAAP diluted EPS was $0.18 and TTM GAAP EPS on the screen is $1.18.
@@ -101,7 +103,11 @@ No deep-dive model exists.
 2. [OppFi Q2 2026 results and guidance (MarketBeat)](https://www.marketbeat.com/instant-alerts/oppfi-nyseopfi-issues-fy-2026-earnings-guidance-2026-08-10/)
 3. [OppFi shares down, downgrades, insider activity (MarketBeat, 15 Sep)](https://www.marketbeat.com/instant-alerts/price-oppfi-nyse-opfi-shares-down-6-time-to-sell-2026-09-15/)
 
-Figures came from search summaries of these pages; the 10-K and proxy were not read.
+4. [OppFi 10-Q for the quarter ended 30 June 2026 (SEC)](https://www.sec.gov/Archives/edgar/data/0001818502/000181850226000075/opfi-20260630.htm) (the fetch stopped at Note 13: no MD&A or legal section)
+5. [OppFi announces agreement to acquire BNCCORP (8-K)](https://www.sec.gov/Archives/edgar/data/0001818502/000181850226000030/oppfi-announcesxdefiniti.htm)
+
+Items 1–3 came from search summaries; the 10-K, the proxy, the MD&A and the September 8-K were not read.
 
 ## Changelog
+- 2026-10-24: refreshed. Price $5.42 (was $5.93); screen still BUY on the same cash-flow methods, which I reject. Verdict stays TOO HARD. From the Q2 10-Q: senior debt is $276.5M (screen: $50M), equity $414M, 85.3M shares (price ≈ 1.1× book), and cash after lending is about $114M for six months rather than $183M. The "low debt" marker is therefore not trustworthy. The Radar and the Street (4 analysts, mean $12.19, low cut to $8) are unchanged in direction. Open: MD&A charge-off rate, the August term loan and September 8-K, the California DFPI matter, how the BNCCORP cash is funded.
 - 2026-10-10: created. TOO HARD: the screen's cash-flow-based prices don't apply to a lender; Q2 guidance cut; 10-K, proxy and the September 8-K not read.
