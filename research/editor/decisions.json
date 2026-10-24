@@ -1,16 +1,16 @@
-{"date": "2026-10-17",
- "summary": "The screen shows 13 BUY names, but all six dossiers still say WATCH or TOO HARD and nothing is at tranche 1. ADBE took two downgrades and the Professor says its tranche 1 should rest on lower growth; KNSL reports Q3 on 22 Oct. SMCI is new to BUY but lost its CFO with an integrity question open.",
+{"date": "2026-10-24",
+ "summary": "Twelve dossiers exist and none is at tranche 1: ten say WATCH, SMCI is AVOID, and OPFI and QFIN are TOO HARD. DECK is the closest at $81.09 vs $75 and reports on 29 Oct; the Professor marked INTU and PGR major because their tranche 1 prices sit above their own corrected values. The screen shows 10 BUY, 73 BUY* and 33 ON DECK, but nearly every top-ranked name rests on a screen input the analysts overruled.",
  "decisions": [
-  {"ticker": "OPFI", "question": "Hold lenders and insurers (OPFI, QFIN, FUTU, PGR) back from the top until valued on book or earnings?", "why": "Their OCF-based Payback and Ten Cap are not owner earnings, yet they top the screen.", "link": "/rulers/OPFI/"},
-  {"ticker": "QFIN", "question": "Are you willing to own a China-based ADR at all?", "why": "Dossier is TOO HARD on a changed story and political risk; your answer decides whether to close it.", "link": "/rulers/QFIN/"},
-  {"ticker": "SMCI", "question": "Ask the analyst for an SMCI dossier, or pass on integrity grounds?", "why": "New to BUY at $31.63, but CFO exit, -22% in 5 days and an open export-case question (METHOD 4).", "link": "/radar/"},
-  {"ticker": "ADBE", "question": "Wait for tranche 1 at $225, or lower at ~$190 (the rule's lower growth)?", "why": "Price $245.20; two downgrades; the Professor says $225 rests on 10% growth, the rule gives ~$189.", "link": "/rulers/ADBE/"},
-  {"ticker": "LULU", "question": "If LULU reaches $90, start tranche 1, or wait for $70?", "why": "Price $97.10; the new-CEO story is unproven and the fabric team was just reorganised.", "link": "/rulers/LULU/"}
+  {"ticker": "DECK", "question": "Wait for the 29 Oct report before any tranche 1 at $75, or start earlier?", "why": "Price $81.09; sales guide cut, EPS flattered by tariff refunds; the lower-growth Sticker is only $37-60.", "link": "/rulers/DECK/"},
+  {"ticker": "INTU", "question": "Use the 10% Sticker (~$211) as the working tranche 1 instead of $300?", "why": "$300 is the 12% case; price is $343.39 and SBC may inflate the cash-flow methods. Professor: major.", "link": "/rulers/INTU/"},
+  {"ticker": "PGR", "question": "Wait for ~$132-136 (normalised Ten Cap) rather than tranche 1 at $190?", "why": "Price $228.07; the dossier's own Sticker is ~$115 and earnings are near the cycle top. Professor: major.", "link": "/rulers/PGR/"},
+  {"ticker": "QFIN", "question": "Are you willing to own China-based ADRs (QFIN, FUTU) at all?", "why": "Both carry China rule-maker risk (METHOD 9); a no closes both dossiers.", "link": "/rulers/QFIN/"},
+  {"ticker": "KNSL", "question": "If you hold KNSL, keep holding above the $285 trim level, or trim?", "why": "Price $364.49 vs earnings values of $155-$285; the method trims only above Sticker with a better home for the cash.", "link": "/rulers/KNSL/"}
  ],
  "actions": [
-  {"ticker": "ADBE", "action": "review story", "reason": "$245.20 vs tranche 1 $225; HSBC and Wells Fargo downgrades touch ARR and AI monetisation."},
-  {"ticker": "KNSL", "action": "hold", "reason": "$365.24 vs tranche 1 $280; review after Q3 on 22 Oct."},
-  {"ticker": "LULU", "action": "review story", "reason": "$97.10 vs tranche 1 $90; fabric team reorganised, watch for CEO turnover."},
-  {"ticker": "BRBR", "action": "hold", "reason": "$9.43 vs tranche 1 $7; net debt ~3.8x EBITDA, wait for the 3 Nov call."},
-  {"ticker": "SMCI", "action": "review story", "reason": "New BUY, but CFO out and integrity question open; dossier queued."}
+  {"ticker": "DECK", "action": "hold", "reason": "$81.09 vs tranche 1 $75; wait for the 29 Oct report."},
+  {"ticker": "INTU", "action": "review story", "reason": "$343.39; tranche 1 $300 rests on the 12% case, 10% Sticker is $211."},
+  {"ticker": "PGR", "action": "review story", "reason": "$228.07; tranche 1 $190 is above its own Sticker (~$115) and Ten Cap (~$132-136)."},
+  {"ticker": "KNSL", "action": "hold", "reason": "$364.49 is above the $285 trim level and every earnings value; CFO retires 2027."},
+  {"ticker": "SMCI", "action": "pass", "reason": "AVOID: $8.7B debt, negative cash flow, open controls and indictment questions."}
  ]}
