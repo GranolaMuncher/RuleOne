@@ -226,6 +226,13 @@ def parse_front(text: str) -> dict:
     return meta
 
 
+def marker_gaps(text: str) -> list[str]:
+    """Markers (MARKERS.md keys) with no per-marker line in a dossier: a line with the backticked key and a ✔ / ✘ / ?."""
+    lines = text.splitlines()
+    return [k for k in MARKER_LABELS
+            if not any(f"`{k}`" in ln and re.search(r"[✔✘?]", ln) for ln in lines)]
+
+
 def record() -> int:
     """Index every dossier's front matter (the site and Holdings read research/rulers/index.json)."""
     rows = []
@@ -238,7 +245,8 @@ def record() -> int:
                      "verdict": meta.get("verdict", "").upper(), "confidence": num(meta.get("confidence")),
                      "entry": [x for x in (num(e) for e in meta.get("entry", [])) if x is not None],
                      "trim": num(meta.get("trim")), "updated": meta.get("updated", ""),
-                     "price_at_update": num(meta.get("price_at_update")), "summary": meta.get("summary", "")})
+                     "price_at_update": num(meta.get("price_at_update")), "summary": meta.get("summary", ""),
+                     "markers_missing": marker_gaps(p.read_text())})
     rows.sort(key=lambda r: (VERDICTS.index(r["verdict"]) if r["verdict"] in VERDICTS else 9, r["ticker"]))
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "index.json").write_text(json.dumps(rows, indent=1) + "\n")
@@ -287,6 +295,10 @@ def memo(today: date) -> Path:
         lines.append(f"| [{t}](../../research/rulers/{t}.md) | {d['verdict']} | {conf(d.get('confidence'))}/5 | "
                      f"{money(d.get('price_at_update'))} | {money((d.get('entry') or [None])[0])} | "
                      f"{sc.get('methods_agree', '–')} | {d.get('summary', '')} |")
+    gaps = {t: idx[t].get("markers_missing") for t in done if idx[t].get("markers_missing")}
+    if gaps:
+        lines += ["", "## Dossiers missing per-marker lines (METHOD: one line per marker)"]
+        lines += [f"- {t}: {', '.join(g)}" for t, g in gaps.items()]
     notes = sorted((WORK / "memos").glob("*.md")) if (WORK / "memos").exists() else []
     if notes:
         lines += ["", "## Notes by name"]
