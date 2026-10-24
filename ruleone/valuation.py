@@ -44,6 +44,17 @@ def ten_cap_price(owner_earnings: float, shares: float, net_debt: float = 0.0) -
     return value / shares if value > 0 else None
 
 
+# Lenders and loan platforms fund their loans from investing cash flow (originations), so FCF and owner
+# earnings built on operating cash flow overstate what a buyer could take out (InvestED METHOD proposal 2026-10-10).
+LENDER_INDUSTRIES = ("Personal Credit", "Business Credit", "Mortgage Bankers", "Loan Brokers")
+LENDER_TICKERS = {"OPFI", "QFIN", "SOFI", "UPST", "SYF", "LC", "MFIN"}   # SIC 6199 "Finance Services" platforms
+LENDER_FLAG = "lender: Payback and Ten Cap n/a (loan originations sit in investing cash flow)"
+
+
+def is_lender(ticker: str | None, industry: str | None) -> bool:
+    return (ticker or "").upper() in LENDER_TICKERS or any(w in (industry or "") for w in LENDER_INDUSTRIES)
+
+
 def methods_agree(price: float | None, mos: float | None, payback: float | None, ten_cap: float | None) -> int:
     """How many of the three Rule #1 prices the current price is at or below (InvestED 071, 280:
     triangulate; all three in one ballpark is the strongest signal)."""
