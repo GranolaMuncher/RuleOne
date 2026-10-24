@@ -18,6 +18,7 @@ import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
+from .analysts import load as load_analysts
 from .companyfacts import load_company
 from .events import event_score, event_summary, load_events
 from .frames import load_frames
@@ -29,7 +30,8 @@ from .sectors import load_reference, refresh_reference
 from .normalize import normalize
 from .prices import load_prices, price_near
 from .universe import load_universe
-from .valuation import LENDER_FLAG, historical_pe, is_lender, methods_agree, payback_price, sticker_price, ten_cap_price
+from .valuation import (LENDER_FLAG, historical_pe, is_lender, methods_agree, payback_price, sticker_price,
+                        street_capped_growth, ten_cap_price)
 
 
 def log(*a):
@@ -69,7 +71,17 @@ def quality_tier(b: dict) -> str:
     return "C"
 
 
-def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events: bool = True) -> dict | None:
+def _street_eps_growth(street: dict | None, ticker: str) -> float | None:
+    """Analysts' current-year EPS growth from analysts.csv rows (strings), or None."""
+    try:
+        v = float((street or {}).get(ticker, {}).get("eps_growth_cy"))
+    except (TypeError, ValueError):
+        return None
+    return v if v == v else None
+
+
+def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events: bool = True,
+            street: dict | None = None) -> dict | None:
     cf = load_company(fetcher, listing.cik)
     if not cf or not cf["annual"]:
         return None
@@ -88,6 +100,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
     eps_by_end = nz["eps_by_end"]
     hpe = historical_pe(eps_by_end, lambda d: price_near(px["series"], d))
     g = windage_growth(b)
+    g, rebase = street_capped_growth(g, _street_eps_growth(street, listing.ticker))
     st = sticker_price(eps, g, hpe["median"]) if g else None
     fcf_ttm = fcf(ttm)
     oe_ttm = owner_earnings(ttm)
@@ -148,6 +161,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
                                                                   ("Bank", "Insurance", "Savings", "Credit", "Finance",
                                                                    "Brokers", "Security"))),
             (LENDER_FLAG, lender),
+            (rebase, bool(rebase)),
             ("; ".join(nz["notes"]), bool(nz["notes"])),
             ("micro-cap", mcap is not None and mcap < 1e9),
             # Checks from the InvestED synthesis (knowledge/rule1/METHOD.md)
@@ -321,10 +335,11 @@ def main(argv=None):
     if a.limit:
         picks = picks[: a.limit]
 
+    street = load_analysts()
     results = []
     for i, l in enumerate(picks, 1):
         try:
-            r = analyze(fetcher, l, s1map.get(l.cik), today, with_events=not a.no_events)
+            r = analyze(fetcher, l, s1map.get(l.cik), today, with_events=not a.no_events, street=street)
         except Exception as e:                            # keep the batch going
             log(f"  {l.ticker}: error {e!r}")
             continue

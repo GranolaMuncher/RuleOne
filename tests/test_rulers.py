@@ -64,3 +64,9 @@ def test_marker_gaps_flags_dossier_without_per_marker_lines():
     partial = full.replace("- ✔ `margin_stable`: ok", "margin_stable is fine")
     assert marker_gaps(partial) == ["margin_stable"]
     assert marker_gaps("## Markers\nAll good.") == list(MARKER_LABELS)
+
+
+def test_marker_gaps_accepts_unquoted_keys_and_ignores_stray_question_marks():
+    from ruleone.rulers import marker_gaps
+    gaps = marker_gaps("- ✔ roic_consistent: confirmed.\n- ✘ `low_debt`: 5 years.\n- is fcf_margin fine?\n")
+    assert "roic_consistent" not in gaps and "low_debt" not in gaps and "fcf_margin" in gaps

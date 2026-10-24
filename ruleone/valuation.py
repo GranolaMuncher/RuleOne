@@ -63,6 +63,16 @@ def methods_agree(price: float | None, mos: float | None, payback: float | None,
     return sum(1 for v in (mos, payback, ten_cap) if v and price <= v)
 
 
+def street_capped_growth(g: float | None, street_eps_growth: float | None) -> tuple[float | None, str]:
+    """Cap windage at the analysts' current-year EPS growth when that is negative (InvestED METHOD proposal
+    2026-10-10): after a guidance cut the history-based rate describes a company that no longer exists.
+    Returns (growth, flag). A negative growth gives no Sticker; the flag says the prices need a rebase."""
+    if g is None or street_eps_growth is None or street_eps_growth >= 0:
+        return g, ""
+    return min(g, street_eps_growth), (f"rebase needed: Street EPS growth this year is {street_eps_growth:.0%}, "
+                                       f"history-based growth {g:.1%} not used")
+
+
 def historical_pe(eps_by_end: dict[str, float], price_at) -> dict:
     pes = []
     for end, eps in sorted(eps_by_end.items())[-10:]:

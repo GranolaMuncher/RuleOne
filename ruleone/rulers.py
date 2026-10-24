@@ -139,7 +139,7 @@ def street_pack(ticker: str) -> dict | None:
 
 
 def fact_pack(fetcher: Fetcher, listing, today: date, radar_hist: dict, gurus: dict, snaps: list[dict]) -> dict | None:
-    rec = analyze(fetcher, listing, None, today, with_events=True)
+    rec = analyze(fetcher, listing, None, today, with_events=True, street=load_analysts())
     if not rec:
         return None
     cf = load_company(fetcher, listing.cik)
@@ -227,10 +227,11 @@ def parse_front(text: str) -> dict:
 
 
 def marker_gaps(text: str) -> list[str]:
-    """Markers (MARKERS.md keys) with no per-marker line in a dossier: a line with the backticked key and a ✔ / ✘ / ?."""
+    """Markers (MARKERS.md keys) with no per-marker line in a dossier: a line with the key (backticked or not)
+    and a ✔ / ✘ / ? mark, e.g. "- ✔ roic_consistent: ..."."""
     lines = text.splitlines()
     return [k for k in MARKER_LABELS
-            if not any(f"`{k}`" in ln and re.search(r"[✔✘?]", ln) for ln in lines)]
+            if not any(re.search(rf"[✔✘?]\s*\**`?{re.escape(k)}(?![\w])", ln) for ln in lines)]
 
 
 def record() -> int:
