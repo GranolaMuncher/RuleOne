@@ -3,21 +3,21 @@ ticker: ADBE
 name: "Adobe Inc."
 verdict: WATCH
 confidence: 3
-entry: [225, 180, 140]
+entry: [210, 190, 145]
 trim: 330
-updated: 2026-10-17
-price_at_update: 245.2
-summary: "A high-ROIC software franchise at ~10x non-GAAP earnings, but generative-AI disruption, a CEO handover (1 Dec) and an interim CFO leave the story unproven; the corrected Sticker is only ~$230."
+updated: 2026-10-24
+price_at_update: 263.82
+summary: "A high-ROIC software franchise at ~11x non-GAAP earnings, but generative-AI disruption, a CEO handover (1 Dec) and an interim CFO leave the story unproven; on the lower growth rate the Sticker is ~$189 (~$230 at 10%), below the $264 price."
 ---
 # ADBE · Adobe Inc.
 
-> **Verdict: WATCH** (confidence 3/5) · price $245.20 on 2026-10-16 · tranches $225 / $180 / $140 · trim above $330
-> Adobe looks like a wonderful business (ROIC ~40%, cash conversion 1.45, debt 0.6 years of FCF) priced at ~13x GAAP and ~10x non-GAAP earnings. The screen says 3 methods agree, but its Sticker ($537) and Payback ($415) both assume 15% growth. Reworked at 10% growth, only Payback and Ten Cap agree and Sticker is ~$230. The open question is whether generative AI turns a toll bridge into a commodity (METHOD 3, tech split). Two sell-side downgrades this week (Wells Fargo, HSBC) did not change the numbers but did add a datapoint: net new ARR fell sharply in Q3. Research, not advice.
+> **Verdict: WATCH** (confidence 3/5) · price $263.82 on 2026-10-23 · tranches $210 / $190 / $145 · trim above $330
+> Adobe looks like a wonderful business (ROIC ~40%, cash conversion 1.45, debt 0.6 years of FCF) priced at ~15x GAAP and ~11x non-GAAP earnings. The stock has bounced 8% in a week (from $245 to $264) with no new fundamental data, which moves it further from the ladder. The screen says 3 methods agree, but its Sticker ($537) and Payback ($415) both assume 15% growth. Reworked at the lower-of-two growth rate (9%), the Sticker is ~$189 (~$230 at 10%), and once stock compensation (~$1.9B) is taken out of owner earnings the Ten Cap falls to ~$259, so only Payback still sits above the price. The open question is whether generative AI turns a toll bridge into a commodity (METHOD 3, tech split). Two sell-side downgrades this week (Wells Fargo, HSBC) did not change the numbers but did add a datapoint: net new ARR fell sharply in Q3. Research, not advice.
 
 ## R · Radar
-- Screen: status BUY, tier B, 3 of 3 methods agree on the screen's numbers (price/Sticker 0.45), Big Five 11/15. Down 34% from the 52-week high. No screen flags. Why selected: requested.
+- Screen: status BUY, tier B, 3 of 3 methods agree on the screen's numbers (price/Sticker 0.45), Big Five 11/15. Down 27% from the 52-week high (price $263.82 on 2026-10-23; it was $245 a week ago). No screen flags. Why selected: requested.
 - Radar (2026-10-09): WATCH. Unconfirmed reports that Adobe's PERM green-card cases are on hold (only Cloudera's suspension is confirmed). A hiring and regulatory issue, not a moat breach [5].
-- **Street:** 32 analysts, rating 2.9/5 (9 buy / 24 hold / 6 sell), targets $195 / $272 / $373 (as of 2026-10-17). Wells Fargo cut to Underweight, target $225 (12 Oct); HSBC cut to Hold, target $267 from $310 (13 Oct) [6][7]. Signal: contrarian. The mean ($272) is above my tranche 1 ($225) and well under the screen Sticker ($537), so the street does not support the screen's 15% growth; its EPS growth is 17% this year and 12% next, so my 10% windage is under the ceiling. What the street fears: Wells says Q4 needs new ARR to roughly double from Q3, FY27 guide is at risk with no price increase and a CEO handover, and a CIO survey shows Adobe losing AI budget share [6]. HSBC's trigger was ArtCraft, a small developer reportedly offering free open-source Photoshop/Illustrator alternatives; HSBC itself says the business impact is uncertain [7]. Neither is a number in the filings; I did not confirm ArtCraft's claims.
+- **Street:** 32 analysts, rating 2.9/5 (9 buy / 24 hold / 6 sell), targets $195 / $272 / $373 (as of 2026-10-24; mean unchanged in a week, rating drifted from 2.77 to 2.92). Wells Fargo cut to Underweight, target $225 (12 Oct); HSBC cut to Hold, target $267 from $310 (13 Oct) [6][7]. Signal: contrarian. The mean ($272) is above my tranche 1 ($210) and well under the screen Sticker ($537), so the street does not support the screen's 15% growth; its EPS growth is 16.9% this year and 12.4% next, so my 9–10% windage is under the ceiling. The price is now 3% below the mean target and the mean is a 12-month opinion, not a value (METHOD 6); I do not raise any price because of it. What the street fears: Wells says Q4 needs new ARR to roughly double from Q3, FY27 guide is at risk with no price increase and a CEO handover, and a CIO survey shows Adobe losing AI budget share [6]. HSBC's trigger was ArtCraft, a small developer reportedly offering free open-source Photoshop/Illustrator alternatives; HSBC itself says the business impact is uncertain [7]. Neither is a number in the filings; I did not confirm ArtCraft's claims.
 - Gurus: none in the 13F data (13F lag ~4 months).
 - Next report ~2026-12-22; the new CEO starts 1 Dec [3].
 
@@ -30,7 +30,7 @@ summary: "A high-ROIC software franchise at ~10x non-GAAP earnings, but generati
 
 ## L · Love (moat and management)
 - **Moat:** switching costs and ecosystem (file formats, workflows, trained users), plus brand and the PDF standard. Statement: professionals cannot easily leave a toolset their teams and files depend on. Replication test: a rival with Adobe's market cap could build a tool, but not the installed base. Disappears test: the creative industry would notice. Pricing power: ROIC rose from 13% (2016) to 40% (2025) and revenue grew 13% with no sign of margin loss. A brand isn't automatically a moat (METHOD 3); the open test is whether AI makes the *output* cheap enough that the tool matters less.
-- **Management:** buybacks are heavy: ~9.5M shares for $2.23B in Q3 (average ~$235) [1]; shares fell from 507M (2015) to 427M (2025). Buying below value is good; at the corrected value this price qualifies. Debt $6.4B = 0.6 years of FCF, well inside METHOD 4. Cash conversion 1.45. Leadership: CEO Narayen (18 years) hands over to Anil Chakravarthy on 1 December and becomes executive chair; CFO Dan Durn left in June and Steve Day is interim [3][4]. The new CEO's name rests on one secondary source: verify it in the 8-K. Proxy incentives: not read this run. Insider activity: not found.
+- **Management:** buybacks are heavy: ~9.5M shares for $2.23B in Q3 (average ~$235) [1]; shares fell from 507M (2015) to 427M (2025). Buying below value is good; at ~$235 average the Q3 buys were above the 9% Sticker ($189) but near the 10% case, so they were fair, not cheap. FY25 repurchases were $11.28B [8]; a new $25B authorisation was announced in April 2026 [9]. Debt $6.4B = 0.6 years of FCF, well inside METHOD 4. Cash conversion 1.45. Leadership: CEO Narayen (18 years) hands over to Anil Chakravarthy on 1 December and becomes executive chair; CFO Dan Durn left in June and Steve Day is interim [3][4]. The new CEO's name rests on one secondary source: verify it in the 8-K. Proxy incentives: not read this run. Insider activity: not found.
 - **Values:** nothing found that the owner would veto. AI-training and copyright disputes: not researched.
 - Would I buy the whole company at this price? **Yes, tentatively**: ~$97B for ~$10.6B of FCF is a good price if the franchise survives. That "if" is why the verdict is WATCH.
 
@@ -48,17 +48,17 @@ summary: "A high-ROIC software franchise at ~10x non-GAAP earnings, but generati
 ## R · Reduce basis (tranches only, no options)
 | Tranche | Price | Basis | Status |
 |---|---|---|---|
-| 1 | $225 | ≈ corrected Sticker ($230, 10% growth) | Not triggered (price $241) |
-| 2 | $180 | ≈ 10x GAAP TTM EPS of $17.91 | Not triggered |
-| 3 | $140 | ≈ 8x GAAP EPS; room for an AI-erosion case | Not triggered |
+| 1 | $210 | ≈ flat-FCF Payback ($210) and ~$230 Sticker at 10% less a haircut for the 9% rate | Not triggered (price $263.82) |
+| 2 | $190 | ≈ Sticker at the lower 9% growth ($189), ~10.6x GAAP EPS | Not triggered |
+| 3 | $145 | ≈ 8x GAAP EPS of $17.91; room for an AI-erosion case | Not triggered |
 
-The default `tranche_plan` was $415 / $307 / $269, all triggered. I moved them down because (a) the $415 Payback assumes 15% FCF growth for 8 years, (b) the Ten Cap uses owner earnings that add back stock compensation, (c) the story risk is unresolved. Equal dollar tranches, set in advance; keep dry powder for a further ~50% fall. **Stop buying above $225. Trim above $330** (Sticker at an optimistic 12% growth).
+The default `tranche_plan` was $415 / $307 / $269, all triggered. I moved them down because (a) the $415 Payback assumes 15% FCF growth for 8 years, (b) the Ten Cap adds back stock compensation (FY25 ~$1.94B, a third-party figure; subtracting it gives ~$259), (c) the story risk is unresolved. Following LESSONS 2026-10-17, tranche 1 is anchored to the lower-rate figures (the 9% Sticker and flat-FCF Payback), not the 10% case. Equal dollar tranches, set in advance; keep dry powder for a further ~50% fall. **Stop buying above $210. Trim above $330** (Sticker at an optimistic 12% growth; deliberately far above the ladder, and I would not trim a rare compounder just for that).
 
 ## S · Story
 - **Thesis:** Adobe's creative and document software is embedded in how professionals work. AI makes the tools more useful and adds revenue (AI-first ARR), while buybacks shrink the share count 2–4% a year. At ~10x non-GAAP earnings the market prices in decline; even modest growth gives a satisfactory return.
 - **Three things that must stay true:** (1) ARR keeps growing ≥8–10% (FY26 ending-ARR growth guide 10.2% [1]); (2) ROIC stays above ~25%; (3) AI features are monetised rather than given away.
 - **Inversion:** AI agents generate finished assets from text, so fewer professionals need Photoshop-class seats, Canva and Figma take the low end, and price per seat falls; a new CEO and an interim CFO add execution risk. Rebuttal: 13% growth and AI-first ARR >150% so far, and the installed base buys workflow, not just output. Concession: this is a back-window argument (METHOD 3) and cannot rule out a later break.
-- **Sell triggers:** ending-ARR growth below 6% for two consecutive fiscal years, or net new ARR down year on year for four straight quarters; ROIC below 15% for two years; net debt above 3x FCF; a guidance cut within 12 months of the new CEO starting (1 Dec 2026); disclosed seat counts declining.
+- **Sell triggers:** ending-ARR growth below 6% for two consecutive fiscal years, or net new ARR down year on year for four straight quarters (it already fell ~36–38% in Q3 FY26, so Q4 is the second data point); ROIC below 15% for two years; net debt above 3x FCF; a guidance cut within 12 months of the new CEO starting (1 Dec 2026); disclosed seat counts declining.
 
 ## Markers
 Screen marker score 0.9 (9 of 10).
@@ -79,8 +79,8 @@ Screen marker score 0.9 (9 of 10).
 | Sticker | $537.30 (15% growth, future P/E 30) | **~$230**: 17.91 × 1.10^10 × P/E 20 ÷ 1.15^10 = 17.91 × 2.594 × 20 ÷ 4.046. At 12% it is ~$330. EPS growth 5y is 9.1%, ARR guide 10.2%, revenue 13%, street EPS growth 17% (CY) / 12% (NY). At exactly 9% (P/E 18) it is ~$189, so the 10% base is the middle case. |
 | MOS price | $268.65 | ~$115 (10% growth) |
 | Payback (8 yrs FCF) | $415.00 (implies 15% FCF growth) | $210 flat FCF; $302 at 8%; $331 at 10% (FCF $10.59B, ~403M shares) |
-| Ten Cap | $307.49 | Holds on the screen's owner earnings ($12.59B × 10 − $2.0B net debt). Owner earnings add back stock compensation (amount not confirmed): each $1B/yr of SBC removes ~$25 per share. |
-| Windage growth | 15% | 10%: below history (sales 13–17%, EPS 9–30%) given AI risk |
+| Ten Cap | $307.49 | Screen: ($12.59B × 10 − $2.0B net debt) ÷ ~403M shares. Owner earnings add back stock compensation. FY25 SBC is ~$1.94B (aggregators; not read in the 10-K text), which removes ~$48 per share: **~$259**. |
+| Windage growth | 15% | 9% base (5y EPS 9.1%), 10% case (ARR guide 10.2%): below history (sales 13–17%, EPS 9–30%) given AI risk |
 | P/E | 13.5 TTM vs 10-yr median 45.3 | ~9.9x the FY26 non-GAAP EPS guide of $24.45–24.50 [1] |
 | Owner earnings / net debt / cash conversion | $12.59B / $2.0B / 1.45 | Net debt = debt $6.4B less cash $4.4B |
 
@@ -109,7 +109,10 @@ Deep dive model (`reports/model/ADBE.md`): a 10-year DCF at 10.5% WACC gives **$
 5. [Radar item: PERM cases (Gulte)](https://www.gulte.com/overseas/433691/us-adobes-100-employees-green-card-cases-put-on-hold)
 6. [24/7 Wall St: Wells Fargo cuts to Underweight, $225](https://247wallst.com/investing/2026/10/12/adobe-falls-4-as-wells-fargo-cuts-to-underweight-with-225-target-servicenow-climbs-3-intuit-ticks-up/)
 7. [TIKR: HSBC downgrades Adobe](https://www.tikr.com/blog/hsbc-downgrades-adobe-adbe-stock-ai-disruption-risks)
+8. [Adobe FY2025 10-K (buyback $11.28B)](https://www.sec.gov/Archives/edgar/data/796343/000079634326000003/adbe-20251128.htm); SBC ~$1.94B from aggregators (e.g. [stockanalysis.com](https://stockanalysis.com/stocks/adbe/financials/cash-flow-statement/))
+9. [Yahoo Finance: $25B buyback and AI launches](https://finance.yahoo.com/markets/stocks/articles/why-adobe-adbe-stock-today-054123854.html)
 
 ## Changelog
+- 2026-10-24: updated. Verdict stays WATCH (3/5). Price rose to $263.82 (+7.6% in a week) with no company news I could find; it is above MOS-style values on every conservative case. Tranches reset to $210 / $190 / $145 (was $225 / $180 / $140) so tranche 1 follows the lower 9% rate (Professor 2026-10-17: Sticker ~$189 vs $225 tranche; fixed). SBC now sized at ~$1.94B for FY25 from aggregators (Professor's SBC issue; the 10-K text itself was not read, so still partly unconfirmed), cutting the Ten Cap to ~$259. Price/header inconsistency fixed. InvestED 275/429 (board stock ownership, story-change check) and 414 (AI research must be verified) noted; Adobe is not discussed in them as a buy. Net new ARR down one quarter is now in the sell trigger. The Q3 release PDF was unreadable (encrypted), so Q3 figures remain from the earlier run.
 - 2026-10-17: updated. Verdict stays WATCH (3/5). New: two downgrades, with reports that Q3 net new ARR fell about 36–38% year on year (management blames the freemium push; RPO growth 8%) [6][7]. This touches must-stay-true 1, so Q4 net new ARR (report ~22 Dec) is the check. Added the Street line and the marker section (Professor's minor issues); sell triggers made measurable; Sticker sensitivity at 9% shown. Price levels unchanged: price $245 is above tranche 1 ($225). The 10-K was still not re-read this run.
 - 2026-10-09: created. Verdict WATCH: the screen's Sticker and Payback assume 15% growth; corrected to 10%, Sticker is ~$230 and only two methods agree. Story risk (AI, CEO handover, interim CFO) is unresolved.

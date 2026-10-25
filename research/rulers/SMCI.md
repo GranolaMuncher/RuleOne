@@ -5,7 +5,7 @@ verdict: AVOID
 confidence: 2
 entry: [32.4, 27.54, 22.68]
 trim: 64.81
-updated: 2026-10-23
+updated: 2026-10-24
 price_at_update: 32.94
 summary: "AI-server assembler with thin, swinging margins, deeply negative cash flow funded by about $8.7B of debt, and open integrity questions (ineffective controls, CFO exit, co-founder indictment); price is at the screen's MOS but the screen's quality tests fail."
 ---
@@ -108,5 +108,8 @@ Net income summed over these 11 years is about $5.8B, against cumulative FCF of 
 4. [Supermicro press release, Q1 FY2027 preliminary update](https://www.supermicro.com/en/pressreleases/supermicro-provides-first-quarter-fiscal-year-2027-preliminary-business-update)
 5. [CFO Dive: Super Micro's CFO out](https://www.cfodive.com/news/super-micros-cfo-out-change-accounting-leadership-ai/833213/)
 
+6. [TIKR: Super Micro names a new CFO after burning nearly $7B in free cash flow](https://www.tikr.com/blog/super-micro-named-a-new-cfo-after-burning-nearly-7-billion-in-free-cash-flow-heres-where-the-stock-could-go-by-2031) (search summary only; secondary)
+
 ## Changelog
+- 2026-10-24: refreshed. Price $32.94; verdict stays AVOID. Screen status moved BUY → ON DECK as the price rose above MOS. New detail from a secondary source [6]: FY2026 free cash flow was about −$6.70B in the March quarter and +$719M in the June quarter, so the burn was concentrated in one quarter and may be working capital that reverses. An SVP said on 10 September the company aims to become "self-funded" and that capital returns will take a while. This softens the cash flag but does not remove it; confirm in the 10-K cash-flow statement and the Q1 FY27 10-Q (~3 Nov). No new filings found since 10-20.
 - 2026-10-23: created. AVOID: cash not real, debt about $8.7B (the screen's $134M is wrong), ineffective controls, CFO exit and an indicted co-founder. Revisit after the 2026-11-03 results if OCF turns positive and 10-K Items 9A and 15 have been read.

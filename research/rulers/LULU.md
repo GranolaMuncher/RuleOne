@@ -5,7 +5,7 @@ verdict: WATCH
 confidence: 3
 entry: [90, 70, 50]
 trim: 125
-updated: 2026-10-23
+updated: 2026-10-24
 price_at_update: 99.01
 summary: "A high-ROIC brand with net cash and a new CEO, but US sales are shrinking, street EPS falls again next year and TTM EPS is flattered by a tariff refund; wait for $90 or proof that the product fix works."
 ---
@@ -109,5 +109,6 @@ No deep dive model exists for LULU.
 7. InvestED notes: [105](/learn/105/) (Stock Evaluation, 2017), [210](/learn/210/) (Mistakes of Omission), [432](/learn/432/) (Perfect Competition)
 
 ## Changelog
+- 2026-10-24: rechecked, no change. Price ($99.01 on 2026-10-23) and Street (28 analysts, mean $103.66, EPS −28% / −9%) are the same as yesterday; Radar added only a new-director 8-K (noise). A search found no newer company news or guidance. Verdict stays WATCH; tranches $90 / $70 / $50 unchanged. Wilson stake and Elliott position are still unconfirmed.
 - 2026-10-23: updated. Verdict stays WATCH; price rose from $92.68 to $99.01, so tranche 1 ($90) is still not triggered. Street now shows EPS −28% this year and −9% next, and Wolfe initiated at Underperform ($75); this supports my underlying-EPS rebase rather than changing it. Added InvestED 105, 210 and 432 (thin moat, new-CEO red flag) and a per-marker line (LESSONS 2026-10-09): I treat fcf_margin as ✘ on the latest fiscal year (8.3%) and margin_stable fails. Radar items since 9 Oct (fabric reorganisation, new director) hit no sell trigger. Wilson's stake (4.3% vs ~8.6%) is unconfirmed. Next check: Q3 results ~2026-12-03.
 - 2026-10-09: created. Verdict WATCH: TTM EPS of $12.15 is flattered by a tariff refund and falling sales; underlying ~$8.75. Corrected prices put the stock at roughly fair, not at a margin of safety.

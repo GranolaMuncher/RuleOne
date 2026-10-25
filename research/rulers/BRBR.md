@@ -5,18 +5,18 @@ verdict: WATCH
 confidence: 3
 entry: [7.0, 5.0, 3.5]
 trim: 20.0
-updated: 2026-10-10
-price_at_update: 8.55
+updated: 2026-10-24
+price_at_update: 9.55
 summary: "A branded protein-shake business with ROIC above 40% that has fallen 76% as margins collapsed and net debt reached ~3.8x guided EBITDA; the screen's prices use pre-squeeze cash flow, so wait for Q4 and the new CEO's FY27 plan."
 ---
 # BRBR · BellRing Brands, Inc.
 
-> **Verdict: WATCH** (confidence 3/5) · price $8.55 on 2026-10-09 · tranches $7.00 / $5.00 / $3.50 · trim above $20
-> Premier Protein is a real brand with ROIC of 34–46% and sales that grew from $1.0B (2020) to $2.3B (2025). But FY26 adjusted EBITDA is now guided to $275–295M (about a 12% margin, from 18% last year's Q4), and $1.1B of debt is 5 years of TTM FCF (the screen's debt flag). The screen's $30 Payback and $15 Ten Cap use cash flow from before the squeeze. On trough margins the shares are roughly fairly priced, not cheap. Research, not advice.
+> **Verdict: WATCH** (confidence 3/5) · price $9.55 on 2026-10-23 (+12% since the last update) · tranches $7.00 / $5.00 / $3.50 · trim above $20
+> Premier Protein is a real brand with ROIC of 34–46% and sales that grew from $1.0B (2020) to $2.3B (2025). But FY26 adjusted EBITDA is now guided to $275–295M (about a 12% margin, from 18% last year's Q4); leverage is guided to ~4x at year-end after a legal settlement payment [4], and $1.1B of debt is 5 years of TTM FCF (the screen's debt flag). The screen's $30 Payback and $15 Ten Cap use cash flow from before the squeeze. On trough margins the shares are roughly fairly priced, not cheap. Research, not advice.
 
 ## R · Radar
-- Screen: BUY, tier B, rank 5.55, 3 methods agree, 76% below the 52-week high, marker score 0.50, flag "debt > 3 years of FCF". 1 insider buy ($0.02M, token). No gurus, no Radar items. Next report ~2026-11-03.
-- **Street:** 12 analysts, rating 2.07/5 (2 strong buy, 6 buy, 5 hold, 0 sell, 1 strong sell), targets $10 / $14.71 / $20 (as of 2026-10-10). Street EPS: −52% this year, +27% next. Signal: agree (the street and the screen both see cheap). The street's mean is below the screen's MOS ($21.30) and I do not raise any price because of it. The street sees a margin trough; I can't confirm one.
+- Screen: BUY, tier B, rank 5.51, 3 methods agree, 76% below the 52-week high, marker score 0.50, flag "debt > 3 years of FCF". 1 insider buy ($0.02M, token). No gurus, no Radar items. Next report ~2026-11-03.
+- **Street:** 13 analysts, rating 2.07/5 (3 strong buy, 6 buy, 5 hold, 0 sell, 1 strong sell), targets $9 / $13.58 / $20 (as of 2026-10-24; the mean is down from $14.71 in two weeks, the low target cut from $10 to $9). Street EPS: −52% this year, +26% next. Signal: agree (the street and the screen both see cheap). The price is now only 6% above the lowest target ($9) and the street is still cutting. The street's mean is below the screen's MOS ($21.30) and I do not raise any price because of it. The street sees a margin trough; I can't confirm one.
 
 ## U · Understand
 - **The business in one sentence:** BellRing sells ready-to-drink protein shakes and powders (Premier Protein, Dymatize) mostly through big retailers such as Costco, Walmart and Sam's Club.
@@ -31,7 +31,7 @@ summary: "A branded protein-shake business with ROIC above 40% that has fallen 7
 - Would I buy the whole company at this price? **Maybe.** Equity ~$1.0B plus net debt ~$1.1B is ~$2.1B enterprise value, about 7.3x guided FY26 EBITDA (midpoint $285M), a fair price for a margin-hit brand, not a bargain.
 
 ## E · Event
-- What happened: Q3 FY26 (4 Aug): adjusted EBITDA margin came in below guidance, so the full-year outlook was cut to adjusted EBITDA of $275–295M (~12% margin); Q4 expected flat in sales with ~10% margin on inventory-related items, freight, tariffs and trade spending [2][3]. CEO change. 2027 guidance comes with the Q4 call (November).
+- What happened: Q3 FY26 (4 Aug): adjusted EBITDA margin came in below guidance, so the full-year outlook was cut to adjusted EBITDA of $275–295M (~12% margin); Q4 expected flat in sales with ~10% margin on inventory-related items, freight, tariffs and trade spending [2][3]. Detail from the call [4]: Premier shake volume +3% but price/mix −2%; adjusted gross margin 27.7% vs 35.1% a year earlier; a $10M reserve on excess bottled-shake inventory (180 bp), freight (140 bp for H2) and protein costs and tariffs (80 bp for the year); net leverage 3.2x at the quarter end, about 4x at year-end including a "sizable" legal settlement due in Q4 (the Joint Juice class actions, ~$90M in settlements approved in May 2026 across all defendants; BellRing's share: not found) [4][5]. A double-digit Premier price rise and further powder pricing start in FY27 Q1, with management expecting elasticity "slightly greater than one" [4]: volume will fall by about as much as price rises, so pricing power is not yet shown. CEO change. 2027 guidance comes with the Q4 call (November).
 - Event checks (METHOD 7):
   1. Known: ✔ margin squeeze and a new CEO.
   2. Easy to find: ✔.
@@ -44,8 +44,8 @@ summary: "A branded protein-shake business with ROIC above 40% that has fallen 7
 ## R · Reduce basis (tranches only, no options)
 | Tranche | Price | Basis | Status |
 |---|---|---|---|
-| 1 | $7.00 | Trough Ten Cap (~$5, see below) plus ~$2 for partial margin recovery; judgement, not arithmetic | Not yet (price $8.55) |
-| 2 | $5.00 | Trough Ten Cap: FCF ~$170M (derived: EBITDA $285M less ~$65M interest (unconfirmed), ~$45M tax, ~$5M capex); (10×$170M − $1.085B)/118M ≈ $5.2 | Not triggered |
+| 1 | $7.00 | Between the two trough Ten Caps below ($4.7 on FCF, $8.6 on owner earnings) and a rebased Sticker of ~$6.9; judgement, not arithmetic | Not yet (price $9.55) |
+| 2 | $5.00 | Trough Ten Cap: FCF ~$170M (derived: EBITDA $285M less ~$65M interest (unconfirmed), ~$45M tax, ~$5M capex); (10×$170M − $1.14B year-end net debt, ~4x guided EBITDA)/118M ≈ $4.7; on the method's owner-earnings convention (FCF plus ~$45M tax = $215M): (10×$215M − $1.14B)/118M ≈ $8.6 | Not triggered; the stock's price is above this |
 | 3 | $3.50 | trough case with a further 15% EBITDA cut | Not triggered |
 
 The screen's $30.10 / $21.30 / $15.09 plan uses TTM owner earnings ($287M) and 15% growth; with EBITDA at $285M before interest, those aren't reached. Equal dollar tranches; keep dry powder for a further ~50% fall. **Stop buying above $7. Trim above $20** (about a recovery to 15% margins).
@@ -74,10 +74,10 @@ The screen's $30.10 / $21.30 / $15.09 plan uses TTM owner earnings ($287M) and 1
 | Sticker / MOS | $42.60 / $21.30 | Not reached: assumes 15% growth; EPS is falling this year |
 | Payback | $30.10 | Based on TTM FCF $225M; trough FCF is lower |
 | Ten Cap | $15.09 | ≈ $5 on trough FCF (see above) |
-| Windage growth | 15% | Street: −52% this year, +27% next: cut to ~5% until margins recover |
+| Windage growth | 15% | Street: −52% this year, +26% next: cut to ~8% on trough EPS. Rebased Sticker: FY26 EPS ≈ $0.81 (1.68 × 0.48, derived from Street) × 1.08^10 = $1.75 × P/E 16 (2× growth) = $28 ÷ 4.046 ≈ **$6.9**, MOS ≈ $3.5 |
 | P/E vs 10-yr median | 6.0 vs 32.9 | Median is inflated by early years; TTM EPS $1.42 will fall |
 | Owner earnings | $286.6M | Before FY26 margin cut |
-| Net debt | $1,085M | ≈ 3.8x guided EBITDA (midpoint) |
+| Net debt | $1,085M | ≈ 3.8x guided EBITDA (midpoint); ~4x at year-end after the settlement [4] |
 | Cash conversion | 1.31 | |
 
 | FY | Revenue $M | EPS | OCF $M | FCF $M | ROIC % |
@@ -95,8 +95,11 @@ No deep-dive model exists.
 1. [BellRing Q3 FY2026 earnings release, 8-K (SEC)](https://www.sec.gov/Archives/edgar/data/0001772016/000162828026052137/brbrexh991-q32026earningsr.htm)
 2. [BellRing Q3 earnings call highlights (MarketBeat, 4 Aug 2026)](https://www.marketbeat.com/instant-alerts/bellring-brands-q3-earnings-call-highlights-2026-08-04/)
 3. [BellRing Q3 FY2026 earnings summary (Quartr)](https://quartr.com/events/bellring-brands-inc-brbr-q3-2026_3YFqiy4t)
+4. [BellRing Q3 2026 earnings call transcript (Webull; automated transcript, errors possible)](https://www.webull.com/news/15344863892956160)
+5. [After 12 years, Joint Juice litigation ends with $90M in settlements (NutraIngredients)](https://www.nutraingredients.com/Article/2026/06/09/after-12-years-joint-juice-litigation-ends-with-90m-settlements/)
 
 Figures came from search summaries; the 10-K, proxy and customer concentration were not read. The date of the Q4 release and what caused the 76% fall: not found.
 
 ## Changelog
+- 2026-10-24: price up 12% to $9.55 with no company news; verdict stays WATCH. Added Q3 call detail (gross margin 27.7%, elasticity ~1, year-end leverage ~4x after a legal settlement), the Joint Juice settlement, a rebased Sticker (~$6.9) and an owner-earnings Ten Cap ($8.6 vs $4.7 on FCF). Tranches unchanged ($7 / $5 / $3.50). Street mean target cut to $13.58. Q4 report due ~3 Nov.
 - 2026-10-10: created. WATCH: good brand, margin squeeze, 3.8x leverage; screen prices not accepted.
