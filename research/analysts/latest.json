@@ -1,16 +1,16 @@
 {
- "date": "2026-10-27",
+ "date": "2026-10-28",
  "source": "Yahoo Finance analyst consensus",
  "covered": 1730,
  "refreshed": 333,
  "no_coverage": 29,
  "signals": {
-  "mixed": 1044,
-  "crowded": 423,
-  "both cautious": 114,
+  "mixed": 1052,
+  "crowded": 420,
+  "both cautious": 113,
   "thin coverage": 81,
   "contrarian": 14,
-  "agree": 54
+  "agree": 50
  },
  "signal_text": {
   "agree": "Rule #1 price and the street both say cheap",
@@ -123,26 +123,6 @@
     "recent_actions": "2026-10-23 TD Cowen kept Buy, target $190\u2192$160; 2026-10-22 UBS kept Buy, target $272\u2192$232"
    },
    {
-    "ticker": "FUTU",
-    "name": "Futu Holdings Limited",
-    "tier": "A",
-    "status": "BUY*",
-    "price": 99.19,
-    "mos_price": 97.1255,
-    "ten_cap_price": 388.7812,
-    "sticker": 194.251,
-    "target_low": 121.8719,
-    "target_mean": 160.91687,
-    "target_high": 236.82663,
-    "n_analysts": 18.0,
-    "rec_mean": 1.38889,
-    "rec_key": "strong_buy",
-    "upside_mean": 0.62230940619014,
-    "revision_30d": null,
-    "signal": "agree",
-    "recent_actions": ""
-   },
-   {
     "ticker": "WING",
     "name": "Wingstop Inc.",
     "tier": "B",
@@ -160,7 +140,7 @@
     "upside_mean": 0.5720518654843567,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-23 Mizuho kept Outperform, target $240\u2192$200; 2026-10-22 Baird kept Outperform, target $160\u2192$150; 2026-10-20 StoneX kept Buy, target $245\u2192$185"
+    "recent_actions": "2026-10-23 Mizuho kept Outperform, target $240\u2192$200; 2026-10-22 Baird kept Outperform, target $160\u2192$150"
    },
    {
     "ticker": "NVDA",
@@ -212,12 +192,12 @@
     "ten_cap_price": 144.8133,
     "sticker": 276.5601,
     "target_low": 170.0,
-    "target_mean": 232.91429,
+    "target_mean": 232.7143,
     "target_high": 301.0,
     "n_analysts": 35.0,
     "rec_mean": 1.54054,
     "rec_key": "buy",
-    "upside_mean": 0.49466912661233375,
+    "upside_mean": 0.49338574087146236,
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": "2026-10-22 BTIG kept Buy, target $250"
@@ -232,15 +212,35 @@
     "ten_cap_price": 166.8268,
     "sticker": 333.9,
     "target_low": 300.0,
-    "target_mean": 367.75,
+    "target_mean": 366.4375,
     "target_high": 440.0,
     "n_analysts": 16.0,
     "rec_mean": 1.68421,
     "rec_key": "buy",
-    "upside_mean": 0.48507854460283495,
+    "upside_mean": 0.4797782982675767,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-22 Wolfe Research initiated Outperform, target $356"
+    "recent_actions": "2026-10-27 B of A Securities kept Buy, target $365\u2192$344; 2026-10-22 Wolfe Research initiated Outperform, target $356"
+   },
+   {
+    "ticker": "PDD",
+    "name": "PDD Holdings Inc.",
+    "tier": "C",
+    "status": "BUY",
+    "price": 79.04,
+    "mos_price": 102.0191,
+    "ten_cap_price": 130.0871,
+    "sticker": 204.0383,
+    "target_low": 85.73325,
+    "target_mean": 115.06565,
+    "target_high": 151.2557,
+    "n_analysts": 33.0,
+    "rec_mean": 2.02778,
+    "rec_key": "buy",
+    "upside_mean": 0.4557901062753036,
+    "revision_30d": null,
+    "signal": "agree",
+    "recent_actions": ""
    },
    {
     "ticker": "TGLS",
@@ -258,46 +258,6 @@
     "rec_mean": 1.75,
     "rec_key": "buy",
     "upside_mean": 0.4556135770234988,
-    "revision_30d": null,
-    "signal": "agree",
-    "recent_actions": ""
-   },
-   {
-    "ticker": "PDD",
-    "name": "PDD Holdings Inc.",
-    "tier": "C",
-    "status": "BUY",
-    "price": 79.04,
-    "mos_price": 102.0191,
-    "ten_cap_price": 130.0871,
-    "sticker": 204.0383,
-    "target_low": 85.69726,
-    "target_mean": 115.02068,
-    "target_high": 151.19221,
-    "n_analysts": 33.0,
-    "rec_mean": 2.02778,
-    "rec_key": "buy",
-    "upside_mean": 0.4552211538461537,
-    "revision_30d": null,
-    "signal": "agree",
-    "recent_actions": ""
-   },
-   {
-    "ticker": "BRBR",
-    "name": "BellRing Brands, Inc.",
-    "tier": "B",
-    "status": "BUY",
-    "price": 9.55,
-    "mos_price": 21.3,
-    "ten_cap_price": 15.0941,
-    "sticker": 42.6,
-    "target_low": 9.0,
-    "target_mean": 13.57692,
-    "target_high": 20.0,
-    "n_analysts": 13.0,
-    "rec_mean": 2.06667,
-    "rec_key": "buy",
-    "upside_mean": 0.4216670157068061,
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": ""
@@ -321,6 +281,46 @@
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": ""
+   },
+   {
+    "ticker": "COCO",
+    "name": "The Vita Coco Company, Inc.",
+    "tier": "A",
+    "status": "ON DECK",
+    "price": 56.53,
+    "mos_price": 29.7,
+    "ten_cap_price": 29.5903,
+    "sticker": 59.4,
+    "target_low": 65.0,
+    "target_mean": 79.1,
+    "target_high": 90.0,
+    "n_analysts": 10.0,
+    "rec_mean": 1.58333,
+    "rec_key": "buy",
+    "upside_mean": 0.3992570316646027,
+    "revision_30d": null,
+    "signal": "agree",
+    "recent_actions": "2026-10-23 Piper Sandler kept Overweight, target $83\u2192$88"
+   },
+   {
+    "ticker": "ENVA",
+    "name": "Enova International, Inc.",
+    "tier": "C",
+    "status": "BUY*",
+    "price": 165.07,
+    "mos_price": 69.5702,
+    "ten_cap_price": 606.2534,
+    "sticker": 139.1405,
+    "target_low": 220.0,
+    "target_mean": 230.83333,
+    "target_high": 275.0,
+    "n_analysts": 6.0,
+    "rec_mean": 1.33333,
+    "rec_key": "strong_buy",
+    "upside_mean": 0.39839661961592054,
+    "revision_30d": null,
+    "signal": "agree",
+    "recent_actions": "2026-10-26 Maxim Group kept Buy, target $285\u2192$220; 2026-10-23 TD Cowen kept Buy, target $220\u2192$224; 2026-10-23 Citizens kept Market Outperform, target $215\u2192$220; 2026-10-23 Stephens & Co. kept Overweight, target $215\u2192$225"
    }
   ],
   "contrarian": [
@@ -382,7 +382,7 @@
     "upside_mean": 0.0634405038117336,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": "2026-10-23 CIBC kept Neutral, target $125\u2192$133"
+    "recent_actions": "2026-10-27 UBS kept Neutral, target $123\u2192$134; 2026-10-23 CIBC kept Neutral, target $125\u2192$133"
    },
    {
     "ticker": "LULU",
@@ -542,7 +542,7 @@
     "upside_mean": -0.054580546349301984,
     "revision_30d": null,
     "signal": "contrarian",
-    "recent_actions": "2026-10-26 Cantor Fitzgerald kept Overweight, target $378\u2192$397; 2026-10-23 Morgan Stanley kept Underweight, target $330\u2192$350; 2026-10-20 BMO Capital kept Market Perform, target $379\u2192$388; 2026-10-20 JP Morgan kept Neutral, target $352\u2192$379"
+    "recent_actions": "2026-10-26 Cantor Fitzgerald kept Overweight, target $378\u2192$397; 2026-10-23 Morgan Stanley kept Underweight, target $330\u2192$350"
    },
    {
     "ticker": "RLI",
@@ -565,6 +565,26 @@
     "recent_actions": "2026-10-21 Keefe, Bruyette & Woods kept Outperform, target $69\u2192$74; 2026-10-21 Wells Fargo kept Underweight, target $51\u2192$53"
    },
    {
+    "ticker": "PAYC",
+    "name": "Paycom Software, Inc.",
+    "tier": "A",
+    "status": "ON DECK",
+    "price": 274.59,
+    "mos_price": 141.75,
+    "ten_cap_price": 150.9734,
+    "sticker": 283.5,
+    "target_low": 160.0,
+    "target_mean": 244.64706,
+    "target_high": 305.0,
+    "n_analysts": 17.0,
+    "rec_mean": 2.57143,
+    "rec_key": "hold",
+    "upside_mean": -0.10904599584835561,
+    "revision_30d": null,
+    "signal": "contrarian",
+    "recent_actions": "2026-10-27 Citigroup kept Neutral, target $194\u2192$279; 2026-10-27 Jefferies kept Hold, target $160\u2192$300; 2026-10-26 BTIG kept Buy, target $230\u2192$305; 2026-10-23 Guggenheim kept Buy, target $225\u2192$300"
+   },
+   {
     "ticker": "EXEL",
     "name": "Exelixis, Inc.",
     "tier": "C",
@@ -583,26 +603,6 @@
     "revision_30d": null,
     "signal": "contrarian",
     "recent_actions": ""
-   },
-   {
-    "ticker": "PAYC",
-    "name": "Paycom Software, Inc.",
-    "tier": "A",
-    "status": "ON DECK",
-    "price": 274.59,
-    "mos_price": 141.75,
-    "ten_cap_price": 150.9734,
-    "sticker": 283.5,
-    "target_low": 160.0,
-    "target_mean": 231.41176,
-    "target_high": 305.0,
-    "n_analysts": 17.0,
-    "rec_mean": 2.57143,
-    "rec_key": "hold",
-    "upside_mean": -0.15724622163953528,
-    "revision_30d": null,
-    "signal": "contrarian",
-    "recent_actions": "2026-10-26 BTIG kept Buy, target $230\u2192$305; 2026-10-23 Guggenheim kept Buy, target $225\u2192$300"
    }
   ],
   "crowded": [
@@ -615,16 +615,16 @@
     "mos_price": 0.0796,
     "ten_cap_price": 4.4043,
     "sticker": 0.1592,
-    "target_low": 21.0,
-    "target_mean": 22.28571,
+    "target_low": 19.0,
+    "target_mean": 21.875,
     "target_high": 25.0,
-    "n_analysts": 7.0,
-    "rec_mean": 1.125,
+    "n_analysts": 8.0,
+    "rec_mean": 1.11111,
     "rec_key": "strong_buy",
-    "upside_mean": 0.738354914196568,
+    "upside_mean": 0.7063182527301091,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": ""
+    "recent_actions": "2026-10-27 Stephens & Co. initiated Overweight, target $19"
    },
    {
     "ticker": "RMBS",
@@ -635,16 +635,16 @@
     "mos_price": 1.0117,
     "ten_cap_price": 37.0555,
     "sticker": 2.0235,
-    "target_low": 100.0,
-    "target_mean": 141.57143,
+    "target_low": 103.0,
+    "target_mean": 140.57143,
     "target_high": 165.0,
     "n_analysts": 7.0,
     "rec_mean": 1.5,
     "rec_key": "strong_buy",
-    "upside_mean": 0.6529063631056624,
+    "upside_mean": 0.6412309398715701,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": ""
+    "recent_actions": "2026-10-27 Rosenblatt kept Buy, target $165; 2026-10-27 Susquehanna kept Neutral, target $100\u2192$103"
    },
    {
     "ticker": "BWXT",
@@ -684,7 +684,7 @@
     "upside_mean": 0.7313254770099447,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-26 Cantor Fitzgerald kept Overweight, target $1,300\u2192$1,000; 2026-10-21 B of A Securities kept Buy, target $1,150\u2192$1,200; 2026-10-20 Morgan Stanley kept Overweight, target $1,187\u2192$1,200"
+    "recent_actions": "2026-10-27 Rosenblatt kept Buy, target $1,400\u2192$1,100; 2026-10-26 Cantor Fitzgerald kept Overweight, target $1,300\u2192$1,000; 2026-10-21 B of A Securities kept Buy, target $1,150\u2192$1,200"
    },
    {
     "ticker": "FLEX",
@@ -696,15 +696,15 @@
     "ten_cap_price": 31.2861,
     "sticker": 30.5503,
     "target_low": 135.0,
-    "target_mean": 158.9,
+    "target_mean": 155.9,
     "target_high": 180.0,
     "n_analysts": 10.0,
     "rec_mean": 1.27273,
     "rec_key": "strong_buy",
-    "upside_mean": 1.0757674722403658,
+    "upside_mean": 1.0365774003919008,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": ""
+    "recent_actions": "2026-10-27 B of A Securities kept Buy, target $180\u2192$150"
    },
    {
     "ticker": "MOD",
@@ -724,7 +724,7 @@
     "upside_mean": 1.2432210889455528,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-20 Cantor Fitzgerald initiated Overweight, target $275"
+    "recent_actions": "2026-10-27 DA Davidson kept Buy, target $330"
    },
    {
     "ticker": "STRL",
@@ -839,12 +839,12 @@
     "ten_cap_price": 407.0728,
     "sticker": 807.7989,
     "target_low": 629.06,
-    "target_mean": 845.49725,
+    "target_mean": 846.79034,
     "target_high": 1050.0,
     "n_analysts": 58.0,
     "rec_mean": 1.40323,
     "rec_key": "strong_buy",
-    "upside_mean": 0.3157032927702219,
+    "upside_mean": 0.3177155083875385,
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": "2026-10-22 UBS kept Buy, target $884\u2192$892; 2026-10-22 Citigroup kept Buy, target $895\u2192$905; 2026-10-22 DA Davidson kept Buy, target $700\u2192$800; 2026-10-22 BMO Capital kept Market Perform, target $580\u2192$685"
@@ -887,7 +887,7 @@
     "upside_mean": 0.3401274788420101,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": "2026-10-22 Citizens kept Market Outperform, target $515\u2192$450; 2026-10-20 BMO Capital kept Outperform, target $465\u2192$480"
+    "recent_actions": "2026-10-22 Citizens kept Market Outperform, target $515\u2192$450"
    },
    {
     "ticker": "MSFT",
@@ -899,12 +899,12 @@
     "ten_cap_price": 240.0162,
     "sticker": 538.5,
     "target_low": 440.0,
-    "target_mean": 603.4262,
+    "target_mean": 605.1243,
     "target_high": 870.0,
     "n_analysts": 53.0,
     "rec_mean": 1.33333,
     "rec_key": "strong_buy",
-    "upside_mean": 0.15045699796000078,
+    "upside_mean": 0.1536944958151416,
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": "2026-10-26 Oppenheimer kept Outperform, target $570\u2192$625; 2026-10-26 Truist Securities kept Buy, target $575\u2192$600; 2026-10-26 Scotiabank kept Sector Outperform, target $615\u2192$625; 2026-10-21 Guggenheim kept Buy, target $586"
@@ -927,7 +927,7 @@
     "upside_mean": 0.2337854834652373,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-21 Susquehanna kept Positive, target $550\u2192$620; 2026-10-20 Wedbush kept Outperform, target $600"
+    "recent_actions": "2026-10-21 Susquehanna kept Positive, target $550\u2192$620"
    },
    {
     "ticker": "AVGO",
@@ -939,15 +939,15 @@
     "ten_cap_price": 79.1986,
     "sticker": 235.2,
     "target_low": 215.88,
-    "target_mean": 529.1,
+    "target_mean": 530.14166,
     "target_high": 660.0,
     "n_analysts": 48.0,
     "rec_mean": 1.27451,
     "rec_key": "strong_buy",
-    "upside_mean": 0.6448022879880626,
+    "upside_mean": 0.6480404750062174,
     "revision_30d": null,
     "signal": "crowded",
-    "recent_actions": "2026-10-22 Tigress Financial initiated Buy, target $600"
+    "recent_actions": "2026-10-27 Rosenblatt kept Buy, target $600; 2026-10-27 DA Davidson upgraded Buy, target $350\u2192$400; 2026-10-22 Tigress Financial initiated Buy, target $600"
    },
    {
     "ticker": "MU",
@@ -979,12 +979,12 @@
     "ten_cap_price": 33.8793,
     "sticker": 103.8,
     "target_low": 57.0,
-    "target_mean": 84.78651,
+    "target_mean": 84.76326,
     "target_high": 126.0,
     "n_analysts": 43.0,
     "rec_mean": 1.92157,
     "rec_key": "buy",
-    "upside_mean": 0.28757038724373607,
+    "upside_mean": 0.28721731207289314,
     "revision_30d": null,
     "signal": "agree",
     "recent_actions": "2026-10-22 Wolfe Research downgraded Peer Perform; 2026-10-22 Argus Research kept Buy, target $120\u2192$95; 2026-10-22 Pivotal Research kept Hold, target $70\u2192$65; 2026-10-21 UBS kept Buy, target $115\u2192$100"
@@ -1042,12 +1042,12 @@
     "target_mean": 169.44595,
     "target_high": 225.0,
     "n_analysts": 37.0,
-    "rec_mean": 2.86364,
+    "rec_mean": 2.88636,
     "rec_key": "hold",
     "upside_mean": -0.05858131007278178,
     "revision_30d": null,
     "signal": "both cautious",
-    "recent_actions": "2026-10-23 JP Morgan kept Underweight, target $118\u2192$140; 2026-10-20 Truist Securities kept Buy, target $183\u2192$200"
+    "recent_actions": "2026-10-23 JP Morgan kept Underweight, target $118\u2192$140"
    },
    {
     "ticker": "MA",
@@ -1141,15 +1141,15 @@
     "ten_cap_price": 15.0941,
     "sticker": 42.6,
     "target_low": 9.0,
-    "target_mean": 13.57692,
+    "target_mean": 13.34615,
     "target_high": 20.0,
     "n_analysts": 13.0,
     "rec_mean": 2.06667,
     "rec_key": "buy",
-    "upside_mean": 0.4216670157068061,
+    "upside_mean": 0.397502617801047,
     "revision_30d": null,
     "signal": "agree",
-    "recent_actions": ""
+    "recent_actions": "2026-10-27 JP Morgan kept Overweight, target $18\u2192$15"
    },
    {
     "ticker": "DECK",
@@ -1161,12 +1161,12 @@
     "ten_cap_price": 102.2778,
     "sticker": 117.9612,
     "target_low": 70.0,
-    "target_mean": 98.19048,
+    "target_mean": 96.74286,
     "target_high": 137.0,
     "n_analysts": 21.0,
     "rec_mean": 2.55556,
     "rec_key": "hold",
-    "upside_mean": 0.21088272290048082,
+    "upside_mean": 0.1930307066222714,
     "revision_30d": null,
     "signal": "mixed",
     "recent_actions": "2026-10-26 Barclays kept Overweight, target $133\u2192$100; 2026-10-23 Telsey Advisory Group kept Market Perform, target $105\u2192$90; 2026-10-23 UBS kept Buy, target $140\u2192$137; 2026-10-23 BNP Paribas kept Outperform, target $184\u2192$122"
@@ -1180,15 +1180,15 @@
     "mos_price": 97.1255,
     "ten_cap_price": 388.7812,
     "sticker": 194.251,
-    "target_low": 121.8719,
-    "target_mean": 160.91687,
-    "target_high": 236.82663,
+    "target_low": 121.90608,
+    "target_mean": 160.962,
+    "target_high": 236.89304,
     "n_analysts": 18.0,
-    "rec_mean": 1.38889,
-    "rec_key": "strong_buy",
-    "upside_mean": 0.62230940619014,
+    "rec_mean": null,
+    "rec_key": null,
+    "upside_mean": 0.6227643915717309,
     "revision_30d": null,
-    "signal": "agree",
+    "signal": "mixed",
     "recent_actions": ""
    },
    {
@@ -1300,13 +1300,13 @@
     "mos_price": 7.8994,
     "ten_cap_price": 136.7835,
     "sticker": 15.7987,
-    "target_low": 8.066223,
-    "target_mean": 14.875399,
-    "target_high": 23.10274,
+    "target_low": 8.069612,
+    "target_mean": 14.881646,
+    "target_high": 23.112444,
     "n_analysts": 13.0,
     "rec_mean": null,
     "rec_key": null,
-    "upside_mean": 1.8280226235741446,
+    "upside_mean": 1.8292102661596958,
     "revision_30d": null,
     "signal": "mixed",
     "recent_actions": ""

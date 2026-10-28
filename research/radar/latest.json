@@ -1,14 +1,17 @@
-{"date":"2026-10-27",
-"summary":"KNSL's Q3 combined ratio (75.4%) is far from its 90% sell trigger, but gross written premium fell 4.8%, which tests must-stay-true item 2. DECK fell 6% on target cuts (fear, not business news); its CEO-change 8-K is still unread. MELI -9% on Brazil election headlines (runoff outcome unconfirmed). ARCO -12% with an unconfirmed cause. No EVENT or PROBLEM verdicts today; the tech and semiconductor sell-off is price noise far above MOS.",
+{"date":"2026-10-28",
+"summary":"No EVENT or PROBLEM today. Lula's surprise win in the Brazil runoff hit the real and Brazilian equities: ARCO -12% (BofA downgrade to Neutral, target $12 to $9, confirmed) and MELI -9%. ARCO is in buy range and this is currency and political fear rather than a broken business, but its debt and owner-earnings flags keep it at WATCH. DECK (-6%) and KNSL (-5%) keep yesterday's open checks. ACGL and CINF reported without a break. The tech and semiconductor sell-off is price noise far above MOS.",
 "items":[
-{"ticker":"KNSL","verdict":"WATCH","headline":"Q3 combined ratio 75.4% but gross written premium -4.8%","why":"Sell trigger (combined ratio >90%) not tripped. Must-stay-true #2 (casualty growth positive) needs the 10-Q segment table. Price $364 vs MOS $344.","sources":["https://www.sec.gov/Archives/edgar/data/0001669162/000166916226000049/earningsrelease3q2026.htm"]},
-{"ticker":"DECK","verdict":"WATCH","headline":"-6% as Barclays, Telsey and BNP cut targets; CEO-change 8-K unread","why":"Analyst cuts are fear, not news (InvestED 249). Price $81.09 vs MOS $58.98. Check the CEO 8-K and HOKA/UGG growth against the must-stay-true items. No 2026 guidance cut confirmed.","sources":[]},
-{"ticker":"MELI","verdict":"WATCH","headline":"-9% on Brazil election headlines; runoff outcome unconfirmed","why":"Political/market-wide price move, not business news (METHOD 7). Price $1,810 is far above MOS $551, so no event.","sources":[]},
-{"ticker":"ARCO","verdict":"WATCH","headline":"-12% in a day, cause unconfirmed","why":"Debt >3x FCF and owner earnings <75% of net income flags; event check 5 (no new debt) can't pass until the cause is known. Price $8.09 vs MOS $9.64.","sources":[]},
-{"ticker":"DHI","verdict":"WATCH","headline":"8-K item 5.02 officer change ahead of Q4 earnings","why":"Event check 1: read who left and why before judging. Price $147 vs MOS $58.","sources":[]},
-{"ticker":"DORM","verdict":"WATCH","headline":"Earnings release 10-26 not yet read","why":"Check guidance and margin against the markers. Price $125 vs MOS $64.94.","sources":[]},
-{"ticker":"CLS","verdict":"NOISE","headline":"-19% in 5 days despite Q3 beat; AI-hardware sell-off","why":"No sticker computed; no business break found. Price move, not value (METHOD 7).","sources":[]},
-{"ticker":"META","verdict":"NOISE","headline":"-11% in 5 days, no new confirmed break","why":"Price $642 vs MOS $404, not near buy range. Earlier debt/FCF watch stands (event check 5).","sources":[]}
+{"ticker":"ARCO","verdict":"WATCH","headline":"-12% after Lula wins Brazil runoff; BofA to Neutral, target $12 to $9","why":"Cause confirmed: real weakness and fiscal worries; ~40% of revenue is Brazil. Fear, not a moat break, but debt >3x FCF and owner earnings <75% flags leave event check 5 unproven. Price $8.09 vs MOS $9.64.","sources":["https://www.fool.com/investing/2026/10/26/why-arcos-dorados-stock-got-socked-today/"]},
+{"ticker":"MELI","verdict":"NOISE","headline":"-9% on the same Brazil election sell-off","why":"Macro/political price move, not business news (METHOD 7). Price $1,810 vs MOS $551: far from buy range.","sources":[]},
+{"ticker":"KNSL","verdict":"WATCH","headline":"-5% after Q3: combined ratio 75.4% but premium growth slowed","why":"Sell trigger (combined ratio >90%) not tripped. Must-stay-true #2 (casualty growth) still needs the 10-Q segment table. Price $364 vs MOS $344.","sources":["https://www.sec.gov/Archives/edgar/data/0001669162/000166916226000049/earningsrelease3q2026.htm"]},
+{"ticker":"DECK","verdict":"WATCH","headline":"-6% as Barclays, Telsey, BNP cut targets; CEO 8-K still unread","why":"Target cuts are fear, not news (InvestED 249). Sell trigger 'new CEO plus guidance cut' needs the CEO 8-K read. Price $81.09 vs MOS $58.98.","sources":[]},
+{"ticker":"DHI","verdict":"WATCH","headline":"Officer-change 8-K (5.02) before Q4 earnings; builders cutting prices","why":"Event check 1: read who left and why. Record builder price cuts are a margin risk. Price $147 vs MOS $58.","sources":[]},
+{"ticker":"ABG","verdict":"WATCH","headline":"Q3 EPS and revenue miss; debt >3 years of FCF flag","why":"Check guidance and debt on the call; event check 5 (fix needs no new debt). Price $172.65 vs MOS $114.","sources":[]},
+{"ticker":"LRN","verdict":"WATCH","headline":"Insider bought $12.2M of stock on 10-27","why":"A large insider buy is a positive marker, but cause of the 5-day slide is unconfirmed. Price $79.40 vs MOS $44.35.","sources":[]},
+{"ticker":"ACGL","verdict":"NOISE","headline":"Q3 earnings beat","why":"Routine; no break found. Near 52-week high, so the value-trap check applies. Price $101.69 vs MOS $66.69.","sources":[]},
+{"ticker":"CINF","verdict":"NOISE","headline":"Q3 beat on premium growth","why":"No break found. Near 52-week high, value-trap check applies (LESSONS). Price $176.30 vs MOS $72.95.","sources":[]},
+{"ticker":"CLS","verdict":"NOISE","headline":"-19% in 5 days; AI-hardware sell-off","why":"No sticker computed; no business break found. Price move, not value (METHOD 7).","sources":[]},
+{"ticker":"META","verdict":"NOISE","headline":"-11% in 5 days, no confirmed break","why":"Price $642 vs MOS $404, not near buy range (METHOD 7).","sources":[]}
 ],
 "guru_moves":[
 {"guru":"Himalaya Capital (Li Lu)","ticker":"PDD","change":"added","weight":0.2217,"report":"2026-06-30"},
@@ -16,5 +19,5 @@
 {"guru":"Pershing Square (Bill Ackman)","ticker":"MSFT","change":"new","weight":0.1526,"report":"2026-03-31"},
 {"guru":"Himalaya Capital (Li Lu)","ticker":"BRK-B","change":"added","weight":0.1498,"report":"2026-06-30"},
 {"guru":"Berkshire Hathaway (Buffett)","ticker":"GOOGL","change":"added","weight":0.0941,"report":"2026-06-30"},
-{"guru":"Baupost (Seth Klarman)","ticker":"CME","change":"new","weight":0.0252,"report":"2026-06-30"}
+{"guru":"Baupost (Seth Klarman)","ticker":"GPC","change":"added","weight":0.0613,"report":"2026-06-30"}
 ]}
