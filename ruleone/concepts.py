@@ -38,6 +38,14 @@ INSTANT = {
     "cash": (USD, ["CashAndCashEquivalentsAtCarryingValue",
                    "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents"]),
     "assets": (USD, ["Assets"]),
+    # Debt that the two tags above miss (METHOD proposal 2026-10-24: SMCI $134M vs $8.7B, OPFI $50M vs $276.5M)
+    "debt_combined": (USD, ["DebtLongtermAndShorttermCombinedAmount", "DebtAndCapitalLeaseObligations",
+                            "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"]),
+    "debt_convertible": (USD, ["ConvertibleNotesPayableNoncurrent", "ConvertibleDebtNoncurrent",
+                               "ConvertibleNotesPayable", "ConvertibleDebt", "ConvertibleNotesPayableCurrent"]),
+    "debt_revolver": (USD, ["LongTermLineOfCredit", "LineOfCredit"]),
+    "debt_secured": (USD, ["SecuredDebt", "SecuredLongTermDebt", "LongTermNotesPayable", "NotesPayable", "SeniorNotes"]),
+    "debt_short": (USD, ["ShortTermBorrowings", "NotesPayableCurrent"]),
 }
 
 # Fields fetched universe-wide in stage 1 (keeps the request count ~600).

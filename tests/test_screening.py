@@ -272,3 +272,20 @@ def test_screener_imports_everything_analyze_uses():
     import ruleone.screener as s
     for name in ("street_capped_growth", "is_lender", "LENDER_FLAG", "load_analysts"):
         assert hasattr(s, name), name
+
+
+def test_total_debt_counts_convertibles_revolvers_and_funding_debt():
+    # METHOD.md proposal 2026-10-24: SMCI showed $134M against $8.7B in the 10-K, OPFI $50M against $276.5M
+    from ruleone.concepts import INSTANT
+    from ruleone.metrics import total_debt, wonderful_markers
+    assert "ConvertibleNotesPayableNoncurrent" in INSTANT["debt_convertible"][1]
+    assert "SecuredDebt" in INSTANT["debt_secured"][1] and "LongTermLineOfCredit" in INSTANT["debt_revolver"][1]
+    assert total_debt({"lt_debt": 134e6, "debt_convertible": 2.0e9, "debt_secured": 6.5e9}) == 8.5e9   # pieces beat the stub
+    assert total_debt({"lt_debt": 50e6, "debt_revolver": 276.5e6}) == 276.5e6
+    assert total_debt({"lt_debt": 100e6, "debt_current": 20e6}) == 120e6                              # unchanged for plain filers
+    assert total_debt({"lt_debt": 100e6, "debt_current": 20e6, "debt_combined": 120e6, "debt_secured": 100e6}) == 120e6  # no double count
+    assert total_debt({"equity": 5}) is None and total_debt({}) is None
+    rows = {y: {"revenue": 1e9 + y, "ocf": 100e6, "capex": 0, "net_income": 50e6, "equity": 1e9, "lt_debt": 50e6,
+                "debt_revolver": 600e6, "shares": 1e8, "op_income": 80e6} for y in range(2015, 2026)}
+    ttm = {"revenue": 1e9, "ocf": 100e6, "capex": 0, "net_income": 50e6}
+    assert wonderful_markers(rows, ttm, None, rows[2025])["low_debt"]["pass"] is False             # 6 years of FCF

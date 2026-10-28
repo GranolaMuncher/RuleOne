@@ -10,7 +10,7 @@ from __future__ import annotations
 from datetime import date
 
 from .http import Fetcher
-from .metrics import normalize_splits, post_filing_split, sane_shares
+from .metrics import normalize_splits, post_filing_split, sane_shares, total_debt
 from .prices import load_fx, load_share_fallback, price_near
 
 NOT_MONEY = {"shares", "diluted_shares", "shares_outstanding", "split_factor"}
@@ -91,7 +91,7 @@ def normalize(fetcher: Fetcher, listing, cf: dict, today: date) -> dict | None:
         notes.append(f"ADR: 1 ADS = {round(1 / factor)} shares")
     if eps_source != "xbrl":
         notes.append(f"EPS from {eps_source}")
-    debt = (latest.get("lt_debt") or 0) + (latest.get("debt_current") or 0)
+    debt = total_debt(latest) or 0
     return {"currency": cur, "fx": fx, "share_factor": factor, "shares": shares, "eps": eps,
             "eps_source": eps_source, "ttm": ttm, "latest": latest, "annual_usd": annual_usd,
             "eps_by_end": {r["end"]: r["eps"] for r in annual_usd.values() if r.get("eps")},

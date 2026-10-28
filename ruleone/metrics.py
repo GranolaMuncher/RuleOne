@@ -66,6 +66,21 @@ def owner_earnings(row):
     return ocf - maint + max(row.get("tax") or 0.0, 0.0)
 
 
+def total_debt(row) -> float | None:
+    """Borrowings including convertibles, revolvers and secured or funding debt, which the
+    LongTermDebt tags miss (SMCI $134M against $8.7B in the 10-K, OPFI $50M against $276.5M).
+
+    Filers tag the same debt in several ways, so the candidates are compared rather than added:
+    the largest of long-term plus current debt, a combined-total tag, and the separate pieces.
+    None when the row carries no debt tag at all."""
+    keys = ("lt_debt", "debt_current", "debt_combined", "debt_convertible", "debt_revolver", "debt_secured", "debt_short")
+    if not row or all(row.get(k) is None for k in keys):
+        return None
+    v = lambda k: max(row.get(k) or 0.0, 0.0)
+    pieces = sum(v(k) for k in ("debt_convertible", "debt_revolver", "debt_secured", "debt_short"))
+    return max(v("lt_debt") + v("debt_current"), v("debt_combined"), pieces)
+
+
 def fcf(row):
     if row.get("ocf") is None:
         return None
@@ -182,7 +197,7 @@ def big_five(years: dict[int, dict]) -> dict:
     out["tests_passed"], out["tests_total"] = tests_passed, tests_total
     out["big5_score"] = tests_passed / tests_total if tests_total else 0.0
     f = fcf(cur)
-    debt = cur.get("lt_debt") or 0.0
+    debt = total_debt(cur) or 0.0
     out["fcf"] = f
     out["debt_payoff_years"] = (debt / f) if f and f > 0 else (0.0 if debt == 0 else None)
     out["revenue"] = cur.get("revenue")
@@ -284,8 +299,7 @@ def wonderful_markers(annual: dict, ttm: dict | None = None, debt: float | None 
     conv = _ratio(oe - max(src.get("tax") or 0, 0), ni) if oe is not None and ni and ni > 0 else None
     put("cash_real", conv >= 0.75 if conv is not None else None, conv)
     bal = balance or (rows[-1] if rows else {})
-    d = debt if debt is not None else ((bal.get("lt_debt") or 0) + (bal.get("debt_current") or 0)
-                                        if bal and ("lt_debt" in bal or "debt_current" in bal) else None)
+    d = debt if debt is not None else total_debt(bal)
     dy = (d / f if f and f > 0 else (0.0 if not d else None)) if d is not None else None
     put("low_debt", (dy is not None and dy <= 2) if d is not None else None, dy)
 
