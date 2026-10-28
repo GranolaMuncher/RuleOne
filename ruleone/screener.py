@@ -30,8 +30,8 @@ from .sectors import load_reference, refresh_reference
 from .normalize import normalize
 from .prices import load_prices, price_near
 from .universe import load_universe
-from .valuation import (LENDER_FLAG, historical_pe, is_lender, methods_agree, payback_price, sticker_price,
-                        street_capped_growth, ten_cap_price)
+from .valuation import (LENDER_FLAG, historical_pe, is_lender, methods_agree, payback_price, peak_earnings,
+                        peak_rebase, sticker_price, street_capped_growth, ten_cap_price)
 
 
 def log(*a):
@@ -101,7 +101,9 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
     hpe = historical_pe(eps_by_end, lambda d: price_near(px["series"], d))
     g = windage_growth(b)
     g, rebase = street_capped_growth(g, _street_eps_growth(street, listing.ticker))
-    st = sticker_price(eps, g, hpe["median"]) if g else None
+    peak_ratio, eps_avg5 = peak_earnings(eps, [nz["annual_usd"][y].get("eps") for y in sorted(nz["annual_usd"])])
+    g, sticker_eps, peak = peak_rebase(g, eps, peak_ratio, eps_avg5)
+    st = sticker_price(sticker_eps, g, hpe["median"]) if g else None
     fcf_ttm = fcf(ttm)
     oe_ttm = owner_earnings(ttm)
     net_debt = (nz["debt"] or 0) - (nz["cash"] or 0)
@@ -145,7 +147,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
         "buy_signals": "+".join(buy_signals),
         "windage_growth": g, "future_pe": st["future_pe"] if st else None,
         "hist_pe_median": hpe["median"], "pe_ttm": price / eps if eps and eps > 0 else None,
-        "eps_ttm": eps, "fcf_ttm": fcf_ttm, "ttm_end": ttm.get("_end"),
+        "eps_ttm": eps, "eps_vs_5y_avg": peak_ratio, "fcf_ttm": fcf_ttm, "ttm_end": ttm.get("_end"),
         "fcf_yield": fcf_ttm / mcap if fcf_ttm and mcap else None,
         "owner_earnings_ttm": oe_ttm, "net_debt": net_debt,
         "methods_agree": methods_agree(price, mos, pb, tc), "cash_conversion": cash_conv,
@@ -162,6 +164,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
                                                                    "Brokers", "Security"))),
             (LENDER_FLAG, lender),
             (rebase, bool(rebase)),
+            (peak, bool(peak)),
             ("; ".join(nz["notes"]), bool(nz["notes"])),
             ("micro-cap", mcap is not None and mcap < 1e9),
             # Checks from the InvestED synthesis (knowledge/rule1/METHOD.md)
@@ -180,7 +183,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
 # ---------------------------------------------------------------- output
 COLUMNS = ["ticker", "name", "exchange", "sector", "industry", "status", "tier", "price", "price_date", "market_cap",
            "sticker", "mos_price", "payback_price", "ten_cap_price", "price_to_sticker", "buy_signals", "methods_agree", "marker_score", "markers",
-           "windage_growth", "future_pe", "hist_pe_median", "pe_ttm", "eps_ttm", "fcf_ttm", "fcf_yield",
+           "windage_growth", "future_pe", "hist_pe_median", "pe_ttm", "eps_ttm", "eps_vs_5y_avg", "fcf_ttm", "fcf_yield",
            "ttm_end", "div_ttm", "div_yield", "div_growth_5y", "tr_5y", "tr_10y", "debt", "debt_payoff_years", "debt_years_total", "owner_earnings_ttm", "net_debt", "cash_conversion", "big5_score", "big5_tests", "roic10", "roic5", "roic1",
            "sales_g10", "sales_g5", "sales_g1", "eps_g10", "eps_g5", "eps_g1", "bvps_g10", "bvps_g5",
            "bvps_g1", "ocf_g10", "ocf_g5", "ocf_g1", "chg_1w", "chg_1m", "chg_3m", "drawdown_52w", "event_score", "events",

@@ -73,6 +73,31 @@ def street_capped_growth(g: float | None, street_eps_growth: float | None) -> tu
                                        f"history-based growth {g:.1%} not used")
 
 
+# Peak earnings (InvestED METHOD proposal 2026-10-24): PGR TTM EPS $19.9 was 2.1x its five-year average and KNSL 1.7x,
+# yet the screen grew both at 15%. Past 1.5x, cap windage at the Big Five hurdle and value the Sticker on average EPS.
+PEAK_RATIO = 1.5
+PEAK_GROWTH_CAP = 0.10
+
+
+def peak_earnings(eps_ttm: float | None, annual_eps: list[float | None]) -> tuple[float | None, float | None]:
+    """(TTM EPS / average of the last five fiscal-year EPS, that average). Needs 4+ positive years;
+    (None, None) otherwise. The insurer combined-ratio test is not in XBRL and is not applied."""
+    vals = [e for e in annual_eps[-5:] if e is not None]
+    if not eps_ttm or eps_ttm <= 0 or len(vals) < 4:
+        return None, None
+    avg = sum(vals) / len(vals)
+    return (eps_ttm / avg, avg) if avg > 0 else (None, None)
+
+
+def peak_rebase(g: float | None, eps: float | None, ratio: float | None, avg_eps: float | None):
+    """(growth, eps, flag) for the Sticker: unchanged unless ratio > PEAK_RATIO."""
+    if ratio is None or ratio <= PEAK_RATIO or not avg_eps:
+        return g, eps, ""
+    return (min(g, PEAK_GROWTH_CAP) if g is not None else g, avg_eps,
+            f"peak earnings: TTM EPS is {ratio:.1f}x its 5-year average; Sticker rebased on ${avg_eps:.2f} "
+            f"and growth capped at {PEAK_GROWTH_CAP:.0%}")
+
+
 def historical_pe(eps_by_end: dict[str, float], price_at) -> dict:
     pes = []
     for end, eps in sorted(eps_by_end.items())[-10:]:
