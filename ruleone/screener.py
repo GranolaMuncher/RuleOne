@@ -30,8 +30,8 @@ from .sectors import load_reference, refresh_reference
 from .normalize import normalize
 from .prices import load_prices, price_near
 from .universe import load_universe
-from .valuation import (LENDER_FLAG, historical_pe, is_lender, methods_agree, payback_price, peak_earnings,
-                        peak_rebase, sbc_flag, sbc_share, sticker_price, street_capped_growth, ten_cap_price)
+from .valuation import (LENDER_FLAG, historical_pe, is_lender, methods_agree, payback_price, peak_rebase,
+                        peak_test, sbc_flag, sbc_share, sticker_price, street_capped_growth, ten_cap_price)
 
 
 def log(*a):
@@ -101,14 +101,15 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
     hpe = historical_pe(eps_by_end, lambda d: price_near(px["series"], d))
     g = windage_growth(b)
     g, rebase = street_capped_growth(g, _street_eps_growth(street, listing.ticker))
-    peak_ratio, eps_avg5 = peak_earnings(eps, [nz["annual_usd"][y].get("eps") for y in sorted(nz["annual_usd"])])
-    g, sticker_eps, peak = peak_rebase(g, eps, peak_ratio, eps_avg5)
-    st = sticker_price(sticker_eps, g, hpe["median"]) if g else None
     fcf_ttm = fcf(ttm)
     oe_ttm = owner_earnings(ttm)
     net_debt = (nz["debt"] or 0) - (nz["cash"] or 0)
     ev = load_events(fetcher, listing.cik, px, today) if with_events else {}
     lender = is_lender(listing.ticker, ev.get("sic"))
+    insurer = "Insurance" in (ev.get("sic") or "")
+    peak_ratio, eps_avg5, is_peak = peak_test(eps, [nz["annual_usd"][y].get("eps") for y in sorted(nz["annual_usd"])], insurer)
+    g, sticker_eps, peak = peak_rebase(g, eps, peak_ratio, eps_avg5, is_peak)
+    st = sticker_price(sticker_eps, g, hpe["median"]) if g else None
     pb = payback_price(fcf_ttm, shares, g) if g is not None and not lender else None
     tc = ten_cap_price(oe_ttm, shares, net_debt) if not lender else None
     # After stock-based compensation: treat SBC as the cash cost it is (shares issued in lieu of pay)

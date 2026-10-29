@@ -91,14 +91,17 @@ def street_capped_growth(g: float | None, street_eps_growth: float | None) -> tu
 
 
 # Peak earnings (InvestED METHOD proposal 2026-10-24): PGR TTM EPS $19.9 was 2.1x its five-year average and KNSL 1.7x,
-# yet the screen grew both at 15%. Past 1.5x, cap windage at the Big Five hurdle and value the Sticker on average EPS.
-PEAK_RATIO = 1.5
+# yet the screen grew both at 15%. A steady 15% compounder also sits near 1.5x its five-year average (MSFT 1.53x),
+# so outside insurance a name is a peak only if it is also well above its own earlier growth trend. Insurers keep the
+# plain test: underwriting profits are cyclical (the proposal's combined-ratio point, which XBRL doesn't carry).
+PEAK_RATIO = 1.5          # TTM EPS vs the five-year average
+PEAK_TREND_RATIO = 1.3    # TTM EPS vs where the earlier trend would put it today
+TREND_MAX = 0.25          # never assume a trend faster than 25% a year
 PEAK_GROWTH_CAP = 0.10
 
 
 def peak_earnings(eps_ttm: float | None, annual_eps: list[float | None]) -> tuple[float | None, float | None]:
-    """(TTM EPS / average of the last five fiscal-year EPS, that average). Needs 4+ positive years;
-    (None, None) otherwise. The insurer combined-ratio test is not in XBRL and is not applied."""
+    """(TTM EPS / average of the last five fiscal-year EPS, that average). Needs 4+ years; (None, None) otherwise."""
     vals = [e for e in annual_eps[-5:] if e is not None]
     if not eps_ttm or eps_ttm <= 0 or len(vals) < 4:
         return None, None
@@ -106,13 +109,38 @@ def peak_earnings(eps_ttm: float | None, annual_eps: list[float | None]) -> tupl
     return (eps_ttm / avg, avg) if avg > 0 else (None, None)
 
 
-def peak_rebase(g: float | None, eps: float | None, ratio: float | None, avg_eps: float | None):
-    """(growth, eps, flag) for the Sticker: unchanged unless ratio > PEAK_RATIO."""
-    if ratio is None or ratio <= PEAK_RATIO or not avg_eps:
+def trend_ratio(eps_ttm: float | None, annual_eps: list[float | None]) -> float | None:
+    """TTM EPS / the EPS the company's earlier trend predicts for today. The trend runs from the median of the
+    first three of the last eleven years to the median of years -6..-4 (both before any recent spike), capped at TREND_MAX."""
+    eps = [e for e in annual_eps if e is not None][-11:]   # the screen's ten-year view
+    if not eps_ttm or eps_ttm <= 0 or len(eps) < 7:
+        return None
+    early, mid = [e for e in eps[:3] if e > 0], [e for e in eps[-6:-3] if e > 0]
+    if len(early) < 2 or len(mid) < 2:
+        return None
+    a, b = sorted(early)[len(early) // 2], sorted(mid)[len(mid) // 2]
+    g = min((b / a) ** (1 / (len(eps) - 6)) - 1, TREND_MAX)
+    return eps_ttm / (b * (1 + g) ** 5)                # the middle window is about five years before TTM
+
+
+def peak_test(eps_ttm: float | None, annual_eps: list[float | None], insurer: bool = False):
+    """(ratio to the five-year average, that average, is_peak)."""
+    ratio, avg = peak_earnings(eps_ttm, annual_eps)
+    if ratio is None or ratio <= PEAK_RATIO:
+        return ratio, avg, False
+    if insurer:
+        return ratio, avg, True
+    tr = trend_ratio(eps_ttm, annual_eps)
+    return ratio, avg, tr is not None and tr > PEAK_TREND_RATIO
+
+
+def peak_rebase(g: float | None, eps: float | None, ratio: float | None, avg_eps: float | None, is_peak: bool = True):
+    """(growth, eps, flag) for the Sticker: unchanged unless is_peak."""
+    if not is_peak or ratio is None or ratio <= PEAK_RATIO or not avg_eps:
         return g, eps, ""
     return (min(g, PEAK_GROWTH_CAP) if g is not None else g, avg_eps,
-            f"peak earnings: TTM EPS is {ratio:.1f}x its 5-year average; Sticker rebased on ${avg_eps:.2f} "
-            f"and growth capped at {PEAK_GROWTH_CAP:.0%}")
+            f"peak earnings: TTM EPS is {ratio:.1f}x its 5-year average, so the Sticker uses ${avg_eps:.2f} "
+            f"and growth is capped at {PEAK_GROWTH_CAP:.0%}")
 
 
 def historical_pe(eps_by_end: dict[str, float], price_at) -> dict:

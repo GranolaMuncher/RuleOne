@@ -270,7 +270,7 @@ def test_screener_imports_everything_analyze_uses():
     # The 2026-10-23 windage branch called street_capped_growth() in analyze() without importing it;
     # no test reached analyze(), so the screen would have crashed on every name.
     import ruleone.screener as s
-    for name in ("street_capped_growth", "is_lender", "LENDER_FLAG", "load_analysts", "sbc_flag", "sbc_share", "peak_earnings", "peak_rebase"):
+    for name in ("street_capped_growth", "is_lender", "LENDER_FLAG", "load_analysts", "sbc_flag", "sbc_share", "peak_test", "peak_rebase"):
         assert hasattr(s, name), name
 
 
@@ -319,3 +319,22 @@ def test_peak_earnings_rebases_sticker_on_average_eps():
     assert peak_rebase(0.15, 19.9, 1.5, avg)[2] == ""                  # exactly 1.5x is not "above"
     assert peak_earnings(5.0, [1.0, 2.0, 3.0]) == (None, None)         # under four years of history
     assert peak_earnings(-1.0, hist) == (None, None) and peak_earnings(5.0, [None, 1.0, 1.2, 1.1, 1.0])[0] is not None
+
+
+def test_peak_rule_spares_steady_compounders_but_catches_spikes_and_insurers():
+    # Real EPS histories (SEC, fiscal years to 2025/26) and TTM EPS, October 2026
+    from ruleone.valuation import peak_test, trend_ratio
+    msft = (19.15, [2.56, 3.25, 2.13, 5.06, 5.76, 8.05, 9.65, 9.68, 11.8, 13.64, 17.95])
+    cost = (20.76, [5.33, 6.08, 7.09, 8.26, 9.02, 11.27, 13.14, 14.16, 16.56, 18.21, 20.76])
+    smci = (3.26, [0.14, 0.13, 0.09, 0.14, 0.16, 0.21, 0.53, 1.14, 1.92, 1.68, 3.26])
+    pgr = (19.93, [2.15, 1.76, 2.72, 4.42, 6.72, 9.66, 5.66, 1.18, 6.58, 14.4, 19.23])
+    knsl = (22.95, [None, None, 1.16, 1.56, 2.86, 3.87, 6.62, 6.88, 13.22, 17.78, 21.65])
+    assert peak_test(*msft)[0] > 1.5 and peak_test(*msft)[2] is False          # 1.5x the average is normal at 15% a year
+    assert peak_test(*cost)[2] is False
+    assert peak_test(*smci)[2] is True and trend_ratio(*smci) > 1.3            # an AI-server spike
+    assert peak_test(*pgr, insurer=True)[2] is True and peak_test(*knsl, insurer=True)[2] is True
+    assert peak_test(*knsl, insurer=False)[2] is False                         # not a spike by trend alone
+    assert trend_ratio(5.0, [1.0, 2.0, 3.0]) is None                           # too little history
+    nvda = (7.91, [0.033, -0.001, -0.003, 0.011, 0.024, 0.022, 0.018, 0.028, 0.027, 0.064, 0.121, 0.166, 0.113,
+                   0.173, 0.385, 0.17, 1.19, 2.94, 4.9])                       # history back to 2007
+    assert peak_test(*nvda)[2] is True                                         # only the last eleven years count
