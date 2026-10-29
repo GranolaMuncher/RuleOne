@@ -1,6 +1,4 @@
-# Stockagotchi: a Rule #1 / Buffett-Munger stock screener and valuation toolkit
-
-Stocks + Tamagotchi: a few wonderful businesses you look after and check on, never trade on a whim. The repo and Python package keep the original name, `RuleOne` / `ruleone`.
+# RuleOne: a Rule #1 / Buffett-Munger stock screener and valuation toolkit
 
 This repo has two parts:
 
