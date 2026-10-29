@@ -270,5 +270,20 @@ def test_screener_imports_everything_analyze_uses():
     # The 2026-10-23 windage branch called street_capped_growth() in analyze() without importing it;
     # no test reached analyze(), so the screen would have crashed on every name.
     import ruleone.screener as s
-    for name in ("street_capped_growth", "is_lender", "LENDER_FLAG", "load_analysts"):
+    for name in ("street_capped_growth", "is_lender", "LENDER_FLAG", "load_analysts", "sbc_flag", "sbc_share"):
         assert hasattr(s, name), name
+
+
+def test_sbc_share_flag_and_after_sbc_prices():
+    # METHOD.md proposal 2026-10-24: TTD, ADBE and INTU look cheap because OCF adds stock compensation back
+    from ruleone.valuation import payback_price, sbc_flag, sbc_share, ten_cap_price
+    assert sbc_share(30, 100) == 0.3 and sbc_share(None, 100) is None and sbc_share(5, -1) is None
+    assert "30%" in sbc_flag(0.3) and sbc_flag(0.10) == "" and sbc_flag(None) == ""
+    fcf_, sbc, sh = 800e6, 500e6, 100e6
+    assert payback_price(fcf_ - sbc, sh, 0.1) < 0.4 * payback_price(fcf_, sh, 0.1)
+    assert ten_cap_price(1000e6 - sbc, sh) == 50.0 and ten_cap_price(1000e6, sh) == 100.0
+
+
+def test_sbc_concept_is_fetched():
+    from ruleone.concepts import FLOW
+    assert "ShareBasedCompensation" in FLOW["sbc"][1]

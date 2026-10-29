@@ -55,6 +55,23 @@ def is_lender(ticker: str | None, industry: str | None) -> bool:
     return (ticker or "").upper() in LENDER_TICKERS or any(w in (industry or "") for w in LENDER_INDUSTRIES)
 
 
+# Stock-based compensation is a real cost paid in shares, but operating cash flow adds it back (InvestED METHOD
+# proposal 2026-10-24: TTD Payback $28.78 -> ~$8.70, ADBE Ten Cap $307 -> ~$259 after SBC).
+SBC_FLAG_SHARE = 0.10
+
+
+def sbc_share(sbc: float | None, ocf: float | None) -> float | None:
+    """Stock-based compensation as a share of operating cash flow; None when either is missing or OCF <= 0."""
+    if sbc is None or not ocf or ocf <= 0:
+        return None
+    return max(sbc, 0.0) / ocf
+
+
+def sbc_flag(share: float | None) -> str:
+    return (f"SBC {share:.0%} of operating cash flow: see the after-SBC Payback and Ten Cap"
+            if share is not None and share > SBC_FLAG_SHARE else "")
+
+
 def methods_agree(price: float | None, mos: float | None, payback: float | None, ten_cap: float | None) -> int:
     """How many of the three Rule #1 prices the current price is at or below (InvestED 071, 280:
     triangulate; all three in one ballpark is the strongest signal)."""

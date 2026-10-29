@@ -27,6 +27,7 @@ FLOW = {
     "dividends_paid": (USD, ["PaymentsOfDividendsCommonStock", "PaymentsOfDividends"]),
     "dps": (USD_SH, ["CommonStockDividendsPerShareDeclared", "CommonStockDividendsPerShareCashPaid"]),
     "buybacks": (USD, ["PaymentsForRepurchaseOfCommonStock"]),
+    "sbc": (USD, ["ShareBasedCompensation", "AllocatedShareBasedCompensationExpense"]),
 }
 
 # field -> (unit, [tags])   instant (balance-sheet) facts

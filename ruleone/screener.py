@@ -30,8 +30,8 @@ from .sectors import load_reference, refresh_reference
 from .normalize import normalize
 from .prices import load_prices, price_near
 from .universe import load_universe
-from .valuation import (LENDER_FLAG, historical_pe, is_lender, methods_agree, payback_price, sticker_price,
-                        street_capped_growth, ten_cap_price)
+from .valuation import (LENDER_FLAG, historical_pe, is_lender, methods_agree, payback_price, sbc_flag, sbc_share,
+                        sticker_price, street_capped_growth, ten_cap_price)
 
 
 def log(*a):
@@ -109,6 +109,11 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
     lender = is_lender(listing.ticker, ev.get("sic"))
     pb = payback_price(fcf_ttm, shares, g) if g is not None and not lender else None
     tc = ten_cap_price(oe_ttm, shares, net_debt) if not lender else None
+    # After stock-based compensation: treat SBC as the cash cost it is (shares issued in lieu of pay)
+    sbc = max(ttm.get("sbc") or 0.0, 0.0)
+    sbc_pct = sbc_share(ttm.get("sbc"), ttm.get("ocf"))
+    pb_sbc = payback_price(fcf_ttm - sbc, shares, g) if g is not None and not lender and fcf_ttm is not None else None
+    tc_sbc = ten_cap_price(oe_ttm - sbc, shares, net_debt) if not lender and oe_ttm is not None else None
     sticker = st["sticker"] if st else None
     mos = st["mos_price"] if st else None
     buy_signals = [n for n, v in (("MOS", mos), ("PaybackTime", pb), ("TenCap", tc)) if v and price <= v]
@@ -141,6 +146,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
         "cik": listing.cik, "sector": ev.get("sic"), "status": status, "tier": quality_tier(b),
         "price": price, "price_date": px["as_of"], "market_cap": mcap,
         "sticker": sticker, "mos_price": mos, "payback_price": pb, "ten_cap_price": tc,
+        "payback_price_sbc": pb_sbc, "ten_cap_price_sbc": tc_sbc, "sbc_pct_ocf": sbc_pct,
         "price_to_sticker": price / sticker if sticker else None,
         "buy_signals": "+".join(buy_signals),
         "windage_growth": g, "future_pe": st["future_pe"] if st else None,
@@ -162,6 +168,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
                                                                    "Brokers", "Security"))),
             (LENDER_FLAG, lender),
             (rebase, bool(rebase)),
+            (sbc_flag(sbc_pct), bool(sbc_flag(sbc_pct))),
             ("; ".join(nz["notes"]), bool(nz["notes"])),
             ("micro-cap", mcap is not None and mcap < 1e9),
             # Checks from the InvestED synthesis (knowledge/rule1/METHOD.md)
@@ -179,7 +186,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
 
 # ---------------------------------------------------------------- output
 COLUMNS = ["ticker", "name", "exchange", "sector", "industry", "status", "tier", "price", "price_date", "market_cap",
-           "sticker", "mos_price", "payback_price", "ten_cap_price", "price_to_sticker", "buy_signals", "methods_agree", "marker_score", "markers",
+           "sticker", "mos_price", "payback_price", "ten_cap_price", "payback_price_sbc", "ten_cap_price_sbc", "sbc_pct_ocf", "price_to_sticker", "buy_signals", "methods_agree", "marker_score", "markers",
            "windage_growth", "future_pe", "hist_pe_median", "pe_ttm", "eps_ttm", "fcf_ttm", "fcf_yield",
            "ttm_end", "div_ttm", "div_yield", "div_growth_5y", "tr_5y", "tr_10y", "debt", "debt_payoff_years", "debt_years_total", "owner_earnings_ttm", "net_debt", "cash_conversion", "big5_score", "big5_tests", "roic10", "roic5", "roic1",
            "sales_g10", "sales_g5", "sales_g1", "eps_g10", "eps_g5", "eps_g1", "bvps_g10", "bvps_g5",
