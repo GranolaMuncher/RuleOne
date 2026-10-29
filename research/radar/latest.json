@@ -1,23 +1,24 @@
-{"date":"2026-10-28",
-"summary":"No EVENT or PROBLEM today. Lula's surprise win in the Brazil runoff hit the real and Brazilian equities: ARCO -12% (BofA downgrade to Neutral, target $12 to $9, confirmed) and MELI -9%. ARCO is in buy range and this is currency and political fear rather than a broken business, but its debt and owner-earnings flags keep it at WATCH. DECK (-6%) and KNSL (-5%) keep yesterday's open checks. ACGL and CINF reported without a break. The tech and semiconductor sell-off is price noise far above MOS.",
-"items":[
-{"ticker":"ARCO","verdict":"WATCH","headline":"-12% after Lula wins Brazil runoff; BofA to Neutral, target $12 to $9","why":"Cause confirmed: real weakness and fiscal worries; ~40% of revenue is Brazil. Fear, not a moat break, but debt >3x FCF and owner earnings <75% flags leave event check 5 unproven. Price $8.09 vs MOS $9.64.","sources":["https://www.fool.com/investing/2026/10/26/why-arcos-dorados-stock-got-socked-today/"]},
-{"ticker":"MELI","verdict":"NOISE","headline":"-9% on the same Brazil election sell-off","why":"Macro/political price move, not business news (METHOD 7). Price $1,810 vs MOS $551: far from buy range.","sources":[]},
-{"ticker":"KNSL","verdict":"WATCH","headline":"-5% after Q3: combined ratio 75.4% but premium growth slowed","why":"Sell trigger (combined ratio >90%) not tripped. Must-stay-true #2 (casualty growth) still needs the 10-Q segment table. Price $364 vs MOS $344.","sources":["https://www.sec.gov/Archives/edgar/data/0001669162/000166916226000049/earningsrelease3q2026.htm"]},
-{"ticker":"DECK","verdict":"WATCH","headline":"-6% as Barclays, Telsey, BNP cut targets; CEO 8-K still unread","why":"Target cuts are fear, not news (InvestED 249). Sell trigger 'new CEO plus guidance cut' needs the CEO 8-K read. Price $81.09 vs MOS $58.98.","sources":[]},
-{"ticker":"DHI","verdict":"WATCH","headline":"Officer-change 8-K (5.02) before Q4 earnings; builders cutting prices","why":"Event check 1: read who left and why. Record builder price cuts are a margin risk. Price $147 vs MOS $58.","sources":[]},
-{"ticker":"ABG","verdict":"WATCH","headline":"Q3 EPS and revenue miss; debt >3 years of FCF flag","why":"Check guidance and debt on the call; event check 5 (fix needs no new debt). Price $172.65 vs MOS $114.","sources":[]},
-{"ticker":"LRN","verdict":"WATCH","headline":"Insider bought $12.2M of stock on 10-27","why":"A large insider buy is a positive marker, but cause of the 5-day slide is unconfirmed. Price $79.40 vs MOS $44.35.","sources":[]},
-{"ticker":"ACGL","verdict":"NOISE","headline":"Q3 earnings beat","why":"Routine; no break found. Near 52-week high, so the value-trap check applies. Price $101.69 vs MOS $66.69.","sources":[]},
-{"ticker":"CINF","verdict":"NOISE","headline":"Q3 beat on premium growth","why":"No break found. Near 52-week high, value-trap check applies (LESSONS). Price $176.30 vs MOS $72.95.","sources":[]},
-{"ticker":"CLS","verdict":"NOISE","headline":"-19% in 5 days; AI-hardware sell-off","why":"No sticker computed; no business break found. Price move, not value (METHOD 7).","sources":[]},
-{"ticker":"META","verdict":"NOISE","headline":"-11% in 5 days, no confirmed break","why":"Price $642 vs MOS $404, not near buy range (METHOD 7).","sources":[]}
-],
-"guru_moves":[
-{"guru":"Himalaya Capital (Li Lu)","ticker":"PDD","change":"added","weight":0.2217,"report":"2026-06-30"},
-{"guru":"Baupost (Seth Klarman)","ticker":"AMZN","change":"added","weight":0.1648,"report":"2026-06-30"},
-{"guru":"Pershing Square (Bill Ackman)","ticker":"MSFT","change":"new","weight":0.1526,"report":"2026-03-31"},
-{"guru":"Himalaya Capital (Li Lu)","ticker":"BRK-B","change":"added","weight":0.1498,"report":"2026-06-30"},
-{"guru":"Berkshire Hathaway (Buffett)","ticker":"GOOGL","change":"added","weight":0.0941,"report":"2026-06-30"},
-{"guru":"Baupost (Seth Klarman)","ticker":"GPC","change":"added","weight":0.0613,"report":"2026-06-30"}
-]}
+{"date": "2026-10-29",
+ "summary": "No EVENT or PROBLEM today. SFM fell ~17% on a Q3 revenue miss and a negative-comps Q4 outlook (WATCH, far above MOS). PARR -11% with no news found. ARCO stays WATCH on debt and owner-earnings flags. OPFI charge-offs are still near 40% of revenue. Tech and travel moves are price noise.",
+ "items": [
+  {"ticker": "ARCO", "verdict": "WATCH", "headline": "-15% in 5 days after Brazil runoff; no new news", "why": "Debt >3x FCF and owner earnings <75% leave event check 5 unproven. $8.09 vs MOS $9.64.", "sources": ["https://www.fool.com/investing/2026/10/26/why-arcos-dorados-stock-got-socked-today/"]},
+  {"ticker": "SFM", "verdict": "WATCH", "headline": "-17% on Q3 revenue miss; Q4 comps guided -2% to -4%", "why": "Temporary slowdown or changed story (event checks 3, 6)? Check traffic vs ticket in the 10-Q. $66 vs MOS $33.", "sources": ["https://www.sec.gov/Archives/edgar/data/0001575515/000157551526000059/sfm-ex992.htm"]},
+  {"ticker": "PARR", "verdict": "WATCH", "headline": "-11% in a day, cause unconfirmed", "why": "No news found. Owner earnings <75% of net income; read the next earnings release. $77 vs MOS $72.", "sources": []},
+  {"ticker": "KNSL", "verdict": "WATCH", "headline": "Q3 combined ratio 75.4%; check casualty growth", "why": "Sell trigger (>90%) not tripped; check must-stay-true #2 in the 10-Q. $364 vs MOS $344.", "sources": []},
+  {"ticker": "DECK", "verdict": "WATCH", "headline": "CEO-change 8-K still unread", "why": "Trigger is a new CEO plus a guidance cut; read the 8-K. $81 vs MOS $59.", "sources": []},
+  {"ticker": "ABG", "verdict": "WATCH", "headline": "Q3 miss, stock +12%; debt >3 years of FCF", "why": "Event check 5: the fix must not need debt. $173 vs MOS $114.", "sources": []},
+  {"ticker": "LRN", "verdict": "WATCH", "headline": "Insider bought $12.2M on 10-27", "why": "Positive marker; cause of the slide unconfirmed. $79 vs MOS $44.", "sources": []},
+  {"ticker": "OPFI", "verdict": "WATCH", "headline": "Q3 charge-offs ~40% of revenue, revenue -3.8%", "why": "Dossier TOO HARD; must-stay-true #1 not met; trigger needs two more quarters >40%. Verify in the 10-Q.", "sources": ["https://www.sec.gov/Archives/edgar/data/0001818502/000181850226000084/a2026q3earningspresentat.htm"]},
+  {"ticker": "MCRI", "verdict": "NOISE", "headline": "Q3 sales miss; Stifel target $128 to $123", "why": "A target trim is fear, not business news (InvestED 249).", "sources": []},
+  {"ticker": "DKS", "verdict": "NOISE", "headline": "-6% in a day, no business news", "why": "The August guidance cut is the known story; market move, METHOD 7.", "sources": []},
+  {"ticker": "GOOGL", "verdict": "NOISE", "headline": "Slid on AI-capex fears; Citizens target $515 to $450", "why": "Fear, not a business break; above MOS.", "sources": []}
+ ],
+ "guru_moves": [
+  {"guru": "Himalaya Capital (Li Lu)", "ticker": "PDD", "change": "added", "weight": 0.2217, "report": "2026-06-30"},
+  {"guru": "Baupost (Seth Klarman)", "ticker": "AMZN", "change": "added", "weight": 0.1648, "report": "2026-06-30"},
+  {"guru": "Pershing Square (Bill Ackman)", "ticker": "MSFT", "change": "new", "weight": 0.1526, "report": "2026-03-31"},
+  {"guru": "Himalaya Capital (Li Lu)", "ticker": "BRK-B", "change": "added", "weight": 0.1498, "report": "2026-06-30"},
+  {"guru": "Berkshire Hathaway (Buffett)", "ticker": "GOOGL", "change": "added", "weight": 0.0941, "report": "2026-06-30"},
+  {"guru": "Baupost (Seth Klarman)", "ticker": "GPC", "change": "added", "weight": 0.0613, "report": "2026-06-30"},
+  {"guru": "Baupost (Seth Klarman)", "ticker": "CME", "change": "new", "weight": 0.0252, "report": "2026-06-30"}
+ ]}

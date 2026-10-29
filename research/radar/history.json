@@ -1,6 +1,13 @@
 {
  "ABG": [
   {
+   "date": "2026-10-29",
+   "verdict": "WATCH",
+   "headline": "Q3 miss, stock +12%; debt >3 years of FCF",
+   "why": "Event check 5: the fix must not need debt. $173 vs MOS $114.",
+   "sources": []
+  },
+  {
    "date": "2026-10-28",
    "verdict": "WATCH",
    "headline": "Q3 EPS and revenue miss; debt >3 years of FCF flag",
@@ -126,6 +133,15 @@
   }
  ],
  "ARCO": [
+  {
+   "date": "2026-10-29",
+   "verdict": "WATCH",
+   "headline": "-15% in 5 days after Brazil runoff; no new news",
+   "why": "Debt >3x FCF and owner earnings <75% leave event check 5 unproven. $8.09 vs MOS $9.64.",
+   "sources": [
+    "https://www.fool.com/investing/2026/10/26/why-arcos-dorados-stock-got-socked-today/"
+   ]
+  },
   {
    "date": "2026-10-28",
    "verdict": "WATCH",
@@ -281,6 +297,13 @@
  ],
  "DECK": [
   {
+   "date": "2026-10-29",
+   "verdict": "WATCH",
+   "headline": "CEO-change 8-K still unread",
+   "why": "Trigger is a new CEO plus a guidance cut; read the 8-K. $81 vs MOS $59.",
+   "sources": []
+  },
+  {
    "date": "2026-10-28",
    "verdict": "WATCH",
    "headline": "-6% as Barclays, Telsey, BNP cut targets; CEO 8-K still unread",
@@ -326,6 +349,15 @@
    "verdict": "WATCH",
    "headline": "8-K item 5.02 officer change ahead of Q4 earnings",
    "why": "Event check 1: read who left and why before judging. Price $147 vs MOS $58.",
+   "sources": []
+  }
+ ],
+ "DKS": [
+  {
+   "date": "2026-10-29",
+   "verdict": "NOISE",
+   "headline": "-6% in a day, no business news",
+   "why": "The August guidance cut is the known story; market move, METHOD 7.",
    "sources": []
   }
  ],
@@ -399,6 +431,15 @@
    ]
   }
  ],
+ "GOOGL": [
+  {
+   "date": "2026-10-29",
+   "verdict": "NOISE",
+   "headline": "Slid on AI-capex fears; Citizens target $515 to $450",
+   "why": "Fear, not a business break; above MOS.",
+   "sources": []
+  }
+ ],
  "HRMY": [
   {
    "date": "2026-10-15",
@@ -460,6 +501,13 @@
   }
  ],
  "KNSL": [
+  {
+   "date": "2026-10-29",
+   "verdict": "WATCH",
+   "headline": "Q3 combined ratio 75.4%; check casualty growth",
+   "why": "Sell trigger (>90%) not tripped; check must-stay-true #2 in the 10-Q. $364 vs MOS $344.",
+   "sources": []
+  },
   {
    "date": "2026-10-28",
    "verdict": "WATCH",
@@ -563,6 +611,13 @@
  ],
  "LRN": [
   {
+   "date": "2026-10-29",
+   "verdict": "WATCH",
+   "headline": "Insider bought $12.2M on 10-27",
+   "why": "Positive marker; cause of the slide unconfirmed. $79 vs MOS $44.",
+   "sources": []
+  },
+  {
    "date": "2026-10-28",
    "verdict": "WATCH",
    "headline": "Insider bought $12.2M of stock on 10-27",
@@ -651,6 +706,15 @@
     "https://www.sec.gov/Archives/edgar/data/0001397187/000139718726000131/lulu-20260930.htm",
     "https://retaildive.com/news/lululemon-ceo-heidi-oneill-overhauls-c-suite-first-move/832434"
    ]
+  }
+ ],
+ "MCRI": [
+  {
+   "date": "2026-10-29",
+   "verdict": "NOISE",
+   "headline": "Q3 sales miss; Stifel target $128 to $123",
+   "why": "A target trim is fear, not business news (InvestED 249).",
+   "sources": []
   }
  ],
  "MELI": [
@@ -816,7 +880,25 @@
    ]
   }
  ],
+ "OPFI": [
+  {
+   "date": "2026-10-29",
+   "verdict": "WATCH",
+   "headline": "Q3 charge-offs ~40% of revenue, revenue -3.8%",
+   "why": "Dossier TOO HARD; must-stay-true #1 not met; trigger needs two more quarters >40%. Verify in the 10-Q.",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0001818502/000181850226000084/a2026q3earningspresentat.htm"
+   ]
+  }
+ ],
  "PARR": [
+  {
+   "date": "2026-10-29",
+   "verdict": "WATCH",
+   "headline": "-11% in a day, cause unconfirmed",
+   "why": "No news found. Owner earnings <75% of net income; read the next earnings release. $77 vs MOS $72.",
+   "sources": []
+  },
   {
    "date": "2026-10-24",
    "verdict": "WATCH",
@@ -942,6 +1024,17 @@
    "headline": "-9% with copper",
    "why": "Above sticker, no business news (METHOD 7).",
    "sources": []
+  }
+ ],
+ "SFM": [
+  {
+   "date": "2026-10-29",
+   "verdict": "WATCH",
+   "headline": "-17% on Q3 revenue miss; Q4 comps guided -2% to -4%",
+   "why": "Temporary slowdown or changed story (event checks 3, 6)? Check traffic vs ticket in the 10-Q. $66 vs MOS $33.",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0001575515/000157551526000059/sfm-ex992.htm"
+   ]
   }
  ],
  "SMCI": [
