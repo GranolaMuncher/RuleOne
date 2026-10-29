@@ -270,7 +270,7 @@ def test_screener_imports_everything_analyze_uses():
     # The 2026-10-23 windage branch called street_capped_growth() in analyze() without importing it;
     # no test reached analyze(), so the screen would have crashed on every name.
     import ruleone.screener as s
-    for name in ("street_capped_growth", "is_lender", "LENDER_FLAG", "load_analysts", "sbc_flag", "sbc_share"):
+    for name in ("street_capped_growth", "is_lender", "LENDER_FLAG", "load_analysts", "sbc_flag", "sbc_share", "peak_earnings", "peak_rebase"):
         assert hasattr(s, name), name
 
 
@@ -304,3 +304,18 @@ def test_total_debt_counts_convertibles_revolvers_and_funding_debt():
                 "debt_revolver": 600e6, "shares": 1e8, "op_income": 80e6} for y in range(2015, 2026)}
     ttm = {"revenue": 1e9, "ocf": 100e6, "capex": 0, "net_income": 50e6}
     assert wonderful_markers(rows, ttm, None, rows[2025])["low_debt"]["pass"] is False             # 6 years of FCF
+
+
+def test_peak_earnings_rebases_sticker_on_average_eps():
+    # METHOD.md proposal 2026-10-24: PGR TTM EPS $19.9 is 2.1x its five-year average, KNSL 1.7x; both were grown at 15%
+    from ruleone.valuation import peak_earnings, peak_rebase, sticker_price
+    hist = [6.0, 8.0, 9.5, 11.0, 12.3]                      # average 9.36
+    ratio, avg = peak_earnings(19.9, hist)
+    assert math.isclose(avg, 9.36) and 2.1 <= ratio <= 2.2
+    g, eps, flag = peak_rebase(0.15, 19.9, ratio, avg)
+    assert g == 0.10 and eps == avg and "peak earnings" in flag
+    assert sticker_price(eps, g, 20.0)["sticker"] < 0.5 * sticker_price(19.9, 0.15, 20.0)["sticker"]
+    assert peak_rebase(0.15, 11.0, 1.2, 9.36) == (0.15, 11.0, "")      # ordinary growth is left alone
+    assert peak_rebase(0.15, 19.9, 1.5, avg)[2] == ""                  # exactly 1.5x is not "above"
+    assert peak_earnings(5.0, [1.0, 2.0, 3.0]) == (None, None)         # under four years of history
+    assert peak_earnings(-1.0, hist) == (None, None) and peak_earnings(5.0, [None, 1.0, 1.2, 1.1, 1.0])[0] is not None
