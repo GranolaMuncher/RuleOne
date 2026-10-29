@@ -13,6 +13,10 @@ def test_anomalies_catch_extraction_bugs():
     prev = [{"ticker": "JUMP", "sticker": "20"}, {"ticker": "OK", "sticker": "110"}]
     a = anomalies(rows, prev)
     assert a["share_scale_suspect"] == ["NOVA"] and a["ten_cap_over_20x_price"] == ["NOVA"]
+    # Real distress and NO STICKER rows are not reported (owner's decision 2026-10-25)
+    quiet = anomalies([{"ticker": "LOSS", "price": "2", "market_cap": "1e6", "revenue": "9e8", "net_income": "-4e8"},
+                       {"ticker": "NOST", "price": "1", "ten_cap_price": "80", "status": "NO STICKER"}], [])
+    assert quiet["share_scale_suspect"] == [] and quiet["ten_cap_over_20x_price"] == []
     assert a["sticker_jump_50pct"] == ["JUMP"] and a["missing_price"] == ["NOPX"]
     assert a["total_return_above_100pct"] == ["TR"] and a["pe_below_4"] == ["TR"] and a["yield_above_25pct"] == ["TR"]
     c = coverage(rows)

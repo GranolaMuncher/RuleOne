@@ -61,10 +61,14 @@ def anomalies(rows: list[dict], prev_snapshot: list[dict]) -> dict[str, list[str
             out["sticker_jump_50pct"].append(t)
         mcap = _f(r.get("market_cap"))
         rev = _f(r.get("revenue")) or 0
-        if mcap is not None and rev > 5e7 and mcap < 0.02 * rev:
-            out["share_scale_suspect"].append(t)      # market cap < 2% of sales: shares likely mis-scaled (Nova 2026)
+        ni = _f(r.get("net_income"))
+        # Market cap < 2% of sales: shares likely mis-scaled (Nova 2026). Loss-makers are skipped: a distressed
+        # company can really trade at 1% of sales (owner's decision 2026-10-25, Engineer note 2026-10-11).
+        if mcap is not None and rev > 5e7 and mcap < 0.02 * rev and not (ni is not None and ni < 0):
+            out["share_scale_suspect"].append(t)
         tc = _f(r.get("ten_cap_price"))
-        if tc and tc > 20 * price:
+        # A NO STICKER row is already out of every list, so a huge Ten Cap there is noise, not a bug to chase.
+        if tc and tc > 20 * price and r.get("status") != "NO STICKER":
             out["ten_cap_over_20x_price"].append(t)
     return out
 
