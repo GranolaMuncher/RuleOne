@@ -1,6 +1,6 @@
 # The Rule #1 method, as refined over 498 InvestED episodes
 
-This is a synthesis of the Professor's notes on every episode of *InvestED* (2015–2025), organised as the checklist RuleOne applies. Numbers in brackets are episode notes (`/learn/NNN/`). Where the hosts refined an early rule later in the show, the **later version wins** and the change is noted. The **App** lines say what the screener, site and agents do with each rule.
+This is a synthesis of the Professor's notes on every episode of *InvestED* (2015–2025), organised as the checklist Stockagotchi applies. Numbers in brackets are episode notes (`/learn/NNN/`). Where the hosts refined an early rule later in the show, the **later version wins** and the change is noted. The **App** lines say what the screener, site and agents do with each rule.
 
 Not investment advice. These are study notes on a published method, and automated numbers must be checked against the filings.
 
@@ -108,7 +108,7 @@ Not investment advice. These are study notes on a published method, and automate
 - **Buy in tranches as the price falls,** in dollars, not shares. Set the triggers **before** the price moves [199, 266, 352].
 - Keep dry powder, because a wonderful business can fall another 50% after you buy [314, 390].
 - A paper loss is not a loss while value stays far above cost [272].
-- **RuleOne excludes options** (owner's decision). Episodes that discuss selling puts are noted but not applied [352, 160, 167].
+- **Stockagotchi excludes options** (owner's decision). Episodes that discuss selling puts are noted but not applied [352, 160, 167].
 - **App:** the Holdings page tracks tranches and flags "below MOS: room for another tranche if the story holds".
 
 ## 9. Story and selling

@@ -27,12 +27,12 @@ const path = Astro.url.pathname;
     <meta name="description" content={description} />
     <meta name="robots" content="noindex" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <title>{title === "RuleOne" ? title : `${title} · RuleOne`}</title>
+    <title>{title === "Stockagotchi" ? title : `${title} · Stockagotchi`}</title>
   </head>
   <body>
     <header class="top">
       <div class="wrap bar">
-        <a class="brand" href="/"><span class="logo" aria-hidden="true">①</span> RuleOne</a>
+        <a class="brand" href="/"><img class="logo" src="/favicon.svg" alt="" width="22" height="22" /> Stockagotchi</a>
         <nav>
           {nav.map(([href, label]) => (
             <a href={href} aria-current={(href === "/" ? path === "/" : path.startsWith(href)) ? "page" : undefined}>{label}</a>
@@ -75,7 +75,7 @@ const path = Astro.url.pathname;
   .bar { display: flex; align-items: center; justify-content: space-between; gap: 4px 12px; min-height: 56px; flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
   .brand { font-weight: 700; color: var(--ink); text-decoration: none; font-size: 17px; white-space: nowrap; }
   @media (max-width: 520px) { .top { position: static; } nav { margin: 0 -10px; } }
-  .logo { color: var(--accent); }
+  .logo { vertical-align: -5px; margin-right: 2px; }
   nav { display: flex; gap: 4px; overflow-x: auto; }
   nav a { color: var(--muted); text-decoration: none; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
   nav a[aria-current="page"], nav a:hover { color: var(--ink); background: var(--chip); }

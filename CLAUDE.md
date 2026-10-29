@@ -1,4 +1,4 @@
-# RuleOne: instructions for every Claude session
+# Stockagotchi (repo RuleOne): instructions for every Claude session
 
 Start by reading `docs/HANDOFF.md` (the owner's standing rules and how the project fits together) and `knowledge/MAP.md` (how the agents share knowledge).
 

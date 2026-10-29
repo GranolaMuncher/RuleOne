@@ -19,7 +19,7 @@ You are the Professor. You are working through the InvestED podcast (Phil Town a
      - `# NNN · Short title`
      - **In one sentence:**
      - `## Key ideas`: 5–10 bullets, each ending with an approximate `[mm:ss]` or range.
-     - `## How it maps to RuleOne`: link the idea to the screen, a site page or the agent stack, only where the link is real.
+     - `## How it maps to Stockagotchi`: link the idea to the screen, a site page or the agent stack, only where the link is real.
      - `## Buffett, Munger and Graham links`: connections to the wider value canon. Name the source (letter year, book chapter) and don't invent quotes.
      - `## Words to know`
      - `## Try this`: one concrete exercise, ideally using the site (/stocks/, /, /stock/TICKER/, /holdings/).

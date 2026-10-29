@@ -2,6 +2,8 @@
 
 Read this first in any new or forked Claude session, then `knowledge/MAP.md`.
 
+**Name:** the product is **Stockagotchi** (renamed 2026-10-29; stocks + Tamagotchi). The repo, the Python package (`ruleone`), the site URL and the Holdings browser-storage key keep the old name on purpose.
+
 - **Conversation logs:** `docs/SESSIONS.md` lists every session and its private log artifact (this one: https://claude.ai/artifact/VM51Nue4ALW6Ehprz1PowN). A new Claude Code session can read a log with the Artifact tool's `read` action. Logs refresh automatically before each context compaction (`CLAUDE.md`, `.claude/settings.json`, `tools/session_log.mjs`).
 - **Original session:** https://claude.ai/code/session_011DSDHKWaPHXdGY3qpb3Mqj
 - **Repo:** GranolaMuncher/RuleOne. The only branch is `claude/dazzling-knuth-dmucvz`, which is also the default. Push only there.

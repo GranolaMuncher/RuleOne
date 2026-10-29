@@ -211,7 +211,7 @@ import Base from "../layouts/Base.astro";
 
   $("export").addEventListener("click", () => {
     const blob = new Blob([JSON.stringify({ version: 1, exported: new Date().toISOString(), lots }, null, 2)], { type: "application/json" });
-    const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: "ruleone-holdings.json" });
+    const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: "stockagotchi-holdings.json" });
     a.click(); URL.revokeObjectURL(a.href);
   });
   $("import").addEventListener("change", async (e) => {
@@ -221,7 +221,7 @@ import Base from "../layouts/Base.astro";
       const arr = (Array.isArray(data) ? data : data.lots).filter((l) => l && typeof l.ticker === "string" && l.price > 0);
       lots = arr.map((l) => ({ ticker: l.ticker.toUpperCase(), price: +l.price, shares: l.shares > 0 ? +l.shares : null, date: l.date ?? null, note: l.note ?? null }));
       save(lots); render(); $("f-err").textContent = `Imported ${lots.length} tranche(s).`;
-    } catch { $("f-err").textContent = "That file isn't a RuleOne holdings export."; }
+    } catch { $("f-err").textContent = "That file isn't a Stockagotchi holdings export."; }
     e.target.value = "";
   });
   $("clear").addEventListener("click", () => {

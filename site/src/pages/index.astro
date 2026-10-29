@@ -12,7 +12,7 @@ const weeklyLabel = (slug: string) => slug.endsWith("_brief") ? "Weekly brief" :
 const dec = loadDecisions();
 const dives = reports.filter((r) => r.kind === "deep-dive").slice(0, 4);
 ---
-<Base title="RuleOne">
+<Base title="Stockagotchi">
   <h1>Rule #1 screen of every NYSE &amp; Nasdaq stock</h1>
   <p class="muted lead">
     Run {meta.run_date ?? "–"}, prices as of {meta.price_date ?? "–"}. Wonderful businesses (Phil Town's Big Five)
