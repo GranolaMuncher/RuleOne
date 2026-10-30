@@ -134,6 +134,13 @@
  ],
  "ARCO": [
   {
+   "date": "2026-10-30",
+   "verdict": "NOISE",
+   "headline": "-15% in 5 days, no news found",
+   "why": "No business news; near MOS ($8.09 vs $9.64), so check the next filing. METHOD 7.",
+   "sources": []
+  },
+  {
    "date": "2026-10-29",
    "verdict": "WATCH",
    "headline": "-15% in 5 days after Brazil runoff; no new news",
@@ -433,6 +440,15 @@
  ],
  "GOOGL": [
   {
+   "date": "2026-10-30",
+   "verdict": "EVENT",
+   "headline": "-11% on AI-capex fears; Cloud +103%, Search growth slowed to 12%",
+   "why": "Checks 1-2 pass; 3-4 plausible (spending cycle); 5 verify debt; 6 moat intact but AI-search risk open. Price unconfirmed ($320 in inputs vs $283.82 close in article); MOS $273.59. Street cuts are fear.",
+   "sources": [
+    "https://www.foxbusiness.com/markets/google-parent-alphabet-suffers-nearly-500b-wall-street-wipeout-amid-ai-spending-fears"
+   ]
+  },
+  {
    "date": "2026-10-29",
    "verdict": "NOISE",
    "headline": "Slid on AI-capex fears; Citizens target $515 to $450",
@@ -719,6 +735,13 @@
  ],
  "MELI": [
   {
+   "date": "2026-10-30",
+   "verdict": "NOISE",
+   "headline": "-10% in 5 days, no business news",
+   "why": "Macro move (METHOD 7); $1,810 vs MOS $551.",
+   "sources": []
+  },
+  {
    "date": "2026-10-28",
    "verdict": "NOISE",
    "headline": "-9% on the same Brazil election sell-off",
@@ -734,6 +757,13 @@
   }
  ],
  "META": [
+  {
+   "date": "2026-10-30",
+   "verdict": "NOISE",
+   "headline": "-10% in 5 days with the AI-capex sell-off",
+   "why": "Fear, not a break; $643 vs MOS $404.",
+   "sources": []
+  },
   {
    "date": "2026-10-28",
    "verdict": "NOISE",
@@ -855,6 +885,13 @@
  ],
  "NTES": [
   {
+   "date": "2026-10-30",
+   "verdict": "NOISE",
+   "headline": "-9% in 5 days, no business news",
+   "why": "Macro move (METHOD 7); $119 vs MOS $74.",
+   "sources": []
+  },
+  {
    "date": "2026-10-24",
    "verdict": "NOISE",
    "headline": "-5% with China sell-off",
@@ -882,6 +919,15 @@
  ],
  "OPFI": [
   {
+   "date": "2026-10-30",
+   "verdict": "WATCH",
+   "headline": "Charge-offs about 40% of revenue; dossier must-stay-true #1 unmet",
+   "why": "Sell trigger needs two more quarters above 40%. Verify in the 10-Q. $5.42 vs MOS $14.54.",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0001818502/000181850226000084/a2026q3earningspresentat.htm"
+   ]
+  },
+  {
    "date": "2026-10-29",
    "verdict": "WATCH",
    "headline": "Q3 charge-offs ~40% of revenue, revenue -3.8%",
@@ -892,6 +938,13 @@
   }
  ],
  "PARR": [
+  {
+   "date": "2026-10-30",
+   "verdict": "NOISE",
+   "headline": "-13% in 5 days ahead of Q3 earnings",
+   "why": "No business news; $77 vs MOS $72. Read the Q3 report when out.",
+   "sources": []
+  },
   {
    "date": "2026-10-29",
    "verdict": "WATCH",
@@ -964,6 +1017,13 @@
  ],
  "QFIN": [
   {
+   "date": "2026-10-30",
+   "verdict": "NOISE",
+   "headline": "-7% in a day with Asian ADRs, no company news",
+   "why": "Dossier TOO HARD, no sell trigger hit; $5.26 below MOS $7.90. Market move (METHOD 7). Watch for regulatory news.",
+   "sources": []
+  },
+  {
    "date": "2026-10-21",
    "verdict": "NOISE",
    "headline": "-10% in 5 days with Asian ADRs, no news",
@@ -1027,6 +1087,15 @@
   }
  ],
  "SFM": [
+  {
+   "date": "2026-10-30",
+   "verdict": "WATCH",
+   "headline": "-25% on Q3: comps -0.9%, FY comps cut to about -1.7%, CEO change",
+   "why": "Event checks 3 and 6 open: three negative-comp quarters and management says it must evolve faster. The outbreak part is temporary. Check the 10-Q for margin, traffic vs ticket and debt. $66 vs MOS $33.",
+   "sources": [
+    "https://www.grocerydive.com/news/sprouts-farmers-market-third-quarter-earnings-affordability-pricing-strategy/873111/"
+   ]
+  },
   {
    "date": "2026-10-29",
    "verdict": "WATCH",
@@ -1226,6 +1295,15 @@
    "verdict": "WATCH",
    "headline": "Down 68% this year; one writer exited on 'structural revenue deceleration'",
    "why": "Price $11.95 is just under MOS $12.6. This is the value-trap question (LESSONS): moat breach or solvable event? Check ad-spend share loss before any buying (event check 6). Headlines only, unconfirmed.",
+   "sources": []
+  }
+ ],
+ "URI": [
+  {
+   "date": "2026-10-30",
+   "verdict": "WATCH",
+   "headline": "Negative 8-K: agreement terminated, new debt obligation",
+   "why": "Content unconfirmed, probably a financing change. Screen flags debt above 3 years of FCF. $1,099 vs MOS $392, far from buy range.",
    "sources": []
   }
  ],
