@@ -3,19 +3,19 @@ ticker: SMCI
 name: "Super Micro Computer, Inc."
 verdict: AVOID
 confidence: 2
-entry: [32.4, 27.54, 22.68]
-trim: 64.81
-updated: 2026-10-24
-price_at_update: 32.94
-summary: "AI-server assembler with thin, swinging margins, deeply negative cash flow funded by about $8.7B of debt, and open integrity questions (ineffective controls, CFO exit, co-founder indictment); price is at the screen's MOS but the screen's quality tests fail."
+entry: [10.87, 9.24, 7.61]
+trim: 21.74
+updated: 2026-10-31
+price_at_update: 32.95
+summary: "AI-server assembler with thin, swinging margins, deeply negative cash flow funded by about $8.7B of debt, and open integrity questions (ineffective controls, CFO exit, co-founder indictment); the price is now 1.5x the rebased Sticker and the quality tests fail."
 ---
 # SMCI · Super Micro Computer, Inc.
 
-> **Verdict: AVOID** (confidence 2/5) · price $32.94 on 2026-10-23 · tranches $32.40 / $27.54 / $22.68 (screen defaults, only if the owner overrides) · trim above $64.81
-> Revenue grew from $22B to $39B in a year, and the stock is 39% off its high at 10x trailing EPS. But operating cash flow was −$6.8B, the company carries about $8.7B of debt, gross margin was 10.8% for FY2026, and controls were reported not effective. The $64.81 Sticker rests on EPS that is not backed by cash. Until the cash converts and the integrity questions close, the Rule #1 answer is no. Research, not advice.
+> **Verdict: AVOID** (confidence 2/5) · price $32.95 on 2026-10-30 · tranches $10.87 / $9.24 / $7.61 (only if the owner overrides the AVOID) · trim above $21.74
+> Revenue grew from $22B to $39B in a year, and the stock is 39% off its high at 10x trailing EPS. But operating cash flow was −$6.8B, the company carries about $8.7B of debt, gross margin was 10.8% for FY2026, and controls were reported not effective. The old $64.81 Sticker rested on peak EPS; the screen now normalises EPS to $1.71 and caps growth at 10%, giving a Sticker of $21.74 and MOS of $10.87. Until the cash converts and the integrity questions close, the Rule #1 answer is no. Research, not advice.
 
 ## R · Radar
-- Screen: ON DECK in early October, BUY on 2026-10-17 (price $31.63 vs MOS $32.40). Tier A, rank 4.10, **0 methods agree** (Payback and Ten Cap are n/a because FCF and owner earnings are negative). Drawdown −39%. Flags: cash not real (owner earnings < 75% of net income), debt > 3 years of FCF. Marker score 0.22. No guru holders in the 13F data (13F lag ~4 months).
+- Screen 2026-10-31: ABOVE STICKER, Sticker $21.74, MOS $10.87, 'peak earnings' flag (TTM EPS 1.9x its 5-year average). Earlier: ON DECK in early October, BUY on 2026-10-17 (price $31.63 vs MOS $32.40). Tier A, rank 4.10, **0 methods agree** (Payback and Ten Cap are n/a because FCF and owner earnings are negative). Drawdown −39%. Flags: cash not real (owner earnings < 75% of net income), debt > 3 years of FCF. Marker score 0.22. No guru holders in the 13F data (13F lag ~4 months).
 - Radar (six items, 10-16 to 10-23) said WATCH every time: CFO Weigand out at once and Mark Long named; a contractor export-control plea on 10/8 (per Radar, not verified by me); the preliminary Q1 FY27 beat [1][4][5].
 - **Street:** 15 analysts, rating 2.94/5 (2 strong buy, 2 buy, 11 hold, 2 sell, 1 strong sell), targets $15 / $43.27 / $60 (as of 2026-10-22); Rosenblatt raised its target from $51 to $57 on 10-21. Signal: contrarian. The mean target is above my MOS and below the $64.81 Sticker, but I do not use targets for value. The street sees growth (EPS +28.6% this year, +19.7% next) yet mostly says hold: it fears margins and governance, which I share. The $15 low target is the sceptics' view.
 
@@ -45,11 +45,11 @@ summary: "AI-server assembler with thin, swinging margins, deeply negative cash 
 ## R · Reduce basis (tranches only, no options)
 | Tranche | Price | Basis | Status |
 |---|---|---|---|
-| 1 | $32.40 | Screen MOS (Sticker $64.81 ÷ 2) | Price $32.94 is 1.7% above; not filled. Do not buy while the verdict is AVOID |
-| 2 | $27.54 | −15% from tranche 1 | Not triggered |
-| 3 | $22.68 | −30% from tranche 1 | Not triggered |
+| 1 | $10.87 | Screen MOS: half of the rebased Sticker $21.74 (EPS normalised to $1.71, growth capped at 10%) | Price $32.95 is 3x above; not triggered. Do not buy while the verdict is AVOID |
+| 2 | $9.24 | −15% from tranche 1 | Not triggered |
+| 3 | $7.61 | −30% from tranche 1 | Not triggered |
 
-These are placeholders, to be used only if the owner overrides the AVOID. Equal dollar tranches; keep dry powder for a further ~50% fall, which is plausible given the leverage and margin (METHOD 8). Stop buying above $32.40; trim above $64.81. **Before any tranche:** (a) read 10-K Item 9A and Note 15 in full, (b) operating cash flow positive for two quarters, (c) a clean explanation of the CFO exit. The screen's Sticker is itself shaky (see Numbers), so tranche 1 is not a real margin of safety.
+These are placeholders, to be used only if the owner overrides the AVOID. Equal dollar tranches; keep dry powder for a further ~50% fall, which is plausible given the leverage and margin (METHOD 8). Stop buying above $10.87; trim above $21.74 (the Sticker). **Before any tranche:** (a) read 10-K Item 9A and Note 15 in full, (b) operating cash flow positive for two quarters, (c) a clean explanation of the CFO exit. The old $32.40 placeholder is gone (review: it came from a Sticker on peak earnings). Payback and Ten Cap are n/a, so only one method prices this and the ladder is a reference only.
 
 ## S · Story
 - **Thesis:** if AI server demand holds, Supermicro takes a rising share of a very large market and earns 10–12% gross margin on enormous revenue, so earnings compound and 10x earnings is cheap. The bull case needs cash to follow earnings and governance to be clean.
@@ -73,8 +73,8 @@ Score 2 of 9 known (0.22): not a Rule #1 business on the numbers (below 6).
 ## Numbers
 | Item | Value | Note |
 |---|---|---|
-| Sticker | $64.81 | TTM EPS $3.26 grown at 15% windage; future P/E 19.9 |
-| MOS | $32.40 | Half of Sticker |
+| Sticker | $21.74 (was $64.81) | Screen now uses normalised EPS $1.71 and 10% growth, future P/E 19.9 |
+| MOS | $10.87 (was $32.40) | Half of Sticker; price is 3x this |
 | Payback | n/a | FCF −$6.97B |
 | Ten Cap | n/a | Owner earnings −$6.31B |
 | Methods agree | 0 | Only the Sticker method gives a price |
@@ -108,8 +108,10 @@ Net income summed over these 11 years is about $5.8B, against cumulative FCF of 
 4. [Supermicro press release, Q1 FY2027 preliminary update](https://www.supermicro.com/en/pressreleases/supermicro-provides-first-quarter-fiscal-year-2027-preliminary-business-update)
 5. [CFO Dive: Super Micro's CFO out](https://www.cfodive.com/news/super-micros-cfo-out-change-accounting-leadership-ai/833213/)
 
+7. [247wallst: Dell sinks 11% on Intel's PC warning; Super Micro falls 7%](https://247wallst.com/investing/2026/10/30/dell-sinks-11-as-intels-warning-on-pc-slump-and-memory-shortage-hits-hardware-stocks-hp-tumbles-9-hewlett-packard-enterprise-and-super-micro-fall-7/)
 6. [TIKR: Super Micro names a new CFO after burning nearly $7B in free cash flow](https://www.tikr.com/blog/super-micro-named-a-new-cfo-after-burning-nearly-7-billion-in-free-cash-flow-heres-where-the-stock-could-go-by-2031) (search summary only; secondary)
 
 ## Changelog
+- 2026-10-31: refreshed. Price $32.95. The screen rebuilt the Sticker on normalised EPS and 10% growth: Sticker $21.74, MOS $10.87, so the price is 1.5x Sticker. I replaced the placeholder ladder ($10.87 / $9.24 / $7.61, trim $21.74), as the Professor's review asked. Radar 10-31 (WATCH): -8% with Dell and HP after Intel's PC warning [7]; no sell trigger hit. Street unchanged (mean $43.27). Verdict stays AVOID. Not done: 10-K Item 9A and Note 15 still unread. Results expected ~11-03/04.
 - 2026-10-24: refreshed. Price $32.94; verdict stays AVOID. Screen status moved BUY → ON DECK as the price rose above MOS. New detail from a secondary source [6]: FY2026 free cash flow was about −$6.70B in the March quarter and +$719M in the June quarter, so the burn was concentrated in one quarter and may be working capital that reverses. An SVP said on 10 September the company aims to become "self-funded" and that capital returns will take a while. This softens the cash flag but does not remove it; confirm in the 10-K cash-flow statement and the Q1 FY27 10-Q (~3 Nov). No new filings found since 10-20.
 - 2026-10-23: created. AVOID: cash not real, debt about $8.7B (the screen's $134M is wrong), ineffective controls, CFO exit and an indicted co-founder. Revisit after the 2026-11-03 results if OCF turns positive and 10-K Items 9A and 15 have been read.

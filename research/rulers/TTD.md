@@ -5,20 +5,20 @@ verdict: WATCH
 confidence: 2
 entry: [8.5, 7.0, 5.5]
 trim: 17
-updated: 2026-10-24
-price_at_update: 13.00
+updated: 2026-10-31
+price_at_update: 12.29
 summary: "A high-margin ad-buying platform with $1.1B+ net cash, but revenue growth has stalled (Q3 guided down ~12%), stock pay of ~$490M a year erases much of the screen's cash flow, and it is unclear whether the loss of ad spend to Amazon is an event or a changed story; wait for a price near $8.50 or proof that revenue stabilises."
 ---
 # TTD · The Trade Desk, Inc.
 
-> **Verdict: WATCH** (confidence 2/5) · price $13.00 on 2026-10-23 · tranches $8.50 / $7.00 / $5.50 · trim above $17
+> **Verdict: WATCH** (confidence 2/5) · price $12.29 on 2026-10-30 · tranches $8.50 / $7.00 / $5.50 · trim above $17
 > The screen says BUY* (Sticker $25.20, Payback $28.78, Ten Cap $25.14) because it counts stock-based compensation (about $490M a year) as free cash and grows EPS at 15%. Street EPS is −34% this year and −13% next. Charging stock pay as a cost, Payback is about $8.70 and the Ten Cap about $17. The price is above the first and below the second. The open question is the moat: Amazon's cheaper buying tool and agency pushback may have changed the story. Research, not advice.
 
 ## R · Radar
-- Screen: status BUY*, tier C, Big Five 11/14, 76% below the 52-week high, two of three methods agree on its numbers (price/Sticker 0.52), marker score 0.8. No flags. A negative 8-K on 2026-09-04 (restructuring). Why selected: requested.
+- Screen (2026-10-31): Sticker and MOS now blank because the screen flags 'rebase needed' (Street EPS −35% this year, so the history-based 15% is not used). Status BUY*, tier C, Big Five 11/14, 76% below the 52-week high, two of three methods agree on its numbers (price/Sticker 0.52), marker score 0.8. No flags. A negative 8-K on 2026-09-04 (restructuring). Why selected: requested.
 - Radar 2026-10-10 to 10-22: all WATCH. The value-trap question (LESSONS) is whether this is a moat breach or a solvable event. The 8-K items 5.02 and 5.07 of 10-21 look like annual-meeting housekeeping (unconfirmed).
 - Gurus: none in the 13F data (lag ~4 months). First dossier for this name.
-- **Street:** 30 analysts, rating 3.1/5 (1 strong buy, 4 buy, 23 hold, 5 sell, 3 strong sell), targets $9 / $13.53 / $20 (as of 2026-10-23). No recent up or downgrades in the data. The mean target is 10% above the price and 46% below the screen's Sticker, so the street does not accept the screen's growth. I agree: it sees falling EPS (−34% this year, −13% next), which the screen ignores. Signal: contrarian. The fear has a cause (see E).
+- **Street:** 30 analysts, rating 3.1/5 (1 strong buy, 4 buy, 23 hold, 5 sell, 3 strong sell), targets $9 / $13.53 / $20 (as of 2026-10-31; unchanged for four weeks). No recent up or downgrades in the data. The mean target is 10% above the price and 46% below the screen's Sticker, so the street does not accept the screen's growth. I agree: it sees falling EPS (−34% this year, −13% next), which the screen ignores. Signal: contrarian. The fear has a cause (see E).
 
 ## U · Understand
 - **The business in one sentence:** The Trade Desk runs the software that lets advertisers and their agencies buy digital ads (mainly connected TV, mobile and display) across the open internet, charging a percentage of the money that passes through.
@@ -33,7 +33,7 @@ summary: "A high-margin ad-buying platform with $1.1B+ net cash, but revenue gro
 - Would I buy the whole company at this price? **Not yet.** About $6.15B for a business that earned about $370M after stock pay last year, with revenue now shrinking, does not cover the risk that the Amazon problem is permanent.
 
 ## E · Event
-- What happened: Q2 revenue (reported 6 August) was $715M, +3%, against guidance of about $750M, and the shares fell 24% to $13.39 that day [2]. Q3 guidance is "at least $650M", about a 12% fall and the first yearly decline in the company's history [2]. A ~15% layoff followed on 3 September [6]. The stock is down about 68% this year and 76% from its 52-week high. Reports tie the slowdown to Amazon DSP's cut-rate competition, CPG and auto pullbacks and the OpenPath disputes [1][2]. Small positives: Skydance's CTV pause-ad deal [7], Netflix inventory opening to Kokai buyers (July) and a Gracenote deal (27 August) (search summaries; details not read).
+- What happened: Q2 revenue (reported 6 August) was $715M, +3%, against guidance of about $750M, and the shares fell 24% to $13.39 that day [2]. Q3 guidance is "at least $650M", about a 12% fall and the first yearly decline in the company's history [2]. A ~15% layoff followed on 3 September [6]. The stock is down about 68% this year and 76% from its 52-week high. Reports tie the slowdown to Amazon DSP's cut-rate competition, CPG and auto pullbacks and the OpenPath disputes [1][2]. Reported detail (secondary, unconfirmed): Q2 EPS was $0.34 against $0.40 expected, and Amazon has discounted DSP fees to as low as ~1% for big spenders against 12–15% at TTD [8]. Small positives: Skydance's CTV pause-ad deal [7], Netflix inventory opening to Kokai buyers (July) and a Gracenote deal (27 August) (search summaries; details not read).
 - Event checks (METHOD 7):
   1. Known: ✔ share loss to Amazon, weak CPG and autos, agency disputes.
   2. Easy to find: ✔ it is the headline.
@@ -106,7 +106,9 @@ Big Five (screen): ROIC 10y 14.4%, 5y 9.0%, 1y 16.0%; sales growth 5y 28.2%; EPS
 5. [Adweek: shareholders vote on Jeff Green's super-voting shares](https://www.adweek.com/programmatic/the-trade-desk-shareholders-will-vote-whether-ceo-jeff-green-should-keep-supervoting-shares/) and [Fintool: Jeff Green](https://fintool.com/app/research/companies/TTD/people/jeff-green) (secondary; check against the proxy)
 6. [PPC Land: 15% workforce cut](https://ppc.land/trade-desk-cuts-15-of-its-global-workforce-effective-today/) and [Finviz: restructuring filing](https://finviz.com/news/389115/the-trade-desk-to-reduce-workforce-by-approximately-15-in-restructuring)
 7. [Tikr: TTD rallies as Skydance deal expands CTV reach](https://www.tikr.com/blog/the-trade-desk-rallies-off-lows-as-skydance-deal-expands-its-ctv-reach) (headline only)
+8. [EPIC: What's really happening to The Trade Desk stock](https://epic.uchicago.edu/news/whats-really-happening-to-the-trade-desk-stock/) (search summary only; secondary)
 
 ## Changelog
+- 2026-10-31: refreshed. Price $12.29 (was $13.00). The screen now blanks Sticker/MOS as 'rebase needed', agreeing with my rebasing; its Payback ($14.58) and Ten Cap ($25.14) still add back stock pay, so my $8.70 / $17.20 stand. Street unchanged (mean $13.53, EPS −35%/−13%). No new filings or company news found. Radar stayed WATCH (10-22: Skydance CTV deal). Verdict stays WATCH (confidence 2); tranches unchanged. Next test: Q3 results ~2026-11-05 (revenue vs the $650M floor, take rate, retention). A ~1% Amazon fee (secondary) sharpens the value-trap question, still unanswered.
 - 2026-10-24: refreshed. Price $13.00 unchanged since the last dossier; screen BUY* with 2 methods agreeing; street unchanged (30 analysts, mean $13.53, EPS −34%/−13%). A search found no new company news or Q3 preview since 10-23. Verdict stays WATCH (confidence 2). Next test: Q3 results ~2026-11-05 (revenue vs the $650M floor, take rate, retention).
 - 2026-10-23: created. Verdict WATCH (confidence 2). The screen's BUY* counts stock pay as cash and uses 15% growth against negative street EPS. After stock pay, Payback is ~$8.70 and Ten Cap ~$17. Next check: Q3 results ~2026-11-05 (revenue against the $650M floor, take rate, retention).

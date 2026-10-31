@@ -5,21 +5,21 @@ verdict: WATCH
 confidence: 3
 entry: [90, 70, 50]
 trim: 125
-updated: 2026-10-24
-price_at_update: 99.01
+updated: 2026-10-31
+price_at_update: 107.24
 summary: "A high-ROIC brand with net cash and a new CEO, but US sales are shrinking, street EPS falls again next year and TTM EPS is flattered by a tariff refund; wait for $90 or proof that the product fix works."
 ---
 # LULU · lululemon athletica inc.
 
-> **Verdict: WATCH** (confidence 3/5) · price $99.01 on 2026-10-23 · tranches $90 / $70 / $50 · trim above $125
-> ROIC is 31–41% and the company has $1.39B net cash, but US comparable sales fell in Q2, the FY26 earnings guide was cut twice, and the street expects EPS to fall about 28% this year and a further 9% next year. The screen's TTM EPS of $12.15 overstates today's earnings: underlying is ~$8.75 after removing the tariff refund. At $99 the stock is ~11x that, roughly fair rather than deep value. Nothing this week changes the call. Research, not advice.
+> **Verdict: WATCH** (confidence 3/5) · price $107.24 on 2026-10-30 · tranches $90 / $70 / $50 · trim above $125
+> ROIC is 31–41% and the company has $1.39B net cash, but US comparable sales fell in Q2, the FY26 earnings guide was cut twice, and the street expects EPS to fall about 28% this year and a further 9% next year. The screen's TTM EPS of $12.15 overstates today's earnings: underlying is ~$8.75 after removing the tariff refund. At $107 the stock is ~12x that, fair at best, and further above tranche 1 ($90) after an 8% bounce this week. Nothing this week changes the call. Research, not advice.
 
 ## R · Radar
-- Screen: status BUY, tier B, Big Five 11/15, marker score 0.9, 56% below the 52-week high, 3 methods agree on the screen's numbers (price/Sticker 0.27). 13D/A filings on 2026-08-03 and 2026-09-03 (founder Chip Wilson). 8-K 2026-10-22: officer/director change (Radar: a new board director, noise). Why selected: requested.
+- Screen: status BUY, tier B, Big Five 11/15, marker score 0.9, 53% below the 52-week high. The screen has now withheld its Sticker (flag: rebase needed, Street EPS −28%) and shows only Payback $94.87 and Ten Cap $178 (1 method agrees); the Sticker and MOS are blank, matching my own rebase. 13D/A filings on 2026-08-03 and 2026-09-03 (founder Chip Wilson). 8-K 2026-10-22: officer/director change (Radar: a new board director, noise). Why selected: requested.
 - Radar since 9 Oct: leadership overhaul (WATCH), cuts to product lines, and the fabric team reorganised after product-quality complaints (WATCH, 15 Oct), then NOISE on 23 Oct. No dossier sell trigger has been hit; "further CEO turnover" is the one to watch.
 - Gurus: none in the 13F data (lag ~4 months). Elliott: a ~$1bn stake was reported earlier [3]; I found no current position or demands, so unconfirmed.
 - Next report ~2026-12-03.
-- **Street:** 28 analysts, rating 3.25/5 (1 buy, 29 hold, 5 sell, 1 strong sell in the data), targets $44 / $103.66 / $255 (as of 2026-10-23). Recent actions: Wolfe Research initiated Underperform with a $75 target (22 Oct); Wells Fargo kept Equal-Weight and cut its target from $95 to $90 (19 Oct). The mean target is 7% above the price and 72% below the screen's Sticker. Street EPS growth is −28.4% this year and −8.9% next. Signal: contrarian. The street fears a longer reset than the screen assumes. My underlying EPS (~$8.75) already matches its path (~$9.5 this year, ~$8.65 next), so I do not see it as ahead of the street, only as agreeing with it on earnings and disagreeing on how long it lasts.
+- **Street:** 28 analysts, rating 3.25/5 (1 buy, 29 hold, 5 sell, 1 strong sell in the data), targets $44 / $103.66 / $255 (as of 2026-10-31, unchanged in a week). No new actions this week (earlier: Wolfe Underperform $75 on 22 Oct; Wells Fargo Equal-Weight, target $95→$90 on 19 Oct). The mean target is now 3% *below* the price. Street EPS growth is −28.4% this year and −8.9% next. Signal: contrarian. The street fears a longer reset than the screen assumes. My underlying EPS (~$8.75) already matches its path (~$9.5 this year, ~$8.65 next), so I do not see it as ahead of the street, only as agreeing with it on earnings and disagreeing on how long it lasts.
 
 ## U · Understand
 - **The business in one sentence:** lululemon designs and sells premium athletic apparel and footwear, mostly through its own stores and website.
@@ -47,7 +47,7 @@ summary: "A high-ROIC brand with net cash and a new CEO, but US sales are shrink
 ## R · Reduce basis (tranches only, no options)
 | Tranche | Price | Basis | Status |
 |---|---|---|---|
-| 1 | $90 | ≈ Payback on normalised FCF (~$89) and ~10x underlying EPS | Not yet (price $99.01) |
+| 1 | $90 | ≈ Payback on normalised FCF (~$86–89) and ~10x underlying EPS | Not yet (price $107.24) |
 | 2 | $70 | ≈ 8x underlying EPS of $8.75 | Not triggered |
 | 3 | $50 | ≈ corrected Sticker ($46) and ~4x underlying EPS ex $12 of net cash per share | Not triggered |
 
@@ -76,8 +76,8 @@ The screen's plan was $187 / $182 / $178 (all triggered) because it used TTM EPS
 |---|---|---|
 | Sticker | $364.50 (EPS $12.15, 15%) | **~$46**: underlying EPS ~$8.74 (guide midpoint $9.605 less $0.86 refund) × 1.06^10 × P/E 12 ÷ 1.15^10. MOS ~$23. |
 | MOS price | $182.25 | ~$23 |
-| Payback | $187.21 | ~$89 on flat FCF of $1.1B (8 × 1.1 + $1.39B net cash ÷ 114M shares); ~$107 on TTM FCF $1.35B |
-| Ten Cap | $178.01 | ~$108 on FCF $1.1B; ~$131 on TTM FCF $1.35B; the screen uses owner earnings of $2.03B, which is above FCF |
+| Payback | $187.21 | ~$86 on flat FCF of $1.1B (8 × 1.1 + $1.39B net cash ÷ 119M shares, the count management gives; the earlier 114M was too low); ~$102 on TTM FCF $1.35B |
+| Ten Cap | $178.01 | ~$104 on FCF $1.1B; ~$125 on TTM FCF $1.35B (119M shares); the screen uses owner earnings of $2.03B, which is above FCF |
 | Windage growth | 15% | 6%: revenue is falling; 5y sales growth 12%, OCF 3%; street EPS −28% and −9% |
 | P/E | 8.1 TTM vs 10-yr median 41.7 | ~11x underlying FY26 EPS |
 | Owner earnings / net debt / cash conversion | $2.03B / −$1.39B (net cash) / 1.02 | OE overstated vs FCF $1.35B TTM (fiscal-year FCF $0.92B) |
@@ -109,6 +109,7 @@ No deep dive model exists for LULU.
 7. InvestED notes: [105](/learn/105/) (Stock Evaluation, 2017), [210](/learn/210/) (Mistakes of Omission), [432](/learn/432/) (Perfect Competition)
 
 ## Changelog
+- 2026-10-31: refreshed. Verdict stays WATCH (3/5); tranches $90 / $70 / $50 unchanged. Price rose to $107.24 (+8% in a week); I did not search for company news this run and the Street data are unchanged, so tranche 1 is further away and the price is now above the Street mean ($103.66). The screen now blanks its Sticker for rebase, as I did. Professor review: share count corrected to 119M (Payback ~$86 flat FCF, Ten Cap ~$104–125); fcf_margin already shown as ✘ on the latest year (8.3%). Wilson's stake (4.3% vs ~8.6%) and Elliott's position are still unconfirmed. Next check: Q3 results ~2026-12-03.
 - 2026-10-24: rechecked, no change. Price ($99.01 on 2026-10-23) and Street (28 analysts, mean $103.66, EPS −28% / −9%) are the same as yesterday; Radar added only a new-director 8-K (noise). A search found no newer company news or guidance. Verdict stays WATCH; tranches $90 / $70 / $50 unchanged. Wilson stake and Elliott position are still unconfirmed.
 - 2026-10-23: updated. Verdict stays WATCH; price rose from $92.68 to $99.01, so tranche 1 ($90) is still not triggered. Street now shows EPS −28% this year and −9% next, and Wolfe initiated at Underperform ($75); this supports my underlying-EPS rebase rather than changing it. Added InvestED 105, 210 and 432 (thin moat, new-CEO red flag) and a per-marker line (LESSONS 2026-10-09): I treat fcf_margin as ✘ on the latest fiscal year (8.3%) and margin_stable fails. Radar items since 9 Oct (fabric reorganisation, new director) hit no sell trigger. Wilson's stake (4.3% vs ~8.6%) is unconfirmed. Next check: Q3 results ~2026-12-03.
 - 2026-10-09: created. Verdict WATCH: TTM EPS of $12.15 is flattered by a tariff refund and falling sales; underlying ~$8.75. Corrected prices put the stock at roughly fair, not at a margin of safety.

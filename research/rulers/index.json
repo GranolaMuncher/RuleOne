@@ -1,5 +1,21 @@
 [
  {
+  "ticker": "ACGL",
+  "name": "Arch Capital Group Ltd.",
+  "verdict": "WATCH",
+  "confidence": 4.0,
+  "entry": [
+   70.0,
+   58.0,
+   49.0
+  ],
+  "trim": 130.0,
+  "updated": "2026-10-31",
+  "price_at_update": 106.36,
+  "summary": "A first-rate specialty insurer and reinsurer, but the screen's $133 Sticker grows peak-cycle EPS at 15%; on about $10.5 of normalised EPS and Street-capped growth the rule Sticker is ~$70, well under the $106 price, and there is no event.",
+  "markers_missing": []
+ },
+ {
   "ticker": "ADBE",
   "name": "Adobe Inc.",
   "verdict": "WATCH",
@@ -10,9 +26,26 @@
    145.0
   ],
   "trim": 330.0,
-  "updated": "2026-10-24",
-  "price_at_update": 263.82,
-  "summary": "A high-ROIC software franchise at ~11x non-GAAP earnings, but generative-AI disruption, a CEO handover (1 Dec) and an interim CFO leave the story unproven; on the lower growth rate the Sticker is ~$189 (~$230 at 10%), below the $264 price."
+  "updated": "2026-10-31",
+  "price_at_update": 250.23,
+  "summary": "A high-ROIC software franchise at ~11x non-GAAP earnings, but generative-AI disruption, a CEO handover (1 Dec) and an interim CFO leave the story unproven; on the lower growth rate the Sticker is ~$189 (~$230 at 10%), below the $264 price.",
+  "markers_missing": []
+ },
+ {
+  "ticker": "AX",
+  "name": "Axos Financial, Inc.",
+  "verdict": "WATCH",
+  "confidence": 3.0,
+  "entry": [
+   72.0,
+   55.0,
+   45.0
+  ],
+  "trim": 103.0,
+  "updated": "2026-10-31",
+  "price_at_update": 90.38,
+  "summary": "A fast-growing, efficient digital bank earning ~15.7% on equity, but at $90 (1.56x book, 10.3x earnings) it sits above the rule Sticker of ~$72, and a Q1 charge-off spike in commercial loans needs to be understood first.",
+  "markers_missing": []
  },
  {
   "ticker": "BRBR",
@@ -27,7 +60,24 @@
   "trim": 20.0,
   "updated": "2026-10-24",
   "price_at_update": 9.55,
-  "summary": "A branded protein-shake business with ROIC above 40% that has fallen 76% as margins collapsed and net debt reached ~3.8x guided EBITDA; the screen's prices use pre-squeeze cash flow, so wait for Q4 and the new CEO's FY27 plan."
+  "summary": "A branded protein-shake business with ROIC above 40% that has fallen 76% as margins collapsed and net debt reached ~3.8x guided EBITDA; the screen's prices use pre-squeeze cash flow, so wait for Q4 and the new CEO's FY27 plan.",
+  "markers_missing": []
+ },
+ {
+  "ticker": "CARG",
+  "name": "CarGurus, Inc.",
+  "verdict": "WATCH",
+  "confidence": 3.0,
+  "entry": [
+   34.0,
+   27.0,
+   23.0
+  ],
+  "trim": 55.0,
+  "updated": "2026-10-31",
+  "price_at_update": 32.18,
+  "summary": "A cash-rich, debt-free car-shopping marketplace that has just exited its money-losing wholesale arm; price is already under a 12%-growth Sticker, but earnings are due ~Nov 5 and the stock-pay load and thin moat are unresolved, so wait for the print.",
+  "markers_missing": []
  },
  {
   "ticker": "DECK",
@@ -35,14 +85,15 @@
   "verdict": "WATCH",
   "confidence": 3.0,
   "entry": [
-   75.0,
+   73.0,
    60.0,
-   40.0
+   38.0
   ],
   "trim": 118.0,
-  "updated": "2026-10-24",
-  "price_at_update": 81.09,
-  "summary": "Debt-free brand company (HOKA, UGG) with 40% ROIC, but the sales guide was just cut to ~4% growth and tariff refunds flatter EPS; a 6-8% growth Sticker is $37-60, so wait for a lower price or proof of the brands' staying power."
+  "updated": "2026-10-31",
+  "price_at_update": 81.99,
+  "summary": "Debt-free brand company (HOKA, UGG) with 40% ROIC and $1.2B net cash, but the sales guide was cut to ~4% growth and tariff refunds flatter EPS; at 6-8% growth the Sticker is $38-60, so wait for $73 or proof the brands last.",
+  "markers_missing": []
  },
  {
   "ticker": "FUTU",
@@ -57,7 +108,8 @@
   "trim": 150.0,
   "updated": "2026-10-24",
   "price_at_update": 99.19,
-  "summary": "A fast-growing online broker earning ~$13 per ADS on its latest quarter's run-rate, down 51% from its high on a proposed Chinese regulatory penalty; the business looks wonderful but the China rule-maker, the unfinished penalty and a peak-cycle quarter keep me on the sidelines until the price is near $85."
+  "summary": "A fast-growing online broker earning ~$13 per ADS on its latest quarter's run-rate, down 51% from its high on a proposed Chinese regulatory penalty; the business looks wonderful but the China rule-maker, the unfinished penalty and a peak-cycle quarter keep me on the sidelines until the price is near $85.",
+  "markers_missing": []
  },
  {
   "ticker": "INTU",
@@ -65,14 +117,15 @@
   "verdict": "WATCH",
   "confidence": 3.0,
   "entry": [
-   300.0,
-   250.0,
-   211.0
+   211.0,
+   192.0,
+   145.0
   ],
   "trim": 494.0,
-  "updated": "2026-10-24",
-  "price_at_update": 343.39,
-  "summary": "Cash-rich software franchise down 50% on AI-disruption fear, but the screen's 15% windage is too high and the price is still above a 10%-growth Sticker; the open question is whether TurboTax's moat has changed."
+  "updated": "2026-10-31",
+  "price_at_update": 341.09,
+  "summary": "Cash-rich software franchise down 50% on AI-disruption fear, but the screen's 15% windage is too high and the price is still above a 10%-growth Sticker; the open question is whether TurboTax's moat has changed.",
+  "markers_missing": []
  },
  {
   "ticker": "KNSL",
@@ -85,9 +138,10 @@
    155.0
   ],
   "trim": 285.0,
-  "updated": "2026-10-24",
-  "price_at_update": 364.49,
-  "summary": "An exceptional specialty insurer (Q3 combined ratio 75.4%, ROIC 23%), but premiums are shrinking and the price is well above every earnings-based value (~$155\u2013$285); wait for a lower price."
+  "updated": "2026-10-31",
+  "price_at_update": 365.71,
+  "summary": "An exceptional specialty insurer (Q3 combined ratio 75.4%, ROIC 23%), but premiums are shrinking and the price is well above every earnings-based value (~$155\u2013$285); wait for a lower price.",
+  "markers_missing": []
  },
  {
   "ticker": "LULU",
@@ -100,9 +154,26 @@
    50.0
   ],
   "trim": 125.0,
-  "updated": "2026-10-24",
-  "price_at_update": 99.01,
-  "summary": "A high-ROIC brand with net cash and a new CEO, but US sales are shrinking, street EPS falls again next year and TTM EPS is flattered by a tariff refund; wait for $90 or proof that the product fix works."
+  "updated": "2026-10-31",
+  "price_at_update": 107.24,
+  "summary": "A high-ROIC brand with net cash and a new CEO, but US sales are shrinking, street EPS falls again next year and TTM EPS is flattered by a tariff refund; wait for $90 or proof that the product fix works.",
+  "markers_missing": []
+ },
+ {
+  "ticker": "NTES",
+  "name": "NetEase, Inc.",
+  "verdict": "WATCH",
+  "confidence": 3.0,
+  "entry": [
+   105.0,
+   95.0,
+   64.0
+  ],
+  "trim": 150.0,
+  "updated": "2026-10-31",
+  "price_at_update": 113.64,
+  "summary": "A cash-rich, debt-free Chinese games company with 70% gross margin and ~$25B of net cash, but the price is above my zero-growth Payback ($104) and the 15% windage Sticker is too high; wait for $105, and understand the China/ADR risks first.",
+  "markers_missing": []
  },
  {
   "ticker": "PGR",
@@ -110,14 +181,15 @@
   "verdict": "WATCH",
   "confidence": 4.0,
   "entry": [
-   190.0,
-   160.0,
-   130.0
+   135.0,
+   115.0,
+   87.0
   ],
-  "trim": 300.0,
-  "updated": "2026-10-24",
-  "price_at_update": 228.07,
-  "summary": "A best-in-class auto insurer, but TTM earnings sit near the top of the cycle (combined ratio ~87.5 against a 96 target), so the screen's 15% windage Sticker of $362 is not real; wait for a normalised-earnings price."
+  "trim": 175.0,
+  "updated": "2026-10-31",
+  "price_at_update": 231.28,
+  "summary": "A best-in-class auto insurer earning near the top of the cycle (nine-month combined ratio 87.5); on normalised EPS of ~$13.5 the stock is ~17x, and every method puts fair value at $115-175, so wait.",
+  "markers_missing": []
  },
  {
   "ticker": "TTD",
@@ -130,9 +202,10 @@
    5.5
   ],
   "trim": 17.0,
-  "updated": "2026-10-24",
-  "price_at_update": 13.0,
-  "summary": "A high-margin ad-buying platform with $1.1B+ net cash, but revenue growth has stalled (Q3 guided down ~12%), stock pay of ~$490M a year erases much of the screen's cash flow, and it is unclear whether the loss of ad spend to Amazon is an event or a changed story; wait for a price near $8.50 or proof that revenue stabilises."
+  "updated": "2026-10-31",
+  "price_at_update": 12.29,
+  "summary": "A high-margin ad-buying platform with $1.1B+ net cash, but revenue growth has stalled (Q3 guided down ~12%), stock pay of ~$490M a year erases much of the screen's cash flow, and it is unclear whether the loss of ad spend to Amazon is an event or a changed story; wait for a price near $8.50 or proof that revenue stabilises.",
+  "markers_missing": []
  },
  {
   "ticker": "SMCI",
@@ -140,14 +213,15 @@
   "verdict": "AVOID",
   "confidence": 2.0,
   "entry": [
-   32.4,
-   27.54,
-   22.68
+   10.87,
+   9.24,
+   7.61
   ],
-  "trim": 64.81,
-  "updated": "2026-10-24",
-  "price_at_update": 32.94,
-  "summary": "AI-server assembler with thin, swinging margins, deeply negative cash flow funded by about $8.7B of debt, and open integrity questions (ineffective controls, CFO exit, co-founder indictment); price is at the screen's MOS but the screen's quality tests fail."
+  "trim": 21.74,
+  "updated": "2026-10-31",
+  "price_at_update": 32.95,
+  "summary": "AI-server assembler with thin, swinging margins, deeply negative cash flow funded by about $8.7B of debt, and open integrity questions (ineffective controls, CFO exit, co-founder indictment); the price is now 1.5x the rebased Sticker and the quality tests fail.",
+  "markers_missing": []
  },
  {
   "ticker": "OPFI",
@@ -162,7 +236,8 @@
   "trim": 12.0,
   "updated": "2026-10-24",
   "price_at_update": 5.42,
-  "summary": "A high-yield consumer lender whose screen numbers (FCF, Payback, Ten Cap) are not real owner earnings; guidance was cut, originations fell and credit is tightening, so the screen's $29 Sticker cannot be trusted."
+  "summary": "A high-yield consumer lender whose screen numbers (FCF, Payback, Ten Cap) are not real owner earnings; guidance was cut, originations fell and credit is tightening, so the screen's $29 Sticker cannot be trusted.",
+  "markers_missing": []
  },
  {
   "ticker": "QFIN",
@@ -177,6 +252,7 @@
   "trim": 12.0,
   "updated": "2026-10-24",
   "price_at_update": 5.26,
-  "summary": "A China loan-facilitation platform at ~3x annualised earnings, but volume, revenue and profit are collapsing under regulation and a liquidity shock; the story has changed and China political risk is a checklist item."
+  "summary": "A China loan-facilitation platform at ~3x annualised earnings, but volume, revenue and profit are collapsing under regulation and a liquidity shock; the story has changed and China political risk is a checklist item.",
+  "markers_missing": []
  }
 ]

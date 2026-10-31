@@ -3,16 +3,16 @@ ticker: INTU
 name: "Intuit Inc."
 verdict: WATCH
 confidence: 3
-entry: [300, 250, 211]
+entry: [211, 192, 145]
 trim: 494
-updated: 2026-10-24
-price_at_update: 343.39
+updated: 2026-10-31
+price_at_update: 341.09
 summary: "Cash-rich software franchise down 50% on AI-disruption fear, but the screen's 15% windage is too high and the price is still above a 10%-growth Sticker; the open question is whether TurboTax's moat has changed."
 ---
 # INTU · Intuit Inc.
 
-> **Verdict: WATCH** (confidence 3/5) · price $343.39 on 2026-10-23 · tranches $300 / $250 / $211 · trim above $494
-> Intuit has the numbers of a wonderful business (9 of 10 markers, 40% FCF margin, under 1 year of FCF in debt) and a 50% drawdown. But the screen's BUY* rests on 15% windage, while management guides FY27 revenue growth to 9-10% and TurboTax units to 2-3%. On the lower-of-two growth rule (10%) the Sticker is about $211, not $494, and the price is above it. The fall is AI-disruption fear, which could be a temporary event or a changed story (event check 6). Not investment advice. Watch until the next report (~2026-11-18) shows whether TurboTax and QuickBooks customer adds hold.
+> **Verdict: WATCH** (confidence 3/5) · price $341.09 on 2026-10-30 · tranches $211 / $192 / $145 · trim above $494
+> Intuit has the numbers of a wonderful business (9 of 10 markers, 40% FCF margin, under 1 year of FCF in debt) and a 50% drawdown. But the screen's BUY* rests on 15% windage, while management guides FY27 revenue growth to 9-10% and TurboTax units to 2-3%. On the lower-of-two growth rule (10%) the Sticker is about $211, not $494, and the price is 62% above it. After deducting stock pay (~$2.0B a year), Payback is about $192 and the Ten Cap about $282, so tranche 1 now sits at the Sticker, $211. The fall is AI-disruption fear, which could be a temporary event or a changed story (event check 6). Not investment advice. Watch until the next report (~2026-11-18) shows whether TurboTax and QuickBooks customer adds hold.
 
 ## R · Radar
 On the list as BUY*, tier A, rank 5.278, 2 of 3 methods agree (Payback $494, Ten Cap $354; Sticker $494 and MOS $247 are not met by the price). Drawdown -50% from the 52-week high. No screen flags. 8-K on 2026-08-25 (Q4 FY26 earnings). No Radar items, no 13F guru holders in the data (not checked beyond the pack), no InvestED episode notes found for this company.
@@ -45,11 +45,11 @@ On the list as BUY*, tier A, rank 5.278, 2 of 3 methods agree (Payback $494, Ten
 ## R · Reduce basis (tranches only, no options)
 | Tranche | Price | Basis | Status |
 |---|---|---|---|
-| 1 | $300 | 12% growth Sticker (~$303), labelled optimistic; roughly 11x owner earnings less net debt | Not triggered (price $343) |
-| 2 | $250 | Zero-growth Payback (8 × FCF $8.66B ÷ ~277M shares ≈ $250) | Not triggered |
-| 3 | $211 | 10% growth Sticker (lower-of-two rule); MOS here would be $105 | Not triggered |
+| 1 | $211 | 10% growth Sticker (lower-of-two rule). Beside it: Ten Cap after stock pay ~$282, Payback after stock pay ~$192 | Not triggered (price $341) |
+| 2 | $192 | Zero-growth Payback after stock pay: 8 × ($8.66B − ~$2.0B) ÷ 277M ≈ $192 | Not triggered |
+| 3 | $145 | Payback with FCF after stock pay 25% lower ≈ $145 (the true MOS of $105 is a deeper fall) | Not triggered |
 
-Equal dollar tranches, set in advance. The screen's default ladder ($494 / $354 / $247) is not used: its tranche 1 is built on 15% growth, which management's own guide does not support (LESSONS 2026-10-17, METHOD 6). Keep dry powder for a further ~50% fall. **Stop buying above $300; trim above $494** (the screen Sticker at 15%; it's optimistic, so don't trim a compounder early, LESSONS seed 1).
+Equal dollar tranches, set in advance. The screen's default ladder ($354 / $250 / $213) is not used: it adds back stock pay and ignores the guide. The earlier $300 tranche 1 was the 12% optimistic case and is withdrawn (Professor review; LESSONS 2026-10-24). Keep dry powder for a further ~50% fall. **Stop buying above $211; trim above $494** (the screen Sticker at 15%; it's optimistic, so don't trim a compounder early, LESSONS seed 1).
 
 ## S · Story
 - **Thesis:** Intuit is the system of record for small-business and household finances, with a 40% FCF margin and almost no debt. The market prices it as a victim of AI. If QuickBooks keeps adding customers and TurboTax holds its funnel, owner earnings of $8-10B on a $95B company is cheap. If AI lets rivals take the DIY and small-business base at lower prices, growth settles near 5-9% and today's price is fair.
@@ -74,8 +74,8 @@ Equal dollar tranches, set in advance. The screen's default ladder ($494 / $354 
 |---|---|---|
 | Sticker | $493.80 (15% growth, future P/E 30) | ~$211 at 10% growth, future P/E 20 (2 × growth); ~$303 at 12% growth, P/E 24 |
 | MOS | $246.90 | ~$105 (10% case); ~$151 (12% case) |
-| Payback (8-yr FCF) | $493.69 | ~$250 at zero growth; ~$393 at 10% growth |
-| Ten Cap | $354.43 | Same arithmetic, but owner earnings exclude stock comp; unconfirmed, so treat as an upper bound |
+| Payback (8-yr FCF) | $250.19 (zero growth) | **~$192** after stock pay |
+| Ten Cap | $354.43 | **~$282** after stock pay: 10 × ($10.11B − ~$2.0B) − net debt $2.96B = $78.2B ÷ 277M. Stock pay ~$2.0B is from FY25 ($1.97B, aggregator) and the FY27 guide ($2.02B); the FY26 10-K line was not read |
 | Windage growth | 15% | 10%: lowest of company guide (rev +9-10%), analyst EPS (-1.9% this year, +13.2% next), history (EPS 16%/yr 10y). I don't know the SBC-basis effect, so I take the revenue guide. |
 | P/E | TTM 20.9 | 10-year median 49.4 |
 | Owner earnings TTM | $10.11B | FCF $8.66B |
@@ -102,7 +102,9 @@ No deep-dive model exists for INTU. My Sticker arithmetic: EPS $16.46 × 1.10^10
 2. [Intuit stock plunges after weak 2027 revenue outlook (Invezz, 2026-08-26)](https://invezz.com/news/2026/08/26/intuit-stock-plunges-after-weak-2027-revenue-outlook-is-it-a-buy/) (search snippet only; page returned 403)
 3. [JPMorgan downgrades Intuit (Barchart)](https://www.barchart.com/story/news/4138017/jpmorgan-just-downgraded-intuit-stock-here-s-why) (search snippet only)
 4. [Intuit shares lag as FY27 growth targets face skepticism (Tradingpedia, 2026-09-18)](https://www.tradingpedia.com/2026/09/18/intu-shares-lag-as-fy27-growth-targets-face-skepticism/) (snippet only)
+6. [Intuit FY2026 10-K](https://www.sec.gov/Archives/edgar/data/0000896878/000089687826000037/intu-20260731.htm) (found, not read in full) and [Intuit Q4 FY26 release](https://www.benzinga.com/node/61421189) (buybacks $5.5B; SBC now counted in non-GAAP; snippet only)
 5. [SEC EDGAR filings](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=896878&type=10-K). The 10-K and proxy were **not read** this week.
 
 ## Changelog
+- 2026-10-31: refreshed to fix the Professor's major issues. (1) Tranche 1 is now $211, the 10% Sticker, not the $300 optimistic case. (2) Stock pay sized at ~$2.0B a year (secondary sources); Payback falls to ~$192 and Ten Cap to ~$282, so the earlier claim of two methods agreeing at $300 is withdrawn. Ladder now $211 / $192 / $145. (3) The 10-K is still not read directly (link added). Price $341.09 (was $343.39). The screen now blanks Sticker and MOS ('rebase needed', Street EPS −2%). Street unchanged. FY26 buybacks were $5.5B (+96%), so the flat share count was bought well above today's price. Verdict stays WATCH (confidence 3). Next: Q1 FY27 report ~2026-11-18.
 - 2026-10-24: created. Screen BUY* not accepted: windage cut from 15% to 10% (Sticker ~$211), tranches re-anchored ($300 / $250 / $211), verdict WATCH pending TurboTax/QuickBooks evidence at the ~2026-11-18 report. Filings were not read directly; web summaries only.

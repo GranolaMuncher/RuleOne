@@ -5,20 +5,20 @@ verdict: WATCH
 confidence: 4
 entry: [230, 190, 155]
 trim: 285
-updated: 2026-10-24
-price_at_update: 364.49
+updated: 2026-10-31
+price_at_update: 365.71
 summary: "An exceptional specialty insurer (Q3 combined ratio 75.4%, ROIC 23%), but premiums are shrinking and the price is well above every earnings-based value (~$155–$285); wait for a lower price."
 ---
 # KNSL · Kinsale Capital Group, Inc.
 
-> **Verdict: WATCH** (confidence 4/5) · price $364.49 on 2026-10-23 · tranches $230 / $190 / $155 · trim above $285
+> **Verdict: WATCH** (confidence 4/5) · price $365.71 on 2026-10-30 · tranches $230 / $190 / $155 · trim above $285
 > Q3 confirmed the business (combined ratio 75.4%, reserves still favourable) and also the slowdown (gross written premiums −4.8%, earned premium only +3.0%). The screen's BUY* (Sticker $688) uses 15% growth and operating cash flow that includes float. On operating EPS of about $22.80 and 7% growth, Sticker is ~$155, Payback ~$234 and Ten Cap ~$229; even the optimistic 10% case is ~$282. The price is above all of them. The CFO retirement is planned, with an internal successor, so it is not a changed-story signal. Research, not advice.
 
 ## R · Radar
-- Screen: status BUY*, tier A, Big Five 12/13, marker score 1.0, 2 of 3 methods agree on its numbers (price/Sticker 0.53), 17% below the 52-week high. Flag: financial (OCF tests less meaningful). The 52-week drawdown has shrunk from 29% (9 Oct) because the price rose from $340 to $364. Why selected: requested.
+- Screen: status BUY*, tier A, Big Five 12/13, marker score 1.0. The screen now flags peak earnings (TTM EPS $22.95 is 1.7x its 5-year average) and uses EPS $13.23 with growth capped at 10%: Sticker $169.64, MOS $84.82, Payback $537, Ten Cap $486; 2 methods agree, but both rest on float-inflated cash flow. Its Sticker is now close to my ~$155 (7%, operating EPS $22.80). 13% below the 52-week high. Flag: financial (OCF tests less meaningful). The 52-week drawdown has shrunk from 29% (9 Oct) because the price rose from $340 to $364. Why selected: requested.
 - Radar 2026-10-23: WATCH. Q3 combined ratio 75.4%, premiums −4.8%, CFO transition 8-K; the trigger "new CEO plus guidance cut" is not met.
 - No guru holders in the 13F data (lag ~4 months).
-- **Street:** 9 analysts, rating 3.2/5 (1 buy, 9 hold, 2 sell in the data), targets $264 / $346 / $405 (as of 2026-10-23). No recent actions listed. The mean target is 5% *below* the price and 50% below the screen's Sticker. EPS growth is +9.8% this year but only +1.3% next year. Signal: contrarian (the screen likes it, the street does not). The street sees a softening E&S property market and falling premiums; my corrected values agree with it, so I treat the screen's BUY* as the outlier.
+- **Street:** 9 analysts, rating 3.2/5 (1 buy, 9 hold, 2 sell in the data), targets $285 / $350 / $405 (as of 2026-10-31). RBC kept Sector Perform and raised its target $375→$400; Cantor kept Neutral and raised $264→$285 (26 Oct). The mean target is 4% *below* the price and 50% below the screen's Sticker. EPS growth is +13% this year but −0.5% next year. Signal: contrarian (the screen likes it, the street does not). The street sees a softening E&S property market and falling premiums; my corrected values agree with it, so I treat the screen's BUY* as the outlier.
 
 ## U · Understand
 - **The business in one sentence:** Kinsale underwrites hard-to-place commercial insurance in the US excess & surplus (E&S) market, mostly small accounts sold through wholesale brokers, using its own technology to keep costs low.
@@ -28,12 +28,12 @@ summary: "An exceptional specialty insurer (Q3 combined ratio 75.4%, ROIC 23%), 
 
 ## L · Love (moat and management)
 - **Moat:** low-cost operator (expense ratio 22.0%, up from 21.0%) plus underwriting discipline in a niche; "technology-enabled low cost" is management's claim [1]. Replication test: any capitalised insurer can write E&S, so the edge is the cost base, data and culture. Disappears test: brokers would notice but could switch. Pricing power: weak by nature in a competitive market; the evidence is a combined ratio of 75.4% against 74.9% a year ago and ROIC of 17–25% over five years. A durable edge only while discipline holds.
-- **Management:** CEO and chairman Michael Kehoe. Buybacks: $100.0M in Q3 at an average of $371.74 (269,004 shares), after $100M in Q2; $237.5M of authorisation remains [1]. That price is about 4.4x book and close to today's price, so it is fair rather than cheap (METHOD 4). Share count flat at ~23.3M since 2023; dividend $0.25 a quarter. Debt $225M = 0.2 years of FCF. Cash conversion 1.89 is meaningless for an insurer (float). Book value per share was $85.25 at 30 September against $84.66 at year-end 2025 [1], so book has barely grown this year after buybacks and the repositioning. **CFO:** Bryan Petrucelli moves to the board on 22 October and retires from the CFO role on 2 March 2027; Christopher Tangard, chief accounting officer since March 2024 and at the company since 2019 (ex-KPMG audit), takes over [2]. An orderly internal succession. Incentives, candour and insider trading: not read this run.
+- **Management:** CEO and chairman Michael Kehoe. Buybacks: $100.0M in Q3 at an average of $371.74 (269,004 shares), after $100M in Q2; $237.5M of authorisation remains [1]. That price is about 4.4x book, more than double my Sticker ($155) and above even the optimistic 10% case ($282), so the buyback was expensive, not fair (METHOD 4); I do not count it as a plus. Share count flat at ~23.3M since 2023; dividend $0.25 a quarter. Debt $225M = 0.2 years of FCF. Cash conversion 1.89 is meaningless for an insurer (float). Book value per share was $85.25 at 30 September against $84.66 at year-end 2025 [1], so book has barely grown this year after buybacks and the repositioning. **CFO:** Bryan Petrucelli moves to the board on 22 October and retires from the CFO role on 2 March 2027; Christopher Tangard, chief accounting officer since March 2024 and at the company since 2019 (ex-KPMG audit), takes over [2]. An orderly internal succession. Incentives, candour and insider trading: not read this run.
 - **Values:** nothing that the owner would veto was found.
 - Would I buy the whole company at this price? **Not yet**: ~$8.3B for roughly $0.52B of operating earnings (about 16x) and 4.3x book is a fair-to-full price for a business entering a softer cycle.
 
 ## E · Event
-- What happened: shares fell as E&S commercial property pricing softened. Q3 (reported 22 October): combined ratio 75.4%, operating EPS $5.70 (vs $5.21), GAAP EPS $4.36 (vs $6.09) after the $37.6M repositioning hit, net income $98.1M (vs $141.6M); favourable reserve development $19.7M (4.5 points of loss ratio) [1]. The price is up ~8% in four weeks (from $336.98 on 10 Oct).
+- What happened: shares fell as E&S commercial property pricing softened. Q3 (reported 22 October): combined ratio 75.4%, operating EPS $5.70 (vs $5.21), GAAP EPS $4.36 (vs $6.09) after the $37.6M repositioning hit, net income $98.1M (vs $141.6M); favourable reserve development $19.7M (4.5 points of loss ratio) [1]. The price is up ~8% in three weeks (from $336.98 on 10 Oct) and flat over the last week.
 - Event checks (METHOD 7):
   1. Known: ✔ softening E&S property rates.
   2. Easy to find: ✔.
@@ -41,12 +41,12 @@ summary: "An exceptional specialty insurer (Q3 combined ratio 75.4%, ROIC 23%), 
   4. Resolves within ~3 years: ? cycles usually turn, but the timing is uncertain.
   5. No new debt needed: ✔ debt is tiny and capital is in excess.
   6. You would own it for life: ? possibly, at the right price.
-- **Event or problem?** A *cycle*, not a broken business: it is system-wide (METHOD 7: moves price, not value), but the price has not fallen enough to give a margin of safety on earnings. Not a value trap, but it is only 17% below the high, which is not much of a fear discount.
+- **Event or problem?** A *cycle*, not a broken business: it is system-wide (METHOD 7: moves price, not value), but the price has not fallen enough to give a margin of safety on earnings. Not a value trap, but it is only 13% below the high, which is not much of a fear discount.
 
 ## R · Reduce basis (tranches only, no options)
 | Tranche | Price | Basis | Status |
 |---|---|---|---|
-| 1 | $230 | ≈ Payback ($234) and Ten Cap ($229) on operating earnings at 7% growth, ~10x operating EPS, ~2.7x book | Not triggered (price $364.49) |
+| 1 | $230 | ≈ Payback ($234) and Ten Cap ($229) on operating earnings at 7% growth, ~10x operating EPS, ~2.7x book | Not triggered (price $365.71) |
 | 2 | $190 | midpoint, ~8x operating EPS, ~2.2x book | Not triggered |
 | 3 | $155 | ≈ Sticker at 7% growth, ~1.8x book | Not triggered |
 
@@ -109,6 +109,7 @@ Deep dive model (`reports/model/KNSL.md`): 10-year DCF at 9.6% WACC gives **$402
 5. [Kinsale 10-K filings on SEC EDGAR](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1669162&type=10-K) (not re-read this run)
 
 ## Changelog
+- 2026-10-31: refreshed. Verdict stays WATCH (4/5); tranches $230 / $190 / $155 and trim $285 unchanged. Price $365.71, flat on a week. The screen now corrects for peak earnings itself (EPS $13.23, Sticker $169.64), which supports my ~$155; its Payback ($537) and Ten Cap ($486) still use float-inflated cash flow, so I ignore them. Street: RBC raised its target to $400 and Cantor to $285 (26 Oct); mean $350, EPS growth +13% this year, −0.5% next. Professor review fixed: the Q3 buyback at $371.74 is now called expensive against my values; Street figures now match the current data pack ($350 mean). I did not search for new news and the 10-K was still not re-read. Next check: Q4 results ~2027-01-21.
 - 2026-10-24: rechecked, no change. Price ($364.49 on 2026-10-23), Street (mean target $349, 9 analysts, no new actions) and the Q3 release and CFO 8-K were re-read against this dossier and match. Verdict stays WATCH; tranches $230 / $190 / $155 unchanged. The screen status moved to BUY* because its Sticker fell to $688.50; that still rests on 15% growth and float-inflated cash flow. The 10-K was still not re-read.
 - 2026-10-23: updated for Q3 and a lower-growth anchor. Verdict stays WATCH. Windage cut from 10% to 7% (earned premium +3.0%, street EPS +1.3% next year): Sticker ~$155 (10% case ~$282), Payback ~$234, Ten Cap ~$229. Tranches lowered from $280 / $220 / $150 to $230 / $190 / $155, trim from $400 to $285 (LESSONS 2026-10-17). Added the per-marker line (LESSONS 2026-10-09). CFO retirement (2 March 2027, internal successor) is orderly. Q3 reserve development still favourable ($19.7M). Next check: Q4 results ~2027-01-21.
 - 2026-10-09: created. Verdict WATCH: the screen's three-method agreement relies on OCF and 15% growth; on normalised earnings and 10% growth price is above Sticker, Payback and Ten Cap. Check Q3 on ~2026-10-22.
