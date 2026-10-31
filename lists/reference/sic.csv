@@ -5,8 +5,8 @@ cik,sic,industry,sector,updated
 2186,3663,Radio & Tv Broadcasting & Communications Equipment,Information Technology,2026-10-24
 2230,,,,2026-10-24
 2488,3674,Semiconductors & Related Devices,Information Technology,2026-10-24
-2809,1040,Gold and Silver Ores,Materials,2026-10-04
-2969,2810,Industrial Inorganic Chemicals,Materials,2026-10-04
+2809,1040,Gold and Silver Ores,Materials,2026-10-31
+2969,2810,Industrial Inorganic Chemicals,Materials,2026-10-31
 3197,3564,Industrial & Commercial Fans & Blowers & Air Purifing Equip,Industrials,2026-10-04
 3453,4400,Water Transportation,Industrials,2026-10-04
 3499,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
@@ -79,9 +79,9 @@ cik,sic,industry,sector,updated
 18498,5661,Retail-Shoe Stores,Consumer Discretionary,2026-10-24
 18748,0000,,Other,2026-10-24
 18926,4813,Telephone Communications (No Radiotelephone),Communication Services,2026-10-24
-19584,8082,Services-Home Health Care Services,Health Care,2026-10-04
-19617,6021,National Commercial Banks,Financials,2026-10-04
-19745,4923,Natural Gas Transmisison & Distribution,Utilities,2026-10-04
+19584,8082,Services-Home Health Care Services,Health Care,2026-10-31
+19617,6021,National Commercial Banks,Financials,2026-10-31
+19745,4923,Natural Gas Transmisison & Distribution,Utilities,2026-10-31
 19871,3540,Metalworkg Machinery & Equipment,Industrials,2026-10-04
 20212,7948,"Services-Racing, Including Track Operation",Consumer Discretionary,2026-10-04
 20286,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-04
@@ -142,10 +142,10 @@ cik,sic,industry,sector,updated
 34782,6022,State Commercial Banks,Financials,2026-10-24
 34903,6798,Real Estate Investment Trusts,Real Estate,2026-10-24
 34956,2834,Pharmaceutical Preparations,Health Care,2026-10-24
-35527,6022,State Commercial Banks,Financials,2026-10-04
-36029,6022,State Commercial Banks,Financials,2026-10-04
-36104,6021,National Commercial Banks,Financials,2026-10-04
-36146,6021,National Commercial Banks,Financials,2026-10-04
+35527,6022,State Commercial Banks,Financials,2026-10-31
+36029,6022,State Commercial Banks,Financials,2026-10-31
+36104,6021,National Commercial Banks,Financials,2026-10-31
+36146,6021,National Commercial Banks,Financials,2026-10-31
 36270,6022,State Commercial Banks,Financials,2026-10-04
 36377,6022,State Commercial Banks,Financials,2026-10-04
 36966,6021,National Commercial Banks,Financials,2026-10-04
@@ -261,8 +261,8 @@ cik,sic,industry,sector,updated
 67347,3714,Motor Vehicle Parts & Accessories,Consumer Discretionary,2026-10-24
 67716,4924,Natural Gas Distribution,Utilities,2026-10-24
 67887,3590,Misc Industrial & Commercial Machinery & Equipment,Industrials,2026-10-24
-68505,3663,Radio & Tv Broadcasting & Communications Equipment,Information Technology,2026-10-04
-68622,4813,Telephone Communications (No Radiotelephone),Communication Services,2026-10-04
+68505,3663,Radio & Tv Broadcasting & Communications Equipment,Information Technology,2026-10-31
+68622,4813,Telephone Communications (No Radiotelephone),Communication Services,2026-10-31
 69422,6513,Operators of  Apartment Buildings,Real Estate,2026-10-04
 69488,3089,"Plastics Products, NEC",Materials,2026-10-04
 69633,3669,"Communications Equipment, NEC",Information Technology,2026-10-04
@@ -323,8 +323,8 @@ cik,sic,industry,sector,updated
 82473,6798,Real Estate Investment Trusts,Real Estate,2026-10-10
 82811,3569,"General Industrial Machinery & Equipment, NEC",Industrials,2026-10-17
 84246,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-24
-84748,2821,"Plastic Materials, Synth Resins & Nonvulcan Elastomers",Materials,2026-10-04
-84839,7340,Services-To Dwellings & Other Buildings,Industrials,2026-10-04
+84748,2821,"Plastic Materials, Synth Resins & Nonvulcan Elastomers",Materials,2026-10-31
+84839,7340,Services-To Dwellings & Other Buildings,Industrials,2026-10-31
 85535,6795,Mineral Royalty Traders,Financials,2026-10-04
 85961,7510,Services-Auto Rental & Leasing (No Drivers),Consumer Discretionary,2026-10-04
 86312,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-04
@@ -383,12 +383,12 @@ cik,sic,industry,sector,updated
 100517,4512,"Air Transportation, Scheduled",Industrials,2026-10-24
 100591,1700,Construction - Special Trade Contractors,Industrials,2026-10-24
 100726,2200,Textile Mill Products,Consumer Discretionary,2026-10-24
-100885,4011,"Railroads, Line-Haul Operating",Industrials,2026-10-04
-101199,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-04
-101295,2844,"Perfumes, Cosmetics & Other Toilet Preparations",Consumer Staples,2026-10-04
-101382,6021,National Commercial Banks,Financials,2026-10-04
-101538,3330,Primary Smelting & Refining of  Nonferrous Metals,Materials,2026-10-04
-101594,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
+100885,4011,"Railroads, Line-Haul Operating",Industrials,2026-10-31
+101199,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-31
+101295,2844,"Perfumes, Cosmetics & Other Toilet Preparations",Consumer Staples,2026-10-31
+101382,6021,National Commercial Banks,Financials,2026-10-31
+101538,3330,Primary Smelting & Refining of  Nonferrous Metals,Materials,2026-10-31
+101594,1311,Crude Petroleum & Natural Gas,Energy,2026-10-31
 101829,3724,Aircraft Engines & Engine Parts,Industrials,2026-10-04
 101984,3651,Household Audio & Video Equipment,Information Technology,2026-10-04
 102037,5150,Wholesale-Farm Product Raw Materials,Industrials,2026-10-04
@@ -434,8 +434,8 @@ cik,sic,industry,sector,updated
 202058,3812,"Search, Detection, Navigation, Guidance, Aeronautical Sys",Industrials,2026-10-04
 203596,6021,National Commercial Banks,Financials,2026-10-04
 215466,1040,Gold and Silver Ores,Materials,2026-10-24
-216085,5712,Retail-Furniture Stores,Consumer Discretionary,2026-10-04
-216228,3561,Pumps & Pumping Equipment,Industrials,2026-10-04
+216085,5712,Retail-Furniture Stores,Consumer Discretionary,2026-10-31
+216228,3561,Pumps & Pumping Equipment,Industrials,2026-10-31
 216851,,,,2026-10-04
 217346,3720,Aircraft & Parts,Industrials,2026-10-04
 217410,2840,"Soap, Detergents, Cleang Preparations, Perfumes, Cosmetics",Consumer Staples,2026-10-04
@@ -462,11 +462,11 @@ cik,sic,industry,sector,updated
 313616,3823,"Industrial Instruments For Measurement, Display, and Control",Information Technology,2026-10-24
 313807,2911,Petroleum Refining,Energy,2026-10-24
 313838,3651,Household Audio & Video Equipment,Information Technology,2026-10-24
-313927,2840,"Soap, Detergents, Cleang Preparations, Perfumes, Cosmetics",Consumer Staples,2026-10-04
-314203,1040,Gold and Silver Ores,Materials,2026-10-04
-314227,2860,Industrial Organic Chemicals,Materials,2026-10-04
-314489,6022,State Commercial Banks,Financials,2026-10-04
-314590,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
+313927,2840,"Soap, Detergents, Cleang Preparations, Perfumes, Cosmetics",Consumer Staples,2026-10-31
+314203,1040,Gold and Silver Ores,Materials,2026-10-31
+314227,2860,Industrial Organic Chemicals,Materials,2026-10-31
+314489,6022,State Commercial Banks,Financials,2026-10-31
+314590,1311,Crude Petroleum & Natural Gas,Energy,2026-10-31
 314808,1381,Drilling Oil & Gas Wells,Energy,2026-10-04
 315189,3523,Farm Machinery & Equipment,Industrials,2026-10-04
 315213,7363,Services-Help Supply Services,Industrials,2026-10-04
@@ -532,9 +532,9 @@ cik,sic,industry,sector,updated
 706129,6022,State Commercial Banks,Financials,2026-10-17
 706698,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-24
 706863,6022,State Commercial Banks,Financials,2026-10-24
-707179,6021,National Commercial Banks,Financials,2026-10-04
-707549,3559,"Special Industry Machinery, NEC",Industrials,2026-10-04
-707605,6021,National Commercial Banks,Financials,2026-10-04
+707179,6021,National Commercial Banks,Financials,2026-10-31
+707549,3559,"Special Industry Machinery, NEC",Industrials,2026-10-31
+707605,6021,National Commercial Banks,Financials,2026-10-31
 708781,7389,"Services-Business Services, NEC",Industrials,2026-10-04
 708821,3578,Calculating & Accounting Machines (No Electronic Computers),Information Technology,2026-10-04
 708955,6021,National Commercial Banks,Financials,2026-10-04
@@ -591,11 +591,11 @@ cik,sic,industry,sector,updated
 723125,3674,Semiconductors & Related Devices,Information Technology,2026-10-24
 723188,6021,National Commercial Banks,Financials,2026-10-24
 723254,2320,"Men's & Boys' Furnishgs, Work Clothg, & Allied Garments",Consumer Discretionary,2026-10-24
-723531,8700,"Services-Engineering, Accounting, Research, Management",Industrials,2026-10-04
-723603,2211,"Broadwoven Fabric Mills, Cotton",Consumer Discretionary,2026-10-04
-723612,7510,Services-Auto Rental & Leasing (No Drivers),Consumer Discretionary,2026-10-04
-723646,6022,State Commercial Banks,Financials,2026-10-04
-724004,3823,"Industrial Instruments For Measurement, Display, and Control",Information Technology,2026-10-04
+723531,8700,"Services-Engineering, Accounting, Research, Management",Industrials,2026-10-31
+723603,2211,"Broadwoven Fabric Mills, Cotton",Consumer Discretionary,2026-10-31
+723612,7510,Services-Auto Rental & Leasing (No Drivers),Consumer Discretionary,2026-10-31
+723646,6022,State Commercial Banks,Financials,2026-10-31
+724004,3823,"Industrial Instruments For Measurement, Display, and Control",Information Technology,2026-10-31
 724910,3674,Semiconductors & Related Devices,Information Technology,2026-10-04
 725363,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
 726601,6022,State Commercial Banks,Financials,2026-10-04
@@ -628,7 +628,7 @@ cik,sic,industry,sector,updated
 737758,3524,Lawn & Garden Tractors & Home Lawn & Gardens Equip,Industrials,2026-10-10
 738214,2860,Industrial Organic Chemicals,Materials,2026-10-17
 739421,6022,State Commercial Banks,Financials,2026-10-24
-740260,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
+740260,6798,Real Estate Investment Trusts,Real Estate,2026-10-31
 740664,3678,Electronic Connectors,Information Technology,2026-10-04
 742278,1389,"Oil & Gas Field Services, NEC",Energy,2026-10-04
 743367,6022,State Commercial Banks,Financials,2026-10-04
@@ -660,7 +660,7 @@ cik,sic,industry,sector,updated
 753308,4911,Electric Services,Utilities,2026-10-04
 754811,6282,Investment Advice,Financials,2026-10-17
 755001,4931,Electric & Other Services Combined,Utilities,2026-10-17
-756894,1040,Gold and Silver Ores,Materials,2026-10-04
+756894,1040,Gold and Silver Ores,Materials,2026-10-31
 759828,0000,,Other,2026-10-04
 759866,0000,,Other,2026-10-04
 759944,6022,State Commercial Banks,Financials,2026-10-04
@@ -719,9 +719,9 @@ cik,sic,industry,sector,updated
 788784,4931,Electric & Other Services Combined,Utilities,2026-10-24
 788920,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-24
 788965,4911,Electric Services,Utilities,2026-10-24
-789019,7372,Services-Prepackaged Software,Information Technology,2026-10-04
-789460,5172,Wholesale-Petroleum & Petroleum Products (No Bulk Stations),Industrials,2026-10-04
-789570,7011,Hotels & Motels,Consumer Discretionary,2026-10-04
+789019,7372,Services-Prepackaged Software,Information Technology,2026-10-31
+789460,5172,Wholesale-Petroleum & Petroleum Products (No Bulk Stations),Industrials,2026-10-31
+789570,7011,Hotels & Motels,Consumer Discretionary,2026-10-31
 789933,1221,Bituminous Coal & Lignite Surface Mining,Energy,2026-10-04
 790051,3060,"Fabricated Rubber Products, NEC",Materials,2026-10-04
 790359,6021,National Commercial Banks,Financials,2026-10-04
@@ -773,9 +773,9 @@ cik,sic,industry,sector,updated
 804123,,,,2026-10-17
 804328,3663,Radio & Tv Broadcasting & Communications Equipment,Information Technology,2026-10-17
 805267,0000,,Other,2026-10-24
-805676,6021,National Commercial Banks,Financials,2026-10-04
-805928,3845,Electromedical & Electrotherapeutic Apparatus,Health Care,2026-10-04
-806172,3559,"Special Industry Machinery, NEC",Industrials,2026-10-04
+805676,6021,National Commercial Banks,Financials,2026-10-31
+805928,3845,Electromedical & Electrotherapeutic Apparatus,Health Care,2026-10-31
+806172,3559,"Special Industry Machinery, NEC",Industrials,2026-10-31
 806628,,,,2026-10-04
 806968,7311,Services-Advertising Agencies,Communication Services,2026-10-04
 807863,3577,"Computer Peripheral Equipment, NEC",Information Technology,2026-10-04
@@ -829,7 +829,7 @@ cik,sic,industry,sector,updated
 821130,4812,Radiotelephone Communications,Communication Services,2026-10-24
 821189,1311,Crude Petroleum & Natural Gas,Energy,2026-10-24
 821483,1311,Crude Petroleum & Natural Gas,Energy,2026-10-24
-822416,1531,Operative Builders,Industrials,2026-10-04
+822416,1531,Operative Builders,Industrials,2026-10-31
 822663,2844,"Perfumes, Cosmetics & Other Toilet Preparations",Consumer Staples,2026-10-04
 822818,4955,Hazardous Waste Management,Industrials,2026-10-04
 823277,5150,Wholesale-Farm Product Raw Materials,Industrials,2026-10-04
@@ -878,7 +878,7 @@ cik,sic,industry,sector,updated
 836690,7371,Services-Computer Programming Services,Information Technology,2026-10-17
 837465,3949,"Sporting & Athletic Goods, NEC",Consumer Discretionary,2026-10-24
 838131,,,,2026-10-24
-838875,2080,Beverages,Consumer Staples,2026-10-04
+838875,2080,Beverages,Consumer Staples,2026-10-31
 839470,1000,Metal Mining,Materials,2026-10-04
 839533,,,,2026-10-04
 839923,4812,Radiotelephone Communications,Communication Services,2026-10-04
@@ -916,8 +916,8 @@ cik,sic,industry,sector,updated
 851520,8742,Services-Management Consulting Services,Industrials,2026-10-04
 851968,2273,Carpets & Rugs,Consumer Discretionary,2026-10-10
 853816,4213,Trucking (No Local),Industrials,2026-10-24
-854560,6022,State Commercial Banks,Financials,2026-10-04
-854775,3576,Computer Communications Equipment,Information Technology,2026-10-04
+854560,6022,State Commercial Banks,Financials,2026-10-31
+854775,3576,Computer Communications Equipment,Information Technology,2026-10-31
 855658,3674,Semiconductors & Related Devices,Information Technology,2026-10-04
 855683,3842,"Orthopedic, Prosthetic & Surgical Appliances & Supplies",Health Care,2026-10-04
 855886,0000,,Other,2026-10-04
@@ -1063,13 +1063,13 @@ cik,sic,industry,sector,updated
 887151,5030,Wholesale-Lumber & Other Construction Materials,Industrials,2026-10-24
 887153,3312,"Steel Works, Blast Furnaces & Rolling Mills (Coke Ovens)",Materials,2026-10-24
 887225,4911,Electric Services,Utilities,2026-10-24
-887343,6022,State Commercial Banks,Financials,2026-10-04
-887359,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
-887396,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
-887596,5812,Retail-Eating  Places,Consumer Discretionary,2026-10-04
-887733,5190,Wholesale-Miscellaneous Nondurable Goods,Industrials,2026-10-04
-887905,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
-887936,8742,Services-Management Consulting Services,Industrials,2026-10-04
+887343,6022,State Commercial Banks,Financials,2026-10-31
+887359,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-31
+887396,1311,Crude Petroleum & Natural Gas,Energy,2026-10-31
+887596,5812,Retail-Eating  Places,Consumer Discretionary,2026-10-31
+887733,5190,Wholesale-Miscellaneous Nondurable Goods,Industrials,2026-10-31
+887905,6798,Real Estate Investment Trusts,Real Estate,2026-10-31
+887936,8742,Services-Management Consulting Services,Industrials,2026-10-31
 888491,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
 888721,2835,In Vitro & In Vivo Diagnostic Substances,Health Care,2026-10-04
 888746,2082,Malt Beverages,Consumer Staples,2026-10-04
@@ -1149,7 +1149,7 @@ cik,sic,industry,sector,updated
 903129,3714,Motor Vehicle Parts & Accessories,Consumer Discretionary,2026-10-24
 903419,6021,National Commercial Banks,Financials,2026-10-24
 903651,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-24
-904112,,,,2026-10-04
+904112,,,,2026-10-31
 904851,2911,Petroleum Refining,Energy,2026-10-04
 906013,,,,2026-10-04
 906107,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
@@ -1241,11 +1241,11 @@ cik,sic,industry,sector,updated
 919567,,,,2026-10-24
 919864,6035,"Savings Institution, Federally Chartered",Financials,2026-10-24
 919893,,,,2026-10-24
-920148,8071,Services-Medical Laboratories,Health Care,2026-10-04
-920371,3420,"Cutlery, Handtools & General Hardware",Industrials,2026-10-04
-920427,6022,State Commercial Banks,Financials,2026-10-04
-920522,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
-920760,1520,General Bldg Contractors - Residential Bldgs,Industrials,2026-10-04
+920148,8071,Services-Medical Laboratories,Health Care,2026-10-31
+920371,3420,"Cutlery, Handtools & General Hardware",Industrials,2026-10-31
+920427,6022,State Commercial Banks,Financials,2026-10-31
+920522,6798,Real Estate Investment Trusts,Real Estate,2026-10-31
+920760,1520,General Bldg Contractors - Residential Bldgs,Industrials,2026-10-31
 921082,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
 921114,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
 921299,2834,Pharmaceutical Preparations,Health Care,2026-10-04
@@ -1309,10 +1309,10 @@ cik,sic,industry,sector,updated
 935703,5331,Retail-Variety Stores,Consumer Discretionary,2026-10-24
 936340,4911,Electric Services,Utilities,2026-10-24
 936395,3661,Telephone & Telegraph Apparatus,Information Technology,2026-10-24
-936468,3760,Guided Missiles & Space Vehicles & Parts,Industrials,2026-10-04
-936528,6021,National Commercial Banks,Financials,2026-10-04
-936958,,,,2026-10-04
-937098,7389,"Services-Business Services, NEC",Industrials,2026-10-04
+936468,3760,Guided Missiles & Space Vehicles & Parts,Industrials,2026-10-31
+936528,6021,National Commercial Banks,Financials,2026-10-31
+936958,,,,2026-10-31
+937098,7389,"Services-Business Services, NEC",Industrials,2026-10-31
 937966,3559,"Special Industry Machinery, NEC",Industrials,2026-10-04
 938323,2731,Books: Publishing or  Publishing & Printing,Communication Services,2026-10-04
 939767,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
@@ -1365,10 +1365,10 @@ cik,sic,industry,sector,updated
 1001807,4813,Telephone Communications (No Radiotelephone),Communication Services,2026-10-24
 1001838,1000,Metal Mining,Materials,2026-10-24
 1001907,3826,Laboratory Analytical Instruments,Information Technology,2026-10-24
-1002047,3572,Computer Storage Devices,Information Technology,2026-10-04
-1002242,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
-1002590,5990,"Retail-Retail Stores, NEC",Consumer Discretionary,2026-10-04
-1002638,7373,Services-Computer Integrated Systems Design,Information Technology,2026-10-04
+1002047,3572,Computer Storage Devices,Information Technology,2026-10-31
+1002242,1311,Crude Petroleum & Natural Gas,Energy,2026-10-31
+1002590,5990,"Retail-Retail Stores, NEC",Consumer Discretionary,2026-10-31
+1002638,7373,Services-Computer Integrated Systems Design,Information Technology,2026-10-31
 1002910,4931,Electric & Other Services Combined,Utilities,2026-10-04
 1003078,5084,Wholesale-Industrial Machinery & Equipment,Industrials,2026-10-04
 1003935,7372,Services-Prepackaged Software,Information Technology,2026-10-04
@@ -1420,11 +1420,11 @@ cik,sic,industry,sector,updated
 1017303,3577,"Computer Peripheral Equipment, NEC",Information Technology,2026-10-17
 1017413,1311,Crude Petroleum & Natural Gas,Energy,2026-10-17
 1018164,5080,"Wholesale-Machinery, Equipment & Supplies",Industrials,2026-10-24
-1018724,5961,Retail-Catalog & Mail-Order Houses,Consumer Discretionary,2026-10-04
-1018840,5651,Retail-Family Clothing Stores,Consumer Discretionary,2026-10-04
-1018963,3317,Steel Pipe & Tubes,Materials,2026-10-04
-1018979,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-04
-1019034,7372,Services-Prepackaged Software,Information Technology,2026-10-04
+1018724,5961,Retail-Catalog & Mail-Order Houses,Consumer Discretionary,2026-10-31
+1018840,5651,Retail-Family Clothing Stores,Consumer Discretionary,2026-10-31
+1018963,3317,Steel Pipe & Tubes,Materials,2026-10-31
+1018979,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-31
+1019034,7372,Services-Prepackaged Software,Information Technology,2026-10-31
 1019849,5500,Retail-Auto Dealers & Gasoline Stations,Consumer Discretionary,2026-10-04
 1020214,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-04
 1020569,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
@@ -1480,15 +1480,15 @@ cik,sic,industry,sector,updated
 1034054,6798,Real Estate Investment Trusts,Real Estate,2026-10-24
 1034665,,,,2026-10-24
 1034670,3714,Motor Vehicle Parts & Accessories,Consumer Discretionary,2026-10-24
-1034760,7373,Services-Computer Integrated Systems Design,Information Technology,2026-10-04
-1034842,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1034957,6500,Real Estate,Real Estate,2026-10-04
-1035002,2911,Petroleum Refining,Energy,2026-10-04
-1035092,6021,National Commercial Banks,Financials,2026-10-04
-1035201,4941,Water Supply,Utilities,2026-10-04
-1035267,3842,"Orthopedic, Prosthetic & Surgical Appliances & Supplies",Health Care,2026-10-04
-1035354,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
-1035443,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
+1034760,7373,Services-Computer Integrated Systems Design,Information Technology,2026-10-31
+1034842,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1034957,6500,Real Estate,Real Estate,2026-10-31
+1035002,2911,Petroleum Refining,Energy,2026-10-31
+1035092,6021,National Commercial Banks,Financials,2026-10-31
+1035201,4941,Water Supply,Utilities,2026-10-31
+1035267,3842,"Orthopedic, Prosthetic & Surgical Appliances & Supplies",Health Care,2026-10-31
+1035354,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-31
+1035443,6798,Real Estate Investment Trusts,Real Estate,2026-10-31
 1035983,1731,Electrical Work,Industrials,2026-10-04
 1036044,3577,"Computer Peripheral Equipment, NEC",Information Technology,2026-10-04
 1036262,3825,Instruments For Meas & Testing of  Electricity & Elec Signals,Information Technology,2026-10-04
@@ -1570,9 +1570,9 @@ cik,sic,industry,sector,updated
 1050915,1731,Electrical Work,Industrials,2026-10-24
 1051003,,,,2026-10-24
 1051004,,,,2026-10-24
-1051470,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
-1051512,4813,Telephone Communications (No Radiotelephone),Communication Services,2026-10-04
-1051627,3674,Semiconductors & Related Devices,Information Technology,2026-10-04
+1051470,6798,Real Estate Investment Trusts,Real Estate,2026-10-31
+1051512,4813,Telephone Communications (No Radiotelephone),Communication Services,2026-10-31
+1051627,3674,Semiconductors & Related Devices,Information Technology,2026-10-31
 1052752,6500,Real Estate,Real Estate,2026-10-04
 1053092,6211,"Security Brokers, Dealers & Flotation Companies",Financials,2026-10-04
 1053507,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
@@ -1629,8 +1629,8 @@ cik,sic,industry,sector,updated
 1066923,7389,"Services-Business Services, NEC",Industrials,2026-10-24
 1067294,5812,Retail-Eating  Places,Consumer Discretionary,2026-10-24
 1067491,7371,Services-Computer Programming Services,Information Technology,2026-10-24
-1067701,7359,"Services-Equipment Rental & Leasing, NEC",Industrials,2026-10-04
-1067983,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-04
+1067701,7359,"Services-Equipment Rental & Leasing, NEC",Industrials,2026-10-31
+1067983,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-31
 1068851,6022,State Commercial Banks,Financials,2026-10-04
 1069157,6022,State Commercial Banks,Financials,2026-10-04
 1069183,3480,"Ordnance & Accessories, (No Vehicles/Guided Missiles)",Industrials,2026-10-04
@@ -1690,9 +1690,9 @@ cik,sic,industry,sector,updated
 1083446,8742,Services-Management Consulting Services,Industrials,2026-10-24
 1083743,3690,"Miscellaneous Electrical Machinery, Equipment & Supplies",Information Technology,2026-10-24
 1083839,,,,2026-10-24
-1084048,4822,Telegraph & Other Message Communications,Communication Services,2026-10-04
-1084201,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1084554,2810,Industrial Inorganic Chemicals,Materials,2026-10-04
+1084048,4822,Telegraph & Other Message Communications,Communication Services,2026-10-31
+1084201,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1084554,2810,Industrial Inorganic Chemicals,Materials,2026-10-31
 1084765,7389,"Services-Business Services, NEC",Industrials,2026-10-04
 1084869,5990,"Retail-Retail Stores, NEC",Consumer Discretionary,2026-10-04
 1084961,6153,Short-Term Business Credit Institutions,Financials,2026-10-04
@@ -1750,7 +1750,7 @@ cik,sic,industry,sector,updated
 1099219,6311,Life Insurance,Financials,2026-10-17
 1099590,7389,"Services-Business Services, NEC",Industrials,2026-10-24
 1099800,3842,"Orthopedic, Prosthetic & Surgical Appliances & Supplies",Health Care,2026-10-24
-1100682,8731,Services-Commercial Physical & Biological Research,Health Care,2026-10-04
+1100682,8731,Services-Commercial Physical & Biological Research,Health Care,2026-10-31
 1101215,6141,Personal Credit Institutions,Financials,2026-10-04
 1101239,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
 1101302,3089,"Plastics Products, NEC",Materials,2026-10-04
@@ -1795,9 +1795,9 @@ cik,sic,industry,sector,updated
 1116132,3100,Leather & Leather Products,Consumer Discretionary,2026-10-24
 1116463,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-24
 1116578,6311,Life Insurance,Financials,2026-10-24
-1116942,3672,Printed Circuit Boards,Information Technology,2026-10-04
-1117057,2030,"Canned, Frozen & Preservd Fruit, Veg & Food Specialties",Consumer Staples,2026-10-04
-1117297,7389,"Services-Business Services, NEC",Industrials,2026-10-04
+1116942,3672,Printed Circuit Boards,Information Technology,2026-10-31
+1117057,2030,"Canned, Frozen & Preservd Fruit, Veg & Food Specialties",Consumer Staples,2026-10-31
+1117297,7389,"Services-Business Services, NEC",Industrials,2026-10-31
 1119083,7371,Services-Computer Programming Services,Information Technology,2026-10-04
 1119639,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
 1119769,3663,Radio & Tv Broadcasting & Communications Equipment,Information Technology,2026-10-04
@@ -1846,10 +1846,10 @@ cik,sic,industry,sector,updated
 1132597,6022,State Commercial Banks,Financials,2026-10-24
 1132651,6021,National Commercial Banks,Financials,2026-10-24
 1132924,4812,Radiotelephone Communications,Communication Services,2026-10-24
-1133311,7310,Services-Advertising,Communication Services,2026-10-04
-1133416,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1133421,3812,"Search, Detection, Navigation, Guidance, Aeronautical Sys",Industrials,2026-10-04
-1133869,2834,Pharmaceutical Preparations,Health Care,2026-10-04
+1133311,7310,Services-Advertising,Communication Services,2026-10-31
+1133416,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1133421,3812,"Search, Detection, Navigation, Guidance, Aeronautical Sys",Industrials,2026-10-31
+1133869,2834,Pharmaceutical Preparations,Health Care,2026-10-31
 1134115,1000,Metal Mining,Materials,2026-10-04
 1135951,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1136869,3842,"Orthopedic, Prosthetic & Surgical Appliances & Supplies",Health Care,2026-10-04
@@ -1920,7 +1920,7 @@ cik,sic,industry,sector,updated
 1164771,1040,Gold and Silver Ores,Materials,2026-10-17
 1164863,3050,"Gaskets, Packg & Sealg Devices & Rubber & Plastics Hose",Materials,2026-10-17
 1165002,6282,Investment Advice,Financials,2026-10-24
-1166003,4700,Transportation Services,Industrials,2026-10-04
+1166003,4700,Transportation Services,Industrials,2026-10-31
 1166663,4412,Deep Sea Foreign Transportation of  Freight,Industrials,2026-10-04
 1166691,4841,Cable & Other Pay Television Services,Communication Services,2026-10-04
 1166928,6022,State Commercial Banks,Financials,2026-10-04
@@ -1984,7 +1984,7 @@ cik,sic,industry,sector,updated
 1195738,,,,2026-10-04
 1195739,,,,2026-10-04
 1196298,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-10
-1199004,,,,2026-10-04
+1199004,,,,2026-10-31
 1200375,2860,Industrial Organic Chemicals,Materials,2026-10-04
 1201792,8200,Services-Educational Services,Consumer Discretionary,2026-10-04
 1203464,1040,Gold and Silver Ores,Materials,2026-10-04
@@ -2029,7 +2029,7 @@ cik,sic,industry,sector,updated
 1230245,6211,"Security Brokers, Dealers & Flotation Companies",Financials,2026-10-17
 1230869,,,,2026-10-24
 1231346,1040,Gold and Silver Ores,Materials,2026-10-24
-1231457,2834,Pharmaceutical Preparations,Health Care,2026-10-04
+1231457,2834,Pharmaceutical Preparations,Health Care,2026-10-31
 1232384,4922,Natural Gas Transmission,Utilities,2026-10-04
 1232524,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1232582,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
@@ -2111,8 +2111,8 @@ cik,sic,industry,sector,updated
 1280058,7372,Services-Prepackaged Software,Information Technology,2026-10-24
 1280263,3674,Semiconductors & Related Devices,Information Technology,2026-10-24
 1280452,3674,Semiconductors & Related Devices,Information Technology,2026-10-24
-1280776,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1280784,,,,2026-10-04
+1280776,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1280784,,,,2026-10-31
 1281761,6021,National Commercial Banks,Financials,2026-10-04
 1281895,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1281926,,,,2026-10-04
@@ -2173,9 +2173,9 @@ cik,sic,industry,sector,updated
 1296445,4911,Electric Services,Utilities,2026-10-24
 1296484,4412,Deep Sea Foreign Transportation of  Freight,Industrials,2026-10-24
 1296774,6199,Finance Services,Financials,2026-10-24
-1297107,6022,State Commercial Banks,Financials,2026-10-04
-1297184,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1297341,6035,"Savings Institution, Federally Chartered",Financials,2026-10-04
+1297107,6022,State Commercial Banks,Financials,2026-10-31
+1297184,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1297341,6035,"Savings Institution, Federally Chartered",Financials,2026-10-31
 1297989,7389,"Services-Business Services, NEC",Industrials,2026-10-04
 1297996,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
 1298675,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
@@ -2204,10 +2204,10 @@ cik,sic,industry,sector,updated
 1309108,7389,"Services-Business Services, NEC",Industrials,2026-10-04
 1309402,2860,Industrial Organic Chemicals,Materials,2026-10-04
 1311370,6282,Investment Advice,Financials,2026-10-10
-1313310,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-04
-1313510,,,,2026-10-04
-1314052,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
-1314102,3826,Laboratory Analytical Instruments,Information Technology,2026-10-04
+1313310,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-31
+1313510,,,,2026-10-31
+1314052,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-31
+1314102,3826,Laboratory Analytical Instruments,Information Technology,2026-10-31
 1314196,7389,"Services-Business Services, NEC",Industrials,2026-10-04
 1314727,3651,Household Audio & Video Equipment,Information Technology,2026-10-04
 1314966,,,,2026-10-04
@@ -2325,8 +2325,8 @@ cik,sic,industry,sector,updated
 1345099,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-17
 1345105,4512,"Air Transportation, Scheduled",Industrials,2026-10-17
 1345126,2510,Household Furniture,Consumer Discretionary,2026-10-17
-1346610,6200,"Security & Commodity Brokers, Dealers, Exchanges & Services",Financials,2026-10-04
-1346830,2834,Pharmaceutical Preparations,Health Care,2026-10-04
+1346610,6200,"Security & Commodity Brokers, Dealers, Exchanges & Services",Financials,2026-10-31
+1346830,2834,Pharmaceutical Preparations,Health Care,2026-10-31
 1347178,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1347426,6029,"Commercial Banks, NEC",Financials,2026-10-04
 1347557,4581,"Airports, Flying Fields & Airport Terminal Services",Industrials,2026-10-04
@@ -2371,8 +2371,8 @@ cik,sic,industry,sector,updated
 1361658,7011,Hotels & Motels,Consumer Discretionary,2026-10-24
 1362004,8742,Services-Management Consulting Services,Industrials,2026-10-24
 1362190,7372,Services-Prepackaged Software,Information Technology,2026-10-24
-1362468,4512,"Air Transportation, Scheduled",Industrials,2026-10-04
-1362481,,,,2026-10-04
+1362468,4512,"Air Transportation, Scheduled",Industrials,2026-10-31
+1362481,,,,2026-10-31
 1364125,1000,Metal Mining,Materials,2026-10-04
 1364250,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
 1364479,7350,Services-Miscellaneous Equipment Rental & Leasing,Industrials,2026-10-04
@@ -2429,12 +2429,12 @@ cik,sic,industry,sector,updated
 1378590,7372,Services-Prepackaged Software,Information Technology,2026-10-24
 1378701,,,,2026-10-24
 1378789,7359,"Services-Equipment Rental & Leasing, NEC",Industrials,2026-10-24
-1378950,5531,Retail-Auto & Home Supply Stores,Consumer Discretionary,2026-10-04
-1379006,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1379041,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-04
-1379384,,,,2026-10-04
-1379400,,,,2026-10-04
-1379438,,,,2026-10-04
+1378950,5531,Retail-Auto & Home Supply Stores,Consumer Discretionary,2026-10-31
+1379006,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1379041,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-31
+1379384,,,,2026-10-31
+1379400,,,,2026-10-31
+1379438,,,,2026-10-31
 1379785,,,,2026-10-04
 1380106,3826,Laboratory Analytical Instruments,Information Technology,2026-10-04
 1380936,,,,2026-10-04
@@ -2496,11 +2496,11 @@ cik,sic,industry,sector,updated
 1394056,3571,Electronic Computers,Information Technology,2026-10-17
 1394832,3569,"General Industrial Machinery & Equipment, NEC",Industrials,2026-10-24
 1395064,2834,Pharmaceutical Preparations,Health Care,2026-10-24
-1395213,4911,Electric Services,Utilities,2026-10-04
-1395325,,,,2026-10-04
-1395937,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1395942,5500,Retail-Auto Dealers & Gasoline Stations,Consumer Discretionary,2026-10-04
-1396009,1400,Mining & Quarrying of  Nonmetallic Minerals (No Fuels),Materials,2026-10-04
+1395213,4911,Electric Services,Utilities,2026-10-31
+1395325,,,,2026-10-31
+1395937,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1395942,5500,Retail-Auto Dealers & Gasoline Stations,Consumer Discretionary,2026-10-31
+1396009,1400,Mining & Quarrying of  Nonmetallic Minerals (No Fuels),Materials,2026-10-31
 1396277,,,,2026-10-04
 1396536,7372,Services-Prepackaged Software,Information Technology,2026-10-04
 1396814,2834,Pharmaceutical Preparations,Health Care,2026-10-04
@@ -2557,10 +2557,10 @@ cik,sic,industry,sector,updated
 1411207,3714,Motor Vehicle Parts & Accessories,Consumer Discretionary,2026-10-24
 1411342,6500,Real Estate,Real Estate,2026-10-24
 1411579,7830,Services-Motion Picture Theaters,Communication Services,2026-10-24
-1411685,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1411690,3826,Laboratory Analytical Instruments,Information Technology,2026-10-04
-1412095,6159,Miscellaneous Business Credit Institution,Financials,2026-10-04
-1412100,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-04
+1411685,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1411690,3826,Laboratory Analytical Instruments,Information Technology,2026-10-31
+1412095,6159,Miscellaneous Business Credit Institution,Financials,2026-10-31
+1412100,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-31
 1412408,7389,"Services-Business Services, NEC",Industrials,2026-10-04
 1412486,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1412558,2834,Pharmaceutical Preparations,Health Care,2026-10-04
@@ -2613,9 +2613,9 @@ cik,sic,industry,sector,updated
 1426800,2834,Pharmaceutical Preparations,Health Care,2026-10-17
 1427570,2834,Pharmaceutical Preparations,Health Care,2026-10-24
 1427925,2834,Pharmaceutical Preparations,Health Care,2026-10-24
-1428205,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
-1428336,7389,"Services-Business Services, NEC",Industrials,2026-10-04
-1428439,4841,Cable & Other Pay Television Services,Communication Services,2026-10-04
+1428205,6798,Real Estate Investment Trusts,Real Estate,2026-10-31
+1428336,7389,"Services-Business Services, NEC",Industrials,2026-10-31
+1428439,4841,Cable & Other Pay Television Services,Communication Services,2026-10-31
 1429260,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1429764,3690,"Miscellaneous Electrical Machinery, Equipment & Supplies",Information Technology,2026-10-04
 1429937,1040,Gold and Silver Ores,Materials,2026-10-04
@@ -2673,7 +2673,7 @@ cik,sic,industry,sector,updated
 1443646,8742,Services-Management Consulting Services,Industrials,2026-10-24
 1443669,3440,Fabricated Structural Metal Products,Industrials,2026-10-24
 1444192,2834,Pharmaceutical Preparations,Health Care,2026-10-24
-1444406,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
+1444406,1311,Crude Petroleum & Natural Gas,Energy,2026-10-31
 1445305,7372,Services-Prepackaged Software,Information Technology,2026-10-04
 1445930,6029,"Commercial Banks, NEC",Financials,2026-10-04
 1446159,6199,Finance Services,Financials,2026-10-04
@@ -2775,13 +2775,13 @@ cik,sic,industry,sector,updated
 1476840,7372,Services-Prepackaged Software,Information Technology,2026-10-24
 1477049,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-24
 1477081,1311,Crude Petroleum & Natural Gas,Energy,2026-10-24
-1477294,3823,"Industrial Instruments For Measurement, Display, and Control",Information Technology,2026-10-04
-1477333,7372,Services-Prepackaged Software,Information Technology,2026-10-04
-1477449,8011,Services-Offices & Clinics of  Doctors of  Medicine,Health Care,2026-10-04
-1477641,3674,Semiconductors & Related Devices,Information Technology,2026-10-04
-1477720,7372,Services-Prepackaged Software,Information Technology,2026-10-04
-1477815,5812,Retail-Eating  Places,Consumer Discretionary,2026-10-04
-1477845,2834,Pharmaceutical Preparations,Health Care,2026-10-04
+1477294,3823,"Industrial Instruments For Measurement, Display, and Control",Information Technology,2026-10-31
+1477333,7372,Services-Prepackaged Software,Information Technology,2026-10-31
+1477449,8011,Services-Offices & Clinics of  Doctors of  Medicine,Health Care,2026-10-31
+1477641,3674,Semiconductors & Related Devices,Information Technology,2026-10-31
+1477720,7372,Services-Prepackaged Software,Information Technology,2026-10-31
+1477815,5812,Retail-Eating  Places,Consumer Discretionary,2026-10-31
+1477845,2834,Pharmaceutical Preparations,Health Care,2026-10-31
 1478102,,,,2026-10-04
 1478242,8731,Services-Commercial Physical & Biological Research,Health Care,2026-10-04
 1478320,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
@@ -2830,10 +2830,10 @@ cik,sic,industry,sector,updated
 1492298,6798,Real Estate Investment Trusts,Real Estate,2026-10-17
 1492691,4213,Trucking (No Local),Industrials,2026-10-24
 1493318,6211,"Security Brokers, Dealers & Flotation Companies",Financials,2026-10-24
-1493594,3674,Semiconductors & Related Devices,Information Technology,2026-10-04
-1493683,,,,2026-10-04
-1493761,3669,"Communications Equipment, NEC",Information Technology,2026-10-04
-1494259,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-04
+1493594,3674,Semiconductors & Related Devices,Information Technology,2026-10-31
+1493683,,,,2026-10-31
+1493761,3669,"Communications Equipment, NEC",Information Technology,2026-10-31
+1494259,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-31
 1494558,8200,Services-Educational Services,Consumer Discretionary,2026-10-04
 1494582,6510,Real Estate Operators (No Developers) & Lessors,Real Estate,2026-10-04
 1494728,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-04
@@ -2914,10 +2914,10 @@ cik,sic,industry,sector,updated
 1509261,2834,Pharmaceutical Preparations,Health Care,2026-10-24
 1509646,4833,Television Broadcasting Stations,Communication Services,2026-10-24
 1509745,2834,Pharmaceutical Preparations,Health Care,2026-10-24
-1509991,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
-1510295,2911,Petroleum Refining,Energy,2026-10-04
-1510593,7372,Services-Prepackaged Software,Information Technology,2026-10-04
-1510599,,,,2026-10-04
+1509991,1311,Crude Petroleum & Natural Gas,Energy,2026-10-31
+1510295,2911,Petroleum Refining,Energy,2026-10-31
+1510593,7372,Services-Prepackaged Software,Information Technology,2026-10-31
+1510599,,,,2026-10-31
 1511337,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
 1511737,3663,Radio & Tv Broadcasting & Communications Equipment,Information Technology,2026-10-04
 1512228,1000,Metal Mining,Materials,2026-10-04
@@ -2991,8 +2991,8 @@ cik,sic,industry,sector,updated
 1526119,2834,Pharmaceutical Preparations,Health Care,2026-10-24
 1526125,7370,"Services-Computer Programming, Data Processing, Etc.",Information Technology,2026-10-24
 1526243,1040,Gold and Silver Ores,Materials,2026-10-24
-1526475,1000,Metal Mining,Materials,2026-10-04
-1526520,7370,"Services-Computer Programming, Data Processing, Etc.",Information Technology,2026-10-04
+1526475,1000,Metal Mining,Materials,2026-10-31
+1526520,7370,"Services-Computer Programming, Data Processing, Etc.",Information Technology,2026-10-31
 1527166,6282,Investment Advice,Financials,2026-10-04
 1527352,3845,Electromedical & Electrotherapeutic Apparatus,Health Care,2026-10-04
 1527469,6311,Life Insurance,Financials,2026-10-04
@@ -3070,8 +3070,8 @@ cik,sic,industry,sector,updated
 1541119,6035,"Savings Institution, Federally Chartered",Financials,2026-10-17
 1541157,2834,Pharmaceutical Preparations,Health Care,2026-10-17
 1541401,6798,Real Estate Investment Trusts,Real Estate,2026-10-17
-1543151,7389,"Services-Business Services, NEC",Industrials,2026-10-04
-1543418,1040,Gold and Silver Ores,Materials,2026-10-04
+1543151,7389,"Services-Business Services, NEC",Industrials,2026-10-31
+1543418,1040,Gold and Silver Ores,Materials,2026-10-31
 1544206,,,,2026-10-04
 1544227,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1544522,7372,Services-Prepackaged Software,Information Technology,2026-10-04
@@ -3120,9 +3120,9 @@ cik,sic,industry,sector,updated
 1557798,3576,Computer Communications Equipment,Information Technology,2026-10-17
 1557860,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-17
 1558569,8731,Services-Commercial Physical & Biological Research,Health Care,2026-10-24
-1559053,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1559432,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
-1559720,7340,Services-To Dwellings & Other Buildings,Industrials,2026-10-04
+1559053,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1559432,1311,Crude Petroleum & Natural Gas,Energy,2026-10-31
+1559720,7340,Services-To Dwellings & Other Buildings,Industrials,2026-10-31
 1559865,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-04
 1559991,,,,2026-10-04
 1560258,3845,Electromedical & Electrotherapeutic Apparatus,Health Care,2026-10-04
@@ -3189,10 +3189,10 @@ cik,sic,industry,sector,updated
 1574232,2834,Pharmaceutical Preparations,Health Care,2026-10-17
 1574235,2834,Pharmaceutical Preparations,Health Care,2026-10-17
 1574565,2870,Agricultural Chemicals,Materials,2026-10-24
-1575515,5411,Retail-Grocery Stores,Consumer Staples,2026-10-04
-1575793,3663,Radio & Tv Broadcasting & Communications Equipment,Information Technology,2026-10-04
-1575965,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
-1576018,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-04
+1575515,5411,Retail-Grocery Stores,Consumer Staples,2026-10-31
+1575793,3663,Radio & Tv Broadcasting & Communications Equipment,Information Technology,2026-10-31
+1575965,6798,Real Estate Investment Trusts,Real Estate,2026-10-31
+1576018,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-31
 1576280,8071,Services-Medical Laboratories,Health Care,2026-10-04
 1576427,7311,Services-Advertising Agencies,Communication Services,2026-10-04
 1576789,7370,"Services-Computer Programming, Data Processing, Etc.",Information Technology,2026-10-04
@@ -3274,10 +3274,10 @@ cik,sic,industry,sector,updated
 1591588,5094,"Wholesale-Jewelry, Watches, Precious Stones & Metals",Industrials,2026-10-24
 1591670,6798,Real Estate Investment Trusts,Real Estate,2026-10-24
 1591698,7372,Services-Prepackaged Software,Information Technology,2026-10-24
-1591890,6199,Finance Services,Financials,2026-10-04
-1591956,6199,Finance Services,Financials,2026-10-04
-1592386,6211,"Security Brokers, Dealers & Flotation Companies",Financials,2026-10-04
-1592560,8200,Services-Educational Services,Consumer Discretionary,2026-10-04
+1591890,6199,Finance Services,Financials,2026-10-31
+1591956,6199,Finance Services,Financials,2026-10-31
+1592386,6211,"Security Brokers, Dealers & Flotation Companies",Financials,2026-10-31
+1592560,8200,Services-Educational Services,Consumer Discretionary,2026-10-31
 1593275,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-04
 1593538,6211,"Security Brokers, Dealers & Flotation Companies",Financials,2026-10-04
 1593899,2834,Pharmaceutical Preparations,Health Care,2026-10-04
@@ -3346,7 +3346,7 @@ cik,sic,industry,sector,updated
 1607678,2834,Pharmaceutical Preparations,Health Care,2026-10-24
 1607962,3842,"Orthopedic, Prosthetic & Surgical Appliances & Supplies",Health Care,2026-10-24
 1607997,,,,2026-10-24
-1608741,,,,2026-10-04
+1608741,,,,2026-10-31
 1609065,6022,State Commercial Banks,Financials,2026-10-04
 1609151,7372,Services-Prepackaged Software,Information Technology,2026-10-04
 1609253,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
@@ -3421,10 +3421,10 @@ cik,sic,industry,sector,updated
 1624322,6022,State Commercial Banks,Financials,2026-10-24
 1624326,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-24
 1624512,8200,Services-Educational Services,Consumer Discretionary,2026-10-24
-1624794,2891,Adhesives & Sealants,Materials,2026-10-04
-1625101,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-04
-1625278,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-04
-1625297,2834,Pharmaceutical Preparations,Health Care,2026-10-04
+1624794,2891,Adhesives & Sealants,Materials,2026-10-31
+1625101,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-31
+1625278,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-31
+1625297,2834,Pharmaceutical Preparations,Health Care,2026-10-31
 1625414,5961,Retail-Catalog & Mail-Order Houses,Consumer Discretionary,2026-10-04
 1625641,7372,Services-Prepackaged Software,Information Technology,2026-10-04
 1625791,3555,Printing Trades Machinery & Equipment,Industrials,2026-10-04
@@ -3496,11 +3496,11 @@ cik,sic,industry,sector,updated
 1640266,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-24
 1640384,6199,Finance Services,Financials,2026-10-24
 1640428,7370,"Services-Computer Programming, Data Processing, Etc.",Information Technology,2026-10-24
-1641281,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1641398,5050,Wholesale-Metals & Minerals (No Petroleum),Industrials,2026-10-04
-1641489,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1641614,2750,Commercial Printing,Communication Services,2026-10-04
-1641631,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-04
+1641281,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1641398,5050,Wholesale-Metals & Minerals (No Petroleum),Industrials,2026-10-31
+1641489,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1641614,2750,Commercial Printing,Communication Services,2026-10-31
+1641631,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-31
 1642380,2835,In Vitro & In Vivo Diagnostic Substances,Health Care,2026-10-04
 1642896,7373,Services-Computer Integrated Systems Design,Information Technology,2026-10-04
 1643303,3672,Printed Circuit Boards,Information Technology,2026-10-04
@@ -3568,10 +3568,10 @@ cik,sic,industry,sector,updated
 1655923,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-17
 1656081,7371,Services-Computer Programming Services,Information Technology,2026-10-17
 1656472,2833,Medicinal Chemicals & Botanical Products,Health Care,2026-10-24
-1657573,7389,"Services-Business Services, NEC",Industrials,2026-10-04
-1657677,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1657788,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
-1657853,7510,Services-Auto Rental & Leasing (No Drivers),Consumer Discretionary,2026-10-04
+1657573,7389,"Services-Business Services, NEC",Industrials,2026-10-31
+1657677,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1657788,1311,Crude Petroleum & Natural Gas,Energy,2026-10-31
+1657853,7510,Services-Auto Rental & Leasing (No Drivers),Consumer Discretionary,2026-10-31
 1658551,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1658566,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
 1658678,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
@@ -3627,15 +3627,15 @@ cik,sic,industry,sector,updated
 1672909,7948,"Services-Racing, Including Track Operation",Consumer Discretionary,2026-10-24
 1673358,5812,Retail-Eating  Places,Consumer Discretionary,2026-10-24
 1673481,7372,Services-Prepackaged Software,Information Technology,2026-10-24
-1673743,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-04
-1673985,2821,"Plastic Materials, Synth Resins & Nonvulcan Elastomers",Materials,2026-10-04
-1674101,3679,"Electronic Components, NEC",Information Technology,2026-10-04
-1674168,7000,"Hotels, Rooming Houses, Camps & Other Lodging Places",Consumer Discretionary,2026-10-04
+1673743,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-31
+1673985,2821,"Plastic Materials, Synth Resins & Nonvulcan Elastomers",Materials,2026-10-31
+1674101,3679,"Electronic Components, NEC",Information Technology,2026-10-31
+1674168,7000,"Hotels, Rooming Houses, Camps & Other Lodging Places",Consumer Discretionary,2026-10-31
 1674227,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-10
-1674335,2430,"Millwood, Veneer, Plywood, & Structural Wood Members",Materials,2026-10-04
-1674356,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
-1674416,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
-1674440,7370,"Services-Computer Programming, Data Processing, Etc.",Information Technology,2026-10-04
+1674335,2430,"Millwood, Veneer, Plywood, & Structural Wood Members",Materials,2026-10-31
+1674356,6798,Real Estate Investment Trusts,Real Estate,2026-10-31
+1674416,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-31
+1674440,7370,"Services-Computer Programming, Data Processing, Etc.",Information Technology,2026-10-31
 1674632,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-04
 1674862,5160,Wholesale-Chemicals & Allied Products,Industrials,2026-10-04
 1674910,2990,Miscellaneous Products of  Petroleum & Coal,Energy,2026-10-04
@@ -3699,14 +3699,14 @@ cik,sic,industry,sector,updated
 1689548,2834,Pharmaceutical Preparations,Health Care,2026-10-24
 1689796,6798,Real Estate Investment Trusts,Real Estate,2026-10-24
 1690080,6199,Finance Services,Financials,2026-10-24
-1690334,4412,Deep Sea Foreign Transportation of  Freight,Industrials,2026-10-04
-1690437,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-04
-1690511,2300,Apparel & Other Finishd Prods of  Fabrics & Similar Matl,Consumer Discretionary,2026-10-04
-1690585,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1690639,6029,"Commercial Banks, NEC",Financials,2026-10-04
-1690680,6531,Real Estate Agents & Managers (For Others),Real Estate,2026-10-04
-1690820,5500,Retail-Auto Dealers & Gasoline Stations,Consumer Discretionary,2026-10-04
-1690842,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-04
+1690334,4412,Deep Sea Foreign Transportation of  Freight,Industrials,2026-10-31
+1690437,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-31
+1690511,2300,Apparel & Other Finishd Prods of  Fabrics & Similar Matl,Consumer Discretionary,2026-10-31
+1690585,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1690639,6029,"Commercial Banks, NEC",Financials,2026-10-31
+1690680,6531,Real Estate Agents & Managers (For Others),Real Estate,2026-10-31
+1690820,5500,Retail-Auto Dealers & Gasoline Stations,Consumer Discretionary,2026-10-31
+1690842,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-31
 1691082,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1691221,7372,Services-Prepackaged Software,Information Technology,2026-10-04
 1691303,1220,Silver Ores,Energy,2026-10-04
@@ -3776,8 +3776,8 @@ cik,sic,industry,sector,updated
 1705696,6798,Real Estate Investment Trusts,Real Estate,2026-10-24
 1705843,2870,Agricultural Chemicals,Materials,2026-10-24
 1706431,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-24
-1706946,4700,Transportation Services,Industrials,2026-10-04
-1707303,3990,Miscellaneous Manufacturing Industries,Consumer Discretionary,2026-10-04
+1706946,4700,Transportation Services,Industrials,2026-10-31
+1707303,3990,Miscellaneous Manufacturing Industries,Consumer Discretionary,2026-10-31
 1707502,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
 1707753,7372,Services-Prepackaged Software,Information Technology,2026-10-04
 1707910,5812,Retail-Eating  Places,Consumer Discretionary,2026-10-04
@@ -3868,10 +3868,10 @@ cik,sic,industry,sector,updated
 1722606,1040,Gold and Silver Ores,Materials,2026-10-24
 1722608,7841,Services-Video Tape Rental,Communication Services,2026-10-24
 1722684,7011,Hotels & Motels,Consumer Discretionary,2026-10-24
-1723069,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1723128,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1723464,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1723690,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-04
+1723069,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1723128,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1723464,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1723690,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-31
 1723788,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-04
 1723935,8200,Services-Educational Services,Consumer Discretionary,2026-10-04
 1723980,2834,Pharmaceutical Preparations,Health Care,2026-10-04
@@ -3948,10 +3948,10 @@ cik,sic,industry,sector,updated
 1739016,1400,Mining & Quarrying of  Nonmetallic Minerals (No Fuels),Materials,2026-10-24
 1739104,2834,Pharmaceutical Preparations,Health Care,2026-10-24
 1739174,7372,Services-Prepackaged Software,Information Technology,2026-10-24
-1739410,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1739445,3440,Fabricated Structural Metal Products,Industrials,2026-10-04
-1739566,2090,Miscellaneous Food Preparations & Kindred Products,Consumer Staples,2026-10-04
-1739940,6324,Hospital & Medical Service Plans,Financials,2026-10-04
+1739410,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1739445,3440,Fabricated Structural Metal Products,Industrials,2026-10-31
+1739566,2090,Miscellaneous Food Preparations & Kindred Products,Consumer Staples,2026-10-31
+1739940,6324,Hospital & Medical Service Plans,Financials,2026-10-31
 1740279,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
 1740332,5072,Wholesale-Hardware,Industrials,2026-10-04
 1740604,6199,Finance Services,Financials,2026-10-04
@@ -4020,11 +4020,11 @@ cik,sic,industry,sector,updated
 1754836,,,,2026-10-24
 1755058,8742,Services-Management Consulting Services,Industrials,2026-10-24
 1755237,2834,Pharmaceutical Preparations,Health Care,2026-10-24
-1755672,0100,Agricultural Production-Crops,Consumer Staples,2026-10-04
-1755953,6199,Finance Services,Financials,2026-10-04
-1756064,4899,"Communications Services, NEC",Communication Services,2026-10-04
-1756180,0200,Agricultural Prod-Livestock & Animal Specialties,Consumer Staples,2026-10-04
-1756262,3845,Electromedical & Electrotherapeutic Apparatus,Health Care,2026-10-04
+1755672,0100,Agricultural Production-Crops,Consumer Staples,2026-10-31
+1755953,6199,Finance Services,Financials,2026-10-31
+1756064,4899,"Communications Services, NEC",Communication Services,2026-10-31
+1756180,0200,Agricultural Prod-Livestock & Animal Specialties,Consumer Staples,2026-10-31
+1756262,3845,Electromedical & Electrotherapeutic Apparatus,Health Care,2026-10-31
 1756594,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1756607,1040,Gold and Silver Ores,Materials,2026-10-04
 1756655,8062,"Services-General Medical & Surgical Hospitals, NEC",Health Care,2026-10-04
@@ -4106,9 +4106,9 @@ cik,sic,industry,sector,updated
 1771885,2834,Pharmaceutical Preparations,Health Care,2026-10-24
 1771910,2834,Pharmaceutical Preparations,Health Care,2026-10-24
 1772016,2000,Food and Kindred Products,Consumer Staples,2026-10-24
-1772177,5812,Retail-Eating  Places,Consumer Discretionary,2026-10-04
-1772253,4400,Water Transportation,Industrials,2026-10-04
-1772720,4911,Electric Services,Utilities,2026-10-04
+1772177,5812,Retail-Eating  Places,Consumer Discretionary,2026-10-31
+1772253,4400,Water Transportation,Industrials,2026-10-31
+1772720,4911,Electric Services,Utilities,2026-10-31
 1772921,5531,Retail-Auto & Home Supply Stores,Consumer Discretionary,2026-10-04
 1773383,7372,Services-Prepackaged Software,Information Technology,2026-10-04
 1773751,8011,Services-Offices & Clinics of  Doctors of  Medicine,Health Care,2026-10-04
@@ -4204,11 +4204,11 @@ cik,sic,industry,sector,updated
 1788257,5961,Retail-Catalog & Mail-Order Houses,Consumer Discretionary,2026-10-24
 1788348,4923,Natural Gas Transmisison & Distribution,Utilities,2026-10-24
 1788399,,,,2026-10-24
-1788451,6411,"Insurance Agents, Brokers & Service",Financials,2026-10-04
-1788882,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-04
-1788999,7372,Services-Prepackaged Software,Information Technology,2026-10-04
-1789029,3714,Motor Vehicle Parts & Accessories,Consumer Discretionary,2026-10-04
-1789192,2834,Pharmaceutical Preparations,Health Care,2026-10-04
+1788451,6411,"Insurance Agents, Brokers & Service",Financials,2026-10-31
+1788882,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-31
+1788999,7372,Services-Prepackaged Software,Information Technology,2026-10-31
+1789029,3714,Motor Vehicle Parts & Accessories,Consumer Discretionary,2026-10-31
+1789192,2834,Pharmaceutical Preparations,Health Care,2026-10-31
 1789299,3600,Electronic & Other Electrical Equipment (No Computer Equip),Information Technology,2026-10-04
 1789769,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
 1789832,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
@@ -4292,12 +4292,12 @@ cik,sic,industry,sector,updated
 1804176,3844,X-Ray Apparatus & Tubes & Related Irradiation Apparatus,Health Care,2026-10-24
 1804469,7381,"Services-Detective, Guard & Armored Car Services",Industrials,2026-10-24
 1804745,7500,"Services-Automotive Repair, Services & Parking",Consumer Discretionary,2026-10-24
-1805077,3690,"Miscellaneous Electrical Machinery, Equipment & Supplies",Information Technology,2026-10-04
-1805284,6162,Mortgage Bankers & Loan Correspondents,Financials,2026-10-04
-1805385,3577,"Computer Peripheral Equipment, NEC",Information Technology,2026-10-04
-1805521,3711,Motor Vehicles & Passenger Car Bodies,Consumer Discretionary,2026-10-04
-1805526,6199,Finance Services,Financials,2026-10-04
-1805594,5960,Retail-Nonstore Retailers,Consumer Discretionary,2026-10-04
+1805077,3690,"Miscellaneous Electrical Machinery, Equipment & Supplies",Information Technology,2026-10-31
+1805284,6162,Mortgage Bankers & Loan Correspondents,Financials,2026-10-31
+1805385,3577,"Computer Peripheral Equipment, NEC",Information Technology,2026-10-31
+1805521,3711,Motor Vehicles & Passenger Car Bodies,Consumer Discretionary,2026-10-31
+1805526,6199,Finance Services,Financials,2026-10-31
+1805594,5960,Retail-Nonstore Retailers,Consumer Discretionary,2026-10-31
 1805651,7372,Services-Prepackaged Software,Information Technology,2026-10-04
 1805833,7370,"Services-Computer Programming, Data Processing, Etc.",Information Technology,2026-10-04
 1806310,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
@@ -4420,14 +4420,14 @@ cik,sic,industry,sector,updated
 1820953,6141,Personal Credit Institutions,Financials,2026-10-24
 1821159,7500,"Services-Automotive Repair, Services & Parking",Consumer Discretionary,2026-10-24
 1821175,7372,Services-Prepackaged Software,Information Technology,2026-10-24
-1821424,7389,"Services-Business Services, NEC",Industrials,2026-10-04
-1821468,8200,Services-Educational Services,Consumer Discretionary,2026-10-04
-1821534,6199,Finance Services,Financials,2026-10-04
-1821586,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1821769,3674,Semiconductors & Related Devices,Information Technology,2026-10-04
+1821424,7389,"Services-Business Services, NEC",Industrials,2026-10-31
+1821468,8200,Services-Educational Services,Consumer Discretionary,2026-10-31
+1821534,6199,Finance Services,Financials,2026-10-31
+1821586,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1821769,3674,Semiconductors & Related Devices,Information Technology,2026-10-31
 1821806,5990,"Retail-Retail Stores, NEC",Consumer Discretionary,2026-10-04
-1821825,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1821866,7370,"Services-Computer Programming, Data Processing, Etc.",Information Technology,2026-10-04
+1821825,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1821866,7370,"Services-Computer Programming, Data Processing, Etc.",Information Technology,2026-10-31
 1822359,8000,Services-Health Services,Health Care,2026-10-04
 1822462,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1822479,8090,"Services-Misc Health & Allied Services, NEC",Health Care,2026-10-04
@@ -4567,10 +4567,10 @@ cik,sic,industry,sector,updated
 1837240,3569,"General Industrial Machinery & Equipment, NEC",Industrials,2026-10-24
 1837429,6399,"Insurance Carriers, NEC",Financials,2026-10-24
 1837493,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-24
-1837607,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1837821,3842,"Orthopedic, Prosthetic & Surgical Appliances & Supplies",Health Care,2026-10-04
-1838163,7373,Services-Computer Integrated Systems Design,Information Technology,2026-10-04
-1838359,7371,Services-Computer Programming Services,Information Technology,2026-10-04
+1837607,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1837821,3842,"Orthopedic, Prosthetic & Surgical Appliances & Supplies",Health Care,2026-10-31
+1838163,7373,Services-Computer Integrated Systems Design,Information Technology,2026-10-31
+1838359,7371,Services-Computer Programming Services,Information Technology,2026-10-31
 1838406,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
 1838413,7372,Services-Prepackaged Software,Information Technology,2026-10-04
 1838615,6282,Investment Advice,Financials,2026-10-04
@@ -4701,15 +4701,15 @@ cik,sic,industry,sector,updated
 1853860,1000,Metal Mining,Materials,2026-10-24
 1853868,4911,Electric Services,Utilities,2026-10-24
 1853921,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-24
-1853962,1040,Gold and Silver Ores,Materials,2026-10-04
-1854139,2086,Bottled & Canned Soft Drinks & Carbonated Waters,Consumer Staples,2026-10-04
-1854270,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-04
-1854368,6199,Finance Services,Financials,2026-10-04
-1854445,7371,Services-Computer Programming Services,Information Technology,2026-10-04
-1854545,5961,Retail-Catalog & Mail-Order Houses,Consumer Discretionary,2026-10-04
-1854572,5731,"Retail-Radio, Tv & Consumer Electronics Stores",Consumer Discretionary,2026-10-04
-1854587,7372,Services-Prepackaged Software,Information Technology,2026-10-04
-1854640,1040,Gold and Silver Ores,Materials,2026-10-04
+1853962,1040,Gold and Silver Ores,Materials,2026-10-31
+1854139,2086,Bottled & Canned Soft Drinks & Carbonated Waters,Consumer Staples,2026-10-31
+1854270,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-31
+1854368,6199,Finance Services,Financials,2026-10-31
+1854445,7371,Services-Computer Programming Services,Information Technology,2026-10-31
+1854545,5961,Retail-Catalog & Mail-Order Houses,Consumer Discretionary,2026-10-31
+1854572,5731,"Retail-Radio, Tv & Consumer Electronics Stores",Consumer Discretionary,2026-10-31
+1854587,7372,Services-Prepackaged Software,Information Technology,2026-10-31
+1854640,1040,Gold and Silver Ores,Materials,2026-10-31
 1854963,6199,Finance Services,Financials,2026-10-04
 1855066,,,,2026-10-04
 1855129,2834,Pharmaceutical Preparations,Health Care,2026-10-04
@@ -4819,8 +4819,8 @@ cik,sic,industry,sector,updated
 1869198,7997,Services-Membership Sports & Recreation Clubs,Consumer Discretionary,2026-10-17
 1869467,4412,Deep Sea Foreign Transportation of  Freight,Industrials,2026-10-24
 1870144,2835,In Vitro & In Vivo Diagnostic Substances,Health Care,2026-10-24
-1870833,,,,2026-10-04
-1870940,8011,Services-Offices & Clinics of  Doctors of  Medicine,Health Care,2026-10-04
+1870833,,,,2026-10-31
+1870940,8011,Services-Offices & Clinics of  Doctors of  Medicine,Health Care,2026-10-31
 1871321,3841,Surgical & Medical Instruments & Apparatus,Health Care,2026-10-04
 1871509,5812,Retail-Eating  Places,Consumer Discretionary,2026-10-04
 1871638,3674,Semiconductors & Related Devices,Information Technology,2026-10-04
@@ -4893,8 +4893,8 @@ cik,sic,industry,sector,updated
 1885827,2835,In Vitro & In Vivo Diagnostic Substances,Health Care,2026-10-17
 1886190,3711,Motor Vehicles & Passenger Car Bodies,Consumer Discretionary,2026-10-24
 1886428,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-24
-1886878,,,,2026-10-04
-1886894,7372,Services-Prepackaged Software,Information Technology,2026-10-04
+1886878,,,,2026-10-31
+1886894,7372,Services-Prepackaged Software,Information Technology,2026-10-31
 1887673,3576,Computer Communications Equipment,Information Technology,2026-10-04
 1887944,1600,Heavy Construction Other Than Bldg Const - Contractors,Industrials,2026-10-04
 1888014,2833,Medicinal Chemicals & Botanical Products,Health Care,2026-10-04
@@ -4956,12 +4956,12 @@ cik,sic,industry,sector,updated
 1902314,3679,"Electronic Components, NEC",Information Technology,2026-10-24
 1902733,7372,Services-Prepackaged Software,Information Technology,2026-10-24
 1902794,2300,Apparel & Other Finishd Prods of  Fabrics & Similar Matl,Consumer Discretionary,2026-10-17
-1903145,7372,Services-Prepackaged Software,Information Technology,2026-10-04
-1903382,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
-1903508,8742,Services-Management Consulting Services,Industrials,2026-10-04
-1903595,6199,Finance Services,Financials,2026-10-04
-1903784,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1903870,2040,Grain Mill Products,Consumer Staples,2026-10-04
+1903145,7372,Services-Prepackaged Software,Information Technology,2026-10-31
+1903382,6798,Real Estate Investment Trusts,Real Estate,2026-10-31
+1903508,8742,Services-Management Consulting Services,Industrials,2026-10-31
+1903595,6199,Finance Services,Financials,2026-10-31
+1903784,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1903870,2040,Grain Mill Products,Consumer Staples,2026-10-31
 1903995,2750,Commercial Printing,Communication Services,2026-10-04
 1904286,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1904856,3560,General Industrial Machinery & Equipment,Industrials,2026-10-04
@@ -4995,9 +4995,9 @@ cik,sic,industry,sector,updated
 1916416,8742,Services-Management Consulting Services,Industrials,2026-10-04
 1918102,4911,Electric Services,Utilities,2026-10-17
 1919246,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-24
-1919776,3812,"Search, Detection, Navigation, Guidance, Aeronautical Sys",Industrials,2026-10-04
-1920092,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1920294,7370,"Services-Computer Programming, Data Processing, Etc.",Information Technology,2026-10-04
+1919776,3812,"Search, Detection, Navigation, Guidance, Aeronautical Sys",Industrials,2026-10-31
+1920092,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1920294,7370,"Services-Computer Programming, Data Processing, Etc.",Information Technology,2026-10-31
 1920406,6199,Finance Services,Financials,2026-10-04
 1921158,6199,Finance Services,Financials,2026-10-04
 1921603,1311,Crude Petroleum & Natural Gas,Energy,2026-10-04
@@ -5042,9 +5042,9 @@ cik,sic,industry,sector,updated
 1934850,6311,Life Insurance,Financials,2026-10-17
 1935172,7372,Services-Prepackaged Software,Information Technology,2026-10-24
 1935418,1090,Miscellaneous Metal Ores,Materials,2026-10-24
-1935979,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1936224,4522,"Air Transportation, Nonscheduled",Industrials,2026-10-04
-1936258,2834,Pharmaceutical Preparations,Health Care,2026-10-04
+1935979,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1936224,4522,"Air Transportation, Nonscheduled",Industrials,2026-10-31
+1936258,2834,Pharmaceutical Preparations,Health Care,2026-10-31
 1936804,7500,"Services-Automotive Repair, Services & Parking",Consumer Discretionary,2026-10-04
 1936817,4210,Trucking & Courier Services (No Air),Industrials,2026-10-04
 1937653,2834,Pharmaceutical Preparations,Health Care,2026-10-04
@@ -5108,9 +5108,9 @@ cik,sic,industry,sector,updated
 1951294,7311,Services-Advertising Agencies,Communication Services,2026-10-17
 1951667,5010,Wholesale-Motor Vehicles & Motor Vehicle Parts & Supplies,Industrials,2026-10-24
 1952073,7990,Services-Miscellaneous Amusement & Recreation,Consumer Discretionary,2026-10-24
-1952853,3790,Miscellaneous Transportation Equipment,Industrials,2026-10-04
-1952976,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
-1953021,7812,Services-Motion Picture & Video Tape Production,Communication Services,2026-10-04
+1952853,3790,Miscellaneous Transportation Equipment,Industrials,2026-10-31
+1952976,6798,Real Estate Investment Trusts,Real Estate,2026-10-31
+1953021,7812,Services-Motion Picture & Video Tape Production,Communication Services,2026-10-31
 1953366,6519,"Lessors of  Real Property, NEC",Real Estate,2026-10-04
 1953530,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 1953575,1040,Gold and Silver Ores,Materials,2026-10-04
@@ -5180,10 +5180,10 @@ cik,sic,industry,sector,updated
 1967822,5045,Wholesale-Computers & Peripheral Equipment & Software,Information Technology,2026-10-24
 1968043,4731,Arrangement of  Transportation of  Freight & Cargo,Industrials,2026-10-24
 1968487,3310,"Steel Works, Blast Furnaces & Rolling & Finishing Mills",Materials,2026-10-24
-1968915,3714,Motor Vehicle Parts & Accessories,Consumer Discretionary,2026-10-04
-1969302,7373,Services-Computer Integrated Systems Design,Information Technology,2026-10-04
-1969373,6500,Real Estate,Real Estate,2026-10-04
-1969401,5961,Retail-Catalog & Mail-Order Houses,Consumer Discretionary,2026-10-04
+1968915,3714,Motor Vehicle Parts & Accessories,Consumer Discretionary,2026-10-31
+1969302,7373,Services-Computer Integrated Systems Design,Information Technology,2026-10-31
+1969373,6500,Real Estate,Real Estate,2026-10-31
+1969401,5961,Retail-Catalog & Mail-Order Houses,Consumer Discretionary,2026-10-31
 1969863,7381,"Services-Detective, Guard & Armored Car Services",Industrials,2026-10-04
 1969928,7311,Services-Advertising Agencies,Communication Services,2026-10-04
 1970544,3845,Electromedical & Electrotherapeutic Apparatus,Health Care,2026-10-04
@@ -5242,11 +5242,11 @@ cik,sic,industry,sector,updated
 1984060,1311,Crude Petroleum & Natural Gas,Energy,2026-10-17
 1984086,2834,Pharmaceutical Preparations,Health Care,2026-10-17
 1984124,3317,Steel Pipe & Tubes,Materials,2026-10-17
-1985062,2834,Pharmaceutical Preparations,Health Care,2026-10-04
-1985139,3533,Oil & Gas Field Machinery & Equipment,Industrials,2026-10-04
-1985273,3674,Semiconductors & Related Devices,Information Technology,2026-10-04
-1985337,7363,Services-Help Supply Services,Industrials,2026-10-04
-1985487,7389,"Services-Business Services, NEC",Industrials,2026-10-04
+1985062,2834,Pharmaceutical Preparations,Health Care,2026-10-31
+1985139,3533,Oil & Gas Field Machinery & Equipment,Industrials,2026-10-31
+1985273,3674,Semiconductors & Related Devices,Information Technology,2026-10-31
+1985337,7363,Services-Help Supply Services,Industrials,2026-10-31
+1985487,7389,"Services-Business Services, NEC",Industrials,2026-10-31
 1986247,2840,"Soap, Detergents, Cleang Preparations, Perfumes, Cosmetics",Consumer Staples,2026-10-04
 1986694,7389,"Services-Business Services, NEC",Industrials,2026-10-10
 1986817,6770,Blank Checks,Financials,2026-10-04
@@ -5312,10 +5312,10 @@ cik,sic,industry,sector,updated
 2000756,7819,Services-Allied To Motion Picture Production,Communication Services,2026-10-24
 2001184,8051,Services-Skilled Nursing Care Facilities,Health Care,2026-10-24
 2001288,5045,Wholesale-Computers & Peripheral Equipment & Software,Information Technology,2026-10-24
-2001557,6770,Blank Checks,Financials,2026-10-04
-2001699,7372,Services-Prepackaged Software,Information Technology,2026-10-04
-2001794,7381,"Services-Detective, Guard & Armored Car Services",Industrials,2026-10-04
-2002045,7372,Services-Prepackaged Software,Information Technology,2026-10-04
+2001557,6770,Blank Checks,Financials,2026-10-31
+2001699,7372,Services-Prepackaged Software,Information Technology,2026-10-31
+2001794,7381,"Services-Detective, Guard & Armored Car Services",Industrials,2026-10-31
+2002045,7372,Services-Prepackaged Software,Information Technology,2026-10-31
 2002236,1520,General Bldg Contractors - Residential Bldgs,Industrials,2026-10-04
 2002453,3533,Oil & Gas Field Machinery & Equipment,Industrials,2026-10-04
 2002473,6331,"Fire, Marine & Casualty Insurance",Financials,2026-10-04
@@ -5383,10 +5383,10 @@ cik,sic,industry,sector,updated
 2017206,6500,Real Estate,Real Estate,2026-10-24
 2017526,8071,Services-Medical Laboratories,Health Care,2026-10-24
 2017758,6531,Real Estate Agents & Managers (For Others),Real Estate,2026-10-24
-2018064,4822,Telegraph & Other Message Communications,Communication Services,2026-10-04
-2018222,5600,Retail-Apparel & Accessory Stores,Consumer Discretionary,2026-10-04
-2018462,3640,Electric Lighting & Wiring Equipment,Information Technology,2026-10-04
-2018529,4412,Deep Sea Foreign Transportation of  Freight,Industrials,2026-10-04
+2018064,4822,Telegraph & Other Message Communications,Communication Services,2026-10-31
+2018222,5600,Retail-Apparel & Accessory Stores,Consumer Discretionary,2026-10-31
+2018462,3640,Electric Lighting & Wiring Equipment,Information Technology,2026-10-31
+2018529,4412,Deep Sea Foreign Transportation of  Freight,Industrials,2026-10-31
 2019061,4610,Pipe Lines (No Natural Gas),Industrials,2026-10-04
 2019103,1040,Gold and Silver Ores,Materials,2026-10-04
 2019410,8071,Services-Medical Laboratories,Health Care,2026-10-04
@@ -5470,11 +5470,11 @@ cik,sic,industry,sector,updated
 2033770,7373,Services-Computer Integrated Systems Design,Information Technology,2026-10-24
 2033991,6770,Blank Checks,Financials,2026-10-24
 2034012,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-24
-2034266,6770,Blank Checks,Financials,2026-10-04
-2034267,6770,Blank Checks,Financials,2026-10-04
-2034400,7371,Services-Computer Programming Services,Information Technology,2026-10-04
-2034520,7372,Services-Prepackaged Software,Information Technology,2026-10-04
-2034723,5090,Wholesale-Misc Durable Goods,Industrials,2026-10-04
+2034266,6770,Blank Checks,Financials,2026-10-31
+2034267,6770,Blank Checks,Financials,2026-10-31
+2034400,7371,Services-Computer Programming Services,Information Technology,2026-10-31
+2034520,7372,Services-Prepackaged Software,Information Technology,2026-10-31
+2034723,5090,Wholesale-Misc Durable Goods,Industrials,2026-10-31
 2035053,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-04
 2035149,3533,Oil & Gas Field Machinery & Equipment,Industrials,2026-10-04
 2035304,1400,Mining & Quarrying of  Nonmetallic Minerals (No Fuels),Materials,2026-10-04
@@ -5535,7 +5535,7 @@ cik,sic,industry,sector,updated
 2049187,3944,"Games, Toys & Children's Vehicles (No Dolls & Bicycles)",Consumer Discretionary,2026-10-17
 2049248,6770,Blank Checks,Financials,2026-10-17
 2049662,3690,"Miscellaneous Electrical Machinery, Equipment & Supplies",Information Technology,2026-10-17
-2051380,5940,Retail-Miscellaneous Shopping Goods Stores,Consumer Discretionary,2026-10-04
+2051380,5940,Retail-Miscellaneous Shopping Goods Stores,Consumer Discretionary,2026-10-31
 2051820,6282,Investment Advice,Financials,2026-10-04
 2051985,7389,"Services-Business Services, NEC",Industrials,2026-10-04
 2052053,,,,2026-10-04
@@ -5583,11 +5583,11 @@ cik,sic,industry,sector,updated
 2065812,,,,2026-10-17
 2066824,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-24
 2066836,3842,"Orthopedic, Prosthetic & Surgical Appliances & Supplies",Health Care,2026-10-24
-2067111,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-04
-2067129,6411,"Insurance Agents, Brokers & Service",Financials,2026-10-04
-2067627,3443,Fabricated Plate Work (Boiler Shops),Industrials,2026-10-04
-2067674,1040,Gold and Silver Ores,Materials,2026-10-04
-2067767,3730,Ship & Boat Building & Repairing,Industrials,2026-10-04
+2067111,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-31
+2067129,6411,"Insurance Agents, Brokers & Service",Financials,2026-10-31
+2067627,3443,Fabricated Plate Work (Boiler Shops),Industrials,2026-10-31
+2067674,1040,Gold and Silver Ores,Materials,2026-10-31
+2067767,3730,Ship & Boat Building & Repairing,Industrials,2026-10-31
 2067876,4833,Television Broadcasting Stations,Communication Services,2026-10-04
 2068385,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-04
 2068577,5810,Retail-Eating & Drinking Places,Consumer Discretionary,2026-10-04
@@ -5644,13 +5644,13 @@ cik,sic,industry,sector,updated
 2082889,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-24
 2083125,1311,Crude Petroleum & Natural Gas,Energy,2026-10-24
 2083143,6770,Blank Checks,Financials,2026-10-24
-2083452,6770,Blank Checks,Financials,2026-10-04
-2083526,7371,Services-Computer Programming Services,Information Technology,2026-10-04
-2083632,7372,Services-Prepackaged Software,Information Technology,2026-10-04
-2083785,7359,"Services-Equipment Rental & Leasing, NEC",Industrials,2026-10-04
-2083910,6770,Blank Checks,Financials,2026-10-04
-2083989,6770,Blank Checks,Financials,2026-10-04
-2084026,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-04
+2083452,6770,Blank Checks,Financials,2026-10-31
+2083526,7371,Services-Computer Programming Services,Information Technology,2026-10-31
+2083632,7372,Services-Prepackaged Software,Information Technology,2026-10-31
+2083785,7359,"Services-Equipment Rental & Leasing, NEC",Industrials,2026-10-31
+2083910,6770,Blank Checks,Financials,2026-10-31
+2083989,6770,Blank Checks,Financials,2026-10-31
+2084026,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-31
 2084227,7372,Services-Prepackaged Software,Information Technology,2026-10-04
 2085091,,,,2026-10-04
 2085187,5712,Retail-Furniture Stores,Consumer Discretionary,2026-10-04
@@ -5722,9 +5722,9 @@ cik,sic,industry,sector,updated
 2099039,7389,"Services-Business Services, NEC",Industrials,2026-10-24
 2099093,6770,Blank Checks,Financials,2026-10-24
 2099103,6221,Commodity Contracts Brokers & Dealers,Financials,2026-10-24
-2099767,6770,Blank Checks,Financials,2026-10-04
-2100161,6500,Real Estate,Real Estate,2026-10-04
-2100457,6199,Finance Services,Financials,2026-10-04
+2099767,6770,Blank Checks,Financials,2026-10-31
+2100161,6500,Real Estate,Real Estate,2026-10-31
+2100457,6199,Finance Services,Financials,2026-10-31
 2100782,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 2100805,6798,Real Estate Investment Trusts,Real Estate,2026-10-04
 2101240,3674,Semiconductors & Related Devices,Information Technology,2026-10-04
@@ -5768,7 +5768,7 @@ cik,sic,industry,sector,updated
 2114044,2836,"Biological Products, (No Diagnostic Substances)",Health Care,2026-10-10
 2115119,6035,"Savings Institution, Federally Chartered",Financials,2026-10-17
 2115436,2911,Petroleum Refining,Energy,2026-10-24
-2116230,6770,Blank Checks,Financials,2026-10-04
+2116230,6770,Blank Checks,Financials,2026-10-31
 2118032,2834,Pharmaceutical Preparations,Health Care,2026-10-04
 2118195,3728,"Aircraft Parts & Auxiliary Equipment, NEC",Industrials,2026-10-04
 2119292,7374,Services-Computer Processing & Data Preparation,Information Technology,2026-10-04
@@ -5789,7 +5789,7 @@ cik,sic,industry,sector,updated
 2131524,2834,Pharmaceutical Preparations,Health Care,2026-10-17
 2131813,3443,Fabricated Plate Work (Boiler Shops),Industrials,2026-10-24
 2131853,6770,Blank Checks,Financials,2026-10-24
-2132582,3812,"Search, Detection, Navigation, Guidance, Aeronautical Sys",Industrials,2026-10-04
+2132582,3812,"Search, Detection, Navigation, Guidance, Aeronautical Sys",Industrials,2026-10-31
 2133239,6770,Blank Checks,Financials,2026-10-10
 2134856,6770,Blank Checks,Financials,2026-10-24
 2136387,6531,Real Estate Agents & Managers (For Others),Real Estate,2026-10-04
