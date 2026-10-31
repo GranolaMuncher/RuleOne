@@ -1,10 +1,88 @@
 {
- "date": "2026-10-24",
- "calls": 12,
- "graded": 12,
+ "date": "2026-10-31",
+ "calls": 18,
+ "graded": 18,
  "by_verdict": {},
  "review_candidates": [],
  "recent": [
+  {
+   "date": "2026-10-31",
+   "agent": "rulers",
+   "ticker": "ACGL",
+   "verdict": "WATCH",
+   "price": "106.36",
+   "spy": "755.72",
+   "tranche1": "70.0",
+   "note": "A first-rate specialty insurer and reinsurer, but the screen's $133 Sticker grows peak-cycle EPS at 15%; on about $10.5 of normalised EPS and Street-capped grow",
+   "age_days": 0,
+   "return": 0.0,
+   "excess": 0.0
+  },
+  {
+   "date": "2026-10-31",
+   "agent": "rulers",
+   "ticker": "AX",
+   "verdict": "WATCH",
+   "price": "90.38",
+   "spy": "755.72",
+   "tranche1": "72.0",
+   "note": "A fast-growing, efficient digital bank earning ~15.7% on equity, but at $90 (1.56x book, 10.3x earnings) it sits above the rule Sticker of ~$72, and a Q1 charge",
+   "age_days": 0,
+   "return": 0.0,
+   "excess": 0.0
+  },
+  {
+   "date": "2026-10-31",
+   "agent": "rulers",
+   "ticker": "CARG",
+   "verdict": "WATCH",
+   "price": "32.18",
+   "spy": "755.72",
+   "tranche1": "34.0",
+   "note": "A cash-rich, debt-free car-shopping marketplace that has just exited its money-losing wholesale arm; price is already under a 12%-growth Sticker, but earnings a",
+   "age_days": 0,
+   "return": 0.0,
+   "excess": 0.0
+  },
+  {
+   "date": "2026-10-31",
+   "agent": "rulers",
+   "ticker": "NTES",
+   "verdict": "WATCH",
+   "price": "113.64",
+   "spy": "755.72",
+   "tranche1": "105.0",
+   "note": "A cash-rich, debt-free Chinese games company with 70% gross margin and ~$25B of net cash, but the price is above my zero-growth Payback ($104) and the 15% winda",
+   "age_days": 0,
+   "return": 0.0,
+   "excess": 0.0
+  },
+  {
+   "date": "2026-10-31",
+   "agent": "radar",
+   "ticker": "GOOGL",
+   "verdict": "EVENT",
+   "price": "279.84",
+   "spy": "755.72",
+   "tranche1": "",
+   "note": "-14% in a day on AI-capex fears; $320 vs MOS $274",
+   "age_days": 0,
+   "return": 0.0,
+   "excess": 0.0
+  },
+  {
+   "date": "2026-10-30",
+   "agent": "radar",
+   "ticker": "GOOGL",
+   "verdict": "EVENT",
+   "price": "279.84",
+   "spy": "755.72",
+   "tranche1": "",
+   "note": "-11% on AI-capex fears; Cloud +103%, Search growth slowed to 12%",
+   "age_days": 1,
+   "return": 0.0,
+   "excess": 0.0
+  },
   {
    "date": "2026-10-24",
    "agent": "rulers",
@@ -14,9 +92,9 @@
    "spy": "759.97",
    "tranche1": "75.0",
    "note": "Debt-free brand company (HOKA, UGG) with 40% ROIC, but the sales guide was just cut to ~4% growth and tariff refunds flatter EPS; a 6-8% growth Sticker is $37-6",
-   "age_days": 0,
-   "return": 0.0,
-   "excess": 0.0
+   "age_days": 7,
+   "return": 0.0111,
+   "excess": 0.0167
   },
   {
    "date": "2026-10-24",
@@ -27,9 +105,9 @@
    "spy": "759.97",
    "tranche1": "85.0",
    "note": "A fast-growing online broker earning ~$13 per ADS on its latest quarter's run-rate, down 51% from its high on a proposed Chinese regulatory penalty; the busines",
-   "age_days": 0,
-   "return": 0.0,
-   "excess": 0.0
+   "age_days": 7,
+   "return": -0.0075,
+   "excess": -0.0019
   },
   {
    "date": "2026-10-24",
@@ -40,9 +118,9 @@
    "spy": "759.97",
    "tranche1": "300.0",
    "note": "Cash-rich software franchise down 50% on AI-disruption fear, but the screen's 15% windage is too high and the price is still above a 10%-growth Sticker; the ope",
-   "age_days": 0,
-   "return": 0.0,
-   "excess": 0.0
+   "age_days": 7,
+   "return": -0.0067,
+   "excess": -0.0011
   },
   {
    "date": "2026-10-24",
@@ -53,9 +131,9 @@
    "spy": "759.97",
    "tranche1": "190.0",
    "note": "A best-in-class auto insurer, but TTM earnings sit near the top of the cycle (combined ratio ~87.5 against a 96 target), so the screen's 15% windage Sticker of ",
-   "age_days": 0,
-   "return": 0.0,
-   "excess": 0.0
+   "age_days": 7,
+   "return": 0.0141,
+   "excess": 0.0197
   },
   {
    "date": "2026-10-24",
@@ -66,9 +144,9 @@
    "spy": "759.97",
    "tranche1": "8.5",
    "note": "A high-margin ad-buying platform with $1.1B+ net cash, but revenue growth has stalled (Q3 guided down ~12%), stock pay of ~$490M a year erases much of the scree",
-   "age_days": 0,
-   "return": 0.0,
-   "excess": 0.0
+   "age_days": 7,
+   "return": -0.0546,
+   "excess": -0.049
   },
   {
    "date": "2026-10-24",
@@ -79,9 +157,9 @@
    "spy": "759.97",
    "tranche1": "32.4",
    "note": "AI-server assembler with thin, swinging margins, deeply negative cash flow funded by about $8.7B of debt, and open integrity questions (ineffective controls, CF",
-   "age_days": 0,
-   "return": 0.0,
-   "excess": 0.0
+   "age_days": 7,
+   "return": 0.0003,
+   "excess": 0.0059
   },
   {
    "date": "2026-10-10",
@@ -92,9 +170,9 @@
    "spy": "778.57",
    "tranche1": "7.0",
    "note": "A branded protein-shake business with ROIC above 40% that has fallen 76% as margins collapsed and net debt reached ~3.8x guided EBITDA; the screen's prices use ",
-   "age_days": 14,
-   "return": 0.117,
-   "excess": 0.1408
+   "age_days": 21,
+   "return": 0.0725,
+   "excess": 0.1019
   },
   {
    "date": "2026-10-10",
@@ -105,9 +183,9 @@
    "spy": "778.57",
    "tranche1": "5.0",
    "note": "A high-yield consumer lender whose screen numbers (FCF, Payback, Ten Cap) are not real owner earnings; guidance was cut, originations fell and credit is tighten",
-   "age_days": 14,
-   "return": -0.086,
-   "excess": -0.0621
+   "age_days": 21,
+   "return": -0.0523,
+   "excess": -0.0229
   },
   {
    "date": "2026-10-10",
@@ -118,9 +196,9 @@
    "spy": "778.57",
    "tranche1": "5.0",
    "note": "A China loan-facilitation platform at ~3x annualised earnings, but volume, revenue and profit are collapsing under regulation and a liquidity shock; the story h",
-   "age_days": 14,
-   "return": -0.1516,
-   "excess": -0.1277
+   "age_days": 21,
+   "return": -0.1661,
+   "excess": -0.1368
   },
   {
    "date": "2026-10-09",
@@ -131,9 +209,9 @@
    "spy": "773.93",
    "tranche1": "225.0",
    "note": "A high-ROIC software franchise at ~10x non-GAAP earnings, but generative-AI disruption, a CEO handover (1 Dec) and an interim CFO leave the story unproven; the ",
-   "age_days": 15,
-   "return": 0.0945,
-   "excess": 0.1125
+   "age_days": 22,
+   "return": 0.0381,
+   "excess": 0.0616
   },
   {
    "date": "2026-10-09",
@@ -144,9 +222,9 @@
    "spy": "773.93",
    "tranche1": "280.0",
    "note": "An exceptional specialty insurer (combined ratio ~76%, ROIC 23%), but on normalised earnings it is above all three corrected prices because E&S property pricing",
-   "age_days": 15,
-   "return": 0.0731,
-   "excess": 0.0912
+   "age_days": 22,
+   "return": 0.0767,
+   "excess": 0.1003
   },
   {
    "date": "2026-10-09",
@@ -157,9 +235,9 @@
    "spy": "773.93",
    "tranche1": "90.0",
    "note": "A high-ROIC brand with net cash and a new CEO, but US sales are shrinking, earnings are falling and TTM EPS is flattered; wait for a lower price or proof the pr",
-   "age_days": 15,
-   "return": 0.0683,
-   "excess": 0.0863
+   "age_days": 22,
+   "return": 0.1571,
+   "excess": 0.1806
   }
  ]
 }
