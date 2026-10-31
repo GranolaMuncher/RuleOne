@@ -1,16 +1,18 @@
-{"date": "2026-10-24",
- "summary": "Twelve dossiers exist and none is at tranche 1: ten say WATCH, SMCI is AVOID, and OPFI and QFIN are TOO HARD. DECK is the closest at $81.09 vs $75 and reports on 29 Oct; the Professor marked INTU and PGR major because their tranche 1 prices sit above their own corrected values. The screen shows 10 BUY, 73 BUY* and 33 ON DECK, but nearly every top-ranked name rests on a screen input the analysts overruled.",
- "decisions": [
-  {"ticker": "DECK", "question": "Wait for the 29 Oct report before any tranche 1 at $75, or start earlier?", "why": "Price $81.09; sales guide cut, EPS flattered by tariff refunds; the lower-growth Sticker is only $37-60.", "link": "/rulers/DECK/"},
-  {"ticker": "INTU", "question": "Use the 10% Sticker (~$211) as the working tranche 1 instead of $300?", "why": "$300 is the 12% case; price is $343.39 and SBC may inflate the cash-flow methods. Professor: major.", "link": "/rulers/INTU/"},
-  {"ticker": "PGR", "question": "Wait for ~$132-136 (normalised Ten Cap) rather than tranche 1 at $190?", "why": "Price $228.07; the dossier's own Sticker is ~$115 and earnings are near the cycle top. Professor: major.", "link": "/rulers/PGR/"},
-  {"ticker": "QFIN", "question": "Are you willing to own China-based ADRs (QFIN, FUTU) at all?", "why": "Both carry China rule-maker risk (METHOD 9); a no closes both dossiers.", "link": "/rulers/QFIN/"},
-  {"ticker": "KNSL", "question": "If you hold KNSL, keep holding above the $285 trim level, or trim?", "why": "Price $364.49 vs earnings values of $155-$285; the method trims only above Sticker with a better home for the cash.", "link": "/rulers/KNSL/"}
- ],
- "actions": [
-  {"ticker": "DECK", "action": "hold", "reason": "$81.09 vs tranche 1 $75; wait for the 29 Oct report."},
-  {"ticker": "INTU", "action": "review story", "reason": "$343.39; tranche 1 $300 rests on the 12% case, 10% Sticker is $211."},
-  {"ticker": "PGR", "action": "review story", "reason": "$228.07; tranche 1 $190 is above its own Sticker (~$115) and Ten Cap (~$132-136)."},
-  {"ticker": "KNSL", "action": "hold", "reason": "$364.49 is above the $285 trim level and every earnings value; CFO retires 2027."},
-  {"ticker": "SMCI", "action": "pass", "reason": "AVOID: $8.7B debt, negative cash flow, open controls and indictment questions."}
- ]}
+{
+  "date": "2026-10-31",
+  "summary": "Sixteen dossiers exist and none is a buy: CARG is under its $34 tranche 1 but stays WATCH until the 5 Nov print, and ACGL and PGR need their tranche 1 reset after Professor majors (both report 2-3 Nov). The screen narrowed to 3 BUY, 66 BUY* and 19 ON DECK as GOOGL, NVDA, MU and others left. The one Radar EVENT is GOOGL's AI-capex sell-off, still far above Sticker.",
+  "decisions": [
+    {"ticker": "CARG", "question": "Start tranche 1 at $34 before the 5 Nov print, or wait for it?", "why": "Price $32.18 is under $34, but $34 is above its own 12% Sticker (~$33.5) and stock pay is unresolved.", "link": "/rulers/CARG/"},
+    {"ticker": "DECK", "question": "Wait for $73, or is $82 close enough?", "why": "40% ROIC, $1.2B net cash, but a guide cut, tariff-flattered EPS and an unread officer-change 8-K.", "link": "/rulers/DECK/"},
+    {"ticker": "NTES", "question": "Are you willing to own China-based ADRs (NTES, FUTU, QFIN) at all?", "why": "Open since last week. If not, we close all three dossiers.", "link": "/rulers/NTES/"},
+    {"ticker": "KNSL", "question": "If you hold KNSL or PGR, hold above the trim levels ($285, $175) or trim?", "why": "Both are far above every earnings value; the method trims only with a better home for the cash.", "link": "/rulers/KNSL/"},
+    {"ticker": "GOOGL", "question": "Open a GOOGL dossier after the 14% drop, or pass while it is far above Sticker?", "why": "Radar EVENT on a tier A name; price ~$280 vs screen Sticker $89 and MOS $45.", "link": "/radar/"}
+  ],
+  "actions": [
+    {"ticker": "CARG", "action": "hold", "reason": "At tranche 1 ($34) but WATCH; wait for the ~5 Nov print."},
+    {"ticker": "DECK", "action": "hold", "reason": "$81.99 vs tranche 1 $73; read the unread Item 5.02 8-K first."},
+    {"ticker": "NTES", "action": "hold", "reason": "$113.64 vs tranche 1 $105; China ADR risk to understand first."},
+    {"ticker": "ACGL", "action": "review story", "reason": "Tranche 1 $70 exceeds the ~$52 Street-capped Sticker; new debt 8-K; reports 3 Nov."},
+    {"ticker": "PGR", "action": "review story", "reason": "Tranche 1 $135 exceeds its own Sticker ($114) on one method; reports 2 Nov."}
+  ]
+}

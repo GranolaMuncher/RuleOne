@@ -1,18 +1,22 @@
 {
- "date": "2026-10-24",
+ "date": "2026-10-31",
  "verdicts": {
+  "ACGL": "WATCH",
   "ADBE": "WATCH",
+  "AX": "WATCH",
   "BRBR": "WATCH",
+  "CARG": "WATCH",
   "DECK": "WATCH",
   "FUTU": "WATCH",
   "INTU": "WATCH",
   "KNSL": "WATCH",
   "LULU": "WATCH",
+  "NTES": "WATCH",
   "PGR": "WATCH",
   "TTD": "WATCH",
   "SMCI": "AVOID",
   "OPFI": "TOO HARD",
   "QFIN": "TOO HARD"
  },
- "brief": "reports/weekly/2026-10-24_brief.md"
+ "brief": "reports/weekly/2026-10-31_brief.md"
 }
