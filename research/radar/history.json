@@ -17,6 +17,13 @@
  ],
  "ACGL": [
   {
+   "date": "2026-10-31",
+   "verdict": "WATCH",
+   "headline": "8-K: material agreement and new debt, plus officer change",
+   "why": "Event check 5 and low-debt marker: read what the debt funds. $101.69 vs MOS $66.69.",
+   "sources": []
+  },
+  {
    "date": "2026-10-28",
    "verdict": "NOISE",
    "headline": "Q3 earnings beat",
@@ -440,6 +447,15 @@
  ],
  "GOOGL": [
   {
+   "date": "2026-10-31",
+   "verdict": "EVENT",
+   "headline": "-14% in a day on AI-capex fears; $320 vs MOS $274",
+   "why": "Checks 1-2 pass, 3-4 plausible, 5 verify debt, 6 intact but AI-search risk open. Not yet in buy range. Street cuts are fear.",
+   "sources": [
+    "https://www.foxbusiness.com/markets/google-parent-alphabet-suffers-nearly-500b-wall-street-wipeout-amid-ai-spending-fears"
+   ]
+  },
+  {
    "date": "2026-10-30",
    "verdict": "EVENT",
    "headline": "-11% on AI-capex fears; Cloud +103%, Search growth slowed to 12%",
@@ -486,6 +502,13 @@
   }
  ],
  "IBKR": [
+  {
+   "date": "2026-10-31",
+   "verdict": "NOISE",
+   "headline": "-8% on AI-trading headlines, no business break",
+   "why": "$80 vs MOS $28; broker OCF tests unreliable.",
+   "sources": []
+  },
   {
    "date": "2026-10-16",
    "verdict": "NOISE",
@@ -865,6 +888,17 @@
    ]
   }
  ],
+ "NMIH": [
+  {
+   "date": "2026-10-31",
+   "verdict": "WATCH",
+   "headline": "BofA cuts to Neutral on regulatory overhang",
+   "why": "Event check 6: a rule change could breach the moat. Identify the rule first; details unconfirmed. $42.55 vs MOS $24.50.",
+   "sources": [
+    "https://finance.yahoo.com/real-estate/articles/bofa-cuts-mortgage-insurer-ratings-151411172.html"
+   ]
+  }
+ ],
  "NRIM": [
   {
    "date": "2026-10-17",
@@ -934,6 +968,17 @@
    "why": "Dossier TOO HARD; must-stay-true #1 not met; trigger needs two more quarters >40%. Verify in the 10-Q.",
    "sources": [
     "https://www.sec.gov/Archives/edgar/data/0001818502/000181850226000084/a2026q3earningspresentat.htm"
+   ]
+  }
+ ],
+ "ORCL": [
+  {
+   "date": "2026-10-31",
+   "verdict": "WATCH",
+   "headline": "-10% in a day; debt over 3 years of FCF",
+   "why": "Check 5 fails on the screen, so no EVENT. Cause of drop unconfirmed. $126 vs MOS $27.",
+   "sources": [
+    "https://247wallst.com/investing/2026/10/30/oracle-just-told-investors-what-many-already-knew/"
    ]
   }
  ],
@@ -1017,6 +1062,13 @@
  ],
  "QFIN": [
   {
+   "date": "2026-10-31",
+   "verdict": "NOISE",
+   "headline": "-6% with Asian ADRs, no company news",
+   "why": "Dossier TOO HARD, no named trigger hit. Market move (METHOD 7).",
+   "sources": []
+  },
+  {
    "date": "2026-10-30",
    "verdict": "NOISE",
    "headline": "-7% in a day with Asian ADRs, no company news",
@@ -1077,6 +1129,15 @@
    "sources": []
   }
  ],
+ "RMD": [
+  {
+   "date": "2026-10-31",
+   "verdict": "WATCH",
+   "headline": "-8% after Q1 beat; reason unconfirmed",
+   "why": "Check guidance and GLP-1 commentary in the 10-Q. $253 vs MOS $156.",
+   "sources": []
+  }
+ ],
  "SCCO": [
   {
    "date": "2026-10-24",
@@ -1087,6 +1148,15 @@
   }
  ],
  "SFM": [
+  {
+   "date": "2026-10-31",
+   "verdict": "WATCH",
+   "headline": "-20% more; RBC downgrade, targets cut to $49-58",
+   "why": "Street cuts are fear, but event checks 3 and 6 are open: three negative-comp quarters, CEO change. Check 10-Q margin, traffic, debt. $66 vs MOS $33.",
+   "sources": [
+    "https://www.fool.com/earnings/takeaways/2026/10/29/sprouts-3-key-takeaways-for-long-term-investors/"
+   ]
+  },
   {
    "date": "2026-10-30",
    "verdict": "WATCH",
@@ -1107,6 +1177,15 @@
   }
  ],
  "SMCI": [
+  {
+   "date": "2026-10-31",
+   "verdict": "WATCH",
+   "headline": "-8% with Dell/HP on Intel PC warning; at MOS",
+   "why": "Dossier AVOID: cash and debt markers still fail (check 5). No sell trigger hit. Next report ~11-09.",
+   "sources": [
+    "https://247wallst.com/investing/2026/10/30/dell-sinks-11-as-intels-warning-on-pc-slump-and-memory-shortage-hits-hardware-stocks-hp-tumbles-9-hewlett-packard-enterprise-and-super-micro-fall-7/"
+   ]
+  },
   {
    "date": "2026-10-23",
    "verdict": "WATCH",
@@ -1218,6 +1297,15 @@
   }
  ],
  "TBBK": [
+  {
+   "date": "2026-10-31",
+   "verdict": "WATCH",
+   "headline": "-7% after Q3 results; cause unconfirmed",
+   "why": "Banks magnify management risk (METHOD 4); September restructuring 8-K. Read the call for margin and credit. $50.86 vs MOS $34.96.",
+   "sources": [
+    "https://www.fool.com/earnings/call-transcripts/2026/10/30/bancorp-tbbk-q3-2026-earnings-call-transcript/"
+   ]
+  },
   {
    "date": "2026-10-09",
    "verdict": "WATCH",

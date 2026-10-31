@@ -7,7 +7,7 @@
   "Pershing Square (Bill Ackman)": "2026-03-31",
   "Baupost (Seth Klarman)": "2026-06-30",
   "Fairholme (Bruce Berkowitz)": "2026-06-30",
-  "Markel (Tom Gayner)": "2026-06-30"
+  "Markel (Tom Gayner)": "2026-09-30"
  },
  "by_ticker": {
   "ALLY": [
@@ -44,10 +44,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "GOOG",
     "issuer": "ALPHABET INC",
-    "weight": 0.074,
+    "weight": 0.073,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    },
    {
     "guru": "Berkshire Hathaway (Buffett)",
@@ -91,10 +91,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "GOOGL",
     "issuer": "ALPHABET INC",
-    "weight": 0.0156,
+    "weight": 0.0139,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    },
    {
     "guru": "Pershing Square (Bill Ackman)",
@@ -120,10 +120,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "AXP",
     "issuer": "AMERICAN EXPRESS CO",
-    "weight": 0.0126,
+    "weight": 0.0116,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "AAPL": [
@@ -140,10 +140,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "AAPL",
     "issuer": "APPLE INC",
-    "weight": 0.027,
+    "weight": 0.0318,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    },
    {
     "guru": "Himalaya Capital (Li Lu)",
@@ -191,8 +191,8 @@
     "issuer": "CAPITAL ONE FINL CORP",
     "weight": 0.0014,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CVX": [
@@ -381,10 +381,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "MCO",
     "issuer": "MOODYS CORP",
-    "weight": 0.0074,
+    "weight": 0.0076,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "NVR": [
@@ -392,10 +392,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "NVR",
     "issuer": "NVR INC",
-    "weight": 0.0063,
+    "weight": 0.0058,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    },
    {
     "guru": "Berkshire Hathaway (Buffett)",
@@ -509,10 +509,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "BRK-B",
     "issuer": "BERKSHIRE HATHAWAY INC DEL",
-    "weight": 0.0584,
+    "weight": 0.0594,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    },
    {
     "guru": "Fairholme (Bruce Berkowitz)",
@@ -591,10 +591,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "ABNB",
     "issuer": "AIRBNB INC",
-    "weight": 0.0026,
-    "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "weight": 0.0009,
+    "change": "cut",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "AMT": [
@@ -631,10 +631,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "BN",
     "issuer": "BROOKFIELD CORP",
-    "weight": 0.0424,
+    "weight": 0.0371,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CCC": [
@@ -657,6 +657,15 @@
     "change": "held",
     "report": "2026-06-30",
     "filed": "2026-08-14"
+   },
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "CPRT",
+    "issuer": "COPART INC",
+    "weight": 0.0,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CSGP": [
@@ -706,10 +715,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "KKR",
     "issuer": "KKR & CO INC",
-    "weight": 0.0101,
+    "weight": 0.0103,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "MA": [
@@ -726,10 +735,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "MA",
     "issuer": "MASTERCARD INCORPORATED",
-    "weight": 0.0081,
+    "weight": 0.0089,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ORLY": [
@@ -810,10 +819,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "V",
     "issuer": "VISA INC",
-    "weight": 0.0265,
+    "weight": 0.0284,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "AMZN": [
@@ -839,10 +848,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "AMZN",
     "issuer": "AMAZON COM INC",
-    "weight": 0.0369,
+    "weight": 0.0394,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "HTZ": [
@@ -881,10 +890,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "META",
     "issuer": "META PLATFORMS INC",
-    "weight": 0.01,
+    "weight": 0.0118,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "MSFT": [
@@ -901,10 +910,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "MSFT",
     "issuer": "MICROSOFT CORP",
-    "weight": 0.0153,
+    "weight": 0.0215,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "QSR": [
@@ -954,8 +963,8 @@
     "issuer": "UBER TECHNOLOGIES INC",
     "weight": 0.0008,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "COLD": [
@@ -983,10 +992,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "CME",
     "issuer": "CME GROUP INC",
-    "weight": 0.0008,
+    "weight": 0.001,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "DNOW": [
@@ -1014,10 +1023,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "EXP",
     "issuer": "EAGLE MATLS INC",
-    "weight": 0.0003,
+    "weight": 0.0002,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ELV": [
@@ -1045,10 +1054,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "FERG",
     "issuer": "FERGUSON ENTERPRISES INC",
-    "weight": 0.0033,
+    "weight": 0.0032,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "GDS": [
@@ -1131,10 +1140,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "UNP",
     "issuer": "UNION PAC CORP",
-    "weight": 0.0033,
+    "weight": 0.0035,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "WCC": [
@@ -1164,10 +1173,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "BRK-A",
     "issuer": "BERKSHIRE HATHAWAY INC DEL",
-    "weight": 0.0635,
+    "weight": 0.0648,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    },
    {
     "guru": "Fairholme (Bruce Berkowitz)",
@@ -1193,10 +1202,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "EPD",
     "issuer": "ENTERPRISE PRODS PARTNERS L",
-    "weight": 0.0016,
-    "change": "added",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "weight": 0.0017,
+    "change": "held",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "HOMB": [
@@ -1226,10 +1235,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "PGR",
     "issuer": "PROGRESSIVE CORP",
-    "weight": 0.0125,
+    "weight": 0.0122,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    },
    {
     "guru": "Fairholme (Bruce Berkowitz)",
@@ -1290,8 +1299,8 @@
     "issuer": "BERKLEY W R CORP",
     "weight": 0.0003,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "AYI": [
@@ -1299,10 +1308,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "AYI",
     "issuer": "ACUITY INC",
-    "weight": 0.0003,
+    "weight": 0.0002,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "APD": [
@@ -1312,8 +1321,8 @@
     "issuer": "AIR PRODUCTS AND CHEMICALS I",
     "weight": 0.002,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ALL": [
@@ -1321,10 +1330,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "ALL",
     "issuer": "ALLSTATE CORP",
-    "weight": 0.0028,
+    "weight": 0.0027,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ADI": [
@@ -1332,10 +1341,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "ADI",
     "issuer": "ANALOG DEVICES INC",
-    "weight": 0.0302,
+    "weight": 0.0309,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "APO": [
@@ -1343,10 +1352,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "APO",
     "issuer": "APOLLO GLOBAL MGMT INC",
-    "weight": 0.0091,
+    "weight": 0.0092,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "AMAT": [
@@ -1354,10 +1363,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "AMAT",
     "issuer": "APPLIED MATLS INC",
-    "weight": 0.002,
+    "weight": 0.0014,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ADM": [
@@ -1365,21 +1374,21 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "ADM",
     "issuer": "ARCHER DANIELS MIDLAND CO",
-    "weight": 0.0088,
+    "weight": 0.0093,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "BNY": [
    {
     "guru": "Markel (Tom Gayner)",
     "ticker": "BNY",
-    "issuer": "BANK NEW YORK MELLON CORP",
+    "issuer": "BANK OF NY MELLON CORP",
     "weight": 0.0014,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "BLK": [
@@ -1387,10 +1396,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "BLK",
     "issuer": "BLACKROCK INC",
-    "weight": 0.0161,
+    "weight": 0.0182,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "BX": [
@@ -1398,10 +1407,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "BX",
     "issuer": "BLACKSTONE INC",
-    "weight": 0.011,
+    "weight": 0.0107,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "BAM": [
@@ -1411,19 +1420,8 @@
     "issuer": "BROOKFIELD ASSET MANAGMT LTD",
     "weight": 0.0075,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
-   }
-  ],
-  "BRO": [
-   {
-    "guru": "Markel (Tom Gayner)",
-    "ticker": "BRO",
-    "issuer": "BROWN & BROWN INC",
-    "weight": 0.0001,
-    "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "BF-A": [
@@ -1433,8 +1431,8 @@
     "issuer": "BROWN FORMAN CORP",
     "weight": 0.0018,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "BF-B": [
@@ -1444,8 +1442,8 @@
     "issuer": "BROWN FORMAN CORP",
     "weight": 0.001,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "BC": [
@@ -1455,8 +1453,8 @@
     "issuer": "BRUNSWICK CORP",
     "weight": 0.0003,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CNI": [
@@ -1466,8 +1464,8 @@
     "issuer": "CANADIAN NATL RY CO",
     "weight": 0.0005,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CP": [
@@ -1476,9 +1474,9 @@
     "ticker": "CP",
     "issuer": "CANADIAN PACIFIC KANSAS CITY",
     "weight": 0.0005,
-    "change": "added",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "change": "held",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CG": [
@@ -1486,10 +1484,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "CG",
     "issuer": "CARLYLE GROUP INC",
-    "weight": 0.0043,
+    "weight": 0.0041,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "KMX": [
@@ -1497,10 +1495,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "KMX",
     "issuer": "CARMAX INC",
-    "weight": 0.0005,
+    "weight": 0.0006,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CARR": [
@@ -1508,10 +1506,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "CARR",
     "issuer": "CARRIER GLOBAL CORPORATION",
-    "weight": 0.0013,
+    "weight": 0.001,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CAT": [
@@ -1519,10 +1517,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "CAT",
     "issuer": "CATERPILLAR INC",
-    "weight": 0.0267,
+    "weight": 0.0208,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CBOE": [
@@ -1530,10 +1528,21 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "CBOE",
     "issuer": "CBOE GLOBAL MKTS INC",
-    "weight": 0.0008,
+    "weight": 0.0009,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "XRN": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "XRN",
+    "issuer": "CHIRON REAL ESTATE INC",
+    "weight": 0.0001,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CSCO": [
@@ -1541,10 +1550,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "CSCO",
     "issuer": "CISCO SYS INC",
-    "weight": 0.0032,
+    "weight": 0.003,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CMCSA": [
@@ -1552,10 +1561,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "CMCSA",
     "issuer": "COMCAST CORP NEW",
-    "weight": 0.0015,
-    "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "weight": 0.0005,
+    "change": "cut",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "FIX": [
@@ -1563,10 +1572,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "FIX",
     "issuer": "COMFORT SYS USA INC",
-    "weight": 0.002,
+    "weight": 0.0017,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "COST": [
@@ -1574,10 +1583,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "COST",
     "issuer": "COSTCO WHOLESALE CORPORATION",
-    "weight": 0.0028,
+    "weight": 0.0024,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CCK": [
@@ -1585,10 +1594,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "CCK",
     "issuer": "CROWN HLDGS INC",
-    "weight": 0.0019,
+    "weight": 0.0018,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "CSX": [
@@ -1596,10 +1605,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "CSX",
     "issuer": "CSX CORP",
-    "weight": 0.0021,
+    "weight": 0.0022,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "DE": [
@@ -1607,10 +1616,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "DE",
     "issuer": "DEERE & CO",
-    "weight": 0.0424,
+    "weight": 0.045,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "DEO": [
@@ -1618,10 +1627,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "DEO",
     "issuer": "DIAGEO PLC",
-    "weight": 0.0084,
+    "weight": 0.0091,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "DIS": [
@@ -1629,10 +1638,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "DIS",
     "issuer": "DISNEY WALT CO",
-    "weight": 0.0149,
+    "weight": 0.0167,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "DG": [
@@ -1640,10 +1649,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "DG",
     "issuer": "DOLLAR GEN CORP",
-    "weight": 0.0076,
+    "weight": 0.0081,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "DPZ": [
@@ -1653,8 +1662,8 @@
     "issuer": "DOMINOS PIZZA INC",
     "weight": 0.0001,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "EMN": [
@@ -1664,8 +1673,8 @@
     "issuer": "EASTMAN CHEM CO",
     "weight": 0.0004,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ECL": [
@@ -1673,10 +1682,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "ECL",
     "issuer": "ECOLAB INC",
-    "weight": 0.0058,
+    "weight": 0.0059,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "EFX": [
@@ -1684,21 +1693,21 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "EFX",
     "issuer": "EQUIFAX INC",
-    "weight": 0.0009,
+    "weight": 0.0008,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
-  "EXMOC": [
+  "XOM": [
    {
     "guru": "Markel (Tom Gayner)",
-    "ticker": "EXMOC",
-    "issuer": "EXXON MOBIL CORP",
-    "weight": 0.0006,
-    "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "ticker": "XOM",
+    "issuer": "EXXONMOBIL HOLDINGS ORD",
+    "weight": 0.0008,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "FDS": [
@@ -1706,10 +1715,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "FDS",
     "issuer": "FACTSET RESH SYS INC",
-    "weight": 0.0024,
+    "weight": 0.0028,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "FNV": [
@@ -1717,10 +1726,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "FNV",
     "issuer": "FRANCO NEV CORP",
-    "weight": 0.0123,
+    "weight": 0.0146,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "GD": [
@@ -1728,10 +1737,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "GD",
     "issuer": "GENERAL DYNAMICS CORP",
-    "weight": 0.0105,
+    "weight": 0.0101,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "GS": [
@@ -1739,10 +1748,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "GS",
     "issuer": "GOLDMAN SACHS GROUP INC",
-    "weight": 0.0277,
+    "weight": 0.0252,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "GHC": [
@@ -1752,8 +1761,8 @@
     "issuer": "GRAHAM HLDGS CO",
     "weight": 0.0005,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "HGTY": [
@@ -1761,10 +1770,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "HGTY",
     "issuer": "HAGERTY INC",
-    "weight": 0.0027,
+    "weight": 0.0033,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "THG": [
@@ -1772,10 +1781,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "THG",
     "issuer": "HANOVER INS GROUP INC",
-    "weight": 0.0046,
+    "weight": 0.0047,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "HCA": [
@@ -1783,10 +1792,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "HCA",
     "issuer": "HCA HEALTHCARE INC",
-    "weight": 0.0025,
+    "weight": 0.0028,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "HEI-A": [
@@ -1794,10 +1803,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "HEI-A",
     "issuer": "HEICO CORP NEW",
-    "weight": 0.0075,
+    "weight": 0.0068,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "HSY": [
@@ -1805,10 +1814,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "HSY",
     "issuer": "HERSHEY CO",
-    "weight": 0.001,
+    "weight": 0.0009,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "HXL": [
@@ -1816,10 +1825,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "HXL",
     "issuer": "HEXCEL CORP NEW",
-    "weight": 0.0014,
+    "weight": 0.0012,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "HD": [
@@ -1827,10 +1836,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "HD",
     "issuer": "HOME DEPOT INC",
-    "weight": 0.0248,
+    "weight": 0.0207,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "HII": [
@@ -1840,8 +1849,8 @@
     "issuer": "HUNTINGTON INGALLS INDS INC",
     "weight": 0.0006,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ITW": [
@@ -1849,10 +1858,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "ITW",
     "issuer": "ILLINOIS TOOL WKS INC",
-    "weight": 0.0067,
+    "weight": 0.0066,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "NSP": [
@@ -1860,10 +1869,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "NSP",
     "issuer": "INSPERITY INC",
-    "weight": 0.0006,
+    "weight": 0.0007,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ICE": [
@@ -1873,8 +1882,8 @@
     "issuer": "INTERCONTINENTAL EXCHANGE IN",
     "weight": 0.0003,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ITIC": [
@@ -1882,10 +1891,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "ITIC",
     "issuer": "INVESTORS TITLE CO NC",
-    "weight": 0.0044,
+    "weight": 0.0047,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "IQV": [
@@ -1893,10 +1902,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "IQV",
     "issuer": "IQVIA HLDGS INC",
-    "weight": 0.0007,
+    "weight": 0.001,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "JNJ": [
@@ -1904,10 +1913,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "JNJ",
     "issuer": "JOHNSON & JOHNSON",
-    "weight": 0.0118,
+    "weight": 0.0126,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "JPM": [
@@ -1915,10 +1924,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "JPM",
     "issuer": "JPMORGAN CHASE & CO",
-    "weight": 0.0063,
+    "weight": 0.0065,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "LAMR": [
@@ -1926,10 +1935,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "LAMR",
     "issuer": "LAMAR ADVERTISING CO",
-    "weight": 0.0023,
+    "weight": 0.0022,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "LMT": [
@@ -1937,10 +1946,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "LMT",
     "issuer": "LOCKHEED MARTIN CORP",
-    "weight": 0.0025,
+    "weight": 0.0026,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "LOW": [
@@ -1948,10 +1957,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "LOW",
     "issuer": "LOWES COS INC",
-    "weight": 0.0126,
+    "weight": 0.0109,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "LPLA": [
@@ -1959,10 +1968,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "LPLA",
     "issuer": "LPL FINL HLDGS INC",
-    "weight": 0.012,
+    "weight": 0.0135,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "MAR": [
@@ -1972,8 +1981,8 @@
     "issuer": "MARRIOTT INTL INC NEW",
     "weight": 0.0028,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "MRSH": [
@@ -1981,21 +1990,21 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "MRSH",
     "issuer": "MARSH & MCLENNAN COS INC",
-    "weight": 0.0097,
+    "weight": 0.0102,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "MELI": [
    {
     "guru": "Markel (Tom Gayner)",
     "ticker": "MELI",
-    "issuer": "MERCADOLIBRE INC",
-    "weight": 0.0031,
-    "change": "added",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "issuer": "MERCADOLIBRE  INC",
+    "weight": 0.0033,
+    "change": "held",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "MGM": [
@@ -2003,10 +2012,21 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "MGM",
     "issuer": "MGM RESORTS INTERNATIONAL",
-    "weight": 0.0003,
+    "weight": 0.0002,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "MBGL": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "MBGL",
+    "issuer": "MOBILITY GLOBAL INC",
+    "weight": 0.0002,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "MSCI": [
@@ -2014,10 +2034,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "MSCI",
     "issuer": "MSCI INC",
-    "weight": 0.0061,
+    "weight": 0.006,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "NFLX": [
@@ -2025,10 +2045,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "NFLX",
     "issuer": "NETFLIX INC.",
-    "weight": 0.0002,
-    "change": "new",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "weight": 0.0004,
+    "change": "added",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "NKE": [
@@ -2036,10 +2056,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "NKE",
     "issuer": "NIKE INC",
-    "weight": 0.0014,
+    "weight": 0.0012,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "NSC": [
@@ -2049,8 +2069,8 @@
     "issuer": "NORFOLK SOUTHN CORP",
     "weight": 0.0068,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "NVO": [
@@ -2058,10 +2078,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "NVO",
     "issuer": "NOVO-NORDISK A S",
-    "weight": 0.0105,
+    "weight": 0.0085,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ODFL": [
@@ -2069,10 +2089,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "ODFL",
     "issuer": "OLD DOMINION FREIGHT LINE IN",
-    "weight": 0.0071,
+    "weight": 0.0058,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "OTIS": [
@@ -2082,8 +2102,8 @@
     "issuer": "OTIS WORLDWIDE CORP",
     "weight": 0.0007,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "PAYX": [
@@ -2091,10 +2111,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "PAYX",
     "issuer": "PAYCHEX INC",
-    "weight": 0.0011,
+    "weight": 0.0012,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "PEP": [
@@ -2102,10 +2122,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "PEP",
     "issuer": "PEPSICO INC",
-    "weight": 0.001,
+    "weight": 0.0009,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "PM": [
@@ -2113,10 +2133,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "PM",
     "issuer": "PHILIP MORRIS INTL INC",
-    "weight": 0.0016,
+    "weight": 0.0017,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "TROW": [
@@ -2124,10 +2144,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "TROW",
     "issuer": "PRICE T ROWE GROUP INC",
-    "weight": 0.0027,
+    "weight": 0.0025,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "RLI": [
@@ -2135,10 +2155,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "RLI",
     "issuer": "RLI CORP",
-    "weight": 0.0108,
+    "weight": 0.0104,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ROK": [
@@ -2146,10 +2166,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "ROK",
     "issuer": "ROCKWELL AUTOMATION INC",
-    "weight": 0.0058,
+    "weight": 0.0053,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ROL": [
@@ -2157,10 +2177,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "ROL",
     "issuer": "ROLLINS INC",
-    "weight": 0.0048,
+    "weight": 0.0037,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "RTX": [
@@ -2170,8 +2190,8 @@
     "issuer": "RTX CORPORATION",
     "weight": 0.0032,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "SPGI": [
@@ -2179,10 +2199,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "SPGI",
     "issuer": "S&P GLOBAL INC",
-    "weight": 0.0037,
+    "weight": 0.0036,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "SCHW": [
@@ -2190,10 +2210,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "SCHW",
     "issuer": "SCHWAB CHARLES CORP",
-    "weight": 0.0098,
+    "weight": 0.0106,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "SEIC": [
@@ -2201,10 +2221,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "SEIC",
     "issuer": "SEI INVTS CO",
-    "weight": 0.0012,
+    "weight": 0.0014,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "SHW": [
@@ -2212,10 +2232,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "SHW",
     "issuer": "SHERWIN WILLIAMS CO",
-    "weight": 0.0025,
+    "weight": 0.0024,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "SHOP": [
@@ -2223,10 +2243,32 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "SHOP",
     "issuer": "SHOPIFY INC",
-    "weight": 0.0009,
+    "weight": 0.0012,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "SLAB": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "SLAB",
+    "issuer": "SILICON LABORATORIES INC",
+    "weight": 0.0001,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "SITE": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "SITE",
+    "issuer": "SITEONE LANDSCAPE SUPPLY INC",
+    "weight": 0.0001,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "SONY": [
@@ -2234,10 +2276,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "SONY",
     "issuer": "SONY GROUP CORP",
-    "weight": 0.0005,
+    "weight": 0.0006,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "SBUX": [
@@ -2245,10 +2287,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "SBUX",
     "issuer": "STARBUCKS CORP",
-    "weight": 0.0049,
+    "weight": 0.0046,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "SUNB": [
@@ -2258,8 +2300,8 @@
     "issuer": "SUNBELT RENTALS HOLDINGS INC",
     "weight": 0.0056,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "SYY": [
@@ -2269,8 +2311,8 @@
     "issuer": "SYSCO CORP",
     "weight": 0.0002,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "TXN": [
@@ -2278,10 +2320,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "TXN",
     "issuer": "TEXAS INSTRS INC",
-    "weight": 0.0164,
+    "weight": 0.0158,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "TMO": [
@@ -2289,10 +2331,32 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "TMO",
     "issuer": "THERMO FISHER SCIENTIFIC INC",
-    "weight": 0.0028,
+    "weight": 0.0039,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "TOST": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "TOST",
+    "issuer": "TOAST INC",
+    "weight": 0.0001,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "TYL": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "TYL",
+    "issuer": "TYLER TECHNOLOGIES INC",
+    "weight": 0.0001,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "TSN": [
@@ -2300,10 +2364,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "TSN",
     "issuer": "TYSON FOODS INC",
-    "weight": 0.004,
+    "weight": 0.0036,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "UFPI": [
@@ -2311,10 +2375,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "UFPI",
     "issuer": "UFP INDUSTRIES INC",
-    "weight": 0.0,
-    "change": "new",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "weight": 0.0001,
+    "change": "added",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "URI": [
@@ -2322,10 +2386,21 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "URI",
     "issuer": "UNITED RENTALS INC",
-    "weight": 0.0027,
+    "weight": 0.0024,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "VVV": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "VVV",
+    "issuer": "VALVOLINE INC",
+    "weight": 0.0001,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "VRSK": [
@@ -2333,10 +2408,32 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "VRSK",
     "issuer": "VERISK ANALYTICS INC",
-    "weight": 0.0021,
+    "weight": 0.002,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "VGZ": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "VGZ",
+    "issuer": "VISTA GOLD CORP",
+    "weight": 0.0001,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "VMC": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "VMC",
+    "issuer": "VULCAN MATLS CO",
+    "weight": 0.0,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "WSO": [
@@ -2344,10 +2441,21 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "WSO",
     "issuer": "WATSCO INC",
-    "weight": 0.019,
+    "weight": 0.0147,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "WTS": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "WTS",
+    "issuer": "WATTS WATER TECHNOLOGIES INC",
+    "weight": 0.0001,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "WFC": [
@@ -2357,8 +2465,8 @@
     "issuer": "WELLS FARGO & CO",
     "weight": 0.0013,
     "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "WY": [
@@ -2366,10 +2474,54 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "WY",
     "issuer": "WEYERHAEUSER CO",
-    "weight": 0.0002,
+    "weight": 0.0003,
     "change": "added",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "WSC": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "WSC",
+    "issuer": "WILLSCOT HLDGS CORP",
+    "weight": 0.0001,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "XPEL": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "XPEL",
+    "issuer": "XPEL INC",
+    "weight": 0.0001,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "XPO": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "XPO",
+    "issuer": "XPO INC",
+    "weight": 0.0001,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "XYL": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "XYL",
+    "issuer": "XYLEM INC",
+    "weight": 0.0001,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "YUM": [
@@ -2377,10 +2529,21 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "YUM",
     "issuer": "YUM BRANDS INC",
-    "weight": 0.003,
-    "change": "held",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "weight": 0.0015,
+    "change": "cut",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
+   }
+  ],
+  "ZBRA": [
+   {
+    "guru": "Markel (Tom Gayner)",
+    "ticker": "ZBRA",
+    "issuer": "ZEBRA TECHNOLOGIES CORPORATI",
+    "weight": 0.0002,
+    "change": "new",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ],
   "ZTS": [
@@ -2388,10 +2551,10 @@
     "guru": "Markel (Tom Gayner)",
     "ticker": "ZTS",
     "issuer": "ZOETIS INC",
-    "weight": 0.0004,
-    "change": "new",
-    "report": "2026-06-30",
-    "filed": "2026-07-31"
+    "weight": 0.0023,
+    "change": "added",
+    "report": "2026-09-30",
+    "filed": "2026-10-30"
    }
   ]
  },
@@ -2596,21 +2759,21 @@
   },
   {
    "guru": "Markel (Tom Gayner)",
-   "ticker": "SMG",
-   "issuer": "SCOTTS MIRACLE-GRO CO",
+   "ticker": "BRO",
+   "issuer": "BROWN & BROWN INC",
    "weight": 0.0,
    "change": "sold",
-   "report": "2026-06-30",
-   "filed": "2026-07-31"
+   "report": "2026-09-30",
+   "filed": "2026-10-30"
   },
   {
    "guru": "Markel (Tom Gayner)",
-   "ticker": "UNH",
-   "issuer": "UNITEDHEALTH GROUP INC",
+   "ticker": "EXMOC",
+   "issuer": "EXXON MOBIL CORP",
    "weight": 0.0,
    "change": "sold",
-   "report": "2026-06-30",
-   "filed": "2026-07-31"
+   "report": "2026-09-30",
+   "filed": "2026-10-30"
   }
  ]
 }
