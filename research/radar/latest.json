@@ -1,23 +1,23 @@
-{"date": "2026-11-03",
- "summary": "Another AI-hardware sell-off day (AMAT, LRCX, ANET, MU, SMCI, APP down 8-12%) is market-wide fear, not a business break. In buy range, Sprouts (SFM) fell about 17% more in 5 days on a Q3 pricing reset and affordability spend (WATCH). TBBK and NMIH stay WATCH with unconfirmed causes. AppLovin (on deck) is near its MOS and needs a look at Q3 results. Kenvue's 8-K flags are the Kimberly-Clark deal closing. No dossier sell trigger tripped. Causes for IBKR, TBBK and RMD are unconfirmed. Not investment advice.",
+{"date": "2026-11-04",
+ "summary": "Energy and commodity names fell again (MTDR, PNRG, GRNT, PARR, CF): market-wide, not business. SMCI reported ~$20B revenue with cash draining, pointing at its OCF sell trigger (unconfirmed). SFM margin question still open. LDOS and RMD causes unconfirmed. No dossier trigger confirmed tripped. Not investment advice.",
  "items": [
-  {"ticker": "SFM", "verdict": "WATCH", "headline": "-17% in 5 days; Q3 pricing reset, BofA says core customer lost", "why": "Street cuts are fear, but event checks 3 and 6 are open: comps, margin, CEO change. Check gross margin and traffic vs ticket in the 10-Q. $49.70.", "sources": ["https://www.fool.com/earnings/takeaways/2026/10/29/sprouts-3-key-takeaways-for-long-term-investors/"]},
-  {"ticker": "NMIH", "verdict": "WATCH", "headline": "BofA cuts to Neutral on regulatory overhang", "why": "Event check 6: a rule change could breach the moat. Rule still unidentified. $42.67 vs MOS $24.50.", "sources": []},
-  {"ticker": "TBBK", "verdict": "WATCH", "headline": "-9% in a day after Q3 results; cause unconfirmed", "why": "Banks magnify management risk (METHOD 4). Read the call for margin and credit. $46.75 vs MOS $34.96.", "sources": ["https://www.fool.com/earnings/call-transcripts/2026/10/30/bancorp-tbbk-q3-2026-earnings-call-transcript/"]},
-  {"ticker": "ACGL", "verdict": "WATCH", "headline": "Board resignation after last week's debt 8-K", "why": "Event check 5 and the low-debt marker: read what the new debt funds. $106.36 vs MOS $66.69.", "sources": []},
-  {"ticker": "APP", "verdict": "WATCH", "headline": "-10% in a day, worst S&P stock this year; near MOS", "why": "UBS target cut is fear, not news. $228.50 vs MOS $195.15. Check Q3 guidance and any regulator or short report before calling it an EVENT. Cause unconfirmed.", "sources": []},
-  {"ticker": "SMCI", "verdict": "WATCH", "headline": "-12% before earnings; dossier AVOID, no trigger hit", "why": "OCF, debt and margin sell triggers can only be tested at the report. $32.95 vs MOS $10.87. Read the Q1 margin.", "sources": []},
-  {"ticker": "RMD", "verdict": "WATCH", "headline": "-8% after Q1 beat; Canaccord to Hold", "why": "Downgrade is fear, not a story change. Check guidance and GLP-1 commentary. $229.94 vs MOS $164.70. Reason unconfirmed.", "sources": []},
-  {"ticker": "GOOGL", "verdict": "EVENT", "headline": "-13% in 5 days on AI-capex fears", "why": "Checks 1-2 pass, 5 needs a debt check, 6 intact but AI-search risk open (InvestED 249). Still above MOS; not in buy range.", "sources": ["https://www.foxbusiness.com/markets/google-parent-alphabet-suffers-nearly-500b-wall-street-wipeout-amid-ai-spending-fears"]},
-  {"ticker": "KVUE", "verdict": "NOISE", "headline": "Negative 8-K flags are Kimberly-Clark deal closing", "why": "Acquisition completed 11-02 with delisting and change of control; not distress. Price flat at $19.31.", "sources": []},
-  {"ticker": "IBKR", "verdict": "NOISE", "headline": "-8% in a day; cause unconfirmed", "why": "Only routine October metrics found. $76.90 vs MOS $27.75 (METHOD 7).", "sources": []},
-  {"ticker": "MTDR", "verdict": "NOISE", "headline": "-7% with energy names on lower crude", "why": "Only a midstream expansion found; GRNT, PNRG, LINC fell similarly. Market-wide, not business (METHOD 7).", "sources": []}
+  {"ticker": "SMCI", "verdict": "WATCH", "headline": "trigger: Q1 revenue ~$20B but cash drains", "why": "Dossier AVOID; sell trigger 'OCF negative four quarters' likely live. Confirm Q1 cash flow, gross margin vs 9% and export-control news. $32.95 vs MOS $10.87.", "sources": ["https://www.fool.com/investing/2026/08/12/super-micro-guided-fiscal-2027-revenue-16-billion/"]},
+  {"ticker": "SFM", "verdict": "WATCH", "headline": "Bounce +6% after -20% in 5 days; pricing reset", "why": "Event checks 3 and 6 open (comps, margin). Street cuts are fear. Check gross margin and traffic vs ticket in the 10-Q. $49.70.", "sources": ["https://www.fool.com/earnings/takeaways/2026/10/29/sprouts-3-key-takeaways-for-long-term-investors/"]},
+  {"ticker": "LDOS", "verdict": "WATCH", "headline": "-6% after Q3 revenue miss, EPS outlook raised", "why": "Likely fear, not a moat breach (check 6); cause unconfirmed. Check backlog and book-to-bill. $142.98 vs MOS $37.44.", "sources": []},
+  {"ticker": "RMD", "verdict": "WATCH", "headline": "Canaccord downgrade to Hold, -10% in 5 days", "why": "Downgrade is fear unless the reason is a story change (InvestED 249); reason unconfirmed. $229.94 vs MOS $164.70.", "sources": []},
+  {"ticker": "TBBK", "verdict": "WATCH", "headline": "-8% in 5 days after Q3; cause unconfirmed", "why": "Banks magnify management risk (METHOD 4). Read the call for margin and credit. $46.75 vs MOS $34.96.", "sources": []},
+  {"ticker": "LRN", "verdict": "WATCH", "headline": "Insider bought $17.6M while stock fell 4%", "why": "Context only; thin coverage. Check the Form 4 for who bought.", "sources": []},
+  {"ticker": "GCT", "verdict": "WATCH", "headline": "-6% with no company news", "why": "Flag 'cheap without an event' is a value-trap check (LESSONS). Cause unconfirmed.", "sources": []},
+  {"ticker": "XPEL", "verdict": "WATCH", "headline": "-7% in a day, no company news found", "why": "Cause unconfirmed. $45.65 vs MOS $29.70.", "sources": []},
+  {"ticker": "MTDR", "verdict": "NOISE", "headline": "-11% despite Q3 beat; energy sold off together", "why": "Commodity-wide move (METHOD 7). Debt flag remains (check 5): read net debt. $60.88 vs MOS $23.63.", "sources": []},
+  {"ticker": "PNRG", "verdict": "NOISE", "headline": "-12% in a day, no news found", "why": "Commodity-wide move, price not value (METHOD 7).", "sources": []},
+  {"ticker": "GRNT", "verdict": "NOISE", "headline": "-11% in a day, no news found", "why": "Commodity-wide move, price not value (METHOD 7).", "sources": []},
+  {"ticker": "KVUE", "verdict": "NOISE", "headline": "8-K flags are the Kimberly-Clark deal closing", "why": "Acquisition completed; not distress.", "sources": []}
  ],
  "guru_moves": [
-  {"guru": "Himalaya Capital (Li Lu)", "ticker": "PDD", "change": "added", "weight": 0.2217, "report": "2026-06-30"},
-  {"guru": "Himalaya Capital (Li Lu)", "ticker": "HRB", "change": "sold", "weight": 0.0, "report": "2026-06-30"},
+  {"guru": "Pershing Square (Bill Ackman)", "ticker": "MSFT", "change": "new", "weight": 0.1526, "report": "2026-03-31"},
   {"guru": "Baupost (Seth Klarman)", "ticker": "AMZN", "change": "added", "weight": 0.1648, "report": "2026-06-30"},
   {"guru": "Baupost (Seth Klarman)", "ticker": "CME", "change": "new", "weight": 0.0252, "report": "2026-06-30"},
-  {"guru": "Pershing Square (Bill Ackman)", "ticker": "MSFT", "change": "new", "weight": 0.1526, "report": "2026-03-31"},
-  {"guru": "Berkshire Hathaway (Buffett)", "ticker": "GOOGL", "change": "added", "weight": 0.0941, "report": "2026-06-30"}
+  {"guru": "Berkshire Hathaway (Buffett)", "ticker": "GOOGL", "change": "added", "weight": 0.0941, "report": "2026-06-30"},
+  {"guru": "Himalaya Capital (Li Lu)", "ticker": "PDD", "change": "added", "weight": 0.2217, "report": "2026-06-30"}
  ]}

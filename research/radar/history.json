@@ -436,6 +436,15 @@
    "sources": []
   }
  ],
+ "GCT": [
+  {
+   "date": "2026-11-04",
+   "verdict": "WATCH",
+   "headline": "-6% with no company news",
+   "why": "Flag 'cheap without an event' is a value-trap check (LESSONS). Cause unconfirmed.",
+   "sources": []
+  }
+ ],
  "GOLD": [
   {
    "date": "2026-10-16",
@@ -494,6 +503,15 @@
    "verdict": "NOISE",
    "headline": "Slid on AI-capex fears; Citizens target $515 to $450",
    "why": "Fear, not a business break; above MOS.",
+   "sources": []
+  }
+ ],
+ "GRNT": [
+  {
+   "date": "2026-11-04",
+   "verdict": "NOISE",
+   "headline": "-11% in a day, no news found",
+   "why": "Commodity-wide move, price not value (METHOD 7).",
    "sources": []
   }
  ],
@@ -618,6 +636,13 @@
  ],
  "KVUE": [
   {
+   "date": "2026-11-04",
+   "verdict": "NOISE",
+   "headline": "8-K flags are the Kimberly-Clark deal closing",
+   "why": "Acquisition completed; not distress.",
+   "sources": []
+  },
+  {
    "date": "2026-11-03",
    "verdict": "NOISE",
    "headline": "Negative 8-K flags are Kimberly-Clark deal closing",
@@ -626,6 +651,13 @@
   }
  ],
  "LDOS": [
+  {
+   "date": "2026-11-04",
+   "verdict": "WATCH",
+   "headline": "-6% after Q3 revenue miss, EPS outlook raised",
+   "why": "Likely fear, not a moat breach (check 6); cause unconfirmed. Check backlog and book-to-bill. $142.98 vs MOS $37.44.",
+   "sources": []
+  },
   {
    "date": "2026-10-10",
    "verdict": "WATCH",
@@ -690,6 +722,13 @@
   }
  ],
  "LRN": [
+  {
+   "date": "2026-11-04",
+   "verdict": "WATCH",
+   "headline": "Insider bought $17.6M while stock fell 4%",
+   "why": "Context only; thin coverage. Check the Form 4 for who bought.",
+   "sources": []
+  },
   {
    "date": "2026-10-29",
    "verdict": "WATCH",
@@ -880,6 +919,13 @@
   }
  ],
  "MTDR": [
+  {
+   "date": "2026-11-04",
+   "verdict": "NOISE",
+   "headline": "-11% despite Q3 beat; energy sold off together",
+   "why": "Commodity-wide move (METHOD 7). Debt flag remains (check 5): read net debt. $60.88 vs MOS $23.63.",
+   "sources": []
+  },
   {
    "date": "2026-11-03",
    "verdict": "NOISE",
@@ -1117,6 +1163,15 @@
    ]
   }
  ],
+ "PNRG": [
+  {
+   "date": "2026-11-04",
+   "verdict": "NOISE",
+   "headline": "-12% in a day, no news found",
+   "why": "Commodity-wide move, price not value (METHOD 7).",
+   "sources": []
+  }
+ ],
  "QFIN": [
   {
    "date": "2026-10-31",
@@ -1188,6 +1243,13 @@
  ],
  "RMD": [
   {
+   "date": "2026-11-04",
+   "verdict": "WATCH",
+   "headline": "Canaccord downgrade to Hold, -10% in 5 days",
+   "why": "Downgrade is fear unless the reason is a story change (InvestED 249); reason unconfirmed. $229.94 vs MOS $164.70.",
+   "sources": []
+  },
+  {
    "date": "2026-11-03",
    "verdict": "WATCH",
    "headline": "-8% after Q1 beat; Canaccord to Hold",
@@ -1212,6 +1274,15 @@
   }
  ],
  "SFM": [
+  {
+   "date": "2026-11-04",
+   "verdict": "WATCH",
+   "headline": "Bounce +6% after -20% in 5 days; pricing reset",
+   "why": "Event checks 3 and 6 open (comps, margin). Street cuts are fear. Check gross margin and traffic vs ticket in the 10-Q. $49.70.",
+   "sources": [
+    "https://www.fool.com/earnings/takeaways/2026/10/29/sprouts-3-key-takeaways-for-long-term-investors/"
+   ]
+  },
   {
    "date": "2026-11-03",
    "verdict": "WATCH",
@@ -1250,6 +1321,15 @@
   }
  ],
  "SMCI": [
+  {
+   "date": "2026-11-04",
+   "verdict": "WATCH",
+   "headline": "trigger: Q1 revenue ~$20B but cash drains",
+   "why": "Dossier AVOID; sell trigger 'OCF negative four quarters' likely live. Confirm Q1 cash flow, gross margin vs 9% and export-control news. $32.95 vs MOS $10.87.",
+   "sources": [
+    "https://www.fool.com/investing/2026/08/12/super-micro-guided-fiscal-2027-revenue-16-billion/"
+   ]
+  },
   {
    "date": "2026-11-03",
    "verdict": "WATCH",
@@ -1344,13 +1424,6 @@
    "sources": [
     "https://www.tikr.com/blog/super-micro-contractor-pleads-guilty-in-2-5-billion-ai-server-smuggling-case"
    ]
-  },
-  {
-   "date": "2026-10-10",
-   "verdict": "WATCH",
-   "headline": "Fell 7% in a day; only a new board member and an 8-K item 5.02 found",
-   "why": "No story found. Past accounting and auditor problems make any 5.02 worth reading (METHOD 4). Price $43.7 is above MOS $32.4; street mean target $42.",
-   "sources": []
   }
  ],
  "SMID": [
@@ -1370,6 +1443,13 @@
   }
  ],
  "TBBK": [
+  {
+   "date": "2026-11-04",
+   "verdict": "WATCH",
+   "headline": "-8% in 5 days after Q3; cause unconfirmed",
+   "why": "Banks magnify management risk (METHOD 4). Read the call for margin and credit. $46.75 vs MOS $34.96.",
+   "sources": []
+  },
   {
    "date": "2026-11-03",
    "verdict": "WATCH",
@@ -1474,6 +1554,15 @@
    "verdict": "WATCH",
    "headline": "Negative 8-K: agreement terminated, new debt obligation",
    "why": "Content unconfirmed, probably a financing change. Screen flags debt above 3 years of FCF. $1,099 vs MOS $392, far from buy range.",
+   "sources": []
+  }
+ ],
+ "XPEL": [
+  {
+   "date": "2026-11-04",
+   "verdict": "WATCH",
+   "headline": "-7% in a day, no company news found",
+   "why": "Cause unconfirmed. $45.65 vs MOS $29.70.",
    "sources": []
   }
  ],
