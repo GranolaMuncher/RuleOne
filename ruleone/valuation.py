@@ -47,12 +47,36 @@ def ten_cap_price(owner_earnings: float, shares: float, net_debt: float = 0.0) -
 # Lenders and loan platforms fund their loans from investing cash flow (originations), so FCF and owner
 # earnings built on operating cash flow overstate what a buyer could take out (InvestED METHOD proposal 2026-10-10).
 LENDER_INDUSTRIES = ("Personal Credit", "Business Credit", "Mortgage Bankers", "Loan Brokers")
-LENDER_TICKERS = {"OPFI", "QFIN", "SOFI", "UPST", "SYF", "LC", "MFIN"}   # SIC 6199 "Finance Services" platforms
-LENDER_FLAG = "lender: Payback and Ten Cap n/a (loan originations sit in investing cash flow)"
+LENDER_TICKERS = {"OPFI", "QFIN", "SOFI", "UPST", "SYF", "LC", "MFIN",
+                  "AX"}   # SIC 6199 "Finance Services" platforms; AX funds its loans with deposits
+# Insurers and banks: operating cash flow carries float (premiums not yet paid out) or deposits, so it is not
+# the owner's money either (InvestED METHOD proposal 2026-10-31: ACGL Payback $270, PGR $343, KNSL $674).
+FLOAT_INDUSTRIES = ("Insurance", "Commercial Banks", "Savings Institution")
+FLOAT_EXCLUDE = ("Insurance Agents",)   # brokers hold no float
+LENDER_FLAG = "lender/float: Payback and Ten Cap n/a (loan originations, float or deposits sit in operating cash flow)"
 
 
 def is_lender(ticker: str | None, industry: str | None) -> bool:
-    return (ticker or "").upper() in LENDER_TICKERS or any(w in (industry or "") for w in LENDER_INDUSTRIES)
+    ind = industry or ""
+    if (ticker or "").upper() in LENDER_TICKERS or any(w in ind for w in LENDER_INDUSTRIES):
+        return True
+    return any(w in ind for w in FLOAT_INDUSTRIES) and not any(w in ind for w in FLOAT_EXCLUDE)
+
+
+def is_float_financial(industry: str | None) -> bool:
+    """Insurers and banks, whose growth is capped at the Street rate (see street_cap_float)."""
+    ind = industry or ""
+    return any(w in ind for w in FLOAT_INDUSTRIES) and not any(w in ind for w in FLOAT_EXCLUDE)
+
+
+def street_cap_float(g: float | None, street_eps_growth: float | None, industry: str | None) -> tuple[float | None, str]:
+    """For insurers and banks cap windage at the Street's current-year EPS growth even when it is positive
+    (InvestED METHOD proposal 2026-10-31: ACGL history 15% against Street +3.9%). Never raises growth."""
+    if g is None or street_eps_growth is None or street_eps_growth < 0 or not is_float_financial(industry):
+        return g, ""
+    if g <= street_eps_growth:
+        return g, ""
+    return street_eps_growth, f"windage capped at Street EPS growth {street_eps_growth:.1%} (history {g:.1%}; float business)"
 
 
 # Stock-based compensation is a real cost paid in shares, but operating cash flow adds it back (InvestED METHOD

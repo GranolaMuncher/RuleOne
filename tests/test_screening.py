@@ -338,3 +338,16 @@ def test_peak_rule_spares_steady_compounders_but_catches_spikes_and_insurers():
     nvda = (7.91, [0.033, -0.001, -0.003, 0.011, 0.024, 0.022, 0.018, 0.028, 0.027, 0.064, 0.121, 0.166, 0.113,
                    0.173, 0.385, 0.17, 1.19, 2.94, 4.9])                       # history back to 2007
     assert peak_test(*nvda)[2] is True                                         # only the last eleven years count
+
+
+def test_float_financials_are_lenders_and_capped_at_street():
+    """InvestED METHOD proposal 2026-10-31: ACGL/PGR/KNSL/AX show Payback and Ten Cap on float or deposits."""
+    from ruleone.valuation import is_lender, street_cap_float
+    assert is_lender("ACGL", "Fire, Marine & Casualty Insurance") and is_lender("PGR", "Surplus Lines Insurance")
+    assert is_lender("JPM", "National Commercial Banks") and is_lender("AX", "Finance Services")
+    assert not is_lender("AJG", "Insurance Agents, Brokers & Service")
+    g, flag = street_cap_float(0.15, 0.039, "Fire, Marine & Casualty Insurance")
+    assert g == 0.039 and "Street" in flag
+    assert street_cap_float(0.03, 0.039, "Fire, Marine & Casualty Insurance") == (0.03, "")
+    assert street_cap_float(0.15, 0.039, "Services-Prepackaged Software") == (0.15, "")
+    assert street_cap_float(0.15, None, "Life Insurance") == (0.15, "")

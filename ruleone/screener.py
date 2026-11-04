@@ -30,7 +30,7 @@ from .sectors import load_reference, refresh_reference
 from .normalize import normalize
 from .prices import load_prices, price_near
 from .universe import load_universe
-from .valuation import (LENDER_FLAG, historical_pe, is_lender, methods_agree, payback_price, peak_rebase,
+from .valuation import (LENDER_FLAG, historical_pe, is_lender, methods_agree, payback_price, peak_rebase, street_cap_float,
                         peak_test, sbc_flag, sbc_share, sticker_price, street_capped_growth, ten_cap_price)
 
 
@@ -100,12 +100,14 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
     eps_by_end = nz["eps_by_end"]
     hpe = historical_pe(eps_by_end, lambda d: price_near(px["series"], d))
     g = windage_growth(b)
-    g, rebase = street_capped_growth(g, _street_eps_growth(street, listing.ticker))
+    street_g = _street_eps_growth(street, listing.ticker)
+    g, rebase = street_capped_growth(g, street_g)
     fcf_ttm = fcf(ttm)
     oe_ttm = owner_earnings(ttm)
     net_debt = (nz["debt"] or 0) - (nz["cash"] or 0)
     ev = load_events(fetcher, listing.cik, px, today) if with_events else {}
     lender = is_lender(listing.ticker, ev.get("sic"))
+    g, float_cap = street_cap_float(g, street_g, ev.get("sic"))
     insurer = "Insurance" in (ev.get("sic") or "")
     peak_ratio, eps_avg5, is_peak = peak_test(eps, [nz["annual_usd"][y].get("eps") for y in sorted(nz["annual_usd"])], insurer)
     g, sticker_eps, peak = peak_rebase(g, eps, peak_ratio, eps_avg5, is_peak)
@@ -171,6 +173,7 @@ def analyze(fetcher: Fetcher, listing, s1: dict | None, today: date, with_events
                                                                    "Brokers", "Security"))),
             (LENDER_FLAG, lender),
             (rebase, bool(rebase)),
+            (float_cap, bool(float_cap)),
             (sbc_flag(sbc_pct), bool(sbc_flag(sbc_pct))),
             (peak, bool(peak)),
             ("; ".join(nz["notes"]), bool(nz["notes"])),
