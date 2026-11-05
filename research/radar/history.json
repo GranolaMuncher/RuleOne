@@ -47,6 +47,15 @@
  ],
  "ADBE": [
   {
+   "date": "2026-11-05",
+   "verdict": "WATCH",
+   "headline": "Citi downgrade to Sell, target $250\u2192$207",
+   "why": "A downgrade is fear, not a story change (InvestED 249). Dossier trigger: ARR growth <6% two years; Q4 is the second data point. Check ARR and net new ARR.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/citi-says-adobe-could-headed-1"
+   ]
+  },
+  {
    "date": "2026-10-15",
    "verdict": "WATCH",
    "headline": "HSBC and Wells Fargo downgrades; AI-disruption worry",
@@ -93,6 +102,15 @@
   }
  ],
  "AGX": [
+  {
+   "date": "2026-11-05",
+   "verdict": "WATCH",
+   "headline": "-13% after record Q2 as backlog fell to $2.5B from $2.9B",
+   "why": "Event checks 1 and 6: is award timing lumpy or is demand rolling over? Gross margin slipped to 19.3%. Check backlog and awards in the 10-Q.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/argan-agx-shares-fall-record-1"
+   ]
+  },
   {
    "date": "2026-10-15",
    "verdict": "NOISE",
@@ -148,6 +166,13 @@
  ],
  "APP": [
   {
+   "date": "2026-11-05",
+   "verdict": "NOISE",
+   "headline": "+19% on Q3 beat",
+   "why": "On deck; price $228.50 vs MOS $195.15. Good news is not a buy reason.",
+   "sources": []
+  },
+  {
    "date": "2026-11-03",
    "verdict": "WATCH",
    "headline": "-10% in a day, worst S&P stock this year; near MOS",
@@ -191,6 +216,15 @@
  ],
  "BKNG": [
   {
+   "date": "2026-11-05",
+   "verdict": "NOISE",
+   "headline": "+11% on Q3 margin strength",
+   "why": "Price up on good news; never a reason to buy.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/booking-bkng-stock-jumps-q3-23"
+   ]
+  },
+  {
    "date": "2026-10-10",
    "verdict": "WATCH",
    "headline": "FTC action over hotel ads still unconfirmed by the agency",
@@ -233,6 +267,17 @@
    "why": "Price $360 vs MOS $155: no fear, no event; value-trap check.",
    "sources": [
     "https://finance.yahoo.com/markets/stocks/articles/chubb-nyse-cb-reports-q3-232556121.html"
+   ]
+  }
+ ],
+ "CF": [
+  {
+   "date": "2026-11-05",
+   "verdict": "WATCH",
+   "headline": "-7% after Q3 earnings miss",
+   "why": "Soft MOS price from peak-earnings flag; check 3 (resolves in \u22643 years?) and net debt.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/cf-industries-cf-q3-earnings-2"
    ]
   }
  ],
@@ -368,6 +413,13 @@
  ],
  "DHI": [
   {
+   "date": "2026-11-05",
+   "verdict": "NOISE",
+   "headline": "Raymond James downgrade to Underperform",
+   "why": "Fear, not business news.",
+   "sources": []
+  },
+  {
    "date": "2026-10-28",
    "verdict": "WATCH",
    "headline": "Officer-change 8-K (5.02) before Q4 earnings; builders cutting prices",
@@ -428,6 +480,13 @@
   }
  ],
  "FUTU": [
+  {
+   "date": "2026-11-05",
+   "verdict": "WATCH",
+   "headline": "-5% in a day, no news found",
+   "why": "Dossier trigger is a new CSRC action; none found, unconfirmed.",
+   "sources": []
+  },
   {
    "date": "2026-10-24",
    "verdict": "WATCH",
@@ -508,6 +567,13 @@
  ],
  "GRNT": [
   {
+   "date": "2026-11-05",
+   "verdict": "NOISE",
+   "headline": "-12% with no company news",
+   "why": "Commodity-wide move; price not value (METHOD 7). Unconfirmed.",
+   "sources": []
+  },
+  {
    "date": "2026-11-04",
    "verdict": "NOISE",
    "headline": "-11% in a day, no news found",
@@ -516,6 +582,13 @@
   }
  ],
  "HRMY": [
+  {
+   "date": "2026-11-05",
+   "verdict": "WATCH",
+   "headline": "-9% after Q3 results",
+   "why": "Reason unconfirmed; single-drug risk. Check the revenue guide and patent timeline (check 6).",
+   "sources": []
+  },
   {
    "date": "2026-10-15",
    "verdict": "WATCH",
@@ -564,6 +637,15 @@
    "verdict": "NOISE",
    "headline": "Q3 mixed, shares -2% per headline",
    "why": "Broker; OCF tests unreliable. Price far above MOS. Details unconfirmed.",
+   "sources": []
+  }
+ ],
+ "IESC": [
+  {
+   "date": "2026-11-05",
+   "verdict": "WATCH",
+   "headline": "-14% in a day, -26% in 5 days",
+   "why": "No news found; above sticker. Check margins.",
    "sources": []
   }
  ],
@@ -652,6 +734,13 @@
  ],
  "LDOS": [
   {
+   "date": "2026-11-05",
+   "verdict": "WATCH",
+   "headline": "-6% after Q3 revenue miss, EPS outlook raised",
+   "why": "Cause unconfirmed; check backlog and book-to-bill (check 6).",
+   "sources": []
+  },
+  {
    "date": "2026-11-04",
    "verdict": "WATCH",
    "headline": "-6% after Q3 revenue miss, EPS outlook raised",
@@ -722,6 +811,13 @@
   }
  ],
  "LRN": [
+  {
+   "date": "2026-11-05",
+   "verdict": "WATCH",
+   "headline": "Insiders bought $17.6M and $1.7M",
+   "why": "A lead, not a reason (METHOD 9). Check the Form 4s.",
+   "sources": []
+  },
   {
    "date": "2026-11-04",
    "verdict": "WATCH",
@@ -920,6 +1016,15 @@
  ],
  "MTDR": [
   {
+   "date": "2026-11-05",
+   "verdict": "NOISE",
+   "headline": "-10% again though Q3 beat",
+   "why": "Energy names fell together; price not value (METHOD 7). Read net debt (check 5).",
+   "sources": [
+    "https://finance.yahoo.com/energy/articles/matador-resources-co-mtdr-q3-231246835"
+   ]
+  },
+  {
    "date": "2026-11-04",
    "verdict": "NOISE",
    "headline": "-11% despite Q3 beat; energy sold off together",
@@ -1056,6 +1161,15 @@
  ],
  "OPFI": [
   {
+   "date": "2026-11-05",
+   "verdict": "WATCH",
+   "headline": "Withdrew bank-purchase applications",
+   "why": "Dossier TOO HARD; regulatory path closed.",
+   "sources": [
+    "https://www.bankingdive.com/news/oppfi-withdraw-applications-occ-fed-fdic-bnc-ba"
+   ]
+  },
+  {
    "date": "2026-10-30",
    "verdict": "WATCH",
    "headline": "Charge-offs about 40% of revenue; dossier must-stay-true #1 unmet",
@@ -1164,6 +1278,13 @@
   }
  ],
  "PNRG": [
+  {
+   "date": "2026-11-05",
+   "verdict": "NOISE",
+   "headline": "-6% with no company news",
+   "why": "Commodity-wide move; price not value (METHOD 7). Unconfirmed.",
+   "sources": []
+  },
   {
    "date": "2026-11-04",
    "verdict": "NOISE",
@@ -1275,6 +1396,15 @@
  ],
  "SFM": [
   {
+   "date": "2026-11-05",
+   "verdict": "WATCH",
+   "headline": "-16% in 5 days on pricing reset",
+   "why": "Checks 3 and 6 open: check gross margin and traffic in the 10-Q.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/sfm-q3-deep-dive-pricing-03173"
+   ]
+  },
+  {
    "date": "2026-11-04",
    "verdict": "WATCH",
    "headline": "Bounce +6% after -20% in 5 days; pricing reset",
@@ -1321,6 +1451,15 @@
   }
  ],
  "SMCI": [
+  {
+   "date": "2026-11-05",
+   "verdict": "PROBLEM",
+   "headline": "trigger: Q1 cash burn -$434M, debt $8.6B vs cash $6.9B",
+   "why": "Dossier trigger 'debt above 3x FCF' tripped (FCF negative); OCF-negative quarter 1 of 4; GM 12.7% above 9% trigger. METHOD 6, event check 5: fix needs debt. Keep AVOID.",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0001375365/000137536526000026/exhibit991_20260930.htm"
+   ]
+  },
   {
    "date": "2026-11-04",
    "verdict": "WATCH",
@@ -1415,15 +1554,6 @@
    "sources": [
     "https://finance.yahoo.com/markets/stocks/articles/why-super-micro-smci-stock-233503918.html"
    ]
-  },
-  {
-   "date": "2026-10-13",
-   "verdict": "WATCH",
-   "headline": "Contractor pleads guilty in $2.5B AI-server export scheme; stock -7%",
-   "why": "Company is not a defendant per reports, but past accounting and export problems make it an integrity question (METHOD 4). Price $41.9 is above MOS $32.4. Link between the plea and the price drop unconfirmed.",
-   "sources": [
-    "https://www.tikr.com/blog/super-micro-contractor-pleads-guilty-in-2-5-billion-ai-server-smuggling-case"
-   ]
   }
  ],
  "SMID": [
@@ -1440,6 +1570,17 @@
    "headline": "13D/A amendment filed",
    "why": "A large holder changed its position. Read the amendment for who and how much (METHOD 1: Radar).",
    "sources": []
+  }
+ ],
+ "STRL": [
+  {
+   "date": "2026-11-05",
+   "verdict": "WATCH",
+   "headline": "-15% in a day despite raised outlook",
+   "why": "Coverage cites margin and cash risk; above sticker so nothing to buy. Check margins and cash conversion.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/strl-slides-35-9-month-1735004"
+   ]
   }
  ],
  "TBBK": [
@@ -1474,6 +1615,17 @@
    "headline": "8-K/A amends a director or officer change",
    "why": "Read who changed and why; banks magnify management risk (METHOD 4).",
    "sources": []
+  }
+ ],
+ "TPL": [
+  {
+   "date": "2026-11-05",
+   "verdict": "NOISE",
+   "headline": "-13% after Q3 results",
+   "why": "Energy-wide move; above sticker.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/texas-pacific-land-nyse-tpl-22"
+   ]
   }
  ],
  "TRV": [
