@@ -1,158 +1,194 @@
 {
- "date": "2026-11-05",
- "summary": "SMCI's Q1 cash burn and $8.6B debt trip its dossier debt trigger (PROBLEM, keep AVOID). Industrial and energy names sold off hard after earnings; mostly price moves, with AGX, CF, STRL and IESC to check. ADBE's Citi downgrade is fear, not news. Not investment advice.",
+ "date": "2026-11-06",
+ "summary": "A market-wide AI/tech selloff (Nasdaq reported -5.5%) hit chips, networking and the construction and power names tied to AI capex; these are far above sticker, so price noise. In the buy range no dossier trigger was newly tripped today; SMCI's Q1 debt and cash-burn PROBLEM from yesterday stands (AVOID). To check: MELI margins, HRMY costs, AGX backlog, CRUS guide, PRDO and NRDS. My searches confirmed little, so several causes are unconfirmed. Not investment advice.",
  "items": [
   {
    "ticker": "SMCI",
-   "verdict": "PROBLEM",
-   "headline": "trigger: Q1 cash burn -$434M, debt $8.6B vs cash $6.9B",
-   "why": "Dossier trigger 'debt above 3x FCF' tripped (FCF negative); OCF-negative quarter 1 of 4; GM 12.7% above 9% trigger. METHOD 6, event check 5: fix needs debt. Keep AVOID.",
+   "verdict": "WATCH",
+   "headline": "No new filing today; Q1 trigger stands (OCF -$434M, debt $8.6B); stock -14%",
+   "why": "Yesterday's PROBLEM verdict holds: dossier trigger 'debt above 3x FCF' tripped, OCF-negative quarter 1 of 4. Today's fall is part of the AI-hardware rout (price, METHOD 7). Still AVOID.",
    "sources": [
-    "https://www.sec.gov/Archives/edgar/data/0001375365/000137536526000026/exhibit991_20260930.htm"
+    "https://www.tikr.com/blog/super-micro-sinks-10-ase-technology-holding-co-down-17-celestica-down-13-as-ai-hardware-selloff-deepens"
    ]
   },
   {
    "ticker": "ADBE",
    "verdict": "WATCH",
-   "headline": "Citi downgrade to Sell, target $250\u2192$207",
-   "why": "A downgrade is fear, not a story change (InvestED 249). Dossier trigger: ARR growth <6% two years; Q4 is the second data point. Check ARR and net new ARR.",
+   "headline": "Citi Sell call ($250\u2192$207) still the only news; price $250 vs MOS $269",
+   "why": "Downgrade is fear, not a story change (InvestED 249). Dossier trigger: ending-ARR growth <6% two years; check Q4 ARR and net new ARR. No breach today.",
    "sources": [
     "https://finance.yahoo.com/markets/stocks/articles/citi-says-adobe-could-headed-1"
    ]
   },
   {
+   "ticker": "MELI",
+   "verdict": "WATCH",
+   "headline": "-8% after Q3 as margins tighten; price $1,625",
+   "why": "Earnings-driven fall; tighter margins touch the margin_stable marker. Check operating margin and credit-loss provisions in the 10-Q: growth spend (temporary, event check 3) or a moat issue? Details unconfirmed.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/mercadolibre-nasdaqgs-meli-stock-price-232050594.html"
+   ]
+  },
+  {
    "ticker": "AGX",
    "verdict": "WATCH",
-   "headline": "-13% after record Q2 as backlog fell to $2.5B from $2.9B",
-   "why": "Event checks 1 and 6: is award timing lumpy or is demand rolling over? Gross margin slipped to 19.3%. Check backlog and awards in the 10-Q.",
+   "headline": "-25% in a day after backlog fell to $2.5B (from $2.9B); price $344 vs MOS $25",
+   "why": "Event checks 1 and 6: is award timing lumpy or demand rolling over? Price is 14x MOS, so nothing to buy at this price anyway. Check awards in the 10-Q.",
    "sources": [
     "https://finance.yahoo.com/markets/stocks/articles/argan-agx-shares-fall-record-1"
    ]
   },
   {
-   "ticker": "CF",
-   "verdict": "WATCH",
-   "headline": "-7% after Q3 earnings miss",
-   "why": "Soft MOS price from peak-earnings flag; check 3 (resolves in \u22643 years?) and net debt.",
-   "sources": [
-    "https://finance.yahoo.com/markets/stocks/articles/cf-industries-cf-q3-earnings-2"
-   ]
-  },
-  {
-   "ticker": "MTDR",
-   "verdict": "NOISE",
-   "headline": "-10% again though Q3 beat",
-   "why": "Energy names fell together; price not value (METHOD 7). Read net debt (check 5).",
-   "sources": [
-    "https://finance.yahoo.com/energy/articles/matador-resources-co-mtdr-q3-231246835"
-   ]
-  },
-  {
-   "ticker": "LDOS",
-   "verdict": "WATCH",
-   "headline": "-6% after Q3 revenue miss, EPS outlook raised",
-   "why": "Cause unconfirmed; check backlog and book-to-bill (check 6).",
-   "sources": []
-  },
-  {
    "ticker": "HRMY",
    "verdict": "WATCH",
-   "headline": "-9% after Q3 results",
-   "why": "Reason unconfirmed; single-drug risk. Check the revenue guide and patent timeline (check 6).",
-   "sources": []
-  },
-  {
-   "ticker": "SFM",
-   "verdict": "WATCH",
-   "headline": "-16% in 5 days on pricing reset",
-   "why": "Checks 3 and 6 open: check gross margin and traffic in the 10-Q.",
+   "headline": "-12% after Q3 miss on higher costs; price $38.76 vs MOS $23.86",
+   "why": "Single-drug (Wakix) business. Costs rose on a licence royalty; a search suggests the $1.0-1.04B revenue guide was kept (unconfirmed). Check gross margin and patent timeline (event checks 3, 6).",
    "sources": [
-    "https://finance.yahoo.com/markets/stocks/articles/sfm-q3-deep-dive-pricing-03173"
+    "https://finance.yahoo.com/healthcare/articles/hrmy-q3-earnings-miss-estimates-180400892.html"
    ]
   },
   {
-   "ticker": "GRNT",
+   "ticker": "CARG",
    "verdict": "NOISE",
-   "headline": "-12% with no company news",
-   "why": "Commodity-wide move; price not value (METHOD 7). Unconfirmed.",
-   "sources": []
-  },
-  {
-   "ticker": "PNRG",
-   "verdict": "NOISE",
-   "headline": "-6% with no company news",
-   "why": "Commodity-wide move; price not value (METHOD 7). Unconfirmed.",
-   "sources": []
-  },
-  {
-   "ticker": "FUTU",
-   "verdict": "WATCH",
-   "headline": "-5% in a day, no news found",
-   "why": "Dossier trigger is a new CSRC action; none found, unconfirmed.",
-   "sources": []
-  },
-  {
-   "ticker": "LRN",
-   "verdict": "WATCH",
-   "headline": "Insiders bought $17.6M and $1.7M",
-   "why": "A lead, not a reason (METHOD 9). Check the Form 4s.",
-   "sources": []
-  },
-  {
-   "ticker": "BKNG",
-   "verdict": "NOISE",
-   "headline": "+11% on Q3 margin strength",
-   "why": "Price up on good news; never a reason to buy.",
+   "headline": "Q3 beat, +7%; price $32.18 vs MOS $27.30",
+   "why": "No dossier must-stay-true item is broken by anything found. Upside moves are never a reason to buy.",
    "sources": [
-    "https://finance.yahoo.com/markets/stocks/articles/booking-bkng-stock-jumps-q3-23"
+    "https://finance.yahoo.com/markets/stocks/articles/cargurus-carg-q3-earnings-revenues-000008175.html"
    ]
   },
   {
-   "ticker": "STRL",
-   "verdict": "WATCH",
-   "headline": "-15% in a day despite raised outlook",
-   "why": "Coverage cites margin and cash risk; above sticker so nothing to buy. Check margins and cash conversion.",
-   "sources": [
-    "https://finance.yahoo.com/markets/stocks/articles/strl-slides-35-9-month-1735004"
-   ]
-  },
-  {
-   "ticker": "IESC",
-   "verdict": "WATCH",
-   "headline": "-14% in a day, -26% in 5 days",
-   "why": "No news found; above sticker. Check margins.",
-   "sources": []
-  },
-  {
-   "ticker": "TPL",
+   "ticker": "DECK",
    "verdict": "NOISE",
-   "headline": "-13% after Q3 results",
-   "why": "Energy-wide move; above sticker.",
+   "headline": "Raised guidance, +4%; Street mean target cut 20% in 30 days",
+   "why": "Target cuts are fear, not business news (InvestED 249). Guidance was raised, so the guidance-cut trigger is not live. Price $82 vs MOS $63.",
    "sources": [
-    "https://finance.yahoo.com/markets/stocks/articles/texas-pacific-land-nyse-tpl-22"
+    "https://finance.yahoo.com/markets/stocks/articles/deckers-outdoor-stock-bull-case-190924944.html"
    ]
-  },
-  {
-   "ticker": "APP",
-   "verdict": "NOISE",
-   "headline": "+19% on Q3 beat",
-   "why": "On deck; price $228.50 vs MOS $195.15. Good news is not a buy reason.",
-   "sources": []
   },
   {
    "ticker": "OPFI",
    "verdict": "WATCH",
-   "headline": "Withdrew bank-purchase applications",
-   "why": "Dossier TOO HARD; regulatory path closed.",
+   "headline": "Withdrew bank-charter applications; target cut 21%",
+   "why": "Dossier must #2: the bank-partner model survives regulation. Withdrawing the bank purchase keeps that model, but check why. No trigger yet; stays TOO HARD.",
    "sources": [
-    "https://www.bankingdive.com/news/oppfi-withdraw-applications-occ-fed-fdic-bnc-ba"
+    "https://www.bankingdive.com/news/oppfi-withdraw-applications-occ-fed-fdic-bnc-bank-schwartz-warren-van-hollen/873757/"
    ]
   },
   {
-   "ticker": "DHI",
+   "ticker": "FUTU",
    "verdict": "NOISE",
-   "headline": "Raymond James downgrade to Underperform",
-   "why": "Fear, not business news.",
+   "headline": "-8% in a day, no company news found",
+   "why": "No CSRC action in the headlines, so no dossier trigger. Likely market-wide (METHOD 7); Q3 results due Nov 19.",
+   "sources": []
+  },
+  {
+   "ticker": "IBKR",
+   "verdict": "NOISE",
+   "headline": "-6%, financials hit by the market selloff",
+   "why": "Market-wide move moves price, not value (METHOD 7). Price $76.90 vs MOS $27.75.",
+   "sources": []
+  },
+  {
+   "ticker": "MTDR",
+   "verdict": "NOISE",
+   "headline": "-8% again though Q3 was a record; insider bought $105k",
+   "why": "Energy names moved together (METHOD 7). Insider buy is context only. Check net debt (event check 5).",
+   "sources": []
+  },
+  {
+   "ticker": "PRDO",
+   "verdict": "WATCH",
+   "headline": "-10% despite Q3 beat; reason unconfirmed",
+   "why": "Beat yet sold off: check enrollment trend and any Dept. of Education item. Price $29.81 vs MOS $10.12.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/perdoceo-education-prdo-surpasses-q3-212003259.html"
+   ]
+  },
+  {
+   "ticker": "LINC / PNRG / RCMT",
+   "verdict": "WATCH",
+   "headline": "-14% / -10% / -9% with no headlines found",
+   "why": "No news in inputs; cause unconfirmed. Check filings for guidance, customer or commodity news before judging.",
+   "sources": []
+  },
+  {
+   "ticker": "NRDS",
+   "verdict": "WATCH",
+   "headline": "Q3 miss; price $11.18 vs MOS $12.70",
+   "why": "Revenue and EPS miss. Check whether it is ad-market timing or lost share. Just inside buy range.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/nerdwallet-inc-nrds-misses-q3-214512510.html"
+   ]
+  },
+  {
+   "ticker": "INVA",
+   "verdict": "NOISE",
+   "headline": "-8% after a Q3 beat",
+   "why": "Beat with no negative 8-K item and no business news found. Flag: owner earnings below 75% of net income, so check cash quality.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/innoviva-inva-tops-q3-earnings-234513734.html"
+   ]
+  },
+  {
+   "ticker": "SFM",
+   "verdict": "WATCH",
+   "headline": "-17% in 5 days, Street target cut 35% in 30 days",
+   "why": "Large target cut with no headline found; reason unconfirmed, likely fear (InvestED 249). Find the firm and its reason.",
+   "sources": []
+  },
+  {
+   "ticker": "CRUS",
+   "verdict": "WATCH",
+   "headline": "Weak Q3 revenue guide; Street target cut 14%",
+   "why": "Guide cut at a customer-concentrated business. Check whether it is one-time (event check 3) or a customer loss (moat, check 6).",
+   "sources": [
+    "https://www.marketbeat.com/instant-alerts/transcript-what-cirrus-logic-crus-said-on-its-q2-earnings-call-2026-11-04/"
+   ]
+  },
+  {
+   "ticker": "PAYC",
+   "verdict": "NOISE",
+   "headline": "BTIG downgrade to Neutral; results beat and guide raised",
+   "why": "Downgrade after a beat is fear, not news about the business. On deck: price $264 vs MOS $142.",
+   "sources": [
+    "https://www.fool.com/earnings/call-transcripts/2026/11/05/paycom-payc-q3-2026-earnings-call-transcript/"
+   ]
+  },
+  {
+   "ticker": "WMS",
+   "verdict": "WATCH",
+   "headline": "-10% on a revenue miss; price $135 vs MOS $70",
+   "why": "On deck, not in buy range. Check volume vs price and guidance in the 10-Q.",
+   "sources": []
+  },
+  {
+   "ticker": "TSSI",
+   "verdict": "WATCH",
+   "headline": "-15% after a Q3 beat; price $6.86 vs MOS $5.10",
+   "why": "Micro-cap that beat but fell: check customer concentration and backlog.",
+   "sources": []
+  },
+  {
+   "ticker": "AI chip and tech names",
+   "verdict": "NOISE",
+   "headline": "NVDA, AVGO, MU, AMAT, LRCX, KLAC, MPWR, CLS down 12-23% in a day",
+   "why": "Market-wide AI-trade selloff; coverage points to AI-spending fears and policy worries (causes unconfirmed). All far above sticker, so nothing to buy (METHOD 7).",
+   "sources": [
+    "https://finance.yahoo.com/m/de98938f-df98-3afd-93e7-51ed0664b1a9/nvidia%2C-micron%2C-intel%2C.html"
+   ]
+  },
+  {
+   "ticker": "STRL / IESC / EME",
+   "verdict": "WATCH",
+   "headline": "-32% / -28% / -16% in a day; STRL cites margin and cash risk",
+   "why": "Above sticker so nothing to buy. Check margins and cash conversion: may be AI data-centre capex fear rather than company news.",
+   "sources": []
+  },
+  {
+   "ticker": "APP",
+   "verdict": "NOISE",
+   "headline": "+45% on a record quarter and bigger buyback",
+   "why": "Upside is not a buy reason. On deck at $228 vs MOS $195.",
    "sources": []
   }
  ],
@@ -162,13 +198,6 @@
    "ticker": "PDD",
    "change": "added",
    "weight": 0.2217,
-   "report": "2026-06-30"
-  },
-  {
-   "guru": "Baupost (Seth Klarman)",
-   "ticker": "AMZN",
-   "change": "added",
-   "weight": 0.1648,
    "report": "2026-06-30"
   },
   {
@@ -186,10 +215,10 @@
    "report": "2026-06-30"
   },
   {
-   "guru": "Baupost (Seth Klarman)",
-   "ticker": "GPC",
-   "change": "added",
-   "weight": 0.0613,
+   "guru": "Himalaya Capital (Li Lu)",
+   "ticker": "HRB",
+   "change": "sold",
+   "weight": 0.0,
    "report": "2026-06-30"
   }
  ]
