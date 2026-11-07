@@ -47,6 +47,15 @@
  ],
  "ADBE": [
   {
+   "date": "2026-11-07",
+   "verdict": "WATCH",
+   "headline": "Citi Sell ($207) is still the only news; price $250 vs MOS $269",
+   "why": "Downgrade is fear, not a story change (InvestED 249). Dossier trigger: ending-ARR growth <6% two years; new CEO starts 1 Dec. Q4 ARR is the next data point. No breach.",
+   "sources": [
+    "https://finance.yahoo.com/markets/stocks/articles/citi-says-adobe-could-headed-1"
+   ]
+  },
+  {
    "date": "2026-11-06",
    "verdict": "WATCH",
    "headline": "Citi Sell call ($250\u2192$207) still the only news; price $250 vs MOS $269",
@@ -111,6 +120,13 @@
   }
  ],
  "AGX": [
+  {
+   "date": "2026-11-07",
+   "verdict": "WATCH",
+   "headline": "-22% in 5 days after backlog slipped to $2.5B; price $344 vs MOS $25",
+   "why": "Check award timing in the 10-Q (event checks 1, 6). Price is 14x MOS so no action in any case.",
+   "sources": []
+  },
   {
    "date": "2026-11-06",
    "verdict": "WATCH",
@@ -297,6 +313,13 @@
  ],
  "CARG": [
   {
+   "date": "2026-11-07",
+   "verdict": "NOISE",
+   "headline": "Q3 beat, +7%; price $32.18 vs MOS $27.30",
+   "why": "No dossier item broken. Upside is never a reason to buy.",
+   "sources": []
+  },
+  {
    "date": "2026-11-06",
    "verdict": "NOISE",
    "headline": "Q3 beat, +7%; price $32.18 vs MOS $27.30",
@@ -373,6 +396,15 @@
  ],
  "CRUS": [
   {
+   "date": "2026-11-07",
+   "verdict": "WATCH",
+   "headline": "Dec-quarter guide $510-570M (-7% y/y at midpoint); target cut 14%",
+   "why": "Q2 revenue $559.5M flat y/y; gross margin helped by temporary wafer benefit; guide margin 51-53%. Customer concentration makes this a moat check (6): phone-cycle dip or share loss? Company gives no detail.",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0000772406/000077240626000053/pressrelease.htm"
+   ]
+  },
+  {
    "date": "2026-11-06",
    "verdict": "WATCH",
    "headline": "Weak Q3 revenue guide; Street target cut 14%",
@@ -427,6 +459,13 @@
   }
  ],
  "DECK": [
+  {
+   "date": "2026-11-07",
+   "verdict": "NOISE",
+   "headline": "Street mean target cut 20%; Argus $128 to $102 but kept Buy",
+   "why": "Cut is fear, not a business change (InvestED 249). Guidance-cut trigger not live; price $82 vs MOS $63.",
+   "sources": []
+  },
   {
    "date": "2026-11-06",
    "verdict": "NOISE",
@@ -546,6 +585,13 @@
  ],
  "FUTU": [
   {
+   "date": "2026-11-07",
+   "verdict": "NOISE",
+   "headline": "-8% in a day, no company news; Q3 due Nov 19",
+   "why": "No CSRC action found, so no dossier trigger. Likely market-wide (METHOD 7).",
+   "sources": []
+  },
+  {
    "date": "2026-11-06",
    "verdict": "NOISE",
    "headline": "-8% in a day, no company news found",
@@ -654,6 +700,13 @@
   }
  ],
  "HRMY": [
+  {
+   "date": "2026-11-07",
+   "verdict": "WATCH",
+   "headline": "-12% on Q3 miss from higher costs; price $38.76 vs MOS $23.86",
+   "why": "Single-drug (Wakix) business; guide reportedly kept (unconfirmed). Check gross margin and patent timeline (event checks 3, 6).",
+   "sources": []
+  },
   {
    "date": "2026-11-06",
    "verdict": "WATCH",
@@ -854,6 +907,15 @@
    "sources": []
   }
  ],
+ "LINC": [
+  {
+   "date": "2026-11-07",
+   "verdict": "WATCH",
+   "headline": "-12% in a day, no headlines; PNRG -18% and RCMT -8% also unexplained",
+   "why": "Cause unconfirmed. Check filings for guidance, customer or commodity news before judging.",
+   "sources": []
+  }
+ ],
  "LINC / PNRG / RCMT": [
   {
    "date": "2026-11-06",
@@ -1042,6 +1104,15 @@
  ],
  "MELI": [
   {
+   "date": "2026-11-07",
+   "verdict": "WATCH",
+   "headline": "-13% after Q3 as margins narrow again; price $1,625",
+   "why": "Earlier quarters show margin squeeze from credit-loss provisions (Q2 op margin 6.7% vs 12.2%); Q3 figures unconfirmed. Marker margin_stable under strain. Street cut targets but kept Buy (fear). Check provisions and credit quality in the 10-Q: growth spend (event check 3) or loan-book problem (check 6).",
+   "sources": [
+    "https://www.ibtimes.com.au/mercadolibre-record-revenue-profit-decline-1873673"
+   ]
+  },
+  {
    "date": "2026-11-06",
    "verdict": "WATCH",
    "headline": "-8% after Q3 as margins tighten; price $1,625",
@@ -1133,6 +1204,13 @@
  ],
  "MTDR": [
   {
+   "date": "2026-11-07",
+   "verdict": "NOISE",
+   "headline": "-17% in 5 days with a record Q3; insiders bought ~$105k",
+   "why": "Energy names fell together (METHOD 7). Insider buying is context only. Check net debt (event check 5).",
+   "sources": []
+  },
+  {
    "date": "2026-11-06",
    "verdict": "NOISE",
    "headline": "-8% again though Q3 was a record; insider bought $105k",
@@ -1164,6 +1242,13 @@
   }
  ],
  "MU": [
+  {
+   "date": "2026-11-07",
+   "verdict": "NOISE",
+   "headline": "AI-chip selloff continues: MU -13%, AMAT, LRCX, KLAC, AVGO, CLS, NVDA",
+   "why": "Market-wide AI-trade move, all far above sticker (METHOD 7). Nothing to buy.",
+   "sources": []
+  },
   {
    "date": "2026-10-21",
    "verdict": "NOISE",
@@ -1233,6 +1318,15 @@
  ],
  "NRDS": [
   {
+   "date": "2026-11-07",
+   "verdict": "WATCH",
+   "headline": "Q3 revenue $239.6M below guide of $244-260M; William Blair downgrade",
+   "why": "Revenue missed its own guide; auto-insurance carrier spend was the earlier weak spot. Price $11.18 vs MOS $12.70. Check carrier timing (event check 3) vs lost share (moat, check 6). Truist cut target $15 to $12.",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0001625278/000162527826000069/earningsreleaseq3fy26.htm"
+   ]
+  },
+  {
    "date": "2026-11-06",
    "verdict": "WATCH",
    "headline": "Q3 miss; price $11.18 vs MOS $12.70",
@@ -1295,6 +1389,13 @@
   }
  ],
  "OPFI": [
+  {
+   "date": "2026-11-07",
+   "verdict": "NOISE",
+   "headline": "Street target cut 21%; 10-Q filed",
+   "why": "No dossier trigger found. Stays TOO HARD.",
+   "sources": []
+  },
   {
    "date": "2026-11-06",
    "verdict": "WATCH",
@@ -1403,6 +1504,13 @@
  ],
  "PAYC": [
   {
+   "date": "2026-11-07",
+   "verdict": "NOISE",
+   "headline": "BTIG downgrade to Neutral after beat; on deck $264 vs MOS $142",
+   "why": "Downgrade is fear, not business news.",
+   "sources": []
+  },
+  {
    "date": "2026-11-06",
    "verdict": "NOISE",
    "headline": "BTIG downgrade to Neutral; results beat and guide raised",
@@ -1449,6 +1557,13 @@
   }
  ],
  "PRDO": [
+  {
+   "date": "2026-11-07",
+   "verdict": "WATCH",
+   "headline": "-10% despite Q3 beat; South University deal; cause unconfirmed",
+   "why": "Beat then sold off: check enrollment and Dept. of Education items. Price $29.81 vs MOS $10.12.",
+   "sources": []
+  },
   {
    "date": "2026-11-06",
    "verdict": "WATCH",
@@ -1562,6 +1677,13 @@
  ],
  "SFM": [
   {
+   "date": "2026-11-07",
+   "verdict": "WATCH",
+   "headline": "-17% in 5 days; Jefferies cut target $95 to $63, kept Buy",
+   "why": "Target cut is fear (InvestED 249). Cause of the move unconfirmed (my search only found the 2025 drop). Check comparable sales and Q4 guide in the 8-K.",
+   "sources": []
+  },
+  {
    "date": "2026-11-06",
    "verdict": "WATCH",
    "headline": "-17% in 5 days, Street target cut 35% in 30 days",
@@ -1624,6 +1746,15 @@
   }
  ],
  "SMCI": [
+  {
+   "date": "2026-11-07",
+   "verdict": "WATCH",
+   "headline": "Q1 10-Q trigger stands (OCF -$434M, debt $8.6B); stock -16% in 5 days",
+   "why": "Dossier trigger 'debt above 3x FCF' tripped Nov 5; OCF negative quarter 1 of 4. Price drop is mostly the AI-hardware rout (METHOD 7). Still AVOID; price is 3x MOS.",
+   "sources": [
+    "https://www.tikr.com/blog/super-micro-sinks-10-ase-technology-holding-co-down-17-celestica-down-13-as-ai-hardware-selloff-deepens"
+   ]
+  },
   {
    "date": "2026-11-06",
    "verdict": "WATCH",
@@ -1718,15 +1849,6 @@
    "sources": [
     "https://finance.yahoo.com/markets/stocks/articles/super-micro-applied-digital-benchmark-194007906.html"
    ]
-  },
-  {
-   "date": "2026-10-15",
-   "verdict": "WATCH",
-   "headline": "Down 11% with AI-hardware group; export-case integrity question open",
-   "why": "Integrity (METHOD 4); cash not real, debt > 3y FCF. Price $41.9 above MOS $32.4. Cause of fall unconfirmed.",
-   "sources": [
-    "https://finance.yahoo.com/markets/stocks/articles/super-micro-applied-digital-benchmark-194007906.html"
-   ]
   }
  ],
  "SMID": [
@@ -1746,6 +1868,13 @@
   }
  ],
  "STRL": [
+  {
+   "date": "2026-11-07",
+   "verdict": "WATCH",
+   "headline": "-11% in a day, -32% in 5; Street target cut 18%",
+   "why": "Above sticker so nothing to buy. Check margins and cash conversion: AI capex fear or company news.",
+   "sources": []
+  },
   {
    "date": "2026-11-05",
    "verdict": "WATCH",
@@ -1811,6 +1940,15 @@
   }
  ],
  "TRV": [
+  {
+   "date": "2026-11-07",
+   "verdict": "NOISE",
+   "headline": "8-K item 5.02 is a new director (board 9 to 10), not an officer exit",
+   "why": "Filing adds Lesley Goldwasser to the board. No management-integrity concern. Price 6.7x MOS, nothing to buy.",
+   "sources": [
+    "https://www.sec.gov/Archives/edgar/data/0000086312/000110465926123878/tm2622405d1_8k.htm"
+   ]
+  },
   {
    "date": "2026-10-20",
    "verdict": "WATCH",
